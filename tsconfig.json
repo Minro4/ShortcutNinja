@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "module": "commonjs",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "sourceMap": true,
     "outDir": "dist",
@@ -8,7 +10,11 @@
     "paths": {
       "*": ["node_modules/*"]
     },
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "suppressImplicitAnyIndexErrors": true,
     "strict": true
   },
-  "include": ["src/**/*"]
+  "exclude": ["node_modules"]
 }
