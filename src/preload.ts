@@ -1,5 +1,6 @@
 // All of the Node.js APIs are available in the preload process.
 
+import { Scanner } from "./models/Scanners/Scanner";
 import { ShortcutCreator } from "./models/Shortcut";
 
 // It has the same sandbox as a Chrome extension.
@@ -19,10 +20,16 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
 // needed in the renderer process.
 let scCreator = new ShortcutCreator();
 
-const onKeydown = (event: KeyboardEvent) => {
+const onKeydown = async (event: KeyboardEvent) => {
+  let scan = new Scanner();
+  let ides = await scan.scan();
+
+
   let sc = scCreator.onKeydown(event.key);
   if (sc) {
     console.log("created shortcut " + sc);

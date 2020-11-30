@@ -1,8 +1,16 @@
 import { Ide } from "../Ide";
-import { IScanner } from "./Scanner";
+import { DirectoryScanner } from "./DirectoryScanner";
+import { homedir } from "os";
+import * as path from "path";
+import { VsCodeConverter } from "../Converters/VsCodeConverter";
 
-export class VsCodeScanner implements IScanner {
-  public async scan(): Promise<Ide[]> {
-    throw new Error("Method not implemented.");
+export class VsCodeScanner extends DirectoryScanner {
+  static readonly path = path.join(homedir(), "/Appdata/Roaming/Code");
+  static readonly ide: Ide = {
+    name: "vscode",
+    converter: new VsCodeConverter(),
+  };
+  constructor() {
+    super(VsCodeScanner.path, VsCodeScanner.ide);
   }
 }

@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 
+let a = 5;
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({

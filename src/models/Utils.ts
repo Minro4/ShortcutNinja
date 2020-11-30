@@ -34,4 +34,11 @@ export namespace fsUtils {
   ) {
     return fs.writeFile(path, data, encoding);
   }
+
+  export function exists(path: string): Promise<boolean> {
+    return fs
+      .access(path)
+      .then(() => true)
+      .catch(() => false);
+  }
 }
