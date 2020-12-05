@@ -1,11 +1,25 @@
-import { Converter } from "./Converters/Converter";
+import { IConverter } from "./Converters/Converter";
 
 export interface Ide {
   name: string;
-  converter: Converter;
+  converter: IConverter;
 }
 
-export class IdeMappings {
-    //Universal name: ide name
-    [key: string]: string;
+export interface IdeMappings {
+  //Universal name: ide name
+  [key: string]: string;
+}
+
+export namespace IdeMappingsUtils {
+  export function toIde(ideMappings: IdeMappings, universalKey: string) {
+    return ideMappings[universalKey];
+  }
+
+  export function toUni(ideMappings: IdeMappings, ideKey: string) {
+    for (let key in ideMappings) {
+      if (ideMappings[key] === ideKey) {
+        return key;
+      }
+    }
+  }
 }

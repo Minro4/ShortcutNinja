@@ -23,8 +23,8 @@ describe("Shortcut creator tests", function () {
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(2);
-    expect(sc?.sc1.holdedKeys.has("Alt"));
-    expect(sc?.sc1.holdedKeys.has("Control"));
+    expect(sc?.sc1.holdedKeys.has("alt"));
+    expect(sc?.sc1.holdedKeys.has("ctrl"));
     expect(sc?.sc2).toBeUndefined();
   });
 
@@ -37,7 +37,7 @@ describe("Shortcut creator tests", function () {
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(1);
-    expect(sc?.sc1.holdedKeys.has("Control"));
+    expect(sc?.sc1.holdedKeys.has("ctrl"));
     expect(sc?.sc2).toBeUndefined();
   });
 
@@ -54,14 +54,14 @@ describe("Shortcut creator tests", function () {
     //sc1
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(2);
-    expect(sc?.sc1.holdedKeys.has("Alt"));
-    expect(sc?.sc1.holdedKeys.has("Shift"));
+    expect(sc?.sc1.holdedKeys.has("alt"));
+    expect(sc?.sc1.holdedKeys.has("shift"));
     //sc2
     expect(sc?.sc2).not.toBeUndefined();
     expect(sc?.sc2?.key).toEqual("b");
     expect(sc?.sc2?.holdedKeys.size).toEqual(2);
-    expect(sc?.sc2?.holdedKeys.has("Alt"));
-    expect(sc?.sc2?.holdedKeys.has("Control"));
+    expect(sc?.sc2?.holdedKeys.has("alt"));
+    expect(sc?.sc2?.holdedKeys.has("ctrl"));
   });
 
   it("Should restart when there are 3 shortcuts inputed", function () {
@@ -77,8 +77,8 @@ describe("Shortcut creator tests", function () {
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("c");
     expect(sc?.sc1.holdedKeys.size).toEqual(2);
-    expect(sc?.sc1.holdedKeys.has("Control"));
-    expect(sc?.sc1.holdedKeys.has("Shift"));
+    expect(sc?.sc1.holdedKeys.has("ctrl"));
+    expect(sc?.sc1.holdedKeys.has("shift"));
     expect(sc?.sc2).toBeUndefined();
   });
 });

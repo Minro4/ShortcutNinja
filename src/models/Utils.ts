@@ -27,6 +27,14 @@ export namespace fsUtils {
     return JSON.parse(await fs.readFile(path, encoding));
   }
 
+  export async function saveJson<T>(
+    path: string,
+    json: T,
+    encoding = defaultEncoding
+  ) {
+    return saveFile(path, JSON.stringify(json), encoding);
+  }
+
   export function saveFile(
     path: string,
     data: string,

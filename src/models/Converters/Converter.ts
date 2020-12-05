@@ -1,23 +1,54 @@
 import { IdeMappings } from "../Ide";
-import { IUniversalKeymap } from "../IUniversalKeymap";
+import { IKeymap, IUniversalKeymap, KeymapUtils } from "../IUniversalKeymap";
 import { fsUtils } from "../Utils";
+import { IShortcutConverter } from "./ShortcutConverters/ShortcutConverter";
+import * as path from "path";
 
-export abstract class Converter {
-  protected configPath: string;
+export interface IConverter {
+  save(keymap: IUniversalKeymap): void;
+  load(): Promise<IUniversalKeymap>;
+}
+
+export abstract class Converter<IdeShortcut> implements IConverter {
+  private static readonly ideMappingsBasePath = "src/config/ideMappings/";
+
   protected ideMappings: Promise<IdeMappings>;
+  protected scConverter: IShortcutConverter<IdeShortcut>;
 
-  constructor(configPath: string, ideMappingsPath: string) {
-    this.configPath = configPath;
-    this.ideMappings = fsUtils.readJson<IdeMappings>(ideMappingsPath);
+  constructor(
+    ideMappingsName: string,
+    scConverter: IShortcutConverter<IdeShortcut>
+  ) {
+    this.ideMappings = fsUtils.readJson<IdeMappings>(
+      path.join(Converter.ideMappingsBasePath, ideMappingsName)
+    );
+    this.scConverter = scConverter;
   }
 
-  public async save(keymap: IUniversalKeymap) {
-    return fsUtils.saveFile(this.configPath, await this.convertTo(keymap));
+  public async save(uniKm: IUniversalKeymap) {
+    let currentIdeKm = this.readIdeKeymap();
+
+    let ideKm = KeymapUtils.toIdeKeymap(
+      uniKm,
+      await this.ideMappings,
+      this.scConverter
+    );
+
+    Object.keys(ideKm).forEach(
+      (ideKey) => (currentIdeKm[ideKey] = ideKey[ideKey])
+    );
+    this.writeIdeKeymap(ideKm);
   }
   public async load() {
-    return this.convertFrom(await fsUtils.readJson(this.configPath));
+    return KeymapUtils.toUniKeymap(
+      await this.readIdeKeymap(),
+      await this.ideMappings,
+      this.scConverter
+    );
   }
 
-  protected abstract convertTo(keymap: IUniversalKeymap): Promise<string>;
-  protected abstract convertFrom(data: string): IUniversalKeymap;
+  protected abstract async readIdeKeymap(): Promise<IKeymap<IdeShortcut>>;
+  protected abstract async writeIdeKeymap(
+    ideKeymap: IKeymap<IdeShortcut>
+  ): Promise<void>;
 }

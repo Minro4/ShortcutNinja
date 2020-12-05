@@ -12,10 +12,9 @@ export class Scanner implements IScanner {
   }
 
   public async scan(): Promise<Ide[]> {
-    let scanned = await Promise.all(
-      this.subScanners.map(async (scanner) => await scanner.scan())
-    );
-    return scanned.reduce<Ide[]>((ides, subIdes) => ides.concat(subIdes), []);
+    return (
+      await Promise.all(this.subScanners.map(async (scanner) => scanner.scan()))
+    ).reduce<Ide[]>((ides, subIdes) => ides.concat(subIdes), []);
   }
 }
 

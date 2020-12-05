@@ -3,7 +3,7 @@ export interface IShortcut {
   sc2?: ISingleShortcut;
 }
 
-interface ISingleShortcut {
+export interface ISingleShortcut {
   holdedKeys: Set<HoldableKeys>;
   key: kbKey;
 }
@@ -11,9 +11,9 @@ interface ISingleShortcut {
 type kbKey = string;
 
 const stringLitArray = <L extends string>(arr: L[]) => arr;
-const holdableKeys = stringLitArray(["Control", "Shift", "Alt"]);
+export const holdableKeys = stringLitArray(["ctrl", "shift", "alt"]);
 export type HoldableKeys = typeof holdableKeys[number];
-const isHoldableKey = (k: any): k is HoldableKeys => holdableKeys.includes(k);
+export const isHoldableKey = (k: any): k is HoldableKeys => holdableKeys.includes(k);
 
 //const holdableKeys: Set<string> = new Set<string>(["Ctrl", "Shift", "Alt"]);
 export class ShortcutCreator {
@@ -28,7 +28,8 @@ export class ShortcutCreator {
   }
 
   public onKeydown(key: string): IShortcut | undefined {
-    if (key === "Enter") return this.create();
+    key = this.convertToUnikey(key);
+    if (key === "enter") return this.create();
 
     this.currentScCreator.onKeydown(key);
     if (this.currentScCreator.isComplete()) {
@@ -41,6 +42,7 @@ export class ShortcutCreator {
   }
 
   public onKeyup(key: string): void {
+    key = this.convertToUnikey(key);
     this.currentScCreator.onKeyup(key);
   }
 
@@ -61,6 +63,13 @@ export class ShortcutCreator {
         str + scCreator.toString() + (idx >= arr.length - 2 ? "" : " chord to ")
       );
     }, "");
+  }
+
+  private convertToUnikey(key: string) {
+    let km = {
+      Control: "ctrl",
+    };
+    return km[key] || key.toLowerCase();
   }
 }
 
@@ -99,7 +108,7 @@ class SingleShortcutCreator {
 
   public toString(): string {
     if (!this.addedKeys) return "";
-    
+
     let orderedKeys = holdableKeys.filter((key) =>
       this.holdedKeys.has(key)
     ) as string[];

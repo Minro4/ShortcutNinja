@@ -1,5 +1,6 @@
 // All of the Node.js APIs are available in the preload process.
 
+import { VsCodeConverter } from "./models/Converters/VsCodeConverter";
 import { Scanner } from "./models/Scanners/Scanner";
 import { ShortcutCreator } from "./models/Shortcut";
 
@@ -20,7 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
+let vs = VsCodeConverter.get().load();
+console.log(vs);
 
 // needed in the renderer process.
 let scCreator = new ShortcutCreator();
@@ -28,7 +30,6 @@ let scCreator = new ShortcutCreator();
 const onKeydown = async (event: KeyboardEvent) => {
   let scan = new Scanner();
   let ides = await scan.scan();
-
 
   let sc = scCreator.onKeydown(event.key);
   if (sc) {
