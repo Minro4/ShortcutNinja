@@ -1,4 +1,4 @@
-import { kbPath } from "../Constants/VsCodeConstants";
+import { vsCodeKbPath } from "../Constants/paths";
 import { IKeymap } from "../IUniversalKeymap";
 import { JsonConfigConverter } from "./JsonConfigConverter";
 import { StrShortcutConverter } from "./ShortcutConverters/ShortcutConverter";
@@ -15,7 +15,7 @@ export class VsCodeConverter extends JsonConfigConverter<
     return VsCodeConverter.instance;
   }
   private constructor() {
-    super("vscode.json", kbPath, new StrShortcutConverter());
+    super("vscode.json", vsCodeKbPath, new StrShortcutConverter());
   }
 
   protected configToIdeKm(ideConfig: VsCondeConfig): IKeymap<string> {

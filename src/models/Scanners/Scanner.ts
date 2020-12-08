@@ -1,9 +1,11 @@
 import { Ide } from "../Ide";
+import { VisualStudioScanner } from "./VisualStudioScanner";
 import { VsCodeScanner } from "./VsCodeScanner";
 
 export class Scanner implements IScanner {
   private static readonly defaultSubScanners: IScanner[] = [
     new VsCodeScanner(),
+    new VisualStudioScanner(),
   ];
 
   private subScanners: IScanner[];
