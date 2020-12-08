@@ -2,7 +2,7 @@ import { Ide } from "../Ide";
 import { visualStudiodevenv, visualStudioFolderPath } from "../Constants/paths";
 import { IScanner } from "./Scanner";
 import { glob } from "glob";
-import { VisualStudioConverter } from "../Converters/VisualStudioConverter";
+import { VisualStudioConverter } from "../Converters/VisualStudioConverter/VisualStudioConverter";
 
 export class VisualStudioScanner implements IScanner {
   async scan(): Promise<Ide[]> {

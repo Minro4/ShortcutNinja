@@ -1,22 +1,19 @@
-import { IdeMappings } from "../Ide";
-import { IUniversalKeymap, IKeymap } from "../IUniversalKeymap";
-import { Converter } from "./Converter";
-import {
-  IShortcutConverter,
-  StrShortcutConverter,
-} from "./ShortcutConverters/ShortcutConverter";
-import { XmlConverter } from "./XmlConverter";
-import * as Shell from "node-powershell";
-import * as fs from "fs";
-import { parseStringPromise } from "xml2js";
+import { IKeymap } from "../../IUniversalKeymap";
+import { Converter } from "../Converter";
+import { StrShortcutConverter } from "../ShortcutConverters/ShortcutConverter";
+
 import * as chokidar from "chokidar";
-import { fsUtils } from "../Utils";
+import { fsUtils } from "../../Utils";
+import {
+  UserShortcuts,
+  VisualStudioConfig,
+  VisualStudioXmlConfig,
+  VisualStudioXmlKeyboardShortcuts,
+} from "./VisualStudio.models";
+import { exportSettings, importSettings } from "./VsImportExport";
 
 export class VisualStudioConverter extends Converter<string> {
   private devenPath: string;
-
-  private cmdExportImport =
-    ". ./src/models/Converters/PowershellScripts/VisualStudio.ps1";
 
   constructor(devenPath: string) {
     super("VisualStudio.json", new StrShortcutConverter("+", ", "));
@@ -46,7 +43,7 @@ export class VisualStudioConverter extends Converter<string> {
     if (this.addKmToXml(xml, ideKeymap)) {
       const fileName = `temp/imported${new Date().getTime()}`;
       await fsUtils.saveXml(fileName, xml);
-      this.importSettings(this.devenPath, fileName);
+      importSettings(this.devenPath, fileName);
     }
   }
 
@@ -115,86 +112,12 @@ export class VisualStudioConverter extends Converter<string> {
     settingsPath: string = `temp/exported${new Date().getTime()}`
   ): Promise<any> {
     return new Promise((resolve, error) => {
-      const watcher = chokidar.watch(`${settingsPath}.*`, { interval: 1 });
+      const watcher = chokidar.watch(`${settingsPath}.*`, { interval: 0.5 });
       watcher.on("add", (path) => {
         resolve(fsUtils.readXml(path));
         watcher.close();
       });
-      this.exportSettings(devenPath, settingsPath);
+      exportSettings(devenPath, settingsPath);
     });
   }
-
-  private async exportSettings(devenPath: string, settingsPath: string) {
-    return this.importExport("Export", [
-      { SettingsPath: settingsPath },
-      { DevEnvExe: devenPath },
-    ]);
-  }
-
-  private async importSettings(devenPath: string, settingsPath: string) {
-    return this.importExport("Import", [
-      { SettingsPath: settingsPath },
-      { DevEnvExe: devenPath },
-    ]);
-  }
-
-  private async importExport(fct: string, params: { [key: string]: string }[]) {
-    let ps = new Shell({
-      executionPolicy: "Bypass",
-      noProfile: true,
-    });
-
-    ps.addCommand(this.cmdExportImport);
-    ps.addCommand(fct);
-    ps.addParameters(params);
-
-    try {
-      const ouput = await ps.invoke();
-      ps.dispose();
-      return ouput;
-    } catch (err) {
-      console.log(err);
-      ps.dispose();
-      throw err;
-    }
-  }
-}
-
-interface VisualStudioXmlConfig {
-  UserSettings: {
-    Category: Category[];
-  };
-}
-
-interface VisualStudioXmlKeyboardShortcuts {
-  ScopeDeginitions: any[];
-  DefaultShortcuts: any[];
-  ShortcutsScheme: string[];
-  UserShortcuts: UserShortcuts[];
-}
-
-interface UserShortcuts {
-  Shortcut?: VisualStudioSc[];
-  RemoveShortcut?: VisualStudioSc[];
-}
-
-interface VisualStudioSc {
-  _: string;
-  $: {
-    Command: string;
-    Scope: string;
-  };
-}
-
-interface Category {
-  $: {
-    name: string;
-  };
-  Category?: Category[];
-  [key: string]: any;
-}
-
-interface VisualStudioConfig {
-  scheme: string;
-  userShortcuts: { command: string; keybind: string }[];
 }
