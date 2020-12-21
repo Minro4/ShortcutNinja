@@ -1,6 +1,6 @@
-import { IUniversalKeymap, KeymapUtils } from "../src/models/IUniversalKeymap";
-import { IShortcutConverter } from "../src/models/Converters/ShortcutConverters/ShortcutConverter";
-import { IShortcut } from "../src/models/Shortcut";
+import { IShortcutConverter } from "../src/Connectors/Converters/ShortcutConverters/ShortcutConverter";
+import { KeymapUtils } from "../src/Connectors/IUniversalKeymap";
+import { IShortcut } from "../src/Connectors/Shortcut";
 
 describe("Universal keymap tests", function () {
   const converter: IShortcutConverter<string> = {
@@ -9,7 +9,8 @@ describe("Universal keymap tests", function () {
       return "wrong";
     },
     toUni: (shortcut: string) => {
-      if (shortcut == "ideSc") return { sc1: { key: "uniSc", holdedKeys: new Set() } };
+      if (shortcut == "ideSc")
+        return { sc1: { key: "uniSc", holdedKeys: new Set() } };
     },
   };
 

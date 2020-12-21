@@ -1,7 +1,7 @@
 import * as Shell from "node-powershell";
 
 const cmdExportImport =
-  ". ./src/models/Converters/PowershellScripts/VisualStudio.ps1";
+  ". ./src/Connectors/Converters/PowershellScripts/VisualStudio.ps1";
 
 export async function exportSettings(devenPath: string, settingsPath: string) {
   return importExport("Export", [

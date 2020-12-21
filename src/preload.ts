@@ -1,10 +1,8 @@
 // All of the Node.js APIs are available in the preload process.
 
-import { VsCodeConverter } from "./models/Converters/VsCodeConverter";
-import { IUniversalKeymap } from "./models/IUniversalKeymap";
-import { Scanner } from "./models/Scanners/Scanner";
-import { VisualStudioScanner } from "./models/Scanners/VisualStudioScanner";
-import { HoldableKeys, ShortcutCreator } from "./models/Shortcut";
+import { Connectors, ShortcutCreator } from "./Connectors/index";
+import { VisualStudioScanner } from "./Connectors/Scanners/VisualStudioScanner";
+import { HoldableKeys } from "./Connectors/Shortcut";
 
 // It has the same sandbox as a Chrome extension.
 window.addEventListener("DOMContentLoaded", () => {
@@ -23,15 +21,13 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-let vs = VsCodeConverter.get().load();
-console.log(vs);
+
 
 // needed in the renderer process.
 let scCreator = new ShortcutCreator();
 
 const onKeydown = async (event: KeyboardEvent) => {
-  let scan = new Scanner();
-  let ides = await scan.scan();
+  let ides = await Connectors.scan();
   console.log(ides);
   ides[1].converter.save({
     formatDocument: {

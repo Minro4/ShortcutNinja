@@ -10,7 +10,7 @@ export interface IConverter {
 }
 
 export abstract class Converter<IdeShortcut> implements IConverter {
-  private static readonly ideMappingsBasePath = "src/config/ideMappings/";
+  private static readonly ideMappingsBasePath = "src/Connectors/Config/ideMappings/";
 
   protected ideMappings: Promise<IdeMappings>;
   protected scConverter: IShortcutConverter<IdeShortcut>;
@@ -47,8 +47,8 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     );
   }
 
-  protected abstract async readIdeKeymap(): Promise<IKeymap<IdeShortcut>>;
-  protected abstract async writeIdeKeymap(
+  protected abstract readIdeKeymap(): Promise<IKeymap<IdeShortcut>>;
+  protected abstract writeIdeKeymap(
     ideKeymap: IKeymap<IdeShortcut>
   ): Promise<void>;
 }

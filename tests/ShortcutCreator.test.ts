@@ -1,4 +1,4 @@
-import { ShortcutCreator } from "../src/models/Shortcut";
+import { ShortcutCreator } from "../src/Connectors";
 
 describe("Shortcut creator tests", function () {
   let scCreator: ShortcutCreator;

@@ -6,10 +6,6 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,

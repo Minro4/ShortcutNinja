@@ -1,7 +1,7 @@
-import { IUniversalKeymap } from "../../src/models/IUniversalKeymap";
-import { VsCodeConverter } from "../../src/models/Converters/VsCodeConverter";
-import { fsUtils } from "../../src/models/Utils";
-import { HoldableKeys } from "../../src/models/Shortcut";
+import { VsCodeConverter } from "../../src/Connectors/Converters/VsCodeConverter";
+import { IUniversalKeymap } from "../../src/Connectors/IUniversalKeymap";
+import { HoldableKeys } from "../../src/Connectors/Shortcut";
+import { fsUtils } from "../../src/Connectors/Utils";
 
 describe("vscode converter test", function () {
   const vscodeKb = [

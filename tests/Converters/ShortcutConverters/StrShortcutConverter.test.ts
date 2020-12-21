@@ -1,5 +1,5 @@
-import { HoldableKeys, IShortcut } from "../../../src/models/Shortcut";
-import { StrShortcutConverter } from "../../../src/models/Converters/ShortcutConverters/ShortcutConverter";
+import { StrShortcutConverter } from "../../../src/Connectors/Converters/ShortcutConverters/ShortcutConverter";
+import { HoldableKeys, IShortcut } from "../../../src/Connectors/Shortcut";
 
 describe("StrShortcutConverter test", function () {
   const converter = new StrShortcutConverter();
