@@ -1,4 +1,5 @@
 import { Ide } from "../Ide";
+import { JetBrainsScanner } from "./JetBrainsScanner";
 import { VisualStudioScanner } from "./VisualStudioScanner";
 import { VsCodeScanner } from "./VsCodeScanner";
 
@@ -6,6 +7,7 @@ export class Scanner implements IScanner {
   private static readonly defaultSubScanners: IScanner[] = [
     new VsCodeScanner(),
     new VisualStudioScanner(),
+    new JetBrainsScanner(),
   ];
 
   private subScanners: IScanner[];

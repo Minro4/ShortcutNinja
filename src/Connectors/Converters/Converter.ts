@@ -1,8 +1,8 @@
 import { IdeMappings } from "../Ide";
 import { IKeymap, IUniversalKeymap, KeymapUtils } from "../IUniversalKeymap";
 import { fsUtils } from "../Utils";
-import { IShortcutConverter } from "./ShortcutConverters/ShortcutConverter";
 import * as path from "path";
+import { IShortcutConverter } from "./ShortcutConverter";
 
 export interface IConverter {
   save(keymap: IUniversalKeymap): void;

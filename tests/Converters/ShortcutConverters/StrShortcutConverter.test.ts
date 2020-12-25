@@ -1,4 +1,4 @@
-import { StrShortcutConverter } from "../../../src/Connectors/Converters/ShortcutConverters/ShortcutConverter";
+import { StrShortcutConverter } from "../../../src/Connectors/Converters/ShortcutConverter";
 import { HoldableKeys, IShortcut } from "../../../src/Connectors/Shortcut";
 
 describe("StrShortcutConverter test", function () {

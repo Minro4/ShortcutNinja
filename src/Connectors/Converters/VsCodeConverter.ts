@@ -1,7 +1,7 @@
 import { vsCodeKbPath } from "../Constants/paths";
 import { IKeymap } from "../IUniversalKeymap";
 import { JsonConfigConverter } from "./JsonConfigConverter";
-import { StrShortcutConverter } from "./ShortcutConverters/ShortcutConverter";
+import { StrShortcutConverter } from "./ShortcutConverter";
 
 export class VsCodeConverter extends JsonConfigConverter<
   VsCondeConfig,

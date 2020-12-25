@@ -1,5 +1,6 @@
 // All of the Node.js APIs are available in the preload process.
 
+import { JetBrainsConverter } from "./Connectors/Converters/JetbrainsConverter/JetBrainsConverter";
 import { Connectors, ShortcutCreator } from "./Connectors/index";
 import { VisualStudioScanner } from "./Connectors/Scanners/VisualStudioScanner";
 import { HoldableKeys } from "./Connectors/Shortcut";
@@ -27,6 +28,8 @@ window.addEventListener("DOMContentLoaded", () => {
 let scCreator = new ShortcutCreator();
 
 const onKeydown = async (event: KeyboardEvent) => {
+  new JetBrainsConverter("allo").load();
+
   let ides = await Connectors.scan();
   console.log(ides);
   ides[1].converter.save({

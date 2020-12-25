@@ -1,4 +1,4 @@
-import { IShortcutConverter } from "../src/Connectors/Converters/ShortcutConverters/ShortcutConverter";
+import { IShortcutConverter } from "../src/Connectors/Converters/ShortcutConverter";
 import { KeymapUtils } from "../src/Connectors/IUniversalKeymap";
 import { IShortcut } from "../src/Connectors/Shortcut";
 

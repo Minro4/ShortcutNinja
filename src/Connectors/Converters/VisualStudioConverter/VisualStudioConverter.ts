@@ -1,6 +1,6 @@
 import { IKeymap } from "../../IUniversalKeymap";
 import { Converter } from "../Converter";
-import { StrShortcutConverter } from "../ShortcutConverters/ShortcutConverter";
+import { StrShortcutConverter } from "../ShortcutConverter";
 
 import * as chokidar from "chokidar";
 import { fsUtils } from "../../Utils";
@@ -23,7 +23,7 @@ export class VisualStudioConverter extends Converter<string> {
   protected async readIdeKeymap(): Promise<IKeymap<string>> {
     const xml = (await this.loadSettings(
       this.devenPath
-    )) as VisualStudioXmlConfig;
+    ));
     const config = this.xmlToConfig(xml);
 
     //TODO Load scheme
@@ -38,7 +38,7 @@ export class VisualStudioConverter extends Converter<string> {
     console.log("asd");
     const xml = (await this.loadSettings(
       this.devenPath
-    )) as VisualStudioXmlConfig;
+    ));
 
     if (this.addKmToXml(xml, ideKeymap)) {
       const fileName = `temp/imported${new Date().getTime()}`;
@@ -110,11 +110,11 @@ export class VisualStudioConverter extends Converter<string> {
   private loadSettings(
     devenPath: string,
     settingsPath: string = `temp/exported${new Date().getTime()}`
-  ): Promise<any> {
+  ): Promise<VisualStudioXmlConfig> {
     return new Promise((resolve, error) => {
       const watcher = chokidar.watch(`${settingsPath}.*`, { interval: 0.5 });
       watcher.on("add", (path) => {
-        resolve(fsUtils.readXml(path));
+        resolve(fsUtils.readXml<VisualStudioXmlConfig>(path));
         watcher.close();
       });
       exportSettings(devenPath, settingsPath);

@@ -1,4 +1,4 @@
-import { IShortcutConverter } from "./Converters/ShortcutConverters/ShortcutConverter";
+import { IShortcutConverter } from "./Converters/ShortcutConverter";
 import { IdeMappings, IdeMappingsUtils } from "./Ide";
 import { IShortcut } from "./Shortcut";
 

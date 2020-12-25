@@ -1,7 +1,7 @@
 import { IKeymap, IUniversalKeymap, KeymapUtils } from "../IUniversalKeymap";
 import { fsUtils } from "../Utils";
 import { Converter } from "./Converter";
-import { IShortcutConverter } from "./ShortcutConverters/ShortcutConverter";
+import { IShortcutConverter } from "./ShortcutConverter";
 
 export abstract class JsonConfigConverter<
   IdeConfig,

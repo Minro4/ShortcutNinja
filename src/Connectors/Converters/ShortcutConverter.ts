@@ -4,7 +4,7 @@ import {
   isHoldableKey,
   IShortcut,
   ISingleShortcut,
-} from "../../Shortcut";
+} from "../Shortcut";
 
 export interface IShortcutConverter<T> {
   toIde(shortcut: IShortcut): T;
@@ -20,22 +20,22 @@ export class StrShortcutConverter implements IShortcutConverter<string> {
     this.scLink = scLink;
   }
 
-  toIde(shortcut: IShortcut): string {
+  public toIde(shortcut: IShortcut): string {
     return (
-      this.singleScToStr(shortcut.sc1) +
-      (shortcut.sc2 ? this.scLink + this.singleScToStr(shortcut.sc2) : "")
+      this.toIdeSingleSc(shortcut.sc1) +
+      (shortcut.sc2 ? this.scLink + this.toIdeSingleSc(shortcut.sc2) : "")
     ).toLowerCase();
   }
-  toUni(shortcut: string): IShortcut | undefined {
+  public toUni(shortcut: string): IShortcut | undefined {
     let sc = shortcut.split(this.scLink);
-    let singles = sc.map((s) => this.strToSingle(s));
+    let singles = sc.map((s) => this.toUniSingleSc(s));
     if (!singles[0]) return undefined;
     return {
       sc1: singles[0],
       sc2: singles[1],
     };
   }
-  private strToSingle(singleScStr: string): ISingleShortcut | undefined {
+  public toUniSingleSc(singleScStr: string): ISingleShortcut | undefined {
     let keys = singleScStr.split(this.keyLink);
     let key = keys.pop();
     if (!key || (holdableKeys as string[]).includes(key)) return undefined;
@@ -55,7 +55,7 @@ export class StrShortcutConverter implements IShortcutConverter<string> {
     }
   }
 
-  private singleScToStr(sc: ISingleShortcut): string {
+  public toIdeSingleSc(sc: ISingleShortcut): string {
     let orderedKeys = holdableKeys.filter((key) =>
       sc.holdedKeys.has(key)
     ) as string[];

@@ -21,8 +21,8 @@ export namespace fsUtils {
       return objs;
     });
   }
-  export async function readXml(path: string, encoding = defaultEncoding) {
-    return parseStringPromise(await fs.readFile(path, encoding));
+  export async function readXml<T>(path: string, encoding = defaultEncoding) {
+    return (await parseStringPromise(await fs.readFile(path, encoding))) as T;
   }
   export async function saveXml<T>(
     path: string,

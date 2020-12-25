@@ -1,7 +1,7 @@
 import { IKeymap } from "../IUniversalKeymap";
 import { fsUtils } from "../Utils";
 import { Converter } from "./Converter";
-import { IShortcutConverter } from "./ShortcutConverters/ShortcutConverter";
+import { IShortcutConverter } from "./ShortcutConverter";
 
 export abstract class XmlConverter<
   IdeConfig,
@@ -19,7 +19,7 @@ export abstract class XmlConverter<
   }
 
   protected async readIdeKeymap(): Promise<IKeymap<IdeShortcut>> {
-    let ideConfig = await fsUtils.readXml(this.configPath);
+    let ideConfig = await fsUtils.readXml<IdeConfig>(this.configPath);
     return this.configToIdeKm(ideConfig);
   }
 
