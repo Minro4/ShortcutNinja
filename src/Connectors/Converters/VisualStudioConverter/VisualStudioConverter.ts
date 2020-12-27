@@ -20,25 +20,24 @@ export class VisualStudioConverter extends Converter<string> {
     this.devenPath = devenPath;
   }
 
-  protected async readIdeKeymap(): Promise<IKeymap<string>> {
-    const xml = (await this.loadSettings(
-      this.devenPath
-    ));
+  protected async readIdeKeymap(): Promise<IKeymap<string[]>> {
+    const xml = await this.loadSettings(this.devenPath);
     const config = this.xmlToConfig(xml);
 
     //TODO Load scheme
     const scheme = {};
 
-    return config.userShortcuts.reduce<IKeymap<string>>((km, sc) => {
-      km[sc.command] = sc.keybind;
+    return config.userShortcuts.reduce<IKeymap<string[]>>((km, sc) => {
+      if (km[sc.command]) {
+        km[sc.command].push(sc.keybind);
+      } else {
+        km[sc.command] = [sc.keybind];
+      }
       return km;
     }, scheme);
   }
-  protected async writeIdeKeymap(ideKeymap: IKeymap<string>): Promise<void> {
-    console.log("asd");
-    const xml = (await this.loadSettings(
-      this.devenPath
-    ));
+  protected async writeIdeKeymap(ideKeymap: IKeymap<string[]>): Promise<void> {
+    const xml = await this.loadSettings(this.devenPath);
 
     if (this.addKmToXml(xml, ideKeymap)) {
       const fileName = `temp/imported${new Date().getTime()}`;
@@ -76,7 +75,7 @@ export class VisualStudioConverter extends Converter<string> {
 
   private addKmToXml(
     xml: VisualStudioXmlConfig,
-    ideKeymap: IKeymap<string>
+    ideKeymap: IKeymap<string[]>
   ): VisualStudioXmlConfig | undefined {
     const userShortcuts:
       | UserShortcuts[]
@@ -86,23 +85,30 @@ export class VisualStudioConverter extends Converter<string> {
       ?.KeyboardShortcuts[0]?.UserShortcuts;
 
     if (!userShortcuts) return undefined;
-    userShortcuts[0] = userShortcuts[0] || {};
+
+    userShortcuts[0] = userShortcuts[0] ?? {};
     const sc = userShortcuts[0];
-    sc.Shortcut = sc.Shortcut || [];
-    sc.RemoveShortcut = sc.RemoveShortcut || [];
+    sc.Shortcut = sc.Shortcut ?? [];
+    sc.RemoveShortcut = sc.RemoveShortcut ?? [];
 
     Object.keys(ideKeymap).forEach((key) => {
+      //Remove old shortcuts TODO test
       sc.RemoveShortcut = sc.RemoveShortcut!.concat(
         sc.Shortcut!.filter((s) => s.$.Command === key)
       );
       sc.Shortcut = sc.Shortcut!.filter((s) => s.$.Command !== key);
-      sc.Shortcut.push({
-        $: {
-          Command: key,
-          Scope: "Global",
-        },
-        _: ideKeymap[key],
-      });
+
+      //Add new shortcuts
+      sc.Shortcut = ideKeymap[key].reduce((userShortcut, kmValue) => {
+        userShortcut.push({
+          $: {
+            Command: key,
+            Scope: "Global",
+          },
+          _: kmValue,
+        });
+        return userShortcut;
+      }, sc.Shortcut);
     });
     return xml;
   }

@@ -16,21 +16,21 @@ describe("Universal keymap tests", function () {
 
   it("toUniKeymap should correctly map key and shortcut", async function () {
     let uni = KeymapUtils.toUniKeymap(
-      { ideKey: "ideSc" },
+      { ideKey: ["ideSc"] },
       { uniKey: "ideKey" },
       converter
     );
 
-    expect(uni.uniKey.sc1.key).toEqual("uniSc");
+    expect(uni.uniKey[0].sc1.key).toEqual("uniSc");
   });
 
   it("toUniKeymap should correctly map key and shortcut", async function () {
     let ideKm = KeymapUtils.toIdeKeymap(
-      { uniKey: { sc1: { key: "uniSc", holdedKeys: new Set() } } },
+      { uniKey: [{ sc1: { key: "uniSc", holdedKeys: new Set() } }] },
       { uniKey: "ideKey" },
       converter
     );
 
-    expect(ideKm.ideKey).toEqual("ideSc");
+    expect(ideKm.ideKey).toEqual(["ideSc"]);
   });
 });

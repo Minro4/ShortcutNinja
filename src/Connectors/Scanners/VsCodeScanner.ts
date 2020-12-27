@@ -1,7 +1,7 @@
 import { Ide } from "../Ide";
 import { DirectoryScanner } from "./DirectoryScanner";
 import { VsCodeConverter } from "../Converters/VsCodeConverter";
-import { vsCodeFolderPath } from "../Constants/paths";
+import { VS_CODE } from "../Constants/VsCode";
 
 export class VsCodeScanner extends DirectoryScanner {
   static readonly ide: Ide = {
@@ -9,6 +9,6 @@ export class VsCodeScanner extends DirectoryScanner {
     converter: VsCodeConverter.get(),
   };
   constructor() {
-    super(vsCodeFolderPath, VsCodeScanner.ide);
+    super(VS_CODE.FOLDER_PATH, VsCodeScanner.ide);
   }
 }

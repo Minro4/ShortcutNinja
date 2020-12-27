@@ -13,7 +13,8 @@ type kbKey = string;
 const stringLitArray = <L extends string>(arr: L[]) => arr;
 export const holdableKeys = stringLitArray(["ctrl", "shift", "alt"]);
 export type HoldableKeys = typeof holdableKeys[number];
-export const isHoldableKey = (k: any): k is HoldableKeys => holdableKeys.includes(k);
+export const isHoldableKey = (k: any): k is HoldableKeys =>
+  holdableKeys.includes(k);
 
 //const holdableKeys: Set<string> = new Set<string>(["Ctrl", "Shift", "Alt"]);
 export class ShortcutCreator {
@@ -65,11 +66,11 @@ export class ShortcutCreator {
     }, "");
   }
 
-  private convertToUnikey(key: string) {
+  private convertToUnikey(key: string): string {
     let km = {
       Control: "ctrl",
     };
-    return km[key] || key.toLowerCase();
+    return km[key] ?? key.toLowerCase();
   }
 }
 

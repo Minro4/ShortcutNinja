@@ -1,12 +1,12 @@
 import { IShortcut } from "../../Shortcut";
-import { JetBrainsShortcut } from "./JetBrains.models";
+import { JbShortcut } from "./JetBrains.models";
 import { IShortcutConverter, StrShortcutConverter } from "../ShortcutConverter";
 
 export class JetBrainsShortcutConverter
-  implements IShortcutConverter<JetBrainsShortcut> {
+  implements IShortcutConverter<JbShortcut> {
   private strConverter = new StrShortcutConverter(" ", undefined);
 
-  toIde(shortcut: IShortcut): JetBrainsShortcut {
+  toIde(shortcut: IShortcut): JbShortcut {
     return {
       $: {
         "first-keystroke": this.strConverter.toIdeSingleSc(shortcut.sc1),
@@ -16,7 +16,7 @@ export class JetBrainsShortcutConverter
       },
     };
   }
-  toUni(shortcut: JetBrainsShortcut): IShortcut | undefined {
+  toUni(shortcut: JbShortcut): IShortcut | undefined {
     const sc1 = this.strConverter.toUniSingleSc(shortcut.$["first-keystroke"]);
     return sc1
       ? {

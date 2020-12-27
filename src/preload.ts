@@ -28,10 +28,10 @@ window.addEventListener("DOMContentLoaded", () => {
 let scCreator = new ShortcutCreator();
 
 const onKeydown = async (event: KeyboardEvent) => {
-  new JetBrainsConverter("allo").load();
 
   let ides = await Connectors.scan();
   console.log(ides);
+  ides[2].converter.load();
   ides[1].converter.save({
     formatDocument: {
       sc1: { key: "b", holdedKeys: new Set<HoldableKeys>(["ctrl"]) },

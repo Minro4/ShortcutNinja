@@ -5,12 +5,13 @@ import * as path from "path";
 import { IShortcutConverter } from "./ShortcutConverter";
 
 export interface IConverter {
-  save(keymap: IUniversalKeymap): void;
+  save(keymap: IUniversalKeymap): Promise<any>;
   load(): Promise<IUniversalKeymap>;
 }
 
 export abstract class Converter<IdeShortcut> implements IConverter {
-  private static readonly ideMappingsBasePath = "src/Connectors/Config/ideMappings/";
+  private static readonly ideMappingsBasePath =
+    "src/Connectors/Config/ideMappings/";
 
   protected ideMappings: Promise<IdeMappings>;
   protected scConverter: IShortcutConverter<IdeShortcut>;
@@ -35,9 +36,9 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     );
 
     Object.keys(ideKm).forEach(
-      (ideKey) => (currentIdeKm[ideKey] = ideKey[ideKey])
+      async (ideKey) => ((await currentIdeKm)[ideKey] = ideKey[ideKey])
     );
-    this.writeIdeKeymap(ideKm);
+    return this.writeIdeKeymap(ideKm);
   }
   public async load() {
     return KeymapUtils.toUniKeymap(
@@ -47,8 +48,8 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     );
   }
 
-  protected abstract readIdeKeymap(): Promise<IKeymap<IdeShortcut>>;
+  protected abstract readIdeKeymap(): Promise<IKeymap<IdeShortcut[]>>;
   protected abstract writeIdeKeymap(
-    ideKeymap: IKeymap<IdeShortcut>
-  ): Promise<void>;
+    ideKeymap: IKeymap<IdeShortcut[]>
+  ): Promise<any>;
 }

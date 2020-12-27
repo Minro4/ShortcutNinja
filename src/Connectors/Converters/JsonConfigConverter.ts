@@ -18,15 +18,15 @@ export abstract class JsonConfigConverter<
     this.configPath = configPath;
   }
 
-  protected async readIdeKeymap(): Promise<IKeymap<IdeShortcut>> {
+  protected async readIdeKeymap(): Promise<IKeymap<IdeShortcut[]>> {
     let ideConfig = await fsUtils.readJson<IdeConfig>(this.configPath);
     return this.configToIdeKm(ideConfig);
   }
-  protected writeIdeKeymap(ideKeymap: IKeymap<IdeShortcut>): Promise<void> {
+  protected writeIdeKeymap(ideKeymap: IKeymap<IdeShortcut[]>): Promise<unknown> {
     let newConfig = this.ideKmToConfig(ideKeymap);
     return fsUtils.saveJson<IdeConfig>(this.configPath, newConfig);
   }
 
-  protected abstract configToIdeKm(ideConfig: IdeConfig): IKeymap<IdeShortcut>;
-  protected abstract ideKmToConfig(ideKm: IKeymap<IdeShortcut>): IdeConfig;
+  protected abstract configToIdeKm(ideConfig: IdeConfig): IKeymap<IdeShortcut[]>;
+  protected abstract ideKmToConfig(ideKm: IKeymap<IdeShortcut[]>): IdeConfig;
 }

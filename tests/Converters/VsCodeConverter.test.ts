@@ -12,19 +12,25 @@ describe("vscode converter test", function () {
   ];
 
   const universalKm: IUniversalKeymap = {
-    formatDocument: {
-      sc1: {
-        key: "f",
-        holdedKeys: new Set<HoldableKeys>(["alt", "shift"]),
+    formatDocument: [
+      {
+        sc1: {
+          key: "f",
+          holdedKeys: new Set<HoldableKeys>(["alt", "shift"]),
+        },
+        sc2: {
+          key: "a",
+          holdedKeys: new Set<HoldableKeys>(["ctrl"]),
+        },
       },
-      sc2: {
-        key: "a",
-        holdedKeys: new Set<HoldableKeys>(["ctrl"]),
-      },
-    },
+    ],
   };
 
   const converter = VsCodeConverter.get();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
   it("Read config", async function () {
     fsUtils.readJson = jest.fn().mockReturnValue(Promise.resolve(vscodeKb));

@@ -1,31 +1,25 @@
 import glob = require("glob");
-import {
-  jetBrainsFolderPath,
-  jetBrainsIdes,
-  jetBrainsKeymapsFolder,
-} from "../Constants/paths";
+import { JB } from "../Constants/JetBrains";
+import * as path from "path";
 import { JetBrainsConverter } from "../Converters/JetbrainsConverter/JetBrainsConverter";
 import { Ide } from "../Ide";
 import { IScanner } from "./Scanner";
 
 export class JetBrainsScanner implements IScanner {
   async scan(): Promise<Ide[]> {
-    console.log("allo");
-    const ides =
-      jetBrainsIdes
-        .reduce((str, ide) => {
-          str += `${ide},`;
-          return str;
-        }, "{")
-        .slice(0, -1) + "}";
+    const globStr = `${JB.FOLDER_PATH}/*/${JB.KEYMAP_OPTION_PATH}`;
 
-    const globStr = `${jetBrainsFolderPath}/${ides}*`;
-
-    return glob.sync(globStr).map<Ide>((p) => {
-      const folders = p.split("/");
+    return glob.sync(globStr).map<Ide>((optionsPath) => {
+      const folders = optionsPath.split("/");
+      const ideName = folders[folders.length - 3];
+      const configFolder = path.join(
+        JB.FOLDER_PATH,
+        ideName,
+        JB.KEYMAPS_FOLDER_NAME
+      );
       return {
-        name: `JetBrains ${folders[folders.length - 1]}`,
-        converter: new JetBrainsConverter(`${p}/${jetBrainsKeymapsFolder}`),
+        name: `JetBrains ${ideName}`,
+        converter: new JetBrainsConverter(optionsPath, configFolder),
       };
     });
   }
