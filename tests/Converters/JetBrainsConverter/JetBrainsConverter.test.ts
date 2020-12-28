@@ -26,7 +26,7 @@ describe("JetBrains converter test", function () {
     ],
   };
 
-  const mockKeymapFolder = "./tests/Converters/JetBrains/mocks";
+  const mockKeymapFolder = "./tests/Converters/JetBrainsConverter/mocks";
   const keymapOptionPath = path.join(mockKeymapFolder, "keymap.xml");
   const mockKeymap = path.join(mockKeymapFolder, "TestKeymap.xml");
 

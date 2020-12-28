@@ -26,21 +26,16 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     this.scConverter = scConverter;
   }
 
-  public async save(uniKm: IUniversalKeymap) {
-    let currentIdeKm = this.readIdeKeymap();
-
+  public async save(uniKm: IUniversalKeymap): Promise<any> {
     let ideKm = KeymapUtils.toIdeKeymap(
       uniKm,
       await this.ideMappings,
       this.scConverter
     );
 
-    Object.keys(ideKm).forEach(
-      async (ideKey) => ((await currentIdeKm)[ideKey] = ideKey[ideKey])
-    );
     return this.writeIdeKeymap(ideKm);
   }
-  public async load() {
+  public async load(): Promise<IUniversalKeymap> {
     return KeymapUtils.toUniKeymap(
       await this.readIdeKeymap(),
       await this.ideMappings,
