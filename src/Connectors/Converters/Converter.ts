@@ -3,6 +3,7 @@ import { IKeymap, IUniversalKeymap, KeymapUtils } from "../IUniversalKeymap";
 import { fsUtils } from "../Utils";
 import * as path from "path";
 import { IShortcutConverter } from "./ShortcutConverter";
+import { IDE_MAPPINGS_PATH } from "../Constants/general";
 
 export interface IConverter {
   save(keymap: IUniversalKeymap): Promise<any>;
@@ -10,9 +11,6 @@ export interface IConverter {
 }
 
 export abstract class Converter<IdeShortcut> implements IConverter {
-  private static readonly ideMappingsBasePath =
-    "src/Connectors/Config/ideMappings/";
-
   protected ideMappings: Promise<IdeMappings>;
   protected scConverter: IShortcutConverter<IdeShortcut>;
 
@@ -21,7 +19,7 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     scConverter: IShortcutConverter<IdeShortcut>
   ) {
     this.ideMappings = fsUtils.readJson<IdeMappings>(
-      path.join(Converter.ideMappingsBasePath, ideMappingsName)
+      path.join(IDE_MAPPINGS_PATH, ideMappingsName)
     );
     this.scConverter = scConverter;
   }

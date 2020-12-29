@@ -52,7 +52,7 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
 
     const newPath =
       path.join(this.configFolder, APP_NAME) + `.${JB.CONFIG_EXTENTION}`;
-      
+
     return Promise.all([
       fsUtils.saveXml<JbXmlConfig>(newPath, newConfig),
       this.setActiveKeymap(APP_NAME),
@@ -64,7 +64,7 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
     const configPath =
       path.join(this.configFolder, configName) + `.${JB.CONFIG_EXTENTION}`;
     try {
-      return fsUtils.readXml<JbXmlConfig>(configPath);
+      return await fsUtils.readXml<JbXmlConfig>(configPath);
     } catch (err) {
       return this.defaultConfig(configName);
     }
