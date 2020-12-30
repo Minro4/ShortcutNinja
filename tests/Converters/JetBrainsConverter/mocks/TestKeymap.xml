@@ -1,4 +1,4 @@
-<keymap version="1" name="TestKeymap" parent="Visual Studio">
+<keymap version="1" name="keymap-manager" parent="Visual Studio">
     <action id="ReformatCode">
         <keyboard-shortcut first-keystroke="shift alt f" second-keystroke="ctrl a" />
     </action>

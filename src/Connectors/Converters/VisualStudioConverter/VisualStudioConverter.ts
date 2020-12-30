@@ -11,12 +11,18 @@ import {
   VisualStudioXmlKeyboardShortcuts,
 } from "./VisualStudio.models";
 import { exportSettings, importSettings } from "./VsImportExport";
+import { Schema, SCHEMA_TYPES } from "../../Schema/Schema";
+import { LoadSchema } from "../../Schema/SchemaLoader";
 
 export class VisualStudioConverter extends Converter<string> {
   private devenPath: string;
 
   constructor(devenPath: string) {
-    super("VisualStudio.json", new StrShortcutConverter("+", ", "));
+    super(
+      "VisualStudio.json",
+      new StrShortcutConverter("+", ", "),
+      SCHEMA_TYPES.VISUAL_STUDIO
+    );
     this.devenPath = devenPath;
   }
 
@@ -24,8 +30,7 @@ export class VisualStudioConverter extends Converter<string> {
     const xml = await this.loadSettings(this.devenPath);
     const config = this.xmlToConfig(xml);
 
-    //TODO Load scheme
-    const scheme = {};
+    this.schema = VisualStudioConverter.mapSchema(config.scheme);
 
     return config.userShortcuts.reduce<IKeymap<string[]>>((km, sc) => {
       if (km[sc.command]) {
@@ -34,7 +39,7 @@ export class VisualStudioConverter extends Converter<string> {
         km[sc.command] = [sc.keybind];
       }
       return km;
-    }, scheme);
+    }, {});
   }
   protected async writeIdeKeymap(ideKeymap: IKeymap<string[]>): Promise<void> {
     const xml = await this.loadSettings(this.devenPath);
@@ -125,5 +130,12 @@ export class VisualStudioConverter extends Converter<string> {
       });
       exportSettings(devenPath, settingsPath);
     });
+  }
+
+  private static mapSchema(schema: string): Schema {
+    const map = {
+      "Visual Studio Code": SCHEMA_TYPES.VS_CODE,
+    };
+    return map[schema] ?? SCHEMA_TYPES.VISUAL_STUDIO;
   }
 }

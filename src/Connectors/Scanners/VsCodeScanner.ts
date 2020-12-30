@@ -6,7 +6,7 @@ import { VS_CODE } from "../Constants/VsCode";
 export class VsCodeScanner extends DirectoryScanner {
   static readonly ide: Ide = {
     name: "vscode",
-    converter: VsCodeConverter.get(),
+    converter: new VsCodeConverter(),
   };
   constructor() {
     super(VS_CODE.FOLDER_PATH, VsCodeScanner.ide);

@@ -9,6 +9,8 @@ import {
   JbKeymapOptions,
   JbXmlConfig,
 } from "../../../src/Connectors/Converters/JetbrainsConverter/JetBrains.models";
+import { LoadSchema } from "../../../src/Connectors/Schema/SchemaLoader";
+import { SCHEMA_TYPES } from "../../../src/Connectors/Schema/Schema";
 
 describe("JetBrains converter test", function () {
   const universalKm: IUniversalKeymap = {
@@ -28,20 +30,32 @@ describe("JetBrains converter test", function () {
 
   const mockKeymapFolder = "./tests/Converters/JetBrainsConverter/mocks";
   const keymapOptionPath = path.join(mockKeymapFolder, "keymap.xml");
+  const keymapOptionSchemaTestPath = path.join(
+    mockKeymapFolder,
+    "keymapSchemaTest.xml"
+  );
   const mockKeymap = path.join(mockKeymapFolder, "TestKeymap.xml");
-
-  const converter = new JetBrainsConverter(keymapOptionPath, mockKeymapFolder);
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("Read config", async function () {
+    const converter = new JetBrainsConverter(
+      keymapOptionPath,
+      mockKeymapFolder
+    );
+
     const converted: IUniversalKeymap = await converter.load();
     expect(converted).toEqual(universalKm);
   });
 
   it("Write config", async function () {
+    const converter = new JetBrainsConverter(
+      keymapOptionPath,
+      mockKeymapFolder
+    );
+
     const expectedPath =
       path.join(mockKeymapFolder, APP_NAME) + `.${JB.CONFIG_EXTENTION}`;
 
@@ -59,5 +73,17 @@ describe("JetBrains converter test", function () {
       expectedOptions
     );
     expect(fsUtils.saveXml).toHaveBeenCalledWith(expectedPath, expectedKeymap);
+  });
+
+  it("Read config Schema", async function () {
+    const expectedKm = await LoadSchema(SCHEMA_TYPES.SUBLIME);
+
+    const converter = new JetBrainsConverter(
+      keymapOptionSchemaTestPath,
+      mockKeymapFolder
+    );
+
+    const converted: IUniversalKeymap = await converter.load();
+    expect(converted).toEqual(expectedKm);
   });
 });

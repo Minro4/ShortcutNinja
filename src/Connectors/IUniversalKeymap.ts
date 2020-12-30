@@ -41,4 +41,12 @@ export namespace KeymapUtils {
       return uniKeymap;
     }, {});
   }
+
+  export function jsonReplacer(key: any, value: any): any {
+    if (value && value instanceof Set) {
+      return [...value];
+    } else {
+      return value;
+    }
+  }
 }

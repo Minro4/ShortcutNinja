@@ -4,6 +4,8 @@ import { fsUtils } from "../Utils";
 import * as path from "path";
 import { IShortcutConverter } from "./ShortcutConverter";
 import { IDE_MAPPINGS_PATH } from "../Constants/general";
+import { Schema } from "../Schema/Schema";
+import { LoadSchema } from "../Schema/SchemaLoader";
 
 export interface IConverter {
   save(keymap: IUniversalKeymap): Promise<any>;
@@ -13,15 +15,18 @@ export interface IConverter {
 export abstract class Converter<IdeShortcut> implements IConverter {
   protected ideMappings: Promise<IdeMappings>;
   protected scConverter: IShortcutConverter<IdeShortcut>;
+  protected schema?: Schema;
 
   constructor(
     ideMappingsName: string,
-    scConverter: IShortcutConverter<IdeShortcut>
+    scConverter: IShortcutConverter<IdeShortcut>,
+    schema?: Schema
   ) {
     this.ideMappings = fsUtils.readJson<IdeMappings>(
       path.join(IDE_MAPPINGS_PATH, ideMappingsName)
     );
     this.scConverter = scConverter;
+    this.schema = schema;
   }
 
   public async save(uniKm: IUniversalKeymap): Promise<any> {
@@ -34,11 +39,17 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     return this.writeIdeKeymap(ideKm);
   }
   public async load(): Promise<IUniversalKeymap> {
-    return KeymapUtils.toUniKeymap(
+    const uniKm = KeymapUtils.toUniKeymap(
       await this.readIdeKeymap(),
       await this.ideMappings,
       this.scConverter
     );
+
+    const baseKm: IUniversalKeymap = this.schema
+      ? await LoadSchema(this.schema)
+      : {};
+
+    return { ...baseKm, ...uniKm };
   }
 
   protected abstract readIdeKeymap(): Promise<IKeymap<IdeShortcut[]>>;

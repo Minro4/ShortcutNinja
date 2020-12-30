@@ -13,19 +13,27 @@ import fs = require("fs");
 import * as path from "path";
 import { APP_NAME } from "../../Constants/general";
 import { JB } from "../../Constants/JetBrains";
+import { Schema, SCHEMA_TYPES } from "../../Schema/Schema";
 
 export class JetBrainsConverter extends Converter<JbShortcut> {
   private optionsPath: string;
   private configFolder: string;
 
   constructor(optionsPath: string, configFolder: string) {
-    super("JetBrains.json", new JetBrainsShortcutConverter());
+    super(
+      "JetBrains.json",
+      new JetBrainsShortcutConverter(),
+      SCHEMA_TYPES.INTELLIJ
+    );
     this.optionsPath = optionsPath;
     this.configFolder = configFolder;
   }
 
   protected async readIdeKeymap(): Promise<IKeymap<JbShortcut[]>> {
     const config = await this.fetchConfig();
+
+    if (config.keymap.$.parent)
+      this.schema = JetBrainsConverter.mapSchema(config.keymap.$.parent);
 
     return config.keymap.action.reduce((keymap, action) => {
       keymap[action.$.id] = action["keyboard-shortcut"];
@@ -35,6 +43,7 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
   protected async writeIdeKeymap(ideKeymap: IKeymap<JbShortcut[]>) {
     //Read config and override it
     const currentConfig = await this.fetchConfig();
+
     const newConfig = Object.keys(ideKeymap).reduce((config, keymapKey) => {
       const action = config.keymap.action.find(
         (action) => action.$.id == keymapKey
@@ -49,6 +58,8 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
       }
       return config;
     }, currentConfig);
+
+    newConfig.keymap.$.name = APP_NAME;
 
     const newPath =
       path.join(this.configFolder, APP_NAME) + `.${JB.CONFIG_EXTENTION}`;
@@ -102,7 +113,6 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
   }
 
   private defaultConfig(configName: string): JbXmlConfig {
-    //TODO load default config depending on config name
     return {
       keymap: {
         $: {
@@ -112,5 +122,14 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
         action: [],
       },
     };
+  }
+
+  private static mapSchema(schema: string): Schema {
+    const map = {
+      "Visual Studio": SCHEMA_TYPES.VISUAL_STUDIO,
+      "Sublime Text": SCHEMA_TYPES.SUBLIME,
+    };
+
+    return map[schema] ?? SCHEMA_TYPES.INTELLIJ;
   }
 }

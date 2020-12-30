@@ -42,9 +42,11 @@ export namespace fsUtils {
   export async function saveJson<T>(
     path: string,
     json: T,
-    encoding = defaultEncoding
+    encoding = defaultEncoding,
+    replacer?: (key: any, value: any) => any
   ) {
-    return saveFile(path, JSON.stringify(json), encoding);
+    console.log(JSON.stringify(json));
+    return saveFile(path, JSON.stringify(json, replacer), encoding);
   }
 
   export function saveFile(

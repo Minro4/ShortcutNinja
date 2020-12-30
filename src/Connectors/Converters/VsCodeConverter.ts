@@ -1,5 +1,6 @@
 import { VS_CODE } from "../Constants/VsCode";
 import { IKeymap } from "../IUniversalKeymap";
+import { SCHEMA_TYPES } from "../Schema/Schema";
 import { JsonConfigConverter } from "./JsonConfigConverter";
 import { StrShortcutConverter } from "./ShortcutConverter";
 
@@ -7,15 +8,13 @@ export class VsCodeConverter extends JsonConfigConverter<
   VsCondeConfig,
   string
 > {
-  private static instance: VsCodeConverter;
-
-  public static get(): VsCodeConverter {
-    if (!VsCodeConverter.instance)
-      VsCodeConverter.instance = new VsCodeConverter();
-    return VsCodeConverter.instance;
-  }
-  private constructor() {
-    super("vscode.json", VS_CODE.KB_PATH, new StrShortcutConverter());
+  constructor(configPath?: string) {
+    super(
+      "vscode.json",
+      configPath ?? VS_CODE.KB_PATH,
+      new StrShortcutConverter(),
+      SCHEMA_TYPES.VS_CODE
+    );
   }
 
   protected configToIdeKm(ideConfig: VsCondeConfig): IKeymap<string[]> {
@@ -34,8 +33,8 @@ export class VsCodeConverter extends JsonConfigConverter<
   }
 }
 
-type VsCondeConfig = VsCodeKeybinding[];
-interface VsCodeKeybinding {
+export type VsCondeConfig = VsCodeKeybinding[];
+export interface VsCodeKeybinding {
   key: string;
   command: string;
   when?: string;

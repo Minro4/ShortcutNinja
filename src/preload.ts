@@ -22,21 +22,22 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
 // needed in the renderer process.
 let scCreator = new ShortcutCreator();
 
 const onKeydown = async (event: KeyboardEvent) => {
-
   let ides = await Connectors.scan();
   console.log(ides);
-  ides[2].converter.load();
-  ides[1].converter.save({
-    formatDocument: {
-      sc1: { key: "b", holdedKeys: new Set<HoldableKeys>(["ctrl"]) },
-    },
-  });
+  ides.forEach((ide) =>
+    ide.converter.save({
+      formatDocument: [
+        {
+          sc1: { key: "b", holdedKeys: new Set<HoldableKeys>(["ctrl"]) },
+        },
+      ],
+    })
+  );
+
   let sc = scCreator.onKeydown(event.key);
   if (sc) {
     console.log("created shortcut " + sc);

@@ -138,8 +138,8 @@
     "command": "workbench.action.quickOpen"
   },
   {
-    "mac": "ctrl-alt-b",
-    "key": "shift-alt-f",
+    "mac": "ctrl+alt+b",
+    "key": "shift+alt+f",
     "command": "editor.action.formatDocument"
   },
   {

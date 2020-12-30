@@ -1,16 +1,10 @@
-import { VsCodeConverter } from "../../src/Connectors/Converters/VsCodeConverter";
-import { IUniversalKeymap } from "../../src/Connectors/IUniversalKeymap";
-import { HoldableKeys } from "../../src/Connectors/Shortcut";
-import { fsUtils } from "../../src/Connectors/Utils";
+import { VsCodeConverter } from "../../../src/Connectors/Converters/VsCodeConverter";
+import { IUniversalKeymap } from "../../../src/Connectors/IUniversalKeymap";
+import { HoldableKeys } from "../../../src/Connectors/Shortcut";
+import { fsUtils } from "../../../src/Connectors/Utils";
+import * as path from "path";
 
 describe("vscode converter test", function () {
-  const vscodeKb = [
-    {
-      key: "shift+alt+f ctrl+a",
-      command: "editor.action.formatDocument",
-    },
-  ];
-
   const universalKm: IUniversalKeymap = {
     formatDocument: [
       {
@@ -26,21 +20,24 @@ describe("vscode converter test", function () {
     ],
   };
 
-  const converter = VsCodeConverter.get();
+  const mockKeymapFolder = "./tests/Converters/VsCodeConverter/mocks";
+  const mockKeybindings = path.join(mockKeymapFolder, "keybindings.json");
+
+  const converter = new VsCodeConverter(mockKeybindings);
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("Read config", async function () {
-    fsUtils.readJson = jest.fn().mockReturnValue(Promise.resolve(vscodeKb));
     const converted: IUniversalKeymap = await converter.load();
     expect(converted).toEqual(universalKm);
   });
 
   it("Write config", async function () {
     fsUtils.saveJson = jest.fn().mockReturnValue(Promise.resolve());
+    const expectedKeymap = await fsUtils.readJson(mockKeybindings);
     await converter.save(universalKm);
-    expect(fsUtils.saveJson).toHaveBeenCalledWith(expect.anything(), vscodeKb);
+    expect(fsUtils.saveJson).toHaveBeenCalledWith(mockKeybindings, expectedKeymap);
   });
 });
