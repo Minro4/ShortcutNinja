@@ -1,3 +1,4 @@
 {
-  "formatDocument": "Edit.FormatDocument"
+  "formatDocument": "Edit.FormatDocument",
+  "goToFile": "Edit.GoToFile"
 }

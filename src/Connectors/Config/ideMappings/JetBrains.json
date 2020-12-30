@@ -1,3 +1,4 @@
 {
-  "formatDocument": "ReformatCode"
+  "formatDocument": "ReformatCode",
+  "goToFile": "GotoFile"
 }

@@ -1,5 +1,8 @@
 {
   "formatDocument": {
     "label": "Format Document"
+  },
+  "goToFile": {
+    "label": "Go To File"
   }
 }

@@ -3,6 +3,8 @@ import { IUniversalKeymap } from "../../../src/Connectors/IUniversalKeymap";
 import { HoldableKeys } from "../../../src/Connectors/Shortcut";
 import { fsUtils } from "../../../src/Connectors/Utils";
 import * as path from "path";
+import { LoadSchema } from "../../../src/Connectors/Schema/SchemaLoader";
+import { SCHEMA_TYPES } from "../../../src/Connectors/Schema/Schema";
 
 describe("vscode converter test", function () {
   const universalKm: IUniversalKeymap = {
@@ -30,14 +32,19 @@ describe("vscode converter test", function () {
   });
 
   it("Read config", async function () {
+    const baseKm = await LoadSchema(SCHEMA_TYPES.VS_CODE);
+    const expectedKm: IUniversalKeymap = { ...baseKm, ...universalKm };
     const converted: IUniversalKeymap = await converter.load();
-    expect(converted).toEqual(universalKm);
+    expect(converted).toEqual(expectedKm);
   });
 
   it("Write config", async function () {
     fsUtils.saveJson = jest.fn().mockReturnValue(Promise.resolve());
     const expectedKeymap = await fsUtils.readJson(mockKeybindings);
     await converter.save(universalKm);
-    expect(fsUtils.saveJson).toHaveBeenCalledWith(mockKeybindings, expectedKeymap);
+    expect(fsUtils.saveJson).toHaveBeenCalledWith(
+      mockKeybindings,
+      expectedKeymap
+    );
   });
 });

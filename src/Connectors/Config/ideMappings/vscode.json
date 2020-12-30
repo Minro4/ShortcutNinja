@@ -1,3 +1,4 @@
 {
-  "formatDocument": "editor.action.formatDocument"
+  "formatDocument": "editor.action.formatDocument",
+  "goToFile": "workbench.action.quickOpen"
 }

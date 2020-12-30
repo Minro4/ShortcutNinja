@@ -41,13 +41,16 @@ describe("JetBrains converter test", function () {
   });
 
   it("Read config", async function () {
+    const baseKm = await LoadSchema(SCHEMA_TYPES.VISUAL_STUDIO);
+    const expectedKm: IUniversalKeymap = { ...baseKm, ...universalKm };
+
     const converter = new JetBrainsConverter(
       keymapOptionPath,
       mockKeymapFolder
     );
 
     const converted: IUniversalKeymap = await converter.load();
-    expect(converted).toEqual(universalKm);
+    expect(converted).toEqual(expectedKm);
   });
 
   it("Write config", async function () {
