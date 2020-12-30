@@ -1,6 +1,6 @@
 import { Ide } from "../Ide";
 import { DirectoryScanner } from "./DirectoryScanner";
-import { VsCodeConverter } from "../Converters/VsCodeConverter";
+import { VsCodeConverter } from "../Converters/VsCodeConverter/VsCodeConverter";
 import { VS_CODE } from "../Constants/VsCode";
 
 export class VsCodeScanner extends DirectoryScanner {

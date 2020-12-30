@@ -1,9 +1,10 @@
-import { Ide } from "../Ide";
+import { IScanner } from "./IScanner";
 import { JetBrainsScanner } from "./JetBrainsScanner";
 import { VisualStudioScanner } from "./VisualStudioScanner";
 import { VsCodeScanner } from "./VsCodeScanner";
+import { Ide } from "../Ide";
 
-export class Scanner implements IScanner {
+export class AggregateScanner implements IScanner {
   private static readonly defaultSubScanners: IScanner[] = [
     new VsCodeScanner(),
     new VisualStudioScanner(),
@@ -11,7 +12,7 @@ export class Scanner implements IScanner {
   ];
 
   private subScanners: IScanner[];
-  constructor(subScanners: IScanner[] = Scanner.defaultSubScanners) {
+  constructor(subScanners: IScanner[] = AggregateScanner.defaultSubScanners) {
     this.subScanners = subScanners;
   }
 
@@ -20,8 +21,4 @@ export class Scanner implements IScanner {
       await Promise.all(this.subScanners.map(async (scanner) => scanner.scan()))
     ).reduce<Ide[]>((ides, subIdes) => ides.concat(subIdes), []);
   }
-}
-
-export interface IScanner {
-  scan(): Promise<Ide[]>;
 }

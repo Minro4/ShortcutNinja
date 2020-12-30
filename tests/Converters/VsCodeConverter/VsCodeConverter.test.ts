@@ -1,4 +1,4 @@
-import { VsCodeConverter } from "../../../src/Connectors/Converters/VsCodeConverter";
+import { VsCodeConverter } from "../../../src/Connectors/Converters/VsCodeConverter/VsCodeConverter";
 import { IUniversalKeymap } from "../../../src/Connectors/IUniversalKeymap";
 import { HoldableKeys } from "../../../src/Connectors/Shortcut";
 import { fsUtils } from "../../../src/Connectors/Utils";

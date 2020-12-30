@@ -3,7 +3,7 @@ import { JB } from "../Constants/JetBrains";
 import * as path from "path";
 import { JetBrainsConverter } from "../Converters/JetbrainsConverter/JetBrainsConverter";
 import { Ide } from "../Ide";
-import { IScanner } from "./Scanner";
+import { IScanner } from "./IScanner";
 
 export class JetBrainsScanner implements IScanner {
   async scan(): Promise<Ide[]> {

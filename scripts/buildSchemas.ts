@@ -7,13 +7,13 @@ import {
 import { fsUtils } from "../src/Connectors/Utils";
 import { IDE_MAPPINGS_PATH } from "../src/Connectors/Constants/general";
 import { StrShortcutConverter } from "../src/Connectors/Converters/ShortcutConverter";
-import { VsCondeConfig } from "../src/Connectors/Converters/VsCodeConverter";
 import { IdeMappings } from "../src/Connectors/Ide";
 import {
   IKeymap,
   KeymapUtils,
   IUniversalKeymap,
 } from "../src/Connectors/IUniversalKeymap";
+import { VsCondeConfig } from "../src/Connectors/Converters/VsCodeConverter/VsCodeConverter.models";
 
 interface SchemaBuild {
   schema: Schema;

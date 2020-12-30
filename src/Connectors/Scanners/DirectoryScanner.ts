@@ -1,6 +1,6 @@
 import { Ide } from "../Ide";
 import { fsUtils } from "../Utils";
-import { IScanner } from "./Scanner";
+import { IScanner } from "./IScanner";
 //import * as path from 'path';
 
 export class DirectoryScanner implements IScanner {
