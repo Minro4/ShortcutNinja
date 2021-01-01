@@ -11,8 +11,9 @@ export interface ISingleShortcut {
 type kbKey = string;
 
 const stringLitArray = <L extends string>(arr: L[]) => arr;
-export const holdableKeys = stringLitArray(["ctrl", "shift", "alt"]);
+export const holdableKeys = stringLitArray(['ctrl', 'shift', 'alt']);
 export type HoldableKeys = typeof holdableKeys[number];
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const isHoldableKey = (k: any): k is HoldableKeys =>
   holdableKeys.includes(k);
 
@@ -30,7 +31,7 @@ export class ShortcutCreator {
 
   public onKeydown(key: string): IShortcut | undefined {
     key = this.convertToUnikey(key);
-    if (key === "enter") return this.create();
+    if (key === 'enter') return this.create();
 
     this.currentScCreator.onKeydown(key);
     if (this.currentScCreator.isComplete()) {
@@ -48,7 +49,7 @@ export class ShortcutCreator {
   }
 
   private create(): IShortcut | undefined {
-    let sc1 = this.scCreators[0].create();
+    const sc1 = this.scCreators[0].create();
     if (sc1) {
       return {
         sc1: sc1,
@@ -61,14 +62,14 @@ export class ShortcutCreator {
     return this.scCreators.reduce<string>((str, scCreator, idx, arr) => {
       if (idx === ShortcutCreator.maxSc) return str;
       return (
-        str + scCreator.toString() + (idx >= arr.length - 2 ? "" : " chord to ")
+        str + scCreator.toString() + (idx >= arr.length - 2 ? '' : ' chord to ')
       );
-    }, "");
+    }, '');
   }
 
   private convertToUnikey(key: string): string {
-    let km = {
-      Control: "ctrl",
+    const km: { [key: string]: string } = {
+      Control: 'ctrl',
     };
     return km[key] ?? key.toLowerCase();
   }
@@ -108,17 +109,17 @@ class SingleShortcutCreator {
   }
 
   public toString(): string {
-    if (!this.addedKeys) return "";
+    if (!this.addedKeys) return '';
 
-    let orderedKeys = holdableKeys.filter((key) =>
+    const orderedKeys = holdableKeys.filter((key) =>
       this.holdedKeys.has(key)
     ) as string[];
     if (this.key) orderedKeys.push(this.key);
 
     return orderedKeys.reduce<string>(
       (str, key, idx, keys) =>
-        (str += key + (idx === keys.length - 1 ? "" : "+")),
-      ""
+        (str += key + (idx === keys.length - 1 ? '' : '+')),
+      ''
     );
   }
 

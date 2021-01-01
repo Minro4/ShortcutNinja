@@ -1,5 +1,5 @@
 import glob = require("glob");
-import { JB } from "../Constants/JetBrains";
+import * as JB from "../Constants/JetBrains";
 import * as path from "path";
 import { JetBrainsConverter } from "../Converters/JetbrainsConverter/JetBrainsConverter";
 import { Ide } from "../Ide";

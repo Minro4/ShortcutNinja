@@ -1,14 +1,14 @@
-import { Ide } from "../Ide";
-import { DirectoryScanner } from "./DirectoryScanner";
-import { VsCodeConverter } from "../Converters/VsCodeConverter/VsCodeConverter";
-import { VS_CODE } from "../Constants/VsCode";
+import { Ide } from '../Ide';
+import { DirectoryScanner } from './DirectoryScanner';
+import { VsCodeConverter } from '../Converters/VsCodeConverter/VsCodeConverter';
+import { FOLDER_PATH } from '../Constants/VsCode';
 
 export class VsCodeScanner extends DirectoryScanner {
   static readonly ide: Ide = {
-    name: "vscode",
+    name: 'vscode',
     converter: new VsCodeConverter(),
   };
   constructor() {
-    super(VS_CODE.FOLDER_PATH, VsCodeScanner.ide);
+    super(FOLDER_PATH, VsCodeScanner.ide);
   }
 }

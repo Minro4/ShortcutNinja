@@ -4,8 +4,8 @@ import { AggregateScanner } from "./Scanners/AggregateScanner";
 import { ShortcutCreator } from "./Shortcut";
 
 //Connectors Interface
-export module Connectors {
-  export function scan(): Promise<Ide[]> {
+export class Connectors {
+  public static scan(): Promise<Ide[]> {
     return new AggregateScanner().scan();
   }
 }

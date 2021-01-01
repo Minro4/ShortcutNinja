@@ -1,4 +1,4 @@
-import { IConverter } from "./Converters/Converter";
+import { IConverter } from './Converters/Converter';
 
 export interface Ide {
   name: string;
@@ -10,13 +10,16 @@ export interface IdeMappings {
   [key: string]: string;
 }
 
-export namespace IdeMappingsUtils {
-  export function toIde(ideMappings: IdeMappings, universalKey: string) {
+export class IdeMappingsUtils {
+  public static toIde(ideMappings: IdeMappings, universalKey: string): string {
     return ideMappings[universalKey];
   }
 
-  export function toUni(ideMappings: IdeMappings, ideKey: string) {
-    for (let key in ideMappings) {
+  public static toUni(
+    ideMappings: IdeMappings,
+    ideKey: string
+  ): string | undefined {
+    for (const key in ideMappings) {
       if (ideMappings[key] === ideKey) {
         return key;
       }

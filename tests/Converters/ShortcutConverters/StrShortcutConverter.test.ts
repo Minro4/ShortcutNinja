@@ -29,22 +29,22 @@ describe("StrShortcutConverter test", function () {
   });
 
   it("ToIde single shortcut", async function () {
-    let ideSc = converter.toIde(uniSingle);
+    const ideSc = converter.toIde(uniSingle);
     expect(ideSc).toEqual(ideSingle);
   });
 
   it("ToIde chorded shortcut", async function () {
-    let ideSc = converter.toIde(uniChorded);
+    const ideSc = converter.toIde(uniChorded);
     expect(ideSc).toEqual(ideChorded);
   });
 
   it("ToUni single shortcut", async function () {
-    let uniSc = converter.toUni(ideSingle);
+    const uniSc = converter.toUni(ideSingle);
     expect(uniSc).toEqual(uniSingle);
   });
 
   it("ToUni chorded shortcut", async function () {
-    let uniSc = converter.toUni(ideChorded);
+    const uniSc = converter.toUni(ideChorded);
     expect(uniSc).toEqual(uniChorded);
   });
 });

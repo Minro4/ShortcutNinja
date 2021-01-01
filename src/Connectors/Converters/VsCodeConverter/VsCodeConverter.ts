@@ -1,22 +1,22 @@
-import { VS_CODE } from "../../Constants/VsCode";
-import { IKeymap } from "../../IUniversalKeymap";
-import { SCHEMA_TYPES } from "../../Schema/Schema";
-import { fsUtils } from "../../Utils";
-import { Converter } from "../Converter";
-import { StrShortcutConverter } from "../ShortcutConverter";
-import { VsCodeKeybinding, VsCondeConfig } from "./VsCodeConverter.models";
+import { IKeymap } from '../../UniversalKeymap';
+import { SchemaTypes } from '../../Schema/Schema';
+import { fsUtils } from '../../Utils';
+import { Converter } from '../Converter';
+import { StrShortcutConverter } from '../ShortcutConverter';
+import { VsCodeKeybinding, VsCondeConfig } from './VsCodeConverter.models';
+import { KEYBINDINGS_PATH } from '../../Constants/VsCode';
 
 export class VsCodeConverter extends Converter<string> {
   private configPath: string;
 
   constructor(configPath?: string) {
-    super("vscode.json", new StrShortcutConverter(), SCHEMA_TYPES.VS_CODE);
+    super('vscode.json', new StrShortcutConverter(), SchemaTypes.VS_CODE);
 
-    this.configPath = configPath ?? VS_CODE.KB_PATH;
+    this.configPath = configPath ?? KEYBINDINGS_PATH;
   }
 
   protected async readIdeKeymap(): Promise<IKeymap<string[]>> {
-    let ideConfig = await fsUtils.readJson<VsCondeConfig>(this.configPath);
+    const ideConfig = await fsUtils.readJson<VsCondeConfig>(this.configPath);
     return ideConfig.reduce<IKeymap<string[]>>((ideKm, vsCodeKb) => {
       ideKm[vsCodeKb.command] = [vsCodeKb.key];
       return ideKm;
@@ -24,7 +24,7 @@ export class VsCodeConverter extends Converter<string> {
   }
 
   protected writeIdeKeymap(ideKeymap: IKeymap<string[]>): Promise<unknown> {
-    let newConfig = Object.keys(ideKeymap).map<VsCodeKeybinding>((ideKey) => {
+    const newConfig = Object.keys(ideKeymap).map<VsCodeKeybinding>((ideKey) => {
       return {
         key: ideKeymap[ideKey][0],
         command: ideKey,

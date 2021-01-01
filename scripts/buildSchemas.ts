@@ -1,19 +1,19 @@
-import { Schema, SCHEMA_TYPES } from "../src/Connectors/Schema/Schema";
-import * as path from "path";
+import { Schema, SchemaTypes } from '../src/Connectors/Schema/Schema';
+import * as path from 'path';
 import {
   SCHEMAS_PATH,
   UNPROCESSED_SCHEMAS_PATH,
-} from "../src/Connectors/Constants/Schemas";
-import { fsUtils } from "../src/Connectors/Utils";
-import { IDE_MAPPINGS_PATH } from "../src/Connectors/Constants/general";
-import { StrShortcutConverter } from "../src/Connectors/Converters/ShortcutConverter";
-import { IdeMappings } from "../src/Connectors/Ide";
+} from '../src/Connectors/Constants/Schemas';
+import { fsUtils } from '../src/Connectors/Utils';
+import { IDE_MAPPINGS_PATH } from '../src/Connectors/Constants/general';
+import { StrShortcutConverter } from '../src/Connectors/Converters/ShortcutConverter';
+import { IdeMappings } from '../src/Connectors/Ide';
 import {
   IKeymap,
   KeymapUtils,
   IUniversalKeymap,
-} from "../src/Connectors/IUniversalKeymap";
-import { VsCondeConfig } from "../src/Connectors/Converters/VsCodeConverter/VsCodeConverter.models";
+} from '../src/Connectors/UniversalKeymap';
+import { VsCondeConfig } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter.models';
 
 interface SchemaBuild {
   schema: Schema;
@@ -23,36 +23,36 @@ interface SchemaBuild {
 }
 
 const VS_CODE: SchemaBuild = {
-  schema: SCHEMA_TYPES.VS_CODE,
+  schema: SchemaTypes.VS_CODE,
   builder: VsCodeSchemaBuilder,
 };
 
 const VISUAL_STUDIO: SchemaBuild = {
-  schema: SCHEMA_TYPES.VISUAL_STUDIO,
+  schema: SchemaTypes.VISUAL_STUDIO,
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const ATOM: SchemaBuild = {
-  schema: SCHEMA_TYPES.ATOM,
+  schema: SchemaTypes.ATOM,
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const INTELLIJ: SchemaBuild = {
-  schema: SCHEMA_TYPES.INTELLIJ,
+  schema: SchemaTypes.INTELLIJ,
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const NOTEPADPP: SchemaBuild = {
-  schema: SCHEMA_TYPES.NOTEPADPP,
+  schema: SchemaTypes.NOTEPADPP,
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const SUBLIME: SchemaBuild = {
-  schema: SCHEMA_TYPES.SUBLIME,
+  schema: SchemaTypes.SUBLIME,
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
@@ -87,14 +87,10 @@ async function buildSchema(schema: SchemaBuild) {
 
   // console.log(combinedConfig["formatDocument"][0].sc1);
   console.log(
-    JSON.stringify(combinedConfig["formatDocument"][0].sc1.holdedKeys)
+    JSON.stringify(combinedConfig['formatDocument'][0].sc1.holdedKeys)
   );
-  return fsUtils.saveJson<IUniversalKeymap>(
-    schemaPath,
-    combinedConfig,
-    undefined,
-    KeymapUtils.jsonReplacer
-  );
+
+  return KeymapUtils.saveKeymap(schemaPath, combinedConfig);
 }
 
 function GetBuild(schema: SchemaBuild): Promise<IUniversalKeymap> {
@@ -124,7 +120,7 @@ async function VsCodeSchemaBuilder(
   );
 
   const ideMappings = await fsUtils.readJson<IdeMappings>(
-    path.join(IDE_MAPPINGS_PATH, "vscode.json")
+    path.join(IDE_MAPPINGS_PATH, 'vscode.json')
   );
 
   return KeymapUtils.toUniKeymap(

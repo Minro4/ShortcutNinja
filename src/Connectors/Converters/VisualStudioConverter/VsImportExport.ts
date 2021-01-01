@@ -1,25 +1,31 @@
-import * as Shell from "node-powershell";
+import Shell from 'node-powershell';
 
 const POWERSHELL_SCRIPT_PATH =
-  "./src/Connectors/Converters/VisualStudioConverter/VisualStudio.ps1";
+  './src/Connectors/Converters/VisualStudioConverter/VisualStudio.ps1';
 
-export async function exportSettings(devenPath: string, settingsPath: string) {
-  return importExport("Export", [
+export async function exportSettings(
+  devenPath: string,
+  settingsPath: string
+): Promise<string> {
+  return importExport('Export', [
     { SettingsPath: settingsPath },
     { DevEnvExe: devenPath },
   ]);
 }
 
-export async function importSettings(devenPath: string, settingsPath: string) {
-  return importExport("Import", [
+export async function importSettings(
+  devenPath: string,
+  settingsPath: string
+): Promise<string> {
+  return importExport('Import', [
     { SettingsPath: settingsPath },
     { DevEnvExe: devenPath },
   ]);
 }
 
 async function importExport(fct: string, params: { [key: string]: string }[]) {
-  let ps = new Shell({
-    executionPolicy: "Bypass",
+  const ps = new Shell({
+    executionPolicy: 'Bypass',
     noProfile: true,
   });
 

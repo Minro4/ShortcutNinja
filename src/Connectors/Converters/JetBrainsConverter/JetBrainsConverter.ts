@@ -1,19 +1,17 @@
-import { IKeymap, KeymapUtils } from "../../IUniversalKeymap";
-import { JetBrainsShortcutConverter } from "./JetBrainsShortcutConverter";
+import { IKeymap } from '../../UniversalKeymap';
+import { JetBrainsShortcutConverter } from './JetBrainsShortcutConverter';
 import {
   JbKeymapOptions,
   JbOptionsComponent,
   JbShortcut,
   JbXmlConfig,
-} from "./JetBrains.models";
-import { Converter } from "../Converter";
-import { fsUtils } from "../../Utils";
-import glob = require("glob");
-import fs = require("fs");
-import * as path from "path";
-import { APP_NAME } from "../../Constants/general";
-import { JB } from "../../Constants/JetBrains";
-import { Schema, SCHEMA_TYPES } from "../../Schema/Schema";
+} from './JetBrains.models';
+import { Converter } from '../Converter';
+import { fsUtils } from '../../Utils';
+import * as path from 'path';
+import { APP_NAME } from '../../Constants/general';
+import { Schema, SchemaTypes } from '../../Schema/Schema';
+import * as JB from '../../Constants/JetBrains';
 
 export class JetBrainsConverter extends Converter<JbShortcut> {
   private optionsPath: string;
@@ -21,9 +19,9 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
 
   constructor(optionsPath: string, configFolder: string) {
     super(
-      "JetBrains.json",
+      'JetBrains.json',
       new JetBrainsShortcutConverter(),
-      SCHEMA_TYPES.INTELLIJ
+      SchemaTypes.INTELLIJ
     );
     this.optionsPath = optionsPath;
     this.configFolder = configFolder;
@@ -35,12 +33,18 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
     if (config.keymap.$.parent)
       this.schema = JetBrainsConverter.mapSchema(config.keymap.$.parent);
 
-    return config.keymap.action.reduce((keymap, action) => {
-      keymap[action.$.id] = action["keyboard-shortcut"];
-      return keymap;
-    }, {});
+    return config.keymap.action.reduce<IKeymap<JbShortcut[]>>(
+      (keymap, action) => {
+        if (action['keyboard-shortcut'])
+          keymap[action.$.id] = action['keyboard-shortcut'];
+        return keymap;
+      },
+      {}
+    );
   }
-  protected async writeIdeKeymap(ideKeymap: IKeymap<JbShortcut[]>) {
+  protected async writeIdeKeymap(
+    ideKeymap: IKeymap<JbShortcut[]>
+  ): Promise<unknown> {
     //Read config and override it
     const currentConfig = await this.fetchConfig();
 
@@ -49,11 +53,11 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
         (action) => action.$.id == keymapKey
       );
       if (action) {
-        action["keyboard-shortcut"] = ideKeymap[keymapKey];
+        action['keyboard-shortcut'] = ideKeymap[keymapKey];
       } else {
         config.keymap.action.push({
           $: { id: keymapKey },
-          "keyboard-shortcut": ideKeymap[keymapKey],
+          'keyboard-shortcut': ideKeymap[keymapKey],
         });
       }
       return config;
@@ -125,11 +129,11 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
   }
 
   private static mapSchema(schema: string): Schema {
-    const map = {
-      "Visual Studio": SCHEMA_TYPES.VISUAL_STUDIO,
-      "Sublime Text": SCHEMA_TYPES.SUBLIME,
+    const map: { [key: string]: Schema } = {
+      'Visual Studio': SchemaTypes.VISUAL_STUDIO,
+      'Sublime Text': SchemaTypes.SUBLIME,
     };
 
-    return map[schema] ?? SCHEMA_TYPES.INTELLIJ;
+    return map[schema] ?? SchemaTypes.INTELLIJ;
   }
 }

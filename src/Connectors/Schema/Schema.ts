@@ -3,43 +3,43 @@ export interface Schema {
   fileName: string;
 }
 
-export namespace SCHEMA_TYPES {
-  export const VISUAL_STUDIO: Schema = {
-    label: "Visual Studio",
-    fileName: "VisualStudio.json",
+export class SchemaTypes {
+  public static readonly VISUAL_STUDIO: Schema = {
+    label: 'Visual Studio',
+    fileName: 'VisualStudio.json',
   };
 
-  export const ATOM: Schema = {
-    label: "Atom",
-    fileName: "atom.json",
+  public static readonly ATOM: Schema = {
+    label: 'Atom',
+    fileName: 'atom.json',
   };
 
-  export const INTELLIJ: Schema = {
-    label: "IntelliJ",
-    fileName: "intelliJ.json",
+  public static readonly INTELLIJ: Schema = {
+    label: 'IntelliJ',
+    fileName: 'intelliJ.json',
   };
 
-  export const NOTEPADPP: Schema = {
-    label: "NodePad++",
-    fileName: "notepadplusplus.json",
+  public static readonly NOTEPADPP: Schema = {
+    label: 'NodePad++',
+    fileName: 'notepadplusplus.json',
   };
 
-  export const SUBLIME: Schema = {
-    label: "Sublime",
-    fileName: "sublime.json",
+  public static readonly SUBLIME: Schema = {
+    label: 'Sublime',
+    fileName: 'sublime.json',
   };
 
-  export const VS_CODE: Schema = {
-    label: "VS Code",
-    fileName: "vscode.json",
+  public static readonly VS_CODE: Schema = {
+    label: 'VS Code',
+    fileName: 'vscode.json',
   };
 
-  export const SCHEMAS: Schema[] = [
-    VISUAL_STUDIO,
-    ATOM,
-    INTELLIJ,
-    NOTEPADPP,
-    SUBLIME,
-    VS_CODE,
+  public readonly SCHEMAS: Schema[] = [
+    SchemaTypes.VISUAL_STUDIO,
+    SchemaTypes.ATOM,
+    SchemaTypes.INTELLIJ,
+    SchemaTypes.NOTEPADPP,
+    SchemaTypes.SUBLIME,
+    SchemaTypes.VS_CODE,
   ];
 }

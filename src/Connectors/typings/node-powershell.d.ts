@@ -6,7 +6,7 @@
 /// <reference types="node" />
 
 declare module "node-powershell" {
-  module NodePowershell {
+  namespace NodePowershell {
     export interface ShellOptions {
       /**
        * Determines whether to log verbose to the console.

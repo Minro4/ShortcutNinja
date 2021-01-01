@@ -8,7 +8,7 @@ describe("Shortcut creator tests", function () {
 
   it("single key", function () {
     scCreator.onKeydown("a");
-    let sc = scCreator.onKeydown("Enter");
+    const sc = scCreator.onKeydown("Enter");
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(0);
@@ -19,7 +19,7 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeydown("Alt");
     scCreator.onKeydown("Control");
     scCreator.onKeydown("a");
-    let sc = scCreator.onKeydown("Enter");
+    const sc = scCreator.onKeydown("Enter");
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(2);
@@ -33,7 +33,7 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeydown("Control");
     scCreator.onKeyup("Alt");
     scCreator.onKeydown("a");
-    let sc = scCreator.onKeydown("Enter");
+    const sc = scCreator.onKeydown("Enter");
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(1);
@@ -48,7 +48,7 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeydown("Control");
     scCreator.onKeyup("Shift");
     scCreator.onKeydown("b");
-    let sc = scCreator.onKeydown("Enter");
+    const sc = scCreator.onKeydown("Enter");
 
     expect(sc).not.toBeUndefined();
     //sc1
@@ -72,7 +72,7 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeyup("Shift");
     scCreator.onKeydown("b");
     scCreator.onKeydown("c");
-    var sc = scCreator.onKeydown("Enter");
+    const sc = scCreator.onKeydown("Enter");
 
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("c");

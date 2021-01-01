@@ -1,27 +1,26 @@
-import { IKeymap } from "../../IUniversalKeymap";
-import { Converter } from "../Converter";
-import { StrShortcutConverter } from "../ShortcutConverter";
+import { IKeymap } from '../../UniversalKeymap';
+import { Converter } from '../Converter';
+import { StrShortcutConverter } from '../ShortcutConverter';
 
-import * as chokidar from "chokidar";
-import { fsUtils } from "../../Utils";
+import * as chokidar from 'chokidar';
+import { fsUtils } from '../../Utils';
 import {
   UserShortcuts,
   VisualStudioConfig,
   VisualStudioXmlConfig,
   VisualStudioXmlKeyboardShortcuts,
-} from "./VisualStudio.models";
-import { exportSettings, importSettings } from "./VsImportExport";
-import { Schema, SCHEMA_TYPES } from "../../Schema/Schema";
-import { LoadSchema } from "../../Schema/SchemaLoader";
+} from './VisualStudio.models';
+import { exportSettings, importSettings } from './VsImportExport';
+import { Schema, SchemaTypes } from '../../Schema/Schema';
 
 export class VisualStudioConverter extends Converter<string> {
   private devenPath: string;
 
   constructor(devenPath: string) {
     super(
-      "VisualStudio.json",
-      new StrShortcutConverter("+", ", "),
-      SCHEMA_TYPES.VISUAL_STUDIO
+      'VisualStudio.json',
+      new StrShortcutConverter('+', ', '),
+      SchemaTypes.VISUAL_STUDIO
     );
     this.devenPath = devenPath;
   }
@@ -55,8 +54,8 @@ export class VisualStudioConverter extends Converter<string> {
     const sc:
       | VisualStudioXmlKeyboardShortcuts
       | undefined = xml.UserSettings.Category.find(
-      (element) => element.$.name === "Environment_Group"
-    )?.Category?.find((element) => element.$.name === "Environment_KeyBindings")
+      (element) => element.$.name === 'Environment_Group'
+    )?.Category?.find((element) => element.$.name === 'Environment_KeyBindings')
       ?.KeyboardShortcuts[0];
 
     if (sc) {
@@ -72,7 +71,7 @@ export class VisualStudioConverter extends Converter<string> {
       };
     } else {
       return {
-        scheme: "Visual Studio",
+        scheme: 'Visual Studio',
         userShortcuts: [],
       };
     }
@@ -85,8 +84,8 @@ export class VisualStudioConverter extends Converter<string> {
     const userShortcuts:
       | UserShortcuts[]
       | undefined = xml.UserSettings.Category.find(
-      (element) => element.$.name === "Environment_Group"
-    )?.Category?.find((element) => element.$.name === "Environment_KeyBindings")
+      (element) => element.$.name === 'Environment_Group'
+    )?.Category?.find((element) => element.$.name === 'Environment_KeyBindings')
       ?.KeyboardShortcuts[0]?.UserShortcuts;
 
     if (!userShortcuts) return undefined;
@@ -108,7 +107,7 @@ export class VisualStudioConverter extends Converter<string> {
         userShortcut.push({
           $: {
             Command: key,
-            Scope: "Global",
+            Scope: 'Global',
           },
           _: kmValue,
         });
@@ -120,11 +119,11 @@ export class VisualStudioConverter extends Converter<string> {
 
   private loadSettings(
     devenPath: string,
-    settingsPath: string = `temp/exported${new Date().getTime()}`
+    settingsPath = `temp/exported${new Date().getTime()}`
   ): Promise<VisualStudioXmlConfig> {
-    return new Promise((resolve, error) => {
+    return new Promise((resolve) => {
       const watcher = chokidar.watch(`${settingsPath}.*`, { interval: 0.5 });
-      watcher.on("add", (path) => {
+      watcher.on('add', (path) => {
         resolve(fsUtils.readXml<VisualStudioXmlConfig>(path));
         watcher.close();
       });
@@ -133,9 +132,9 @@ export class VisualStudioConverter extends Converter<string> {
   }
 
   private static mapSchema(schema: string): Schema {
-    const map = {
-      "Visual Studio Code": SCHEMA_TYPES.VS_CODE,
+    const map: { [key: string]: Schema } = {
+      'Visual Studio Code': SchemaTypes.VS_CODE,
     };
-    return map[schema] ?? SCHEMA_TYPES.VISUAL_STUDIO;
+    return map[schema] ?? SchemaTypes.VISUAL_STUDIO;
   }
 }
