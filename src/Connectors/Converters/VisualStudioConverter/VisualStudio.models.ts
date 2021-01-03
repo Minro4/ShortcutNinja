@@ -8,15 +8,15 @@ export interface VisualStudioXmlKeyboardShortcuts {
   ScopeDeginitions: any[];
   DefaultShortcuts: any[];
   ShortcutsScheme: string[];
-  UserShortcuts: UserShortcuts[];
+  UserShortcuts: XmlUserShortcuts[];
 }
 
-export interface UserShortcuts {
-  Shortcut?: VisualStudioConfigShortcut[];
-  RemoveShortcut?: VisualStudioConfigShortcut[];
+export interface XmlUserShortcuts {
+  Shortcut?: XmlVisualStudioConfigShortcut[];
+  RemoveShortcut?: XmlVisualStudioConfigShortcut[];
 }
 
-export interface VisualStudioConfigShortcut {
+export interface XmlVisualStudioConfigShortcut {
   _: string;
   $: {
     Command: string;
@@ -34,8 +34,10 @@ export interface Category {
 
 export interface VisualStudioConfig {
   scheme: string;
-  userShortcuts: { command: string; keybind: string }[];
+  additionalShortcuts: VisualStudioConfigShortcut;
+  removedShortcuts: VisualStudioConfigShortcut;
 }
 
+export type VisualStudioConfigShortcut = { command: string; keybind: string }[];
 
 export type VsShortcut = string;

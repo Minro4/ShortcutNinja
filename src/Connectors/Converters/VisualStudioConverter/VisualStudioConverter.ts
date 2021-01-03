@@ -5,11 +5,13 @@ import { StrShortcutConverter } from '../ShortcutConverter';
 import * as chokidar from 'chokidar';
 import { fsUtils } from '../../Utils';
 import {
-  UserShortcuts,
+  XmlUserShortcuts,
   VisualStudioConfig,
   VsShortcut,
   VisualStudioXmlConfig,
   VisualStudioXmlKeyboardShortcuts,
+  VisualStudioConfigShortcut,
+  XmlVisualStudioConfigShortcut,
 } from './VisualStudio.models';
 import { exportSettings, importSettings } from './VsImportExport';
 import { Schema, SchemaTypes } from '../../Schema/Schema';
@@ -17,14 +19,10 @@ import { LoadSchema } from '../../Schema/SchemaLoader';
 import { Keymap } from '../../Keymap/Keymap';
 
 export class VisualStudioConverter extends Converter<VsShortcut> {
-
   private devenPath: string;
 
   constructor(devenPath: string) {
-    super(
-      'VisualStudio.json',
-      new StrShortcutConverter('+', ', ')
-    );
+    super('VisualStudio.json', new StrShortcutConverter('+', ', '));
     this.devenPath = devenPath;
   }
 
@@ -32,18 +30,22 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     const xml = await this.loadSettings(this.devenPath);
     const config = this.xmlToConfig(xml);
 
-    const schema = await LoadSchema(VisualStudioConverter.mapSchema(config.scheme));
+    const schema = await LoadSchema(
+      VisualStudioConverter.mapSchema(config.scheme)
+    );
 
-    const ideKeymap = config.userShortcuts.reduce((km, sc) => {
-      km.add(sc.command,sc.keybind);
-      return km;
-    }, new Keymap<VsShortcut>());
+    const uniKmAdditional = await this.configScToUniKm(
+      config.additionalShortcuts
+    );
+    const uniKmRemoved = await this.configScToUniKm(config.removedShortcuts);
 
-    schema.overrideKeymap(await this.fromIdeKeymap(ideKeymap));
+    schema.removeKeymap(uniKmRemoved);
+    schema.addKeymap(uniKmAdditional);
     return schema;
   }
+
   public async save(keymap: UniversalKeymap): Promise<any> {
-    const ideKeymap = await this.toIdeKeymap(keymap)
+    const ideKeymap = await this.toIdeKeymap(keymap);
     const xml = await this.loadSettings(this.devenPath);
 
     if (this.addKmToXml(xml, ideKeymap)) {
@@ -61,21 +63,30 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     )?.Category?.find((element) => element.$.name === 'Environment_KeyBindings')
       ?.KeyboardShortcuts[0];
 
+    function xmlScToConfigSc(
+      xmlSc?: XmlVisualStudioConfigShortcut[]
+    ): VisualStudioConfigShortcut {
+      return (
+        xmlSc?.map((sc) => {
+          return {
+            keybind: sc._,
+            command: sc.$.Command,
+          };
+        }) ?? []
+      );
+    }
+
     if (sc) {
       return {
         scheme: sc.ShortcutsScheme[0],
-        userShortcuts:
-          sc.UserShortcuts[0]?.Shortcut?.map((sc) => {
-            return {
-              keybind: sc._,
-              command: sc.$.Command,
-            };
-          }) ?? [],
+        additionalShortcuts: xmlScToConfigSc(sc.UserShortcuts[0].Shortcut),
+        removedShortcuts: xmlScToConfigSc(sc.UserShortcuts[0].RemoveShortcut),
       };
     } else {
       return {
         scheme: 'Visual Studio',
-        userShortcuts: [],
+        additionalShortcuts: [],
+        removedShortcuts: [],
       };
     }
   }
@@ -85,7 +96,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     ideKeymap: Keymap<VsShortcut>
   ): VisualStudioXmlConfig | undefined {
     const userShortcuts:
-      | UserShortcuts[]
+      | XmlUserShortcuts[]
       | undefined = xml.UserSettings.Category.find(
       (element) => element.$.name === 'Environment_Group'
     )?.Category?.find((element) => element.$.name === 'Environment_KeyBindings')
@@ -132,6 +143,17 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
       });
       exportSettings(devenPath, settingsPath);
     });
+  }
+
+  private configScToUniKm(
+    configSc: VisualStudioConfigShortcut
+  ): Promise<UniversalKeymap> {
+    const ideKm = configSc.reduce((km, sc) => {
+      km.add(sc.command, sc.keybind);
+      return km;
+    }, new Keymap<VsShortcut>());
+
+    return this.fromIdeKeymap(ideKm);
   }
 
   private static mapSchema(schema: string): Schema {
