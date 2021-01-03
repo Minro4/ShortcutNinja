@@ -1,7 +1,7 @@
 import { Ide } from "./Ide";
 import { AggregateScanner } from "./Scanners/AggregateScanner";
+import { ShortcutCreator } from "./ShortcutCreator";
 
-import { ShortcutCreator } from "./Shortcut";
 
 //Connectors Interface
 export class Connectors {

@@ -1,13 +1,13 @@
 import { IShortcutConverter } from './Converters/ShortcutConverter';
 import { IdeMappings, IdeMappingsUtils } from './Ide';
-import { IShortcut } from './Shortcut';
+import { IJsonShortcut, Shortcut } from './Shortcut';
 import { fsUtils } from './Utils';
 
 export interface IKeymap<T> {
   [key: string]: T;
 }
 
-export type IUniversalKeymap = IKeymap<IShortcut[]>;
+export type IUniversalKeymap = IKeymap<Shortcut[]>;
 
 export class UniversalKeymap {
   public keymap: IUniversalKeymap;
@@ -43,9 +43,9 @@ export class UniversalKeymap {
       Object.keys(ideKm).reduce<IUniversalKeymap>((uniKeymap, ideKey) => {
         const uniKey = IdeMappingsUtils.toUni(ideMappings, ideKey);
         if (uniKey) {
-          const sc: IShortcut[] = ideKm[ideKey]
+          const sc: Shortcut[] = ideKm[ideKey]
             .map((shortcut) => shortcutConverter.toUni(shortcut))
-            .filter((shortcut) => shortcut != undefined) as IShortcut[];
+            .filter((shortcut) => shortcut != undefined) as Shortcut[];
           if (sc) uniKeymap[uniKey] = sc;
         }
         return uniKeymap;
@@ -54,36 +54,54 @@ export class UniversalKeymap {
   }
 
   public saveKeymap(path: string): Promise<void> {
-    return fsUtils.saveJson<IUniversalKeymap>(
-      path,
-      this.keymap,
-      undefined,
-      UniversalKeymap.jsonReplacer
-    );
+    return fsUtils.saveJson<IJsonUniversalKeymap>(path, this.toJson());
   }
 
   public static async readKeymap(path: string): Promise<UniversalKeymap> {
-    const json = await fsUtils.readJson<any>(path);
-    Object.values<any[]>(json).forEach((shortcuts) => {
-      shortcuts.forEach((shortcut) => {
-        shortcut.sc1.holdedKeys = new Set(shortcut.sc1.holdedKeys);
-        if (shortcut.sc2)
-          shortcut.sc2.holdedKeys = new Set(shortcut.sc2.holdedKeys);
-      });
-    });
-
-    return new UniversalKeymap(json as IUniversalKeymap);
-  }
-
-  private static jsonReplacer(_key: any, value: any): any {
-    if (value && value instanceof Set) {
-      return [...value];
-    } else {
-      return value;
-    }
+    return UniversalKeymap.fromJson(await fsUtils.readJson<any>(path));
   }
 
   public overrideKeymap(overrideKm: UniversalKeymap): UniversalKeymap {
-    return new UniversalKeymap({ ...this.keymap, ...overrideKm.keymap });
+    Object.keys(overrideKm.keymap).forEach((key) => {
+      this.keymap[key] = overrideKm.get(key);
+    });
+
+    return this;
+  }
+
+  public addKeymap(additionalKm: UniversalKeymap): UniversalKeymap {
+    Object.keys(additionalKm.keymap).forEach((key) => {
+      const a = this.get(key);
+      a.concat(additionalKm.get(key));
+      this.keymap[key] = a;
+    });
+
+    return this;
+  }
+
+  public get(key: string): Shortcut[] {
+    console.log('allo');
+    return this.keymap[key] ?? [];
+  }
+
+  public toJson(): IJsonUniversalKeymap {
+    return Object.keys(this.keymap).reduce<IJsonUniversalKeymap>(
+      (json, key) => {
+        json[key] = this.keymap[key].map((shortcut) => shortcut.toJson());
+        return json;
+      },
+      {}
+    );
+  }
+
+  public static fromJson(json: IJsonUniversalKeymap): UniversalKeymap {
+    return new UniversalKeymap(
+      Object.keys(json).reduce<IUniversalKeymap>((uniKm, key) => {
+        uniKm[key] = json[key].map(Shortcut.fromJson);
+        return uniKm;
+      }, {})
+    );
   }
 }
+
+type IJsonUniversalKeymap = IKeymap<IJsonShortcut[]>;

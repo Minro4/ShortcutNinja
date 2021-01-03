@@ -1,6 +1,10 @@
 import { JetBrainsConverter } from '../../../src/Connectors/Converters/JetbrainsConverter/JetBrainsConverter';
 import { UniversalKeymap } from '../../../src/Connectors/UniversalKeymap';
-import { HoldableKeys } from '../../../src/Connectors/Shortcut';
+import {
+  HoldableKeys,
+  Shortcut,
+  SingleShortcut,
+} from '../../../src/Connectors/Shortcut';
 import { fsUtils } from '../../../src/Connectors/Utils';
 import * as path from 'path';
 import { APP_NAME } from '../../../src/Connectors/Constants/general';
@@ -15,16 +19,17 @@ import { SchemaTypes } from '../../../src/Connectors/Schema/Schema';
 describe('JetBrains converter test', function () {
   const universalKm: UniversalKeymap = new UniversalKeymap({
     formatDocument: [
-      {
-        sc1: {
-          key: 'f',
-          holdedKeys: new Set<HoldableKeys>(['alt', 'shift']),
-        },
-        sc2: {
-          key: 'a',
-          holdedKeys: new Set<HoldableKeys>(['ctrl']),
-        },
-      },
+      new Shortcut(
+        new SingleShortcut(
+          new Set<HoldableKeys>(['alt', 'shift']),
+          'f'
+        ),
+
+        new SingleShortcut(
+          new Set<HoldableKeys>(['ctrl']),
+          'a'
+        )
+      ),
     ],
   });
 

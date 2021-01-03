@@ -1,16 +1,16 @@
 import { IShortcutConverter } from '../src/Connectors/Converters/ShortcutConverter';
-import { IShortcut } from '../src/Connectors/Shortcut';
+import { Shortcut, SingleShortcut } from '../src/Connectors/Shortcut';
 import { UniversalKeymap } from '../src/Connectors/UniversalKeymap';
 
 describe('Universal keymap tests', function () {
   const converter: IShortcutConverter<string> = {
-    toIde: (shortcut: IShortcut) => {
+    toIde: (shortcut: Shortcut) => {
       if (shortcut.sc1.key === 'uniSc') return 'ideSc';
       return 'wrong';
     },
     toUni: (shortcut: string) => {
       if (shortcut == 'ideSc')
-        return { sc1: { key: 'uniSc', holdedKeys: new Set() } };
+        return new Shortcut(new SingleShortcut(new Set(), 'uniSc'));
       return undefined;
     },
   };
@@ -27,7 +27,7 @@ describe('Universal keymap tests', function () {
 
   it('toUniKeymap should correctly map key and shortcut', async function () {
     const uniKm = new UniversalKeymap({
-      uniKey: [{ sc1: { key: 'uniSc', holdedKeys: new Set() } }],
+      uniKey: [new Shortcut(new SingleShortcut(new Set(), 'uniSc'))],
     });
     const ideKm = uniKm.toIdeKeymap({ uniKey: 'ideKey' }, converter);
 

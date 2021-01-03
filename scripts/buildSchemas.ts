@@ -10,16 +10,15 @@ import { StrShortcutConverter } from '../src/Connectors/Converters/ShortcutConve
 import { IdeMappings } from '../src/Connectors/Ide';
 import {
   IKeymap,
-  KeymapUtils,
-  IUniversalKeymap,
+  UniversalKeymap,
 } from '../src/Connectors/UniversalKeymap';
 import { VsCondeConfig } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter.models';
 
 interface SchemaBuild {
   schema: Schema;
-  builder: (unprocessedSchema: any) => Promise<IUniversalKeymap>;
+  builder: (unprocessedSchema: any) => Promise<UniversalKeymap>;
   parentSchema?: SchemaBuild;
-  build?: Promise<IUniversalKeymap>;
+  build?: Promise<UniversalKeymap>;
 }
 
 const VS_CODE: SchemaBuild = {
@@ -75,25 +74,20 @@ function BuildSchemas(schemas: SchemaBuild[]): Promise<void[]> {
 }
 
 async function buildSchema(schema: SchemaBuild) {
-  const parentBuild: IUniversalKeymap = schema.parentSchema
+  const parentBuild: UniversalKeymap = schema.parentSchema
     ? await GetBuild(schema.parentSchema)
-    : {};
+    : new UniversalKeymap({});
 
   const schemaPath = path.join(SCHEMAS_PATH, schema.schema.fileName);
 
   const uniConfig = await GetBuild(schema);
 
-  const combinedConfig: IUniversalKeymap = { ...parentBuild, ...uniConfig };
+  const combinedConfig = parentBuild.overrideKeymap(uniConfig);
 
-  // console.log(combinedConfig["formatDocument"][0].sc1);
-  console.log(
-    JSON.stringify(combinedConfig['formatDocument'][0].sc1.holdedKeys)
-  );
-
-  return KeymapUtils.saveKeymap(schemaPath, combinedConfig);
+  return combinedConfig.saveKeymap(schemaPath);
 }
 
-function GetBuild(schema: SchemaBuild): Promise<IUniversalKeymap> {
+async function GetBuild(schema: SchemaBuild): Promise<UniversalKeymap> {
   if (!schema.build) {
     const unprocessedSchemaPath = path.join(
       UNPROCESSED_SCHEMAS_PATH,
@@ -110,7 +104,7 @@ function GetBuild(schema: SchemaBuild): Promise<IUniversalKeymap> {
 
 async function VsCodeSchemaBuilder(
   unprocessedSchema: VsCondeConfig
-): Promise<IUniversalKeymap> {
+): Promise<UniversalKeymap> {
   const ideConfig = unprocessedSchema.reduce<IKeymap<string[]>>(
     (ideKm, vsCodeKb) => {
       ideKm[vsCodeKb.command] = [vsCodeKb.key];
@@ -123,7 +117,7 @@ async function VsCodeSchemaBuilder(
     path.join(IDE_MAPPINGS_PATH, 'vscode.json')
   );
 
-  return KeymapUtils.toUniKeymap(
+  return UniversalKeymap.fromIdeKeymap(
     ideConfig,
     ideMappings,
     new StrShortcutConverter()

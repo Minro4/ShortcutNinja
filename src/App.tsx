@@ -1,50 +1,53 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import icon from '../assets/icon.svg';
+import React, { Component, ReactElement } from 'react';
+import { Keymapper } from './components/keymapper/keymapper';
+import { Connectors } from './Connectors';
+import { Ide } from './Connectors/Ide';
+import { UniversalKeymap } from './Connectors/UniversalKeymap';
 
-const Hello = () => {
-  return (
-    <div>
-      <div className="Hello">
-        <img width="200px" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              🙏
-            </span>
-            Donate
-          </button>
-        </a>
-      </div>
-    </div>
-  );
+type AppProps = Record<string, never>;
+
+type AppState = {
+  ides: Ide[];
+  keymap: UniversalKeymap;
+  showKeymap: boolean;
 };
 
-export default function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" component={Hello} />
-      </Switch>
-    </Router>
-  );
+export default class App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
+    this.state = {
+      ides: [],
+      keymap: new UniversalKeymap(),
+      showKeymap: false,
+    };
+  }
+
+  // Before the component mounts, we initialise our state
+  componentWillMount(): void {
+    Connectors.scan().then(async (scannedIdes) => {
+      this.setState({
+        ...this.state,
+        ides: scannedIdes,
+      });
+      console.log(scannedIdes);
+      scannedIdes[0].converter.load().then((keymap) => {
+        console.log(keymap);
+        this.setState({
+          ...this.state,
+          keymap,
+          showKeymap: true,
+        });
+      });
+    });
+  }
+
+  render(): ReactElement {
+    return (
+      <div>
+        {this.state.showKeymap && (
+          <Keymapper ides={this.state.ides} keymap={this.state.keymap} />
+        )}
+      </div>
+    );
+  }
 }

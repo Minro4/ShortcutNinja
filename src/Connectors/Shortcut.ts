@@ -1,14 +1,12 @@
-export interface IShortcut {
+interface IShortcut {
   sc1: ISingleShortcut;
   sc2?: ISingleShortcut;
 }
 
-export interface ISingleShortcut {
+interface ISingleShortcut {
   holdedKeys: Set<HoldableKeys>;
-  key: kbKey;
+  key: string;
 }
-
-type kbKey = string;
 
 const stringLitArray = <L extends string>(arr: L[]) => arr;
 export const holdableKeys = stringLitArray(['ctrl', 'shift', 'alt']);
@@ -17,113 +15,63 @@ export type HoldableKeys = typeof holdableKeys[number];
 export const isHoldableKey = (k: any): k is HoldableKeys =>
   holdableKeys.includes(k);
 
-//const holdableKeys: Set<string> = new Set<string>(["Ctrl", "Shift", "Alt"]);
-export class ShortcutCreator {
-  private static readonly maxSc = 2;
-  private scCreators: SingleShortcutCreator[];
+export class Shortcut implements IShortcut {
+  sc1: SingleShortcut;
+  sc2?: SingleShortcut | undefined;
 
-  private currentScCreator: SingleShortcutCreator;
-
-  constructor() {
-    this.scCreators = [new SingleShortcutCreator()];
-    this.currentScCreator = this.scCreators[0];
+  constructor(sc1: SingleShortcut, sc2?: SingleShortcut) {
+    this.sc1 = sc1;
+    this.sc2 = sc2;
   }
 
-  public onKeydown(key: string): IShortcut | undefined {
-    key = this.convertToUnikey(key);
-    if (key === 'enter') return this.create();
-
-    this.currentScCreator.onKeydown(key);
-    if (this.currentScCreator.isComplete()) {
-      if (this.scCreators.length > ShortcutCreator.maxSc) {
-        this.scCreators = [this.currentScCreator];
-      }
-      this.currentScCreator = new SingleShortcutCreator(this.currentScCreator);
-      this.scCreators.push(this.currentScCreator);
-    }
-  }
-
-  public onKeyup(key: string): void {
-    key = this.convertToUnikey(key);
-    this.currentScCreator.onKeyup(key);
-  }
-
-  private create(): IShortcut | undefined {
-    const sc1 = this.scCreators[0].create();
-    if (sc1) {
-      return {
-        sc1: sc1,
-        sc2: this.scCreators[1].create(),
-      };
-    }
-  }
-
-  public toString(): string {
-    return this.scCreators.reduce<string>((str, scCreator, idx, arr) => {
-      if (idx === ShortcutCreator.maxSc) return str;
-      return (
-        str + scCreator.toString() + (idx >= arr.length - 2 ? '' : ' chord to ')
-      );
-    }, '');
-  }
-
-  private convertToUnikey(key: string): string {
-    const km: { [key: string]: string } = {
-      Control: 'ctrl',
+  public toJson(): IJsonShortcut {
+    return {
+      sc1: this.sc1.toJson(),
+      sc2: this.sc2 && this.sc2.toJson(),
     };
-    return km[key] ?? key.toLowerCase();
+  }
+
+  public static fromJson(json: IJsonShortcut): Shortcut {
+    return new Shortcut(
+      SingleShortcut.fromJson(json.sc1),
+      json.sc2 && SingleShortcut.fromJson(json.sc2)
+    );
   }
 }
 
-class SingleShortcutCreator {
-  private key?: kbKey;
-  private holdedKeys: Set<HoldableKeys>;
-  private addedKeys: boolean;
+export class SingleShortcut implements ISingleShortcut {
+  holdedKeys: Set<HoldableKeys>;
+  key: string;
 
-  constructor(previous?: SingleShortcutCreator) {
-    this.holdedKeys = previous
-      ? new Set<HoldableKeys>(previous.holdedKeys)
-      : new Set<HoldableKeys>();
-    this.addedKeys = false;
+  constructor(holdedKeys: Set<HoldableKeys>, key: string) {
+    this.holdedKeys = holdedKeys;
+    this.key = key;
   }
 
-  public onKeydown(key: string): void {
-    this.addedKeys = true;
-    if (isHoldableKey(key)) {
-      this.holdedKeys.add(key);
-    } else {
-      this.key = key;
-    }
-  }
-
-  public onKeyup(key: string): void {
-    if (isHoldableKey(key)) {
-      this.holdedKeys.delete(key);
-    }
-  }
-
-  public create(): ISingleShortcut | undefined {
-    if (this.key) {
-      return { holdedKeys: this.holdedKeys, key: this.key };
-    }
-  }
-
-  public toString(): string {
-    if (!this.addedKeys) return '';
-
-    const orderedKeys = holdableKeys.filter((key) =>
+  public orderedHoldedKeys(): HoldableKeys[] {
+    return holdableKeys.filter((key) =>
       this.holdedKeys.has(key)
-    ) as string[];
-    if (this.key) orderedKeys.push(this.key);
-
-    return orderedKeys.reduce<string>(
-      (str, key, idx, keys) =>
-        (str += key + (idx === keys.length - 1 ? '' : '+')),
-      ''
-    );
+    ) as HoldableKeys[];
   }
 
-  public isComplete(): boolean {
-    return this.key !== undefined;
+  public toJson(): IJsonSingleShortcut {
+    return {
+      holdedKeys: [...this.holdedKeys],
+      key: this.key,
+    };
   }
+
+  public static fromJson(json: IJsonSingleShortcut): SingleShortcut {
+    return new SingleShortcut(new Set(json.holdedKeys), json.key);
+  }
+}
+
+export interface IJsonShortcut {
+  sc1: IJsonSingleShortcut;
+  sc2?: IJsonSingleShortcut;
+}
+
+export interface IJsonSingleShortcut {
+  holdedKeys: HoldableKeys[];
+  key: string;
 }

@@ -31,9 +31,9 @@ export abstract class Converter<IdeShortcut> implements IConverter {
 
   public async save(uniKm: UniversalKeymap): Promise<any> {
     const ideKm = uniKm.toIdeKeymap(await this.ideMappings, this.scConverter);
-
     return this.writeIdeKeymap(ideKm);
   }
+
   public async load(): Promise<UniversalKeymap> {
     const uniKm = UniversalKeymap.fromIdeKeymap(
       await this.readIdeKeymap(),
@@ -45,7 +45,14 @@ export abstract class Converter<IdeShortcut> implements IConverter {
       ? await LoadSchema(this.schema)
       : new UniversalKeymap();
 
-    return baseKm.overrideKeymap(uniKm);
+    return this.combineWithSchema(baseKm, uniKm);
+  }
+
+  protected combineWithSchema(
+    schema: UniversalKeymap,
+    uniKm: UniversalKeymap
+  ): UniversalKeymap {
+    return schema.overrideKeymap(uniKm);
   }
 
   protected abstract readIdeKeymap(): Promise<IKeymap<IdeShortcut[]>>;

@@ -1,1 +1,5 @@
-[{"key":"shift+alt+f ctrl+a","command":"editor.action.formatDocument"}]
+[
+  { "key": "shift+alt+f ctrl+a", "command": "editor.action.formatDocument" },
+  { "key": "shift+alt+f ctrl+b", "command": "editor.action.formatDocument" },
+  { "key": "shift+alt+f", "command": "-editor.action.formatDocument" }
+]

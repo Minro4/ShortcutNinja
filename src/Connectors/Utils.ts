@@ -1,5 +1,5 @@
 import { promises as fs, constants, access } from 'fs';
-import stripJsonComments = require('strip-json-comments');
+import stripJsonComments from 'strip-json-comments';
 import { Builder, parseStringPromise } from 'xml2js';
 
 export class fsUtils {
@@ -70,5 +70,3 @@ export class fsUtils {
     });
   }
 }
-
-

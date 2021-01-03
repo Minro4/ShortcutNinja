@@ -1,8 +1,10 @@
-{
-  "formatDocument": {
+[
+  {
+    "id": "formatDocument",
     "label": "Format Document"
   },
-  "goToFile": {
+  {
+    "id": "goToFile",
     "label": "Go To File"
   }
-}
+]

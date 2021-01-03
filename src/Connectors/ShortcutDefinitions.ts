@@ -1,18 +1,25 @@
 import { fsUtils } from './Utils';
 
-interface IShortcutDefinitions {
-  [key: string]: IShortcutDefinition;
-}
-
 export interface IShortcutDefinition {
   id: string;
   label: string;
 }
 
-const DEFAULT_SC_DEFINITIONS_PATH = 'src/config/ShortcutDefinitions.json';
+export class ShortcutDefinitions {
+  private static readonly DEFAULT_SC_DEFINITIONS_PATH =
+    'src/Connectors/Config/ShortcutDefinitions.json';
 
-export function readShortcutDefinitions(
-  path: string = DEFAULT_SC_DEFINITIONS_PATH
-): Promise<IShortcutDefinitions> {
-  return fsUtils.readJson<IShortcutDefinitions>(path);
+  public definitions: IShortcutDefinition[];
+
+  constructor(definitions?: IShortcutDefinition[]) {
+    this.definitions = definitions ?? [];
+  }
+
+  public static async read(
+    path: string = ShortcutDefinitions.DEFAULT_SC_DEFINITIONS_PATH
+  ): Promise<ShortcutDefinitions> {
+    return new ShortcutDefinitions(
+      await fsUtils.readJson<IShortcutDefinition[]>(path)
+    );
+  }
 }
