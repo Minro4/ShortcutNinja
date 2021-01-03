@@ -4,3 +4,5 @@ export interface VsCodeKeybinding {
   command: string;
   when?: string;
 }
+
+export type VsCodeShortcut = string;

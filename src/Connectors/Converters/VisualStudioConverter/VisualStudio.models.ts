@@ -36,3 +36,6 @@ export interface VisualStudioConfig {
   scheme: string;
   userShortcuts: { command: string; keybind: string }[];
 }
+
+
+export type VsShortcut = string;

@@ -1,5 +1,5 @@
 import { VsCodeConverter } from '../../../src/Connectors/Converters/VsCodeConverter/VsCodeConverter';
-import { UniversalKeymap } from '../../../src/Connectors/UniversalKeymap';
+import { UniversalKeymap } from '../../../src/Connectors/Keymap';
 import {
   HoldableKeys,
   Shortcut,
@@ -46,8 +46,8 @@ describe('vscode converter test', function () {
   });
 
   it('Read config', async function () {
-    const baseKm = await LoadSchema(SchemaTypes.VS_CODE);
-    const expectedKm: UniversalKeymap = baseKm.overrideKeymap(universalKm);
+    const expectedKm = await LoadSchema(SchemaTypes.VS_CODE);
+    expectedKm.overrideKeymap(universalKm)
     const converted: UniversalKeymap = await converter.load();
     expect(converted).toEqual(expectedKm);
   });

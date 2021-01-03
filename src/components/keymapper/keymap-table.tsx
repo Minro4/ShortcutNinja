@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'; // we need this to make JSX compile
+import { UniversalKeymap } from '../../Connectors/Keymap';
 import { Shortcut, SingleShortcut } from '../../Connectors/Shortcut';
 import { ShortcutDefinitions } from '../../Connectors/ShortcutDefinitions';
-import { UniversalKeymap } from '../../Connectors/UniversalKeymap';
 
 type KeymapTableProps = {
   keymap: UniversalKeymap;

@@ -1,4 +1,4 @@
-import { IKeymap } from '../../UniversalKeymap';
+import { UniversalKeymap } from '../../Keymap';
 import { Converter } from '../Converter';
 import { StrShortcutConverter } from '../ShortcutConverter';
 
@@ -7,40 +7,43 @@ import { fsUtils } from '../../Utils';
 import {
   UserShortcuts,
   VisualStudioConfig,
+  VsShortcut,
   VisualStudioXmlConfig,
   VisualStudioXmlKeyboardShortcuts,
 } from './VisualStudio.models';
 import { exportSettings, importSettings } from './VsImportExport';
 import { Schema, SchemaTypes } from '../../Schema/Schema';
+import { LoadSchema } from '../../Schema/SchemaLoader';
+import { Keymap } from '../../Keymap/Keymap';
 
-export class VisualStudioConverter extends Converter<string> {
+export class VisualStudioConverter extends Converter<VsShortcut> {
+
   private devenPath: string;
 
   constructor(devenPath: string) {
     super(
       'VisualStudio.json',
-      new StrShortcutConverter('+', ', '),
-      SchemaTypes.VISUAL_STUDIO
+      new StrShortcutConverter('+', ', ')
     );
     this.devenPath = devenPath;
   }
 
-  protected async readIdeKeymap(): Promise<IKeymap<string[]>> {
+  public async load(): Promise<UniversalKeymap> {
     const xml = await this.loadSettings(this.devenPath);
     const config = this.xmlToConfig(xml);
 
-    this.schema = VisualStudioConverter.mapSchema(config.scheme);
+    const schema = await LoadSchema(VisualStudioConverter.mapSchema(config.scheme));
 
-    return config.userShortcuts.reduce<IKeymap<string[]>>((km, sc) => {
-      if (km[sc.command]) {
-        km[sc.command].push(sc.keybind);
-      } else {
-        km[sc.command] = [sc.keybind];
-      }
+    const ideKeymap = config.userShortcuts.reduce((km, sc) => {
+      km.add(sc.command,sc.keybind);
       return km;
-    }, {});
+    }, new Keymap<VsShortcut>());
+
+    schema.overrideKeymap(await this.fromIdeKeymap(ideKeymap));
+    return schema;
   }
-  protected async writeIdeKeymap(ideKeymap: IKeymap<string[]>): Promise<void> {
+  public async save(keymap: UniversalKeymap): Promise<any> {
+    const ideKeymap = await this.toIdeKeymap(keymap)
     const xml = await this.loadSettings(this.devenPath);
 
     if (this.addKmToXml(xml, ideKeymap)) {
@@ -79,7 +82,7 @@ export class VisualStudioConverter extends Converter<string> {
 
   private addKmToXml(
     xml: VisualStudioXmlConfig,
-    ideKeymap: IKeymap<string[]>
+    ideKeymap: Keymap<VsShortcut>
   ): VisualStudioXmlConfig | undefined {
     const userShortcuts:
       | UserShortcuts[]
@@ -103,7 +106,7 @@ export class VisualStudioConverter extends Converter<string> {
       sc.Shortcut = sc.Shortcut!.filter((s) => s.$.Command !== key);
 
       //Add new shortcuts
-      sc.Shortcut = ideKeymap[key].reduce((userShortcut, kmValue) => {
+      sc.Shortcut = ideKeymap.keys().reduce((userShortcut, kmValue) => {
         userShortcut.push({
           $: {
             Command: key,

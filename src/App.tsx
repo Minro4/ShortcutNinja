@@ -2,7 +2,7 @@ import React, { Component, ReactElement } from 'react';
 import { Keymapper } from './components/keymapper/keymapper';
 import { Connectors } from './Connectors';
 import { Ide } from './Connectors/Ide';
-import { UniversalKeymap } from './Connectors/UniversalKeymap';
+import { UniversalKeymap } from './Connectors/Keymap';
 
 type AppProps = Record<string, never>;
 

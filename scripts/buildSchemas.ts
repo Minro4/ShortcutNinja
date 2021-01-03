@@ -5,18 +5,12 @@ import {
   UNPROCESSED_SCHEMAS_PATH,
 } from '../src/Connectors/Constants/Schemas';
 import { fsUtils } from '../src/Connectors/Utils';
-import { IDE_MAPPINGS_PATH } from '../src/Connectors/Constants/general';
-import { StrShortcutConverter } from '../src/Connectors/Converters/ShortcutConverter';
-import { IdeMappings } from '../src/Connectors/Ide';
-import {
-  IKeymap,
-  UniversalKeymap,
-} from '../src/Connectors/UniversalKeymap';
-import { VsCondeConfig } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter.models';
+import { UniversalKeymap } from '../src/Connectors/Keymap';
+import { VsCodeConverter } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter';
 
 interface SchemaBuild {
   schema: Schema;
-  builder: (unprocessedSchema: any) => Promise<UniversalKeymap>;
+  builder: (path: string) => Promise<UniversalKeymap>;
   parentSchema?: SchemaBuild;
   build?: Promise<UniversalKeymap>;
 }
@@ -82,9 +76,9 @@ async function buildSchema(schema: SchemaBuild) {
 
   const uniConfig = await GetBuild(schema);
 
-  const combinedConfig = parentBuild.overrideKeymap(uniConfig);
+  parentBuild.overrideKeymap(uniConfig);
 
-  return combinedConfig.saveKeymap(schemaPath);
+  return parentBuild.saveKeymap(schemaPath);
 }
 
 async function GetBuild(schema: SchemaBuild): Promise<UniversalKeymap> {
@@ -102,24 +96,6 @@ async function GetBuild(schema: SchemaBuild): Promise<UniversalKeymap> {
   return schema.build;
 }
 
-async function VsCodeSchemaBuilder(
-  unprocessedSchema: VsCondeConfig
-): Promise<UniversalKeymap> {
-  const ideConfig = unprocessedSchema.reduce<IKeymap<string[]>>(
-    (ideKm, vsCodeKb) => {
-      ideKm[vsCodeKb.command] = [vsCodeKb.key];
-      return ideKm;
-    },
-    {}
-  );
-
-  const ideMappings = await fsUtils.readJson<IdeMappings>(
-    path.join(IDE_MAPPINGS_PATH, 'vscode.json')
-  );
-
-  return UniversalKeymap.fromIdeKeymap(
-    ideConfig,
-    ideMappings,
-    new StrShortcutConverter()
-  );
+async function VsCodeSchemaBuilder(path: string): Promise<UniversalKeymap> {
+  return new VsCodeConverter(path).load();
 }

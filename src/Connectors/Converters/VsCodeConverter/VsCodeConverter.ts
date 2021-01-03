@@ -1,45 +1,32 @@
-import { IKeymap, UniversalKeymap } from '../../UniversalKeymap';
+import { UniversalKeymap } from '../../Keymap';
 import { SchemaTypes } from '../../Schema/Schema';
 import { fsUtils } from '../../Utils';
 import { Converter } from '../Converter';
 import { StrShortcutConverter } from '../ShortcutConverter';
-import { VsCodeKeybinding, VsCondeConfig } from './VsCodeConverter.models';
+import { VsCodeKeybinding, VsCondeConfig, VsCodeShortcut } from './VsCodeConverter.models';
 import { KEYBINDINGS_PATH } from '../../Constants/VsCode';
 import { LoadSchema } from '../../Schema/SchemaLoader';
+import { Keymap } from '../../Keymap';
 
-export class VsCodeConverter extends Converter<string> {
+export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
+  private readonly schema = SchemaTypes.VS_CODE
+  private readonly substractChar = "-";
 
   constructor(configPath?: string) {
-    super('vscode.json', new StrShortcutConverter(), SchemaTypes.VS_CODE);
+    super('vscode.json', new StrShortcutConverter());
 
     this.configPath = configPath ?? KEYBINDINGS_PATH;
   }
 
-  protected async readIdeKeymap(): Promise<IKeymap<string[]>> {
-    const ideConfig = await fsUtils.readJson<VsCondeConfig>(this.configPath);
-    return ideConfig.reduce<IKeymap<string[]>>((ideKm, vsCodeKb) => {
-      if (ideKm[vsCodeKb.command]) ideKm[vsCodeKb.command].push(vsCodeKb.key);
-      else ideKm[vsCodeKb.command] = [vsCodeKb.key];
-      return ideKm;
-    }, {});
-  }
+  public async save(keymap: UniversalKeymap): Promise<any> {
+    const ideKeymap = await this.toIdeKeymap(keymap);
 
-  protected async writeIdeKeymap(
-    ideKeymap: IKeymap<string[]>
-  ): Promise<unknown> {
-    const uniSchema: UniversalKeymap = this.schema
-      ? await LoadSchema(this.schema)
-      : new UniversalKeymap();
+    const ideSchema = await this.fetchIdeSchema(this.schema);
 
-    const ideSchema = uniSchema.toIdeKeymap(
-      await this.ideMappings,
-      this.scConverter
-    );
-
-    const newConfig = Object.keys(ideKeymap).flatMap<VsCodeKeybinding>(
+    const newConfig = ideKeymap.keys().flatMap<VsCodeKeybinding>(
       (ideKey) => {
-        const bindings: VsCodeKeybinding[] = ideKeymap[ideKey].map(
+        const bindings: VsCodeKeybinding[] = ideKeymap.get(ideKey).map(
           (ideShortcut) => {
             return {
               key: ideShortcut,
@@ -49,21 +36,46 @@ export class VsCodeConverter extends Converter<string> {
         );
 
         //Unbind default shortcuts
-        if (ideSchema[ideKey]) {
+
           bindings.push(
-            ...ideSchema[ideKey].map((ideSchemaKey) => {
-              return {
+            ...ideSchema.get(ideKey).map((ideSchemaKey) => {
+               return {
                 key: ideSchemaKey,
                 command: `-${ideKey}`,
-              };
+                       };
             })
           );
-        }
+
 
         return bindings;
       }
     );
 
     return fsUtils.saveJson<VsCondeConfig>(this.configPath, newConfig);
+  }
+  public async load(): Promise<UniversalKeymap> {
+    const ideConfig = await fsUtils.readJson<VsCondeConfig>(this.configPath);
+    const schema = await LoadSchema(this.schema)
+
+    const ideKeymapToRemove = new Keymap<VsCodeShortcut>();
+    const ideKeymapToAdd = new Keymap<VsCodeShortcut>();
+
+    ideConfig.forEach((vsCodeKb)=> {
+      let command = vsCodeKb.command;
+      if (command.startsWith(this.substractChar)){
+        command= command.substring(this.substractChar.length);
+        ideKeymapToRemove.add(command,vsCodeKb.key);
+      }
+      else{
+        ideKeymapToAdd.add(command,vsCodeKb.key);
+      }
+    })
+
+    const uniKeymapToRemove = await this.fromIdeKeymap(ideKeymapToRemove);
+    const uniKeymapToAdd = await this.fromIdeKeymap(ideKeymapToAdd);
+
+    schema.removeKeymap(uniKeymapToRemove);
+    schema.addKeymap(uniKeymapToAdd);
+    return schema;
   }
 }

@@ -1,5 +1,5 @@
 import { JetBrainsConverter } from '../../../src/Connectors/Converters/JetbrainsConverter/JetBrainsConverter';
-import { UniversalKeymap } from '../../../src/Connectors/UniversalKeymap';
+import { UniversalKeymap } from '../../../src/Connectors/Keymap';
 import {
   HoldableKeys,
   Shortcut,
@@ -46,8 +46,8 @@ describe('JetBrains converter test', function () {
   });
 
   it('Read config', async function () {
-    const baseKm = await LoadSchema(SchemaTypes.VISUAL_STUDIO);
-    const expectedKm: UniversalKeymap = baseKm.overrideKeymap(universalKm);
+    const expectedKm = await LoadSchema(SchemaTypes.VISUAL_STUDIO);
+     expectedKm.overrideKeymap(universalKm);
 
     const converter = new JetBrainsConverter(
       keymapOptionPath,

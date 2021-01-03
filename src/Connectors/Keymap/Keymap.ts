@@ -1,0 +1,93 @@
+import _ from "lodash";
+import { IShortcutConverter } from "../Converters/ShortcutConverter";
+import { IdeMappings, IdeMappingsUtils } from "../Ide";
+import { Shortcut } from "../Shortcut";
+import { UniversalKeymap } from ".";
+import { UniversalMappings } from "./UniversalKeymap";
+
+export type Mappings<T> = {
+  [key: string]: T;
+};
+
+export class Keymap<T> {
+  protected keymap: Mappings<T[]>;
+
+  constructor(keymap?: Mappings<T[]>) {
+    this.keymap = keymap ?? {};
+  }
+
+  public overrideKeymap(overrideKm: Keymap<T>): void {
+    overrideKm.keys().forEach((key) => {
+      this.set(key, overrideKm.get(key));
+    });
+  }
+
+  public addKeymap(additionalKm: Keymap<T>): void {
+    additionalKm.keys().forEach((key) => {
+      additionalKm.get(key).forEach((value) => this.add(key, value));
+    });
+  }
+
+  public removeKeymap(removeKm: Keymap<T>): void {
+    removeKm.keys().forEach((key) => {
+      removeKm.get(key).forEach((value) => this.remove(key, value));
+    });
+  }
+
+  public get(key: string): T[] {
+    return this.keymap[key] ?? [];
+  }
+
+  public add(key: string, shortcuts: T | T[]): void {
+    this.keymap[key] = this.get(key).concat(shortcuts);
+  }
+
+  public set(key: string, shortcuts: T[]): void {
+    this.keymap[key] = shortcuts;
+  }
+
+  public has(key: string): boolean {
+    return !!this.keymap[key];
+  }
+
+  public remove(key: string, shortcut?: T): boolean {
+    if (!shortcut) {
+      delete this.keymap[key];
+    } else {
+      const array = this.get(key);
+      const idx = array.findIndex((currentShortcut) =>
+        _.isEqual(currentShortcut, shortcut)
+      );
+      if (idx >= 0) {
+        array.splice(idx, 1);
+      } else {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public keys(): string[] {
+    return Object.keys(this.keymap);
+  }
+  public toUniKeymap(
+    ideMappings: IdeMappings,
+    shortcutConverter: IShortcutConverter<T>
+  ): UniversalKeymap {
+    const mappings = this.keys().reduce<UniversalMappings>(
+      (uniKeymap, ideKey) => {
+        const uniKey = IdeMappingsUtils.toUni(ideMappings, ideKey);
+        if (uniKey) {
+          const sc: Shortcut[] = this.get(ideKey)
+            .map((shortcut) => shortcutConverter.toUni(shortcut))
+            .filter((shortcut) => shortcut != undefined) as Shortcut[];
+          if (sc) uniKeymap[uniKey] = sc;
+        }
+        return uniKeymap;
+      },
+      {}
+    );
+
+    return new UniversalKeymap(mappings);
+  }
+}

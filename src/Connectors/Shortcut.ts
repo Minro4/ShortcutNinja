@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 interface IShortcut {
   sc1: ISingleShortcut;
   sc2?: ISingleShortcut;
@@ -36,6 +38,10 @@ export class Shortcut implements IShortcut {
       SingleShortcut.fromJson(json.sc1),
       json.sc2 && SingleShortcut.fromJson(json.sc2)
     );
+  }
+
+  public equals(other: Shortcut): boolean {
+    return _.isEqual(this, other);
   }
 }
 

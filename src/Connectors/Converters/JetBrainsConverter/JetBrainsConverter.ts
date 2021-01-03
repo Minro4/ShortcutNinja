@@ -1,4 +1,3 @@
-import { IKeymap } from '../../UniversalKeymap';
 import { JetBrainsShortcutConverter } from './JetBrainsShortcutConverter';
 import {
   JbKeymapOptions,
@@ -12,52 +11,56 @@ import * as path from 'path';
 import { APP_NAME } from '../../Constants/general';
 import { Schema, SchemaTypes } from '../../Schema/Schema';
 import * as JB from '../../Constants/JetBrains';
+import { UniversalKeymap } from '../../Keymap';
+import { LoadSchema } from '../../Schema/SchemaLoader';
+import { Keymap } from '../../Keymap';
 
 export class JetBrainsConverter extends Converter<JbShortcut> {
   private optionsPath: string;
   private configFolder: string;
 
   constructor(optionsPath: string, configFolder: string) {
-    super(
-      'JetBrains.json',
-      new JetBrainsShortcutConverter(),
-      SchemaTypes.INTELLIJ
-    );
+    super('JetBrains.json', new JetBrainsShortcutConverter());
     this.optionsPath = optionsPath;
     this.configFolder = configFolder;
   }
 
-  protected async readIdeKeymap(): Promise<IKeymap<JbShortcut[]>> {
+  public async load(): Promise<UniversalKeymap> {
     const config = await this.fetchConfig();
+    const schema = await LoadSchema(
+      JetBrainsConverter.mapSchema(config.keymap.$.parent)
+    );
 
-    if (config.keymap.$.parent)
-      this.schema = JetBrainsConverter.mapSchema(config.keymap.$.parent);
-
-    return config.keymap.action.reduce<IKeymap<JbShortcut[]>>(
+    const ideKeymap = config.keymap.action.reduce<Keymap<JbShortcut>>(
       (keymap, action) => {
         if (action['keyboard-shortcut'])
-          keymap[action.$.id] = action['keyboard-shortcut'];
+          keymap.add(action.$.id, action['keyboard-shortcut']);
         return keymap;
       },
-      {}
+      new Keymap<JbShortcut>()
     );
+
+    const uniKeymap = await this.fromIdeKeymap(ideKeymap);
+    schema.overrideKeymap(uniKeymap);
+    return schema;
   }
-  protected async writeIdeKeymap(
-    ideKeymap: IKeymap<JbShortcut[]>
-  ): Promise<unknown> {
+
+  public async save(keymap: UniversalKeymap): Promise<any> {
     //Read config and override it
     const currentConfig = await this.fetchConfig();
 
-    const newConfig = Object.keys(ideKeymap).reduce((config, keymapKey) => {
+    const ideKeymap = await this.toIdeKeymap(keymap);
+
+    const newConfig = ideKeymap.keys().reduce((config, keymapKey) => {
       const action = config.keymap.action.find(
         (action) => action.$.id == keymapKey
       );
       if (action) {
-        action['keyboard-shortcut'] = ideKeymap[keymapKey];
+        action['keyboard-shortcut'] = ideKeymap.get(keymapKey);
       } else {
         config.keymap.action.push({
           $: { id: keymapKey },
-          'keyboard-shortcut': ideKeymap[keymapKey],
+          'keyboard-shortcut': ideKeymap.get(keymapKey),
         });
       }
       return config;
@@ -128,12 +131,14 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
     };
   }
 
-  private static mapSchema(schema: string): Schema {
-    const map: { [key: string]: Schema } = {
-      'Visual Studio': SchemaTypes.VISUAL_STUDIO,
-      'Sublime Text': SchemaTypes.SUBLIME,
-    };
-
-    return map[schema] ?? SchemaTypes.INTELLIJ;
+  private static mapSchema(schema?: string): Schema {
+    switch (schema) {
+      case 'Visual Studio':
+        return SchemaTypes.VISUAL_STUDIO;
+      case 'Sublime Text':
+        return SchemaTypes.SUBLIME;
+      default:
+        return SchemaTypes.INTELLIJ;
+    }
   }
 }
