@@ -4,6 +4,7 @@ import { Keymap } from '.';
 import { IJsonShortcut, Shortcut } from '../Shortcut';
 import { fsUtils } from '../Utils';
 import { Mappings } from './Keymap';
+import _ from "lodash"
 
 
 export type UniversalMappings = Mappings<Shortcut[]>
@@ -40,6 +41,10 @@ export class UniversalKeymap extends Keymap<Shortcut> {
 
   public static async readKeymap(path: string): Promise<UniversalKeymap> {
     return UniversalKeymap.fromJson(await fsUtils.readJson<any>(path));
+  }
+
+  public clone(): UniversalKeymap {
+    return _.cloneDeep(this);
   }
 
   public toJson(): IJsonUniversalKeymap {

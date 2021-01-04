@@ -1,22 +1,28 @@
 import React, { ReactElement } from 'react'; // we need this to make JSX compile
 import { UniversalKeymap } from '../../Connectors/Keymap';
 import { Shortcut, SingleShortcut } from '../../Connectors/Shortcut';
-import { ShortcutDefinitions } from '../../Connectors/ShortcutDefinitions';
+import { IShortcutDefinition, ShortcutDefinitions } from '../../Connectors/ShortcutDefinitions';
+import { ShortcutElement } from './shortcut';
 
 type KeymapTableProps = {
   keymap: UniversalKeymap;
   shortcutDefinitions: ShortcutDefinitions;
+  onClick: (definition: IShortcutDefinition) => void;
 };
 
 export const KeymapTable = ({
   keymap,
   shortcutDefinitions,
+  onClick,
 }: KeymapTableProps): ReactElement => (
   <table>
     <tbody>
       {shortcutDefinitions.definitions.map((definition, index) => {
         return (
-          <tr key={index}>
+          <tr
+            key={index}
+            onClick={() => onClick(definition)}
+          >
             <td>{definition.label}</td>
             <td>
               <ShortcutsList
@@ -45,47 +51,4 @@ const ShortcutsList = ({ shortcuts }: ShortcutsListProps): ReactElement => (
   </label>
 );
 
-type ShortcutProps = {
-  shortcut: Shortcut;
-};
 
-const ShortcutElement = ({ shortcut }: ShortcutProps): ReactElement => (
-  <span>
-    <SingleShortcutElement
-      singleShortcut={shortcut.sc1}
-    ></SingleShortcutElement>
-    {shortcut.sc2 && (
-      <SingleShortcutElement
-        singleShortcut={shortcut.sc2}
-      ></SingleShortcutElement>
-    )}
-  </span>
-);
-
-type SingleShortcutProps = {
-  singleShortcut: SingleShortcut;
-};
-
-const SingleShortcutElement = ({
-  singleShortcut,
-}: SingleShortcutProps): ReactElement => {
-  console.log(singleShortcut)
-  const orderedHoldedKeys = singleShortcut.orderedHoldedKeys();
-  return (
-    <span>
-      {orderedHoldedKeys.map((key, idx) => (
-        <span key={idx}>
-          <KeyElement kbKey={key}></KeyElement>
-          {' + '}
-        </span>
-      ))}
-      <KeyElement kbKey={singleShortcut.key}></KeyElement>
-    </span>
-  );
-};
-
-type KeyElementProps = {
-  kbKey: string;
-};
-
-const KeyElement = ({ kbKey }: KeyElementProps) => <span>{kbKey}</span>;
