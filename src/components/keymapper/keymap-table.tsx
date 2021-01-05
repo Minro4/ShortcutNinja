@@ -1,7 +1,19 @@
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@material-ui/core';
 import React, { ReactElement } from 'react'; // we need this to make JSX compile
 import { UniversalKeymap } from '../../Connectors/Keymap';
-import { Shortcut, SingleShortcut } from '../../Connectors/Shortcut';
-import { IShortcutDefinition, ShortcutDefinitions } from '../../Connectors/ShortcutDefinitions';
+import { Shortcut } from '../../Connectors/Shortcut';
+import {
+  IShortcutDefinition,
+  ShortcutDefinitions,
+} from '../../Connectors/ShortcutDefinitions';
 import { ShortcutElement } from './shortcut';
 
 type KeymapTableProps = {
@@ -15,25 +27,30 @@ export const KeymapTable = ({
   shortcutDefinitions,
   onClick,
 }: KeymapTableProps): ReactElement => (
-  <table>
-    <tbody>
-      {shortcutDefinitions.definitions.map((definition, index) => {
-        return (
-          <tr
-            key={index}
-            onClick={() => onClick(definition)}
-          >
-            <td>{definition.label}</td>
-            <td>
-              <ShortcutsList
-                shortcuts={keymap.get(definition.id)}
-              ></ShortcutsList>
-            </td>
-          </tr>
-        );
-      })}
-    </tbody>
-  </table>
+  <TableContainer>
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>Command</TableCell>
+          <TableCell>Keybindings</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {shortcutDefinitions.definitions.map((definition, index) => {
+          return (
+            <TableRow key={index} onClick={() => onClick(definition)}>
+              <TableCell>{definition.label}</TableCell>
+              <TableCell>
+                <ShortcutsList
+                  shortcuts={keymap.get(definition.id)}
+                ></ShortcutsList>
+              </TableCell>
+            </TableRow>
+          );
+        })}
+      </TableBody>
+    </Table>
+  </TableContainer>
 );
 
 type ShortcutsListProps = {
@@ -50,5 +67,3 @@ const ShortcutsList = ({ shortcuts }: ShortcutsListProps): ReactElement => (
     ))}
   </label>
 );
-
-

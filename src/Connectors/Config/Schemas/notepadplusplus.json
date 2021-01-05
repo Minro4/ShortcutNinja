@@ -1,9 +1,4 @@
 {
-  "formatDocument": [
-    {
-      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
-      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
-    }
-  ],
-  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "," } }]
+  "formatDocument": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }],
+  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }]
 }

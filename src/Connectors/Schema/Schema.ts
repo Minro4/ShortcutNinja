@@ -34,6 +34,11 @@ export class SchemaTypes {
     fileName: 'vscode.json',
   };
 
+  public static readonly EMPTY: Schema = {
+    label: 'Empty',
+    fileName: 'empty.json',
+  };
+
   public static readonly SCHEMAS: Schema[] = [
     SchemaTypes.VISUAL_STUDIO,
     SchemaTypes.ATOM,

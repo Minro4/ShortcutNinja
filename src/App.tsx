@@ -1,8 +1,10 @@
+import { ThemeProvider } from '@material-ui/core';
 import React, { Component, ReactElement } from 'react';
 import { Keymapper } from './components/keymapper/keymapper';
 import { Connectors } from './Connectors';
 import { Ide } from './Connectors/Ide';
 import { UniversalKeymap } from './Connectors/Keymap';
+import { themeDark } from './theme';
 
 type AppProps = Record<string, never>;
 
@@ -43,11 +45,13 @@ export default class App extends Component<AppProps, AppState> {
 
   render(): ReactElement {
     return (
-      <div>
-        {this.state.showKeymap && (
-          <Keymapper ides={this.state.ides} keymap={this.state.keymap} />
-        )}
-      </div>
+      <ThemeProvider theme={themeDark}>
+        <div>
+          {this.state.showKeymap && (
+            <Keymapper ides={this.state.ides} keymap={this.state.keymap} />
+          )}
+        </div>
+      </ThemeProvider>
     );
   }
 }

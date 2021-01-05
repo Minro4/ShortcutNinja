@@ -1,4 +1,6 @@
-import { Button } from '@material-ui/core';
+import { IconButton, TableCell, TableRow } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
 import { ShortcutCreator } from '../../Connectors';
 import { Shortcut } from '../../Connectors/Shortcut';
@@ -7,6 +9,7 @@ import { ShortcutKeyListElement } from './shortcut';
 type ShortcutCreatorProps = {
   addShortcut: (shortcut: Shortcut) => void;
   open: boolean;
+  onOkSubscribe: (fct: () => Shortcut | undefined) => void;
 };
 
 type ShortcutCreatorState = {
@@ -18,22 +21,21 @@ export class ShortcutCreatorElement extends Component<
   ShortcutCreatorProps,
   ShortcutCreatorState
 > {
-  private allo?: HTMLButtonElement | null;
-
   constructor(props: ShortcutCreatorProps) {
     super(props);
     this.state = {
       shortcutCreator: new ShortcutCreator(),
       isOpen: props.open,
     };
+    props.onOkSubscribe(() => this.state.shortcutCreator.create());
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     document.addEventListener('keydown', this.handleKeyDown);
     document.addEventListener('keyup', this.handleKeyUp);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     document.removeEventListener('keydown', this.handleKeyDown);
     document.removeEventListener('keyup', this.handleKeyUp);
   }
@@ -73,9 +75,13 @@ export class ShortcutCreatorElement extends Component<
     const shortcut = this.state.shortcutCreator.create();
     if (shortcut) {
       this.props.addShortcut(shortcut);
+      this.resetCreator();
     } else {
       //TODO show error or something
     }
+  }
+
+  private resetCreator() {
     this.setState({
       ...this.state,
       shortcutCreator: new ShortcutCreator(),
@@ -93,19 +99,21 @@ export class ShortcutCreatorElement extends Component<
     const { shortcutCreator } = this.state;
 
     return (
-      <React.Fragment>
-        <ShortcutCreatorElementView
-          shortcutCreator={shortcutCreator}
-        ></ShortcutCreatorElementView>
-        <Button
-          onClick={this.createShortcut.bind(this)}
-          ref={(input) => {
-            this.allo = input;
-          }}
-        >
-          +
-        </Button>
-      </React.Fragment>
+      <TableRow>
+        <TableCell>
+          <ShortcutCreatorElementView
+            shortcutCreator={shortcutCreator}
+          ></ShortcutCreatorElementView>
+        </TableCell>
+        <TableCell>
+          <IconButton onClick={this.createShortcut.bind(this)}>
+            <AddIcon></AddIcon>
+          </IconButton>
+          <IconButton onClick={this.resetCreator.bind(this)}>
+            <RemoveIcon></RemoveIcon>
+          </IconButton>
+        </TableCell>
+      </TableRow>
     );
   }
 }

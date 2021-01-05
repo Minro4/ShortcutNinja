@@ -1,5 +1,5 @@
 import { UniversalKeymap } from '../../Keymap';
-import { SchemaTypes } from '../../Schema/Schema';
+import { Schema, SchemaTypes } from '../../Schema/Schema';
 import { fsUtils } from '../../Utils';
 import { Converter } from '../Converter';
 import { StrShortcutConverter } from '../ShortcutConverter';
@@ -14,12 +14,12 @@ import { Keymap } from '../../Keymap';
 
 export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
-  private readonly schema = SchemaTypes.VS_CODE;
+  private schema;
   private readonly substractChar = '-';
 
-  constructor(configPath?: string) {
+  constructor(configPath?: string, schema: Schema = SchemaTypes.VS_CODE) {
     super('vscode.json', new StrShortcutConverter());
-
+    this.schema = schema;
     this.configPath = configPath ?? KEYBINDINGS_PATH;
   }
 

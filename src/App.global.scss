@@ -1,0 +1,16 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+$dark-black: #2e2e2e;
+
+.key-element {
+}
+
+.shortcut {
+  padding: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

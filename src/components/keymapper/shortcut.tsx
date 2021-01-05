@@ -1,3 +1,4 @@
+import { Box, Paper } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { Shortcut, SingleShortcut } from '../../Connectors/Shortcut';
 
@@ -29,11 +30,11 @@ export const ShortcutKeyListElement = ({
   kbKeys1,
   kbKeys2,
 }: KeyListElementProps): ReactElement => (
-  <span>
+  <Box component={Paper} display="inline-block" className="shortcut elevation10">
     <SingleShortcutKeyListElement
       kbKeys={kbKeys1}
     ></SingleShortcutKeyListElement>
-    {kbKeys2 && (
+    {kbKeys2 && kbKeys2.length !== 0 && (
       <React.Fragment>
         {', '}
         <SingleShortcutKeyListElement
@@ -41,7 +42,7 @@ export const ShortcutKeyListElement = ({
         ></SingleShortcutKeyListElement>
       </React.Fragment>
     )}
-  </span>
+  </Box>
 );
 
 type SingleShortcutKeyListProps = {
@@ -52,14 +53,14 @@ export const SingleShortcutKeyListElement = ({
   kbKeys,
 }: SingleShortcutKeyListProps): ReactElement => {
   return (
-    <span>
+    <Box display="inline">
       {kbKeys.map((key, idx) => (
         <span key={idx}>
           <KeyElement kbKey={key}></KeyElement>
           {idx !== kbKeys.length - 1 && ' + '}
         </span>
       ))}
-    </span>
+    </Box>
   );
 };
 
@@ -67,4 +68,10 @@ type KeyElementProps = {
   kbKey: string;
 };
 
-const KeyElement = ({ kbKey }: KeyElementProps) => <span>{kbKey}</span>;
+const KeyElement = ({ kbKey }: KeyElementProps) => (
+  <Box display="inline" className="key-element">{capitalize(kbKey)}</Box>
+);
+
+function capitalize(s: string) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}

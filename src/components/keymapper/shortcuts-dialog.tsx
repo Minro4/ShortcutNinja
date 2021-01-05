@@ -4,7 +4,14 @@ import {
   DialogContent,
   DialogActions,
   Button,
+  TableContainer,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+  IconButton,
 } from '@material-ui/core';
+import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
 import { UniversalKeymap } from '../../Connectors/Keymap';
 import { Shortcut } from '../../Connectors/Shortcut';
@@ -27,11 +34,17 @@ export class ShortcutsDialog extends Component<
   ShortcutsDialogProps,
   ShortcutsDialogState
 > {
+  private onOkSubs: (() => Shortcut | undefined)[] = [];
+
   constructor(props: ShortcutsDialogProps) {
     super(props);
     this.state = {
       keymap: props.keymap.clone(),
     };
+  }
+
+  componentWillUnmount(): void {
+    this.onOkSubs = [];
   }
 
   static getDerivedStateFromProps(
@@ -70,59 +83,75 @@ export class ShortcutsDialog extends Component<
     }
   }
 
+  private onOk() {
+    const keymap = this.state.keymap;
+    this.onOkSubs.forEach((sub) => {
+      if (this.props.shortcutDefinitions) {
+        const sc = sub();
+        if (sc) keymap.add(this.props.shortcutDefinitions.id, sc);
+      }
+    });
+    this.props.onChange(keymap);
+  }
+
+  private addOnOkSubscriber(fct: () => Shortcut | undefined) {
+    this.onOkSubs.push(fct);
+  }
+
   render(): ReactElement {
-    const { shortcutDefinitions, onChange, onCancel } = this.props;
+    const { shortcutDefinitions, onCancel } = this.props;
     const isOpened = !!shortcutDefinitions;
     if (shortcutDefinitions)
       return (
-        <Dialog
-          open={isOpened}
-          onClose={() => onCancel()}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">
-            {shortcutDefinitions.label}
-          </DialogTitle>
-          <DialogContent>
-            {this.state.keymap
-              .get(shortcutDefinitions.id)
-              .map((shortcut, idx) => (
-                <ShortcutsDialogShortcutElement
-                  shortcut={shortcut}
-                  onRemove={this.onRemove.bind(this)}
-                  key={idx}
-                ></ShortcutsDialogShortcutElement>
-              ))}
-            <ShortcutCreatorElement
-              open={isOpened}
-              addShortcut={this.addShortcut.bind(this)}
-            ></ShortcutCreatorElement>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => onCancel()} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={() => onChange(this.state.keymap)} color="primary">
-              Ok
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <div>
+          <Dialog
+            open={isOpened}
+            onClose={() => onCancel()}
+            aria-labelledby="form-dialog-title"
+          >
+            <DialogTitle id="form-dialog-title">
+              {shortcutDefinitions.label}
+            </DialogTitle>
+            <DialogContent>
+              <TableContainer>
+                <Table>
+                  <TableBody>
+                    {this.state.keymap
+                      .get(shortcutDefinitions.id)
+                      .map((shortcut, idx) => (
+                        <TableRow key={idx}>
+                          <TableCell>
+                            <ShortcutElement
+                              shortcut={shortcut}
+                            ></ShortcutElement>
+                          </TableCell>
+                          <TableCell>
+                            <IconButton onClick={() => this.onRemove(shortcut)}>
+                              <RemoveIcon></RemoveIcon>
+                            </IconButton>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    <ShortcutCreatorElement
+                      open={isOpened}
+                      addShortcut={this.addShortcut.bind(this)}
+                      onOkSubscribe={this.addOnOkSubscriber.bind(this)}
+                    ></ShortcutCreatorElement>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.onOk.bind(this)} color="primary">
+                Ok
+              </Button>
+              <Button onClick={onCancel} color="primary">
+                Cancel
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
       );
     else return <React.Fragment></React.Fragment>;
   }
 }
-
-type ShortcutDialogShortcutElementProps = {
-  shortcut: Shortcut;
-  onRemove: (shortcut: Shortcut) => void;
-};
-
-const ShortcutsDialogShortcutElement = ({
-  shortcut,
-  onRemove,
-}: ShortcutDialogShortcutElementProps): ReactElement => (
-  <div>
-    <ShortcutElement shortcut={shortcut}></ShortcutElement>
-    <Button onClick={() => onRemove(shortcut)}>X</Button>
-  </div>
-);

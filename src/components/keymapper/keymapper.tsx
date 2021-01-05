@@ -10,6 +10,7 @@ import { UniversalKeymap } from '../../Connectors/Keymap';
 import { KeymapTable } from './keymap-table';
 import { SchemaSelector } from './schema-selector';
 import { ShortcutsDialog } from './shortcuts-dialog';
+import { Box, Button } from '@material-ui/core';
 
 export type SchemaLoaded = {
   schema: Schema;
@@ -63,7 +64,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
 
   render(): ReactElement {
     return (
-      <div>
+      <Box>
         <SchemaSelector
           schemas={this.state.schemas}
           onChange={(schema: SchemaLoaded) => {
@@ -75,13 +76,15 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           shortcutDefinitions={this.state.shortcutDefinitions}
           onClick={this.onClickShortcut.bind(this)}
         ></KeymapTable>
+        <Button onClick={this.onRescan.bind(this)}>Rescan</Button>
+        <Button onClick={this.onApply.bind(this)}>Apply</Button>
         <ShortcutsDialog
           keymap={this.state.keymap}
           shortcutDefinitions={this.state.shortcutDialogDefinition}
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
         ></ShortcutsDialog>
-      </div>
+      </Box>
     );
   }
 
@@ -118,6 +121,16 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     this.setState({
       ...this.state,
       shortcutDialogDefinition: undefined,
+    });
+  }
+
+  private onRescan() {
+    throw new Error('not implemented');
+  }
+
+  private onApply() {
+    this.props.ides.forEach((ide) => {
+      ide.converter.save(this.state.keymap);
     });
   }
 }

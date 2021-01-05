@@ -4,7 +4,6 @@ import {
   SCHEMAS_PATH,
   UNPROCESSED_SCHEMAS_PATH,
 } from '../src/Connectors/Constants/Schemas';
-import { fsUtils } from '../src/Connectors/Utils';
 import { UniversalKeymap } from '../src/Connectors/Keymap';
 import { VsCodeConverter } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter';
 
@@ -75,7 +74,8 @@ async function buildSchema(schema: SchemaBuild) {
   const schemaPath = path.join(SCHEMAS_PATH, schema.schema.fileName);
 
   const uniConfig = await GetBuild(schema);
-
+  console.log(parentBuild);
+  console.log(uniConfig);
   parentBuild.overrideKeymap(uniConfig);
 
   return parentBuild.saveKeymap(schemaPath);
@@ -88,14 +88,12 @@ async function GetBuild(schema: SchemaBuild): Promise<UniversalKeymap> {
       schema.schema.fileName
     );
 
-    schema.build = fsUtils
-      .readJson<any>(unprocessedSchemaPath)
-      .then((basicSchema) => schema.builder(basicSchema));
+    schema.build = schema.builder(unprocessedSchemaPath);
   }
 
   return schema.build;
 }
 
 async function VsCodeSchemaBuilder(path: string): Promise<UniversalKeymap> {
-  return new VsCodeConverter(path).load();
+  return new VsCodeConverter(path, SchemaTypes.EMPTY).load();
 }
