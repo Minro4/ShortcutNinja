@@ -8,7 +8,9 @@ describe("Shortcut creator tests", function () {
 
   it("single key", function () {
     scCreator.onKeydown("a");
-    const sc = scCreator.onKeydown("Enter");
+    const enter = scCreator.onKeydown("Enter");
+    const sc = scCreator.create();
+    expect(enter);
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(0);
@@ -19,7 +21,9 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeydown("Alt");
     scCreator.onKeydown("Control");
     scCreator.onKeydown("a");
-    const sc = scCreator.onKeydown("Enter");
+    const enter = scCreator.onKeydown("Enter");
+    const sc = scCreator.create();
+    expect(enter);
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(2);
@@ -33,7 +37,9 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeydown("Control");
     scCreator.onKeyup("Alt");
     scCreator.onKeydown("a");
-    const sc = scCreator.onKeydown("Enter");
+    const enter = scCreator.onKeydown("Enter");
+    const sc = scCreator.create();
+    expect(enter);
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("a");
     expect(sc?.sc1.holdedKeys.size).toEqual(1);
@@ -48,7 +54,9 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeydown("Control");
     scCreator.onKeyup("Shift");
     scCreator.onKeydown("b");
-    const sc = scCreator.onKeydown("Enter");
+    const enter = scCreator.onKeydown("Enter");
+    const sc = scCreator.create();
+    expect(enter);
 
     expect(sc).not.toBeUndefined();
     //sc1
@@ -72,7 +80,9 @@ describe("Shortcut creator tests", function () {
     scCreator.onKeyup("Shift");
     scCreator.onKeydown("b");
     scCreator.onKeydown("c");
-    const sc = scCreator.onKeydown("Enter");
+    const enter = scCreator.onKeydown("Enter");
+    const sc = scCreator.create();
+    expect(enter);
 
     expect(sc).not.toBeUndefined();
     expect(sc?.sc1.key).toEqual("c");
@@ -80,5 +90,19 @@ describe("Shortcut creator tests", function () {
     expect(sc?.sc1.holdedKeys.has("ctrl"));
     expect(sc?.sc1.holdedKeys.has("shift"));
     expect(sc?.sc2).toBeUndefined();
+  });
+
+  it("holding key up reverse order", function () {
+    scCreator.onKeydown("Alt");
+    scCreator.onKeydown("Control");
+    scCreator.onKeyup("Control");
+    scCreator.onKeyup("Alt");
+    scCreator.onKeydown("f");
+    const enter = scCreator.onKeydown("Enter");
+    const sc = scCreator.create();
+    expect(enter);
+    expect(sc).not.toBeUndefined();
+    expect(sc?.sc1.key).toEqual("f");
+    expect(sc?.sc1.holdedKeys.size).toEqual(0);
   });
 });

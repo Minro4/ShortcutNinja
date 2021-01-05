@@ -1,41 +1,64 @@
-import React, { ReactElement } from "react";
-import { Shortcut, SingleShortcut } from "../../Connectors/Shortcut";
+import React, { ReactElement } from 'react';
+import { Shortcut, SingleShortcut } from '../../Connectors/Shortcut';
 
 type ShortcutProps = {
   shortcut: Shortcut;
 };
 
-export const ShortcutElement = ({ shortcut }: ShortcutProps): ReactElement => (
+export const ShortcutElement = ({ shortcut }: ShortcutProps): ReactElement => {
+  function mapScToKbList(sc: SingleShortcut): string[] {
+    return (sc.orderedHoldedKeys() as string[]).concat(sc.key);
+  }
+
+  const kbKeys1 = mapScToKbList(shortcut.sc1);
+  const kbKeys2 = shortcut.sc2 ? mapScToKbList(shortcut.sc2) : undefined;
+  return (
+    <ShortcutKeyListElement
+      kbKeys1={kbKeys1}
+      kbKeys2={kbKeys2}
+    ></ShortcutKeyListElement>
+  );
+};
+
+type KeyListElementProps = {
+  kbKeys1: string[];
+  kbKeys2?: string[];
+};
+
+export const ShortcutKeyListElement = ({
+  kbKeys1,
+  kbKeys2,
+}: KeyListElementProps): ReactElement => (
   <span>
-    <SingleShortcutElement
-      singleShortcut={shortcut.sc1}
-    ></SingleShortcutElement>
-    {shortcut.sc2 && (
-      <SingleShortcutElement
-        singleShortcut={shortcut.sc2}
-      ></SingleShortcutElement>
+    <SingleShortcutKeyListElement
+      kbKeys={kbKeys1}
+    ></SingleShortcutKeyListElement>
+    {kbKeys2 && (
+      <React.Fragment>
+        {', '}
+        <SingleShortcutKeyListElement
+          kbKeys={kbKeys2}
+        ></SingleShortcutKeyListElement>
+      </React.Fragment>
     )}
   </span>
 );
 
-type SingleShortcutProps = {
-  singleShortcut: SingleShortcut;
+type SingleShortcutKeyListProps = {
+  kbKeys: string[];
 };
 
-const SingleShortcutElement = ({
-  singleShortcut,
-}: SingleShortcutProps): ReactElement => {
-  console.log(singleShortcut);
-  const orderedHoldedKeys = singleShortcut.orderedHoldedKeys();
+export const SingleShortcutKeyListElement = ({
+  kbKeys,
+}: SingleShortcutKeyListProps): ReactElement => {
   return (
     <span>
-      {orderedHoldedKeys.map((key, idx) => (
+      {kbKeys.map((key, idx) => (
         <span key={idx}>
           <KeyElement kbKey={key}></KeyElement>
-          {' + '}
+          {idx !== kbKeys.length - 1 && ' + '}
         </span>
       ))}
-      <KeyElement kbKey={singleShortcut.key}></KeyElement>
     </span>
   );
 };

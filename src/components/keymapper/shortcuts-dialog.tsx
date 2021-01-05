@@ -2,8 +2,6 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogContentText,
-  TextField,
   DialogActions,
   Button,
 } from '@material-ui/core';
@@ -12,6 +10,7 @@ import { UniversalKeymap } from '../../Connectors/Keymap';
 import { Shortcut } from '../../Connectors/Shortcut';
 import { IShortcutDefinition } from '../../Connectors/ShortcutDefinitions';
 import { ShortcutElement } from './shortcut';
+import { ShortcutCreatorElement } from './shortcut-creator';
 
 type ShortcutsDialogProps = {
   keymap: UniversalKeymap;
@@ -60,13 +59,24 @@ export class ShortcutsDialog extends Component<
     }
   }
 
+  private addShortcut(shortcut: Shortcut) {
+    if (this.props.shortcutDefinitions) {
+      const newKemap = this.state.keymap.clone();
+      newKemap.add(this.props.shortcutDefinitions.id, shortcut);
+      this.setState({
+        ...this.state,
+        keymap: newKemap,
+      });
+    }
+  }
+
   render(): ReactElement {
     const { shortcutDefinitions, onChange, onCancel } = this.props;
-
+    const isOpened = !!shortcutDefinitions;
     if (shortcutDefinitions)
       return (
         <Dialog
-          open={!!shortcutDefinitions}
+          open={isOpened}
           onClose={() => onCancel()}
           aria-labelledby="form-dialog-title"
         >
@@ -83,6 +93,10 @@ export class ShortcutsDialog extends Component<
                   key={idx}
                 ></ShortcutsDialogShortcutElement>
               ))}
+            <ShortcutCreatorElement
+              open={isOpened}
+              addShortcut={this.addShortcut.bind(this)}
+            ></ShortcutCreatorElement>
           </DialogContent>
           <DialogActions>
             <Button onClick={() => onCancel()} color="primary">

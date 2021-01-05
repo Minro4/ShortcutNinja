@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   HoldableKeys,
   holdableKeys,
@@ -17,9 +18,9 @@ export class ShortcutCreator {
     this.currentScCreator = this.scCreators[0];
   }
 
-  public onKeydown(key: string): Shortcut | undefined {
+  public onKeydown(key: string): boolean {
     key = this.convertToUnikey(key);
-    if (key === 'enter') return this.create();
+    if (key === 'enter') return true;
 
     this.currentScCreator.onKeydown(key);
     if (this.currentScCreator.isComplete()) {
@@ -29,6 +30,15 @@ export class ShortcutCreator {
       this.currentScCreator = new SingleShortcutCreator(this.currentScCreator);
       this.scCreators.push(this.currentScCreator);
     }
+    return false;
+  }
+
+  public sc1Keys(): string[] {
+    return this.scCreators[0].kbKeys();
+  }
+
+  public sc2Keys(): string[] | undefined {
+    return this.scCreators[1]?.kbKeys();
   }
 
   public onKeyup(key: string): void {
@@ -36,11 +46,15 @@ export class ShortcutCreator {
     this.currentScCreator.onKeyup(key);
   }
 
-  private create(): Shortcut | undefined {
+  public create(): Shortcut | undefined {
     const sc1 = this.scCreators[0].create();
     if (sc1) {
       return new Shortcut(sc1, this.scCreators[1].create());
     }
+  }
+
+  public clone(): ShortcutCreator {
+    return _.cloneDeep(this);
   }
 
   public toString(): string {
@@ -91,6 +105,17 @@ class SingleShortcutCreator {
     if (this.key) {
       return new SingleShortcut(this.holdedKeys, this.key);
     }
+  }
+
+  public kbKeys(): string[] {
+    if (!this.addedKeys) return [];
+
+    const orderedKeys = holdableKeys.filter((key) =>
+      this.holdedKeys.has(key)
+    ) as string[];
+    if (this.key) orderedKeys.push(this.key);
+
+    return orderedKeys;
   }
 
   public toString(): string {

@@ -76,7 +76,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           onClick={this.onClickShortcut.bind(this)}
         ></KeymapTable>
         <ShortcutsDialog
-          keymap={this.state.keymap.clone()} //TODO Needs to be tested!!!!!!
+          keymap={this.state.keymap}
           shortcutDefinitions={this.state.shortcutDialogDefinition}
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
