@@ -1,45 +1,50 @@
 import Shell from 'node-powershell';
 
-const POWERSHELL_SCRIPT_PATH =
-  './src/Connectors/Converters/VisualStudioConverter/VisualStudio.ps1';
+export class VsImportExport {
+  private static readonly POWERSHELL_SCRIPT_PATH =
+    './src/Connectors/Converters/VisualStudioConverter/VisualStudio.ps1';
 
-export async function exportSettings(
-  devenPath: string,
-  settingsPath: string
-): Promise<string> {
-  return importExport('Export', [
-    { SettingsPath: settingsPath },
-    { DevEnvExe: devenPath },
-  ]);
-}
+  public static async exportSettings(
+    devenPath: string,
+    settingsPath: string
+  ): Promise<string> {
+    return VsImportExport.importExport('Export', [
+      { SettingsPath: settingsPath },
+      { DevEnvExe: devenPath },
+    ]);
+  }
 
-export async function importSettings(
-  devenPath: string,
-  settingsPath: string
-): Promise<string> {
-  return importExport('Import', [
-    { SettingsPath: settingsPath },
-    { DevEnvExe: devenPath },
-  ]);
-}
+  public static async importSettings(
+    devenPath: string,
+    settingsPath: string
+  ): Promise<string> {
+    return VsImportExport.importExport('Import', [
+      { SettingsPath: settingsPath },
+      { DevEnvExe: devenPath },
+    ]);
+  }
 
-async function importExport(fct: string, params: { [key: string]: string }[]) {
-  const ps = new Shell({
-    executionPolicy: 'Bypass',
-    noProfile: true,
-  });
+  private static async importExport(
+    fct: string,
+    params: { [key: string]: string }[]
+  ) {
+    const ps = new Shell({
+      executionPolicy: 'Bypass',
+      noProfile: true,
+    });
 
-  ps.addCommand(`. ${POWERSHELL_SCRIPT_PATH}`);
-  ps.addCommand(fct);
-  ps.addParameters(params);
+    ps.addCommand(`. ${VsImportExport.POWERSHELL_SCRIPT_PATH}`);
+    ps.addCommand(fct);
+    ps.addParameters(params);
 
-  try {
-    const ouput = await ps.invoke();
-    ps.dispose();
-    return ouput;
-  } catch (err) {
-    console.log(err);
-    ps.dispose();
-    throw err;
+    try {
+      const ouput = await ps.invoke();
+      ps.dispose();
+      return ouput;
+    } catch (err) {
+      console.log(err);
+      ps.dispose();
+      throw err;
+    }
   }
 }

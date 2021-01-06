@@ -55,7 +55,7 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     return fsUtils.saveJson<VsCondeConfig>(this.configPath, newConfig);
   }
   public async load(): Promise<UniversalKeymap> {
-    let ideConfig: VsCondeConfig;
+    let ideConfig: VsCondeConfig = [];
     try {
       ideConfig = await fsUtils.readJson<VsCondeConfig>(this.configPath);
     } catch (err) {

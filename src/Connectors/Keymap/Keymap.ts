@@ -1,9 +1,9 @@
-import _ from "lodash";
-import { IShortcutConverter } from "../Converters/ShortcutConverter";
-import { IdeMappings, IdeMappingsUtils } from "../Ide";
-import { Shortcut } from "../Shortcut";
-import { UniversalKeymap } from ".";
-import { UniversalMappings } from "./UniversalKeymap";
+import _ from 'lodash';
+import { IShortcutConverter } from '../Converters/ShortcutConverter';
+import { IdeMappings, IdeMappingsUtils } from '../Ide';
+import { Shortcut } from '../Shortcut';
+import { UniversalKeymap } from '.';
+import { UniversalMappings } from './UniversalKeymap';
 
 export type Mappings<T> = {
   [key: string]: T;
@@ -38,8 +38,17 @@ export class Keymap<T> {
     return this.keymap[key] ?? [];
   }
 
-  public add(key: string, shortcuts: T | T[]): void {
-    this.keymap[key] = this.get(key).concat(shortcuts);
+  public add(key: string, shortcut: T): void {
+    const current = this.get(key);
+    const isNew = current.every((currentSc) => !_.isEqual(currentSc, shortcut));
+    if (isNew) {
+      if (this.keymap[key]) this.keymap[key].push(shortcut);
+      else this.keymap[key] = [shortcut];
+    }
+  }
+
+  public addAll(key: string, shortcuts: T[]): void {
+    shortcuts.forEach((shortcut) => this.add(key, shortcut));
   }
 
   public set(key: string, shortcuts: T[]): void {

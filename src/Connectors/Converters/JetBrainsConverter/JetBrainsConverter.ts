@@ -34,7 +34,7 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
     const ideKeymap = config.keymap.action.reduce<Keymap<JbShortcut>>(
       (keymap, action) => {
         if (action['keyboard-shortcut'])
-          keymap.add(action.$.id, action['keyboard-shortcut']);
+          keymap.addAll(action.$.id, action['keyboard-shortcut']);
         return keymap;
       },
       new Keymap<JbShortcut>()

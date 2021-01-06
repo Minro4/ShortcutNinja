@@ -13,10 +13,10 @@ import {
   VisualStudioConfigShortcut,
   XmlVisualStudioConfigShortcut,
 } from './VisualStudio.models';
-import { exportSettings, importSettings } from './VsImportExport';
 import { Schema, SchemaTypes } from '../../Schema/Schema';
 import { LoadSchema } from '../../Schema/SchemaLoader';
 import { Keymap } from '../../Keymap/Keymap';
+import { VsImportExport } from './VsImportExport';
 
 export class VisualStudioConverter extends Converter<VsShortcut> {
   private devenPath: string;
@@ -48,14 +48,15 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     const ideKeymap = await this.toIdeKeymap(keymap);
     const xml = await this.loadSettings(this.devenPath);
 
-    if (this.addKmToXml(xml, ideKeymap)) {
+    if (await this.addKmToXml(xml, ideKeymap)) {
       const fileName = `temp/imported${new Date().getTime()}`;
       await fsUtils.saveXml(fileName, xml);
-      importSettings(this.devenPath, fileName);
+      console.log(xml);
+      VsImportExport.importSettings(this.devenPath, fileName);
     }
   }
 
-  private xmlToConfig(xml: VisualStudioXmlConfig): VisualStudioConfig {
+  public xmlToConfig(xml: VisualStudioXmlConfig): VisualStudioConfig {
     const sc:
       | VisualStudioXmlKeyboardShortcuts
       | undefined = xml.UserSettings.Category.find(
@@ -91,25 +92,44 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     }
   }
 
-  private addKmToXml(
+  private async addKmToXml(
     xml: VisualStudioXmlConfig,
     ideKeymap: Keymap<VsShortcut>
-  ): VisualStudioXmlConfig | undefined {
-    const userShortcuts:
-      | XmlUserShortcuts[]
+  ): Promise<VisualStudioXmlConfig | undefined> {
+    function mapToXml(
+      key: string,
+      value: string
+    ): XmlVisualStudioConfigShortcut {
+      return {
+        $: {
+          Command: key,
+          Scope: 'Global',
+        },
+        _: value,
+      };
+    }
+
+    const xmlSc:
+      | VisualStudioXmlKeyboardShortcuts
       | undefined = xml.UserSettings.Category.find(
       (element) => element.$.name === 'Environment_Group'
     )?.Category?.find((element) => element.$.name === 'Environment_KeyBindings')
-      ?.KeyboardShortcuts[0]?.UserShortcuts;
+      ?.KeyboardShortcuts[0];
 
-    if (!userShortcuts) return undefined;
+    if (!xmlSc) return undefined;
 
-    userShortcuts[0] = userShortcuts[0] ?? {};
-    const sc = userShortcuts[0];
+    if (!xmlSc.UserShortcuts[0] || xmlSc.UserShortcuts[0] == '') {
+      xmlSc.UserShortcuts = [{}];
+    }
+
+    const userShortcuts: XmlUserShortcuts[] = xmlSc.UserShortcuts;
+
+    const sc =
+      userShortcuts[0] && userShortcuts[0] != '' ? userShortcuts[0] : {};
     sc.Shortcut = sc.Shortcut ?? [];
     sc.RemoveShortcut = sc.RemoveShortcut ?? [];
 
-    Object.keys(ideKeymap).forEach((key) => {
+    ideKeymap.keys().forEach((key) => {
       //Remove old shortcuts TODO test
       sc.RemoveShortcut = sc.RemoveShortcut!.concat(
         sc.Shortcut!.filter((s) => s.$.Command === key)
@@ -117,17 +137,23 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
       sc.Shortcut = sc.Shortcut!.filter((s) => s.$.Command !== key);
 
       //Add new shortcuts
-      sc.Shortcut = ideKeymap.keys().reduce((userShortcut, kmValue) => {
-        userShortcut.push({
-          $: {
-            Command: key,
-            Scope: 'Global',
-          },
-          _: kmValue,
-        });
+      sc.Shortcut = ideKeymap.get(key).reduce((userShortcut, kmValue) => {
+        userShortcut.push(mapToXml(key, kmValue));
         return userShortcut;
       }, sc.Shortcut);
     });
+
+    //Remove schema shortcuts
+    const schemaName = xmlSc.ShortcutsScheme[0];
+    const schema = await this.toIdeKeymap(
+      await LoadSchema(VisualStudioConverter.mapSchema(schemaName))
+    );
+    sc.RemoveShortcut.push(
+      ...schema.keys().flatMap((key) => {
+        return schema.get(key).map((kmValue) => mapToXml(key, kmValue));
+      })
+    );
+
     return xml;
   }
 
@@ -141,7 +167,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
         resolve(fsUtils.readXml<VisualStudioXmlConfig>(path));
         watcher.close();
       });
-      exportSettings(devenPath, settingsPath);
+      VsImportExport.exportSettings(devenPath, settingsPath);
     });
   }
 

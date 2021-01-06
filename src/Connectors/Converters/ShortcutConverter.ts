@@ -35,7 +35,9 @@ export class StrShortcutConverter implements IShortcutConverter<string> {
   }
 
   public toUniSingleSc(singleScStr: string): SingleShortcut | undefined {
-    const keys = singleScStr.split(this.keyLink);
+    const keys = singleScStr
+      .split(this.keyLink)
+      .map((key) => key.toLowerCase());
     const key = keys.pop();
     if (!key || (holdableKeys as string[]).includes(key)) return undefined;
 

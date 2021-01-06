@@ -26,7 +26,6 @@ type KeymapperState = {
   keymap: UniversalKeymap;
   schemas: SchemaLoaded[];
   shortcutDefinitions: ShortcutDefinitions;
-
   shortcutDialogDefinition?: IShortcutDefinition;
 };
 

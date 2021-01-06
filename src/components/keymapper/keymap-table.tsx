@@ -1,5 +1,5 @@
 import {
-  Paper,
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -58,12 +58,12 @@ type ShortcutsListProps = {
 };
 
 const ShortcutsList = ({ shortcuts }: ShortcutsListProps): ReactElement => (
-  <label>
+  <>
     {shortcuts.map((shortcut, idx) => (
-      <span key={idx}>
+      <Box component="span" key={idx}>
         <ShortcutElement shortcut={shortcut}></ShortcutElement>{' '}
         {idx != shortcuts.length - 1 && ' or '}
-      </span>
+      </Box>
     ))}
-  </label>
+  </>
 );
