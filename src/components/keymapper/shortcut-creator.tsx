@@ -4,6 +4,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
 import { ShortcutCreator } from '../../Connectors';
 import { Shortcut } from '../../Connectors/Shortcut';
+import { BlinkingCursor } from './blinking-cursor';
 import { ShortcutKeyListElement } from './shortcut';
 
 type ShortcutCreatorProps = {
@@ -104,6 +105,7 @@ export class ShortcutCreatorElement extends Component<
           <ShortcutCreatorElementView
             shortcutCreator={shortcutCreator}
           ></ShortcutCreatorElementView>
+          <BlinkingCursor></BlinkingCursor>
         </TableCell>
         <TableCell>
           <IconButton onClick={this.createShortcut.bind(this)}>
