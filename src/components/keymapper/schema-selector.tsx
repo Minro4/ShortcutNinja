@@ -1,6 +1,12 @@
 import Select from '@material-ui/core/Select';
 import React, { ReactElement } from 'react';
-import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
+import {
+  Box,
+  FormControl,
+  FormLabel,
+  InputLabel,
+  MenuItem,
+} from '@material-ui/core';
 import { SchemaLoaded } from './keymapper';
 
 type SchemaSelectorProps = {
@@ -26,15 +32,17 @@ export const SchemaSelector = (props: SchemaSelectorProps): ReactElement => {
   }
 
   return (
-    <FormControl>
-      <InputLabel id="schema-selector">Schema</InputLabel>
-      <Select value={schema} onChange={handleChange}>
-        {props.schemas.map((schema, idx) => (
-          <MenuItem value={schema.schema.fileName} key={idx}>
-            {schema.schema.label}
-          </MenuItem>
-        ))}
-      </Select>
+    <FormControl className="schema-selector">
+      <Box>
+        <FormLabel>Schema: </FormLabel>
+        <Select value={schema} onChange={handleChange}>
+          {props.schemas.map((schema, idx) => (
+            <MenuItem value={schema.schema.fileName} key={idx}>
+              {schema.schema.label}
+            </MenuItem>
+          ))}
+        </Select>
+      </Box>
     </FormControl>
   );
 };

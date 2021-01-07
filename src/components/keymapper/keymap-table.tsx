@@ -30,17 +30,21 @@ export const KeymapTable = ({
   <TableContainer>
     <Table>
       <TableHead>
-        <TableRow>
-          <TableCell>Command</TableCell>
-          <TableCell>Keybindings</TableCell>
+        <TableRow className="keymapper-row">
+          <TableCell className="command-col">Command</TableCell>
+          <TableCell className="keybindings-col">Keybindings</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {shortcutDefinitions.definitions.map((definition, index) => {
           return (
-            <TableRow key={index} onClick={() => onClick(definition)}>
-              <TableCell>{definition.label}</TableCell>
-              <TableCell>
+            <TableRow
+              key={index}
+              onClick={() => onClick(definition)}
+              className="keymapper-row"
+            >
+              <TableCell className="command-col">{definition.label}</TableCell>
+              <TableCell className="keybindings-col">
                 <ShortcutsList
                   shortcuts={keymap.get(definition.id)}
                 ></ShortcutsList>

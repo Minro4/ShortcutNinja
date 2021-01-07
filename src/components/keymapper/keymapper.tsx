@@ -11,6 +11,8 @@ import { KeymapTable } from './keymap-table';
 import { SchemaSelector } from './schema-selector';
 import { ShortcutsDialog } from './shortcuts-dialog';
 import { Box, Button } from '@material-ui/core';
+import RefreshIcon from '@material-ui/icons/Refresh';
+import SendIcon from '@material-ui/icons/Send';
 
 export type SchemaLoaded = {
   schema: Schema;
@@ -75,8 +77,24 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           shortcutDefinitions={this.state.shortcutDefinitions}
           onClick={this.onClickShortcut.bind(this)}
         ></KeymapTable>
-        <Button onClick={this.onRescan.bind(this)}>Rescan</Button>
-        <Button onClick={this.onApply.bind(this)}>Apply</Button>
+        <Box className="bottom-bar">
+          <Button
+            variant="outlined"
+            color="primary"
+            startIcon={<RefreshIcon />}
+            onClick={this.onRescan.bind(this)}
+          >
+            Rescan
+          </Button>
+          <Button className="apply-button"
+            variant="contained"
+            color="primary"
+            endIcon={<SendIcon />}
+            onClick={this.onApply.bind(this)}
+          >
+            Apply
+          </Button>
+        </Box>
         <ShortcutsDialog
           keymap={this.state.keymap}
           shortcutDefinitions={this.state.shortcutDialogDefinition}

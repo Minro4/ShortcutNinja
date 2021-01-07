@@ -100,17 +100,17 @@ export class ShortcutCreatorElement extends Component<
 
     return (
       <TableRow>
-        <TableCell>
+        <TableCell className="keybindings-col">
           <ShortcutCreatorElementView
             shortcutCreator={shortcutCreator}
           ></ShortcutCreatorElementView>
         </TableCell>
         <TableCell>
           <IconButton onClick={this.createShortcut.bind(this)}>
-            <AddIcon></AddIcon>
+            <AddIcon fontSize="small"></AddIcon>
           </IconButton>
           <IconButton onClick={this.resetCreator.bind(this)}>
-            <RemoveIcon></RemoveIcon>
+            <RemoveIcon  fontSize="small"></RemoveIcon>
           </IconButton>
         </TableCell>
       </TableRow>

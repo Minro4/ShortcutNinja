@@ -4,7 +4,8 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
-$dark-black: #2e2e2e;
+$bg-black: #303030;
+$hover-black: rgba(255, 255, 255, 0.08);
 
 .key-element {
 }
@@ -13,4 +14,67 @@ $dark-black: #2e2e2e;
   padding: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+body {
+  .MuiDialog-paper {
+    background-color: $bg-black;
+    border: 1px solid black;
+
+    .MuiIconButton-root {
+      padding: 6px;
+    }
+  }
+
+  .MuiTableCell-root {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .MuiTableRow-root {
+    height: 41px;
+  }
+
+  .keymapper-row {
+    .command-col {
+      width: 35%;
+    }
+
+    .keybindings-col {
+      width: 65%;
+    }
+  }
+
+  .bottom-bar {
+    margin-top: 10px;
+
+    .apply-button {
+      float: right;
+    }
+  }
+
+  .MuiTableBody-root {
+    .keymapper-row {
+      &:hover {
+        cursor: pointer;
+        background-color: $hover-black;
+      }
+    }
+  }
+
+  .shortcut-dialog {
+    .keybindings-col {
+      min-width: 275px;
+    }
+  }
+
+  .schema-selector {
+    float: right;
+
+    .MuiSelect-root {
+      min-width: 125px;
+    }
+  }
 }

@@ -28,23 +28,19 @@ type ShortcutsDialogProps = {
 
 type ShortcutsDialogState = {
   keymap: UniversalKeymap;
+  onOkSubs: (() => Shortcut | undefined)[];
 };
 
 export class ShortcutsDialog extends Component<
   ShortcutsDialogProps,
   ShortcutsDialogState
 > {
-  private onOkSubs: (() => Shortcut | undefined)[] = [];
-
   constructor(props: ShortcutsDialogProps) {
     super(props);
     this.state = {
       keymap: props.keymap.clone(),
+      onOkSubs: [],
     };
-  }
-
-  componentWillUnmount(): void {
-    this.onOkSubs = [];
   }
 
   static getDerivedStateFromProps(
@@ -52,10 +48,10 @@ export class ShortcutsDialog extends Component<
     current_state: ShortcutsDialogState
   ): ShortcutsDialogState | null {
     if (!props.shortcutDefinitions) {
-      console.log('update');
       return {
         ...current_state,
         keymap: props.keymap.clone(),
+        onOkSubs: [],
       };
     }
     return null;
@@ -85,9 +81,10 @@ export class ShortcutsDialog extends Component<
 
   private onOk() {
     const keymap = this.state.keymap;
-    this.onOkSubs.forEach((sub) => {
+    this.state.onOkSubs.forEach((sub) => {
       if (this.props.shortcutDefinitions) {
         const sc = sub();
+        console.log(sc);
         if (sc) keymap.add(this.props.shortcutDefinitions.id, sc);
       }
     });
@@ -95,7 +92,7 @@ export class ShortcutsDialog extends Component<
   }
 
   private addOnOkSubscriber(fct: () => Shortcut | undefined) {
-    this.onOkSubs.push(fct);
+    this.state.onOkSubs.push(fct);
   }
 
   render(): ReactElement {
@@ -107,6 +104,7 @@ export class ShortcutsDialog extends Component<
           <Dialog
             open={isOpened}
             onClose={() => onCancel()}
+            className="shortcut-dialog"
             aria-labelledby="form-dialog-title"
           >
             <DialogTitle id="form-dialog-title">
@@ -120,14 +118,14 @@ export class ShortcutsDialog extends Component<
                       .get(shortcutDefinitions.id)
                       .map((shortcut, idx) => (
                         <TableRow key={idx}>
-                          <TableCell>
+                          <TableCell className="keybindings-col">
                             <ShortcutElement
                               shortcut={shortcut}
                             ></ShortcutElement>
                           </TableCell>
                           <TableCell>
                             <IconButton onClick={() => this.onRemove(shortcut)}>
-                              <RemoveIcon></RemoveIcon>
+                              <RemoveIcon fontSize="small"></RemoveIcon>
                             </IconButton>
                           </TableCell>
                         </TableRow>
@@ -142,10 +140,14 @@ export class ShortcutsDialog extends Component<
               </TableContainer>
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.onOk.bind(this)} color="primary">
+              <Button
+                onClick={this.onOk.bind(this)}
+                variant="contained"
+                color="primary"
+              >
                 Ok
               </Button>
-              <Button onClick={onCancel} color="primary">
+              <Button onClick={onCancel} variant="outlined" color="primary">
                 Cancel
               </Button>
             </DialogActions>
