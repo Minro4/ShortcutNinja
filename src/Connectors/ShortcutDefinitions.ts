@@ -3,6 +3,7 @@ import { fsUtils } from './Utils';
 export interface IShortcutDefinition {
   id: string;
   label: string;
+  metaTags?: string[]
 }
 
 export class ShortcutDefinitions {

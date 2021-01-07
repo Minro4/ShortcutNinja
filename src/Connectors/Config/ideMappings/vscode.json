@@ -1,4 +1,6 @@
 {
-  "formatDocument": "editor.action.formatDocument",
-  "goToFile": "workbench.action.quickOpen"
+  "formatDocument": ["editor.action.formatDocument"],
+  "goToFile": ["workbench.action.quickOpen"],
+  "renameFile": ["renameFile"],
+  "renameSymbol": ["editor.action.rename"]
 }

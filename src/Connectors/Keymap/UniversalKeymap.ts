@@ -4,13 +4,11 @@ import { Keymap } from '.';
 import { IJsonShortcut, Shortcut } from '../Shortcut';
 import { fsUtils } from '../Utils';
 import { Mappings } from './Keymap';
-import _ from "lodash"
+import _ from 'lodash';
 
-
-export type UniversalMappings = Mappings<Shortcut[]>
+export type UniversalMappings = Mappings<Shortcut[]>;
 
 export class UniversalKeymap extends Keymap<Shortcut> {
-
   constructor(keymap?: UniversalMappings) {
     super(keymap);
   }
@@ -19,18 +17,17 @@ export class UniversalKeymap extends Keymap<Shortcut> {
     ideMappings: IdeMappings,
     shortcutConverter: IShortcutConverter<T>
   ): Keymap<T> {
-    const mappings = this.keys().reduce<Mappings<T[]>>(
-      (ideKeymap, uniKey) => {
-        const ideKey = IdeMappingsUtils.toIde(ideMappings, uniKey);
-        if (ideKey) {
+    const mappings = this.keys().reduce<Mappings<T[]>>((ideKeymap, uniKey) => {
+      const ideKeys = IdeMappingsUtils.toIde(ideMappings, uniKey);
+      if (ideKeys) {
+        ideKeys.forEach((ideKey) => {
           ideKeymap[ideKey] = this.keymap[uniKey].map((shortcut) =>
             shortcutConverter.toIde(shortcut)
           );
-        }
-        return ideKeymap;
-      },
-      {}
-    );
+        });
+      }
+      return ideKeymap;
+    }, {});
 
     return new Keymap(mappings);
   }
@@ -48,13 +45,10 @@ export class UniversalKeymap extends Keymap<Shortcut> {
   }
 
   public toJson(): IJsonUniversalKeymap {
-    return this.keys().reduce<IJsonUniversalKeymap>(
-      (json, key) => {
-        json[key] = this.keymap[key].map((shortcut) => shortcut.toJson());
-        return json;
-      },
-      {}
-    );
+    return this.keys().reduce<IJsonUniversalKeymap>((json, key) => {
+      json[key] = this.keymap[key].map((shortcut) => shortcut.toJson());
+      return json;
+    }, {});
   }
 
   public static fromJson(json: IJsonUniversalKeymap): UniversalKeymap {

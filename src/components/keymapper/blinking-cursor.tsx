@@ -13,7 +13,7 @@ export class BlinkingCursor extends Component<
   BlinkingCursorProps,
   BlinkingCursorState
 > {
-  private handler :NodeJS.Timer;
+  private handler: NodeJS.Timer | undefined;
 
   public static defaultProps = {
     interval: 500,
@@ -38,7 +38,10 @@ export class BlinkingCursor extends Component<
   }
 
   componentWillUnmount(): void {
-    clearInterval(this.handler)
+    if (this.handler) {
+      clearInterval(this.handler);
+      this.handler = undefined;
+    }
   }
 
   render(): ReactElement {

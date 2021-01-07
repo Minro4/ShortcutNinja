@@ -1,4 +1,6 @@
 {
-  "formatDocument": "Edit.FormatDocument",
-  "goToFile": "Edit.GoToFile"
+  "formatDocument": ["Edit.FormatDocument"],
+  "goToFile": ["Edit.GoToFile"],
+  "renameFile": ["File.Rename"],
+  "renameSymbol": ["Refactor.Rename"]
 }

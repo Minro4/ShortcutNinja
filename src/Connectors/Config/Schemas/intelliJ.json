@@ -1,1 +1,6 @@
-{"formatDocument":[{"sc1":{"holdedKeys":["ctrl","alt"],"key":"l"}}],"goToFile":[{"sc1":{"holdedKeys":["ctrl","shift"],"key":"n"}}]}
+{
+  "formatDocument": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "l" } }],
+  "renameSymbol": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }],
+  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "n" } }],
+  "renameFile": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }]
+}

@@ -1,4 +1,5 @@
 {
-  "formatDocument": "ReformatCode",
-  "goToFile": "GotoFile"
+  "formatDocument": ["ReformatCode"],
+  "goToFile": ["GotoFile"],
+  "renameSymbol": ["RenameElement"]
 }

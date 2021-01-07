@@ -1,10 +1,56 @@
 [
   {
     "id": "formatDocument",
-    "label": "Format Document"
+    "label": "Format Document",
+    "metaTag": ["file"]
   },
   {
     "id": "goToFile",
     "label": "Go To File"
+  },
+  {
+    "id": "renameFile",
+    "label": "Rename File"
+  },
+  {
+    "id": "renameSymbol",
+    "label": "Rename Symbol"
+  },
+  {
+    "id": "cutLine",
+    "label": "Cut Line"
+  },
+  {
+    "id": "copyLine",
+    "label": "Copy Line"
+  },
+  {
+    "id": "deleteLine",
+    "label": "Delete Line"
+  },
+  {
+    "id": "insertLineAbove",
+    "label": "Insert Line Above"
+  },
+  {
+    "id": "insertLineBelow",
+    "label": "Insert Line Below"
+  },
+
+  {
+    "id": "moveLineUp",
+    "label": "Move Line Up"
+  },
+  {
+    "id": "moveLineDown",
+    "label": "Move Line Down"
+  },
+  {
+    "id": "indent",
+    "label": "Indent"
+  },
+  {
+    "id": "outdent",
+    "label": "Outdent"
   }
 ]

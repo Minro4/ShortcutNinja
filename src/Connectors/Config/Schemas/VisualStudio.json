@@ -1,1 +1,16 @@
-{"formatDocument":[{"sc1":{"holdedKeys":["ctrl"],"key":"k"},"sc2":{"holdedKeys":["ctrl"],"key":"d"}}],"goToFile":[{"sc1":{"holdedKeys":["ctrl"],"key":","}}]}
+{
+  "formatDocument": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+    }
+  ],
+  "renameSymbol": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "," } }],
+  "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }]
+}

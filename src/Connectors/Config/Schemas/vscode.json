@@ -1,7 +1,9 @@
 {
   "formatDocument": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }],
+  "renameSymbol": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
   "goToFile": [
     { "sc1": { "holdedKeys": ["ctrl"], "key": "e" } },
     { "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }
-  ]
+  ],
+  "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }]
 }

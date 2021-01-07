@@ -1,12 +1,6 @@
 import Select from '@material-ui/core/Select';
 import React, { ReactElement } from 'react';
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  InputLabel,
-  MenuItem,
-} from '@material-ui/core';
+import { Box, FormControl, FormLabel, MenuItem } from '@material-ui/core';
 import { SchemaLoaded } from './keymapper';
 
 type SchemaSelectorProps = {
