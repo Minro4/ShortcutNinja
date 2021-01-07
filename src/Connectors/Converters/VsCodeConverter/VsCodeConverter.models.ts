@@ -1,6 +1,6 @@
-export type VsCondeConfig = VsCodeKeybinding[];
+export type VsCodeConfig = VsCodeKeybinding[];
 export interface VsCodeKeybinding {
-  key: string;
+  key: VsCodeShortcut;
   command: string;
   when?: string;
 }

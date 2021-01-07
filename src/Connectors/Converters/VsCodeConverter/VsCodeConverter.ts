@@ -5,7 +5,7 @@ import { Converter } from '../Converter';
 import { StrShortcutConverter } from '../ShortcutConverter';
 import {
   VsCodeKeybinding,
-  VsCondeConfig,
+  VsCodeConfig,
   VsCodeShortcut,
 } from './VsCodeConverter.models';
 import { KEYBINDINGS_PATH } from '../../Constants/VsCode';
@@ -16,6 +16,8 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
   private schema;
   private readonly substractChar = '-';
+
+  private readonly commandWhenSeperator = ' when ';
 
   constructor(configPath?: string, schema: Schema = SchemaTypes.VS_CODE) {
     super('vscode.json', new StrShortcutConverter());
@@ -32,32 +34,26 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
       const bindings: VsCodeKeybinding[] = ideKeymap
         .get(ideKey)
         .map((ideShortcut) => {
-          return {
-            key: ideShortcut,
-            command: ideKey,
-          };
+          return this.BuildVsCodeKeybinding(ideKey, ideShortcut);
         });
 
       //Unbind default shortcuts
 
       bindings.push(
         ...ideSchema.get(ideKey).map((ideSchemaKey) => {
-          return {
-            key: ideSchemaKey,
-            command: `-${ideKey}`,
-          };
+          return this.BuildVsCodeKeybinding(ideKey, ideSchemaKey, true);
         })
       );
 
       return bindings;
     });
 
-    return fsUtils.saveJson<VsCondeConfig>(this.configPath, newConfig);
+    return fsUtils.saveJson<VsCodeConfig>(this.configPath, newConfig);
   }
   public async load(): Promise<UniversalKeymap> {
-    let ideConfig: VsCondeConfig = [];
+    let ideConfig: VsCodeConfig = [];
     try {
-      ideConfig = await fsUtils.readJson<VsCondeConfig>(this.configPath);
+      ideConfig = await fsUtils.readJson<VsCodeConfig>(this.configPath);
     } catch (err) {
       ideConfig = [];
     }
@@ -83,5 +79,27 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     schema.removeKeymap(uniKeymapToRemove);
     schema.addKeymap(uniKeymapToAdd);
     return schema;
+  }
+
+  private BuildVsCodeKeybinding(
+    ideKey: string,
+    keybinding: VsCodeShortcut,
+    negatedCommand = false
+  ): VsCodeKeybinding {
+    // eslint-disable-next-line prefer-const
+    let [command, when] = ideKey.split(this.commandWhenSeperator);
+    command = negatedCommand ? `-${command}` : command;
+    if (when) {
+      return {
+        key: keybinding,
+        command,
+        when,
+      };
+    } else {
+      return {
+        key: keybinding,
+        command,
+      };
+    }
   }
 }
