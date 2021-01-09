@@ -1,6 +1,7 @@
 {
   "outdent": [{ "sc1": { "holdedKeys": ["shift"], "key": "tab" } }],
   "indent": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "find": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
   "copyLine": [
     { "sc1": { "holdedKeys": ["ctrl"], "key": "insert" } },
     { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
@@ -20,14 +21,34 @@
     { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
   ],
   "moveLineUp": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }],
+  "findNext": [{ "sc1": { "holdedKeys": [], "key": "f4" } }],
   "outdent line": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "[" } }],
+  "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f4" } }],
   "renameSymbol": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
       "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
     }
   ],
-  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }],
+  "replace": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }],
+  "showHover": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "i" }
+    }
+  ],
+  "toggleBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
+  "continue": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "start": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "stepOut": [{ "sc1": { "holdedKeys": ["shift"], "key": "f11" } }],
+  "stopDebuging": [{ "sc1": { "holdedKeys": ["shift"], "key": "f5" } }],
+  "newFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "n" } }],
+  "openFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }],
+  "save": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
+  "saveAll": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }],
+  "saveAs": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }],
+  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "," } }],
   "cutLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }],
-  "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }]
+  "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "stepInto": [{ "sc1": { "holdedKeys": [], "key": "f11" } }]
 }

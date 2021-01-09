@@ -1,73 +1,207 @@
 [
   {
-    "id": "formatDocument",
-    "label": "Format Document",
-    "metaTag": ["file", "reformat", "indent"]
+    "label": "Rich languages editing",
+    "shortcuts": [
+      {
+        "id": "formatDocument",
+        "label": "Format Document",
+        "metaTag": ["file", "reformat", "indent"]
+      },
+      {
+        "id": "formatSelection",
+        "label": "Format Selection",
+        "metaTag": ["reformat", "indent"]
+      },
+      {
+        "id": "renameFile",
+        "label": "Rename File"
+      },
+      {
+        "id": "renameSymbol",
+        "label": "Rename Symbol"
+      }
+    ]
   },
   {
-    "id": "formatSelection",
-    "label": "Format Selection",
-    "metaTag": ["reformat", "indent"]
+    "label": "Navigation",
+    "shortcuts": [
+      {
+        "id": "goToFile",
+        "label": "Go To File"
+      }
+    ]
   },
   {
-    "id": "goToFile",
-    "label": "Go To File"
-  },
-  {
-    "id": "renameFile",
-    "label": "Rename File"
-  },
-  {
-    "id": "renameSymbol",
-    "label": "Rename Symbol"
-  },
-  {
-    "id": "cutLine",
-    "label": "Cut Line"
-  },
-  {
-    "id": "copyLine",
-    "label": "Copy Line"
-  },
-  {
-    "id": "duplicateLine",
-    "label": "Duplicate Line"
-  },
-  {
-    "id": "deleteLine",
-    "label": "Delete Line"
-  },
-  {
-    "id": "insertLineAbove",
-    "label": "Insert Line Above"
-  },
-  {
-    "id": "insertLineBelow",
-    "label": "Insert Line Below"
-  },
+    "label": "Basic Editing",
+    "shortcuts": [
+      {
+        "id": "cutLine",
+        "label": "Cut Line"
+      },
+      {
+        "id": "copyLine",
+        "label": "Copy Line"
+      },
+      {
+        "id": "duplicateSelection",
+        "label": "Duplicate Selection"
+      },
+      {
+        "id": "deleteLine",
+        "label": "Delete Line"
+      },
+      {
+        "id": "insertLineAbove",
+        "label": "Insert Line Above"
+      },
+      {
+        "id": "insertLineBelow",
+        "label": "Insert Line Below"
+      },
 
-  {
-    "id": "moveLineUp",
-    "label": "Move Line Up"
+      {
+        "id": "moveLineUp",
+        "label": "Move Line Up"
+      },
+      {
+        "id": "moveLineDown",
+        "label": "Move Line Down"
+      },
+      {
+        "id": "indent",
+        "label": "Indent",
+        "metaTag": ["tab"]
+      },
+      {
+        "id": "outdent",
+        "label": "Outdent",
+        "metaTag": ["tab"]
+      },
+      {
+        "id": "indentLine",
+        "label": "Indent Line",
+        "metaTag": ["tab"]
+      },
+      {
+        "id": "outdent line",
+        "label": "Outdent Line",
+        "metaTag": ["tab"]
+      }
+    ]
   },
   {
-    "id": "moveLineDown",
-    "label": "Move Line Down"
+    "label": "Search and Replace",
+    "shortcuts": [
+      {
+        "id": "find",
+        "label": "Find",
+        "metaTag": ["search"]
+      },
+      {
+        "id": "findNext",
+        "label": "Find Next",
+        "metaTag": ["search"]
+      },
+      {
+        "id": "findPrevious",
+        "label": "Find Previous",
+        "metaTag": ["search"]
+      },
+      {
+        "id": "replace",
+        "label": "Replace",
+        "metaTag": ["find", "search"]
+      }
+    ]
   },
   {
-    "id": "indent",
-    "label": "Indent"
+    "label": "Run and Debug",
+    "shortcuts": [
+      {
+        "id": "Toggle breakpoint",
+        "label": "Toggle breakpoint",
+        "metaTag": []
+      },
+      {
+        "id": "start",
+        "label": "Start",
+        "metaTag": []
+      },
+      {
+        "id": "continue",
+        "label": "Continue",
+        "metaTag": []
+      },
+      {
+        "id": "stopDebuging",
+        "label": "Stop",
+        "metaTag": []
+      },
+      {
+        "id": "stepInto",
+        "label": "Step Into",
+        "metaTag": []
+      },
+      {
+        "id": "stepOut",
+        "label": "Step Out",
+        "metaTag": []
+      },
+      {
+        "id": "toggleBreakpoint",
+        "label": "Toggle Breakpoint",
+        "metaTag": []
+      },
+      {
+        "id": "showHover",
+        "label": "Show Hover",
+        "metaTag": []
+      }
+    ]
   },
   {
-    "id": "outdent",
-    "label": "Outdent"
-  },
-  {
-    "id": "indentLine",
-    "label": "Indent Line"
-  },
-  {
-    "id": "outdent line",
-    "label": "Outdent Line"
+    "label": "File Management",
+    "shortcuts": [
+      {
+        "id": "newFile",
+        "label": "New File",
+        "metaTag": []
+      },
+      {
+        "id": "newFile",
+        "label": "New File",
+        "metaTag": []
+      },
+      {
+        "id": "openFile",
+        "label": "Open File",
+        "metaTag": []
+      },
+      {
+        "id": "save",
+        "label": "Save",
+        "metaTag": []
+      },
+      {
+        "id": "saveAs",
+        "label": "Save As",
+        "metaTag": []
+      },
+      {
+        "id": "saveAll",
+        "label": "Save All",
+        "metaTag": []
+      },
+      {
+        "id": "close",
+        "label": "Close File",
+        "metaTag": ["workbench.action.closeActiveEditor"]
+      },
+      {
+        "id": "closeAll",
+        "label": "Close All Opened Files",
+        "metaTag": ["workbench.action.closeAllEditors"]
+      }
+    ]
   }
 ]

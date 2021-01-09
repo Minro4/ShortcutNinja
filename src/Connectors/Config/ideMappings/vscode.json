@@ -42,5 +42,32 @@
   ],
   "outdent line": [
     "editor.action.outdentLines when editorTextFocus && !editorReadonly"
-  ]
+  ],
+  "find": ["actions.find when editorFocus || editorIsOpen"],
+  "findNext": ["editor.action.nextMatchFindAction when editorFocus"],
+  "findPrevious": ["editor.action.previousMatchFindAction when editorFocus"],
+  "replace": [
+    "editor.action.startFindReplaceAction when editorFocus || editorIsOpen"
+  ],
+  "toggleBreakpoint": [
+    "editor.debug.action.toggleBreakpoint when debuggersAvailable && editorTextFocus"
+  ],
+  "start": [
+    "workbench.action.debug.start when debuggersAvailable && !inDebugMode"
+  ],
+  "continue": ["workbench.action.debug.continue when inDebugMode"],
+  "stopDebuging": ["workbench.action.debug.stop when inDebugMode"],
+  "stepInto": ["workbench.action.debug.stepInto when debugState != 'inactive'"],
+  "stepOut": ["workbench.action.debug.stepOut when debugState == 'stopped'"],
+  "showHover": [
+    "editor.debug.action.showDebugHover when editorTextFocus && inDebugMode"
+  ],
+  "newFile": ["workbench.action.files.newUntitledFile"],
+  "openFile": ["workbench.action.files.openFile"],
+  "save": ["workbench.action.files.save"],
+  "saveAs": ["workbench.action.files.saveAs"],
+  "saveAll": ["workbench.action.files.saveAll"],
+  "close": [],
+  "closeAll": [],
+  "duplicateSelection": ["editor.action.duplicateSelection"]
 }
