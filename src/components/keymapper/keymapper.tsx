@@ -113,7 +113,6 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   }
 
   private onSchemaChange(schema: SchemaLoaded): void {
-    console.log(schema.schema.label);
     schema.keymap.then((keymap) => {
       this.setState({ ...this.state, keymap: keymap });
     });

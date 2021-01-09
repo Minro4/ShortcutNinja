@@ -2,5 +2,17 @@
   "formatDocument": ["Edit.FormatDocument"],
   "goToFile": ["Edit.GoToFile"],
   "renameFile": ["File.Rename"],
-  "renameSymbol": ["Refactor.Rename"]
+  "renameSymbol": ["Refactor.Rename"],
+  "formatSelection": ["Edit.FormatSelection"],
+  "cutLine": ["Edit.LineCut"],
+  "copyLine": ["Edit.Copy"],
+  "deleteLine": ["Edit.LineDelete"],
+  "insertLineAbove": ["Edit.LineOpenAbove"],
+  "insertLineBelow": ["Edit.LineOpenBelow"],
+  "moveLineUp": ["Edit.MoveSelectedLinesUp"],
+  "moveLineDown": ["Edit.MoveSelectedLinesDown"],
+  "indent": ["Edit.InsertTab"],
+  "outdent": ["Edit.TabLeft"],
+  "indentLine": [],
+  "outdent line": []
 }

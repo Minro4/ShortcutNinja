@@ -1,5 +1,18 @@
 {
   "formatDocument": ["ReformatCode"],
   "goToFile": ["GotoFile"],
-  "renameSymbol": ["RenameElement"]
+  "renameSymbol": ["RenameElement"],
+  "formatSelection": [],
+  "renameFile": [],
+  "cutLine": [],
+  "copyLine": [],
+  "deleteLine": [],
+  "insertLineAbove": [],
+  "insertLineBelow": [],
+  "moveLineUp": [],
+  "moveLineDown": [],
+  "indent": [],
+  "outdent": [],
+  "indentLine": [],
+  "outdent line": []
 }

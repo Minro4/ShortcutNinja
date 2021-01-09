@@ -84,7 +84,6 @@ export class ShortcutsDialog extends Component<
     this.state.onOkSubs.forEach((sub) => {
       if (this.props.shortcutDefinitions) {
         const sc = sub();
-        console.log(sc);
         if (sc) keymap.add(this.props.shortcutDefinitions.id, sc);
       }
     });

@@ -86,6 +86,7 @@ export class Keymap<T> {
     const mappings = this.keys().reduce<UniversalMappings>(
       (uniKeymap, ideKey) => {
         const uniKey = IdeMappingsUtils.toUni(ideMappings, ideKey);
+
         if (uniKey) {
           const sc: Shortcut[] = this.get(ideKey)
             .map((shortcut) => shortcutConverter.toUni(shortcut))

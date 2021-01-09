@@ -1,6 +1,34 @@
 {
-  "formatDocument": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "l" } }],
+  "outdent": [{ "sc1": { "holdedKeys": ["shift"], "key": "tab" } }],
+  "indent": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "copyLine": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "insert" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  ],
+  "deleteLine": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }],
+  "formatDocument": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }],
+  "formatSelection": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "f" }
+    }
+  ],
+  "indentLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "]" } }],
+  "insertLineBelow": [{ "sc1": { "holdedKeys": ["shift"], "key": "enter" } }],
+  "insertLineAbove": [
+    { "sc1": { "holdedKeys": ["alt", "ctrl"], "key": "enter" } }
+  ],
+  "moveLineDown": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } },
+    { "sc1": { "holdedKeys": ["shift", "ctrl"], "key": "down" } }
+  ],
+  "moveLineUp": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "up" } },
+    { "sc1": { "holdedKeys": ["shift", "ctrl"], "key": "up" } }
+  ],
+  "outdent line": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "[" } }],
   "renameSymbol": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }],
   "goToFile": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "n" } }],
-  "renameFile": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }]
+  "cutLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }],
+  "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }]
 }

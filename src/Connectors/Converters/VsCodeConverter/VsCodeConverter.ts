@@ -64,12 +64,11 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     const ideKeymapToAdd = new Keymap<VsCodeShortcut>();
 
     ideConfig.forEach((vsCodeKb) => {
-      let command = vsCodeKb.command;
-      if (command.startsWith(this.substractChar)) {
-        command = command.substring(this.substractChar.length);
-        ideKeymapToRemove.add(command, vsCodeKb.key);
+      const ideKey = this.BuildIdeKey(vsCodeKb);
+      if (vsCodeKb.command.startsWith(this.substractChar)) {
+        ideKeymapToRemove.add(ideKey, vsCodeKb.key);
       } else {
-        ideKeymapToAdd.add(command, vsCodeKb.key);
+        ideKeymapToAdd.add(ideKey, vsCodeKb.key);
       }
     });
 
@@ -78,6 +77,7 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
 
     schema.removeKeymap(uniKeymapToRemove);
     schema.addKeymap(uniKeymapToAdd);
+
     return schema;
   }
 
@@ -101,5 +101,12 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
         command,
       };
     }
+  }
+
+  private BuildIdeKey(kb: VsCodeKeybinding): string {
+    let command = kb.command;
+    if (command.startsWith(this.substractChar))
+      command = command.substring(this.substractChar.length);
+    return command + (kb.when ? this.commandWhenSeperator + kb.when : '');
   }
 }

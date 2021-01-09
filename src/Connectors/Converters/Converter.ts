@@ -1,9 +1,6 @@
-import { IdeMappings } from '../Ide';
+import { IdeMappings, IdeMappingsUtils } from '../Ide';
 import { UniversalKeymap } from '../Keymap';
-import { fsUtils } from '../Utils';
-import * as path from 'path';
 import { IShortcutConverter } from './ShortcutConverter';
-import { IDE_MAPPINGS_PATH } from '../Constants/general';
 import { Schema } from '../Schema/Schema';
 import { LoadSchema } from '../Schema/SchemaLoader';
 import { Keymap } from '../Keymap';
@@ -21,9 +18,7 @@ export abstract class Converter<IdeShortcut> implements IConverter {
     ideMappingsName: string,
     scConverter: IShortcutConverter<IdeShortcut>
   ) {
-    this.ideMappings = fsUtils.readJson<IdeMappings>(
-      path.join(IDE_MAPPINGS_PATH, ideMappingsName)
-    );
+    this.ideMappings = IdeMappingsUtils.read(ideMappingsName);
     this.scConverter = scConverter;
   }
 

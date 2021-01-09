@@ -51,7 +51,6 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     if (await this.addKmToXml(xml, ideKeymap)) {
       const fileName = `temp/imported${new Date().getTime()}`;
       await fsUtils.saveXml(fileName, xml);
-      console.log(xml);
       VsImportExport.importSettings(this.devenPath, fileName);
     }
   }

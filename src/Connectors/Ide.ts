@@ -1,4 +1,7 @@
+import path from 'path';
+import { IDE_MAPPINGS_PATH } from './Constants/general';
 import { IConverter } from './Converters/Converter';
+import { fsUtils } from './Utils';
 
 export interface Ide {
   name: string;
@@ -11,7 +14,10 @@ export interface IdeMappings {
 }
 
 export class IdeMappingsUtils {
-  public static toIde(ideMappings: IdeMappings, universalKey: string): string[] {
+  public static toIde(
+    ideMappings: IdeMappings,
+    universalKey: string
+  ): string[] {
     return ideMappings[universalKey];
   }
 
@@ -24,5 +30,18 @@ export class IdeMappingsUtils {
         return key;
       }
     }
+  }
+
+  public static read(mappingName: string): Promise<IdeMappings> {
+    return fsUtils.readJson<IdeMappings>(
+      path.join(IDE_MAPPINGS_PATH, mappingName)
+    );
+  }
+
+  public static save(mappingName: string, mapping: IdeMappings): Promise<any> {
+    return fsUtils.saveJson<IdeMappings>(
+      path.join(IDE_MAPPINGS_PATH, mappingName),
+      mapping
+    );
   }
 }

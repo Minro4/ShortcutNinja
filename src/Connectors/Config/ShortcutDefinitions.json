@@ -2,7 +2,12 @@
   {
     "id": "formatDocument",
     "label": "Format Document",
-    "metaTag": ["file"]
+    "metaTag": ["file", "reformat", "indent"]
+  },
+  {
+    "id": "formatSelection",
+    "label": "Format Selection",
+    "metaTag": ["reformat", "indent"]
   },
   {
     "id": "goToFile",
@@ -23,6 +28,10 @@
   {
     "id": "copyLine",
     "label": "Copy Line"
+  },
+  {
+    "id": "duplicateLine",
+    "label": "Duplicate Line"
   },
   {
     "id": "deleteLine",
@@ -52,5 +61,13 @@
   {
     "id": "outdent",
     "label": "Outdent"
+  },
+  {
+    "id": "indentLine",
+    "label": "Indent Line"
+  },
+  {
+    "id": "outdent line",
+    "label": "Outdent Line"
   }
 ]

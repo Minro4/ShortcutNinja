@@ -67,7 +67,6 @@ export class ShortcutCreatorElement extends Component<
 
   private handleKeyUp = ((e: KeyboardEvent): void => {
     this.state.shortcutCreator.onKeyup(e.key);
-    console.log(this.state.shortcutCreator);
     this.updateShortcutCreator();
     e.preventDefault();
   }).bind(this);

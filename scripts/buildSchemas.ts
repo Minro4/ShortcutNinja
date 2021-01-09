@@ -74,8 +74,6 @@ async function buildSchema(schema: SchemaBuild) {
   const schemaPath = path.join(SCHEMAS_PATH, schema.schema.fileName);
 
   const uniConfig = await GetBuild(schema);
-  console.log(parentBuild);
-  console.log(uniConfig);
   parentBuild.overrideKeymap(uniConfig);
 
   return parentBuild.saveKeymap(schemaPath);

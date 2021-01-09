@@ -31,9 +31,7 @@ export default class App extends Component<AppProps, AppState> {
         ...this.state,
         ides: scannedIdes,
       });
-      console.log(scannedIdes);
       scannedIdes[0].converter.load().then((keymap) => {
-        console.log(keymap);
         this.setState({
           ...this.state,
           keymap,

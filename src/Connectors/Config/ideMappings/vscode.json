@@ -1,6 +1,46 @@
 {
-  "formatDocument": ["editor.action.formatDocument"],
+  "formatDocument": [
+    "editor.action.formatDocument when editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  ],
+  "formatSelection": [
+    "editor.action.formatSelection when editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
+  ],
   "goToFile": ["workbench.action.quickOpen"],
-  "renameFile": ["renameFile"],
-  "renameSymbol": ["editor.action.rename"]
+  "renameFile": [
+    "renameFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  ],
+  "renameSymbol": [
+    "editor.action.rename when editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  ],
+  "cutLine": [
+    "filesExplorer.cut when explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  ],
+  "copyLine": ["editor.action.clipboardCopyAction"],
+  "deleteLine": [
+    "editor.action.deleteLines when textInputFocus && !editorReadonly"
+  ],
+  "insertLineAbove": [
+    "editor.action.insertLineBefore when editorTextFocus && !editorReadonly"
+  ],
+  "insertLineBelow": [
+    "editor.action.insertLineAfter when editorTextFocus && !editorReadonly"
+  ],
+  "moveLineUp": [
+    "editor.action.moveLinesUpAction when editorTextFocus && !editorReadonly"
+  ],
+  "moveLineDown": [
+    "editor.action.moveLinesDownAction when editorTextFocus && !editorReadonly"
+  ],
+  "indent": [
+    "tab when editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+  ],
+  "outdent": [
+    "outdent when editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+  ],
+  "indentLine": [
+    "editor.action.indentLines when editorTextFocus && !editorReadonly"
+  ],
+  "outdent line": [
+    "editor.action.outdentLines when editorTextFocus && !editorReadonly"
+  ]
 }

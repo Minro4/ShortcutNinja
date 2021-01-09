@@ -50,7 +50,6 @@ export class fsUtils {
     encoding = fsUtils.DEFAULT_ENCODING,
     replacer?: (key: any, value: any) => any
   ): Promise<void> {
-    console.log(JSON.stringify(json));
     return fsUtils.saveFile(path, JSON.stringify(json, replacer), encoding);
   }
 
