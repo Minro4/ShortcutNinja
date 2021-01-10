@@ -6,6 +6,10 @@
 
 $bg-black: #303030;
 $hover-black: rgba(255, 255, 255, 0.08);
+$paper-bg: #424242;
+$text-secondary: rgba(255, 255, 255, 0.7);
+$text-primary: #fff;
+$palette-action-disabled: rgba(255, 255, 255, 0.3);
 
 .key-element {
 }
@@ -28,11 +32,6 @@ body {
     }
   }
 
-  .MuiTableCell-root {
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
-
   .MuiTableRow-root {
     height: 41px;
   }
@@ -48,7 +47,7 @@ body {
   }
 
   .bottom-bar {
-    margin-top: 10px;
+    padding: 10px;
 
     .apply-button {
       float: right;
@@ -75,6 +74,46 @@ body {
 
     .MuiSelect-root {
       min-width: 125px;
+    }
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+  }
+  .footer {
+    border-top: 1px solid rgba(81, 81, 81, 1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+  }
+
+  .keymap-table {
+    position: fixed;
+    top: 100px;
+    bottom: 56px;
+    left: 0;
+    right: 0;
+
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px $paper-bg;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $palette-action-disabled;
+      border-radius: 10px;
     }
   }
 }

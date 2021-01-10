@@ -27,8 +27,8 @@ export const KeymapTable = ({
   shortcutDefinitions,
   onClick,
 }: KeymapTableProps): ReactElement => (
-  <TableContainer>
-    <Table>
+  <TableContainer className="keymap-table">
+    <Table size="small" stickyHeader>
       <TableHead>
         <TableRow className="keymapper-row">
           <TableCell className="command-col">Command</TableCell>
@@ -61,7 +61,9 @@ type ShortcutsListProps = {
   shortcuts: Shortcut[];
 };
 
-const ShortcutsList = ({ shortcuts }: ShortcutsListProps): ReactElement => (
+export const ShortcutsList = ({
+  shortcuts,
+}: ShortcutsListProps): ReactElement => (
   <>
     {shortcuts.map((shortcut, idx) => (
       <Box component="span" key={idx}>

@@ -65,19 +65,24 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
 
   render(): ReactElement {
     return (
-      <Box>
-        <SchemaSelector
-          schemas={this.state.schemas}
-          onChange={(schema: SchemaLoaded) => {
-            this.onSchemaChange(schema);
-          }}
-        ></SchemaSelector>
-        <KeymapTable
-          keymap={this.state.keymap}
-          shortcutDefinitions={this.state.shortcutDefinitions}
-          onClick={this.onClickShortcut.bind(this)}
-        ></KeymapTable>
-        <Box className="bottom-bar">
+      <Box className="keymapper">
+        <Box className="header">
+          <SchemaSelector
+            schemas={this.state.schemas}
+            onChange={(schema: SchemaLoaded) => {
+              this.onSchemaChange(schema);
+            }}
+          ></SchemaSelector>
+        </Box>
+        <Box className="content">
+          <KeymapTable
+            keymap={this.state.keymap}
+            shortcutDefinitions={this.state.shortcutDefinitions}
+            onClick={this.onClickShortcut.bind(this)}
+          ></KeymapTable>
+        </Box>
+        <Box className="footer">
+          <Box className="bottom-bar">
           <Button
             variant="outlined"
             color="primary"
@@ -86,7 +91,8 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           >
             Rescan
           </Button>
-          <Button className="apply-button"
+          <Button
+            className="apply-button"
             variant="contained"
             color="primary"
             endIcon={<SendIcon />}
@@ -94,6 +100,8 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           >
             Apply
           </Button>
+            </Box>
+
         </Box>
         <ShortcutsDialog
           keymap={this.state.keymap}
