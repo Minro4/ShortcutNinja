@@ -32,17 +32,22 @@ body {
     }
   }
 
-  .MuiTableRow-root {
+  .keymapper-row {
     height: 41px;
   }
 
   .keymapper-row {
+    .tab-col {
+      width: 50px;
+      padding: 0;
+    }
+
     .command-col {
-      width: 35%;
+      width: 150px;
     }
 
     .keybindings-col {
-      width: 65%;
+      max-width: 99%;
     }
   }
 
@@ -114,6 +119,17 @@ body {
     &::-webkit-scrollbar-thumb {
       background-color: $palette-action-disabled;
       border-radius: 10px;
+    }
+  }
+  .collapse-button {
+    margin-right: 10px;
+  }
+
+  .category-header {
+    background-color: $bg-black;
+    &:hover {
+      cursor: pointer;
+      background-color: $hover-black;
     }
   }
 }

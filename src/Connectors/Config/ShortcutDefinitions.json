@@ -1,7 +1,7 @@
 [
   {
     "label": "Rich languages editing",
-    "shortcuts": [
+    "definitions": [
       {
         "id": "formatDocument",
         "label": "Format Document",
@@ -24,7 +24,7 @@
   },
   {
     "label": "Navigation",
-    "shortcuts": [
+    "definitions": [
       {
         "id": "goToFile",
         "label": "Go To File"
@@ -33,7 +33,7 @@
   },
   {
     "label": "Basic Editing",
-    "shortcuts": [
+    "definitions": [
       {
         "id": "cutLine",
         "label": "Cut Line"
@@ -91,7 +91,7 @@
   },
   {
     "label": "Search and Replace",
-    "shortcuts": [
+    "definitions": [
       {
         "id": "find",
         "label": "Find",
@@ -116,7 +116,7 @@
   },
   {
     "label": "Run and Debug",
-    "shortcuts": [
+    "definitions": [
       {
         "id": "Toggle breakpoint",
         "label": "Toggle breakpoint",
@@ -161,12 +161,7 @@
   },
   {
     "label": "File Management",
-    "shortcuts": [
-      {
-        "id": "newFile",
-        "label": "New File",
-        "metaTag": []
-      },
+    "definitions": [
       {
         "id": "newFile",
         "label": "New File",

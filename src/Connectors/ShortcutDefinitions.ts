@@ -2,7 +2,7 @@ import { fsUtils } from './Utils';
 
 export interface IShortcutCategory {
   label: string;
-  shortcuts: IShortcutDefinition[];
+  definitions: IShortcutDefinition[];
 }
 
 export interface IShortcutDefinition {
@@ -21,7 +21,7 @@ export class ShortcutDefinitions {
   public static async read(): Promise<ShortcutDefinitions> {
     const categories = await ShortcutCategories.read();
     const definitions = categories.categories.flatMap(
-      (category) => category.shortcuts
+      (category) => category.definitions
     );
     return new ShortcutDefinitions(definitions);
   }

@@ -4,6 +4,7 @@ import { Schema, SchemaTypes } from '../../Connectors/Schema/Schema';
 import { LoadSchema } from '../../Connectors/Schema/SchemaLoader';
 import {
   IShortcutDefinition,
+  ShortcutCategories,
   ShortcutDefinitions,
 } from '../../Connectors/ShortcutDefinitions';
 import { UniversalKeymap } from '../../Connectors/Keymap';
@@ -27,7 +28,7 @@ type KeymapperProps = {
 type KeymapperState = {
   keymap: UniversalKeymap;
   schemas: SchemaLoaded[];
-  shortcutDefinitions: ShortcutDefinitions;
+  shortcutCategories: ShortcutCategories;
   shortcutDialogDefinition?: IShortcutDefinition;
 };
 
@@ -49,16 +50,16 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     this.state = {
       keymap: this.props.keymap,
       schemas: schemas,
-      shortcutDefinitions: new ShortcutDefinitions(),
+      shortcutCategories: new ShortcutCategories(),
     };
   }
 
   // Before the component mounts, we initialise our state
   componentWillMount(): void {
-    ShortcutDefinitions.read().then((definition) => {
+    ShortcutCategories.read().then((categories) => {
       this.setState({
         ...this.state,
-        shortcutDefinitions: definition,
+        shortcutCategories: categories,
       });
     });
   }
@@ -77,7 +78,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
         <Box className="content">
           <KeymapTable
             keymap={this.state.keymap}
-            shortcutDefinitions={this.state.shortcutDefinitions}
+            shortcutCategories={this.state.shortcutCategories}
             onClick={this.onClickShortcut.bind(this)}
           ></KeymapTable>
         </Box>
