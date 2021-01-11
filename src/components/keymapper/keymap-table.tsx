@@ -6,7 +6,6 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
 } from '@material-ui/core';
 import React, { ReactElement } from 'react'; // we need this to make JSX compile
@@ -27,28 +26,32 @@ type KeymapTableProps = {
   keymap: UniversalKeymap;
   shortcutCategories: ShortcutCategories;
   onClick: (definition: IShortcutDefinition) => void;
+  openedCategories: boolean[];
+  setOpen: ((value: boolean) => void)[];
 };
 
 export const KeymapTable = ({
   keymap,
-  shortcutCategories: shortcutDefinitions,
+  shortcutCategories,
   onClick,
+  openedCategories,
+  setOpen,
 }: KeymapTableProps): ReactElement => (
   <TableContainer className="keymap-table">
     <Table size="small" stickyHeader>
       <TableBody>
-        {shortcutDefinitions.categories
-          .filter((category) => category.definitions.length > 0)
-          .map((category, index) => {
-            return (
-              <CatergoryRow
-                key={index}
-                onShortcutClick={onClick}
-                category={category}
-                keymap={keymap}
-              ></CatergoryRow>
-            );
-          })}
+        {shortcutCategories.categories.map((category, index) => {
+          return (
+            <CatergoryRow
+              key={index}
+              onShortcutClick={onClick}
+              category={category}
+              keymap={keymap}
+              open={openedCategories[index]}
+              setOpen={setOpen[index]}
+            ></CatergoryRow>
+          );
+        })}
       </TableBody>
     </Table>
   </TableContainer>
@@ -58,14 +61,17 @@ type CatergoryRowProps = {
   category: IShortcutCategory;
   keymap: UniversalKeymap;
   onShortcutClick: (definition: IShortcutDefinition) => void;
+  open: boolean;
+  setOpen: (value: boolean) => void;
 };
 
 export const CatergoryRow = ({
   category,
   keymap,
   onShortcutClick,
+  open,
+  setOpen,
 }: CatergoryRowProps): ReactElement => {
-  const [open, setOpen] = React.useState(true);
   return (
     <>
       <TableRow className="keymapper-row" onClick={() => setOpen(!open)}>
@@ -82,7 +88,7 @@ export const CatergoryRow = ({
       </TableRow>
       <TableRow>
         <TableCell style={{ padding: 0, border: 0 }} colSpan={nbrCols}>
-          <Collapse in={open} timeout="auto" unmountOnExit >
+          <Collapse in={open} timeout="auto" unmountOnExit>
             <Table size="small">
               <TableBody>
                 {category.definitions.map((definition, index) => (
@@ -110,11 +116,6 @@ export const CatergoryRow = ({
     </>
   );
 };
-/*
-<TableCell className="command-col">{definition.label}</TableCell>
-<TableCell className="keybindings-col">
-  <ShortcutsList shortcuts={keymap.get(definition.id)}></ShortcutsList>
-</TableCell>*/
 
 type ShortcutsListProps = {
   shortcuts: Shortcut[];

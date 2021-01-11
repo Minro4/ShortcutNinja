@@ -75,8 +75,6 @@ body {
   }
 
   .schema-selector {
-    float: right;
-
     .MuiSelect-root {
       min-width: 125px;
     }
@@ -87,7 +85,8 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 100px;
+    height: 84;
+    border-bottom: 1px solid rgba(81, 81, 81, 1);
   }
   .footer {
     border-top: 1px solid rgba(81, 81, 81, 1);
@@ -100,7 +99,7 @@ body {
 
   .keymap-table {
     position: fixed;
-    top: 100px;
+    top: 85px;
     bottom: 56px;
     left: 0;
     right: 0;
@@ -130,6 +129,17 @@ body {
     &:hover {
       cursor: pointer;
       background-color: $hover-black;
+    }
+  }
+  .search-bar-container {
+    padding: 6px;
+
+    .MuiInputBase-input {
+      //Fixes some weird bug from mui where the class order is wrong
+      padding-top: 10.5px;
+      padding-bottom: 10.5px;
+      padding-right: 14px;
+      padding-left: 14px;
     }
   }
 }

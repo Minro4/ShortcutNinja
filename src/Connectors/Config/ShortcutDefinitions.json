@@ -1,16 +1,17 @@
 [
   {
     "label": "Rich languages editing",
+    "id": "richLanguagesEditing",
     "definitions": [
       {
         "id": "formatDocument",
         "label": "Format Document",
-        "metaTag": ["file", "reformat", "indent"]
+        "metaTags": ["file", "reformat", "indent"]
       },
       {
         "id": "formatSelection",
         "label": "Format Selection",
-        "metaTag": ["reformat", "indent"]
+        "metaTags": ["reformat", "indent"]
       },
       {
         "id": "renameFile",
@@ -24,6 +25,7 @@
   },
   {
     "label": "Navigation",
+    "id": "navigation",
     "definitions": [
       {
         "id": "goToFile",
@@ -33,6 +35,7 @@
   },
   {
     "label": "Basic Editing",
+    "id": "basicEditing",
     "definitions": [
       {
         "id": "cutLine",
@@ -70,132 +73,130 @@
       {
         "id": "indent",
         "label": "Indent",
-        "metaTag": ["tab"]
+        "metaTags": ["tab"]
       },
       {
         "id": "outdent",
         "label": "Outdent",
-        "metaTag": ["tab"]
+        "metaTags": ["tab"]
       },
       {
         "id": "indentLine",
         "label": "Indent Line",
-        "metaTag": ["tab"]
+        "metaTags": ["tab"]
       },
       {
         "id": "outdent line",
         "label": "Outdent Line",
-        "metaTag": ["tab"]
+        "metaTags": ["tab"]
       }
     ]
   },
   {
     "label": "Search and Replace",
+    "id": "searchAndReplace",
     "definitions": [
       {
         "id": "find",
         "label": "Find",
-        "metaTag": ["search"]
+        "metaTags": ["search"]
       },
       {
         "id": "findNext",
         "label": "Find Next",
-        "metaTag": ["search"]
+        "metaTags": ["search"]
       },
       {
         "id": "findPrevious",
         "label": "Find Previous",
-        "metaTag": ["search"]
+        "metaTags": ["search"]
       },
       {
         "id": "replace",
         "label": "Replace",
-        "metaTag": ["find", "search"]
+        "metaTags": ["find", "search"]
       }
     ]
   },
   {
     "label": "Run and Debug",
+    "id": "runAndDebug",
     "definitions": [
       {
         "id": "Toggle breakpoint",
         "label": "Toggle breakpoint",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "start",
         "label": "Start",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "continue",
         "label": "Continue",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "stopDebuging",
         "label": "Stop",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "stepInto",
         "label": "Step Into",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "stepOut",
         "label": "Step Out",
-        "metaTag": []
-      },
-      {
-        "id": "toggleBreakpoint",
-        "label": "Toggle Breakpoint",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "showHover",
         "label": "Show Hover",
-        "metaTag": []
+        "metaTags": []
       }
     ]
   },
   {
     "label": "File Management",
+    "id": "fileManagement",
     "definitions": [
       {
         "id": "newFile",
         "label": "New File",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "openFile",
         "label": "Open File",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "save",
         "label": "Save",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "saveAs",
         "label": "Save As",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "saveAll",
         "label": "Save All",
-        "metaTag": []
+        "metaTags": []
       },
       {
         "id": "close",
         "label": "Close File",
-        "metaTag": ["workbench.action.closeActiveEditor"]
+        "metaTags": ["workbench.action.closeActiveEditor"]
       },
       {
         "id": "closeAll",
         "label": "Close All Opened Files",
-        "metaTag": ["workbench.action.closeAllEditors"]
+        "metaTags": ["workbench.action.closeAllEditors"]
       }
     ]
   }

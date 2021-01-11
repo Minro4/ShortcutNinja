@@ -1,6 +1,13 @@
 import { fsUtils } from './Utils';
 
+export interface IDictShortcutCategory {
+  id: string;
+  label: string;
+  definitions: { [key: string]: IShortcutDefinition };
+}
+
 export interface IShortcutCategory {
+  id: string;
   label: string;
   definitions: IShortcutDefinition[];
 }

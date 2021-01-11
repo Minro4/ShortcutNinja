@@ -266,6 +266,7 @@
     "glob": "^7.1.6",
     "history": "^5.0.0",
     "lodash": "^4.17.20",
+    "minisearch": "^3.0.2",
     "node-powershell": "^4.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
