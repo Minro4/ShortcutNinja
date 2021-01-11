@@ -10,18 +10,24 @@ import {
   TableRow,
   TableCell,
   IconButton,
+  Tooltip,
 } from '@material-ui/core';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
 import { UniversalKeymap } from '../../Connectors/Keymap';
 import { Shortcut } from '../../Connectors/Shortcut';
-import { IShortcutDefinition } from '../../Connectors/ShortcutDefinitions';
+import {
+  IShortcutDefinition,
+  ShortcutCategories,
+} from '../../Connectors/ShortcutDefinitions';
+import { ConflictWarning } from './conflict-warning';
 import { ShortcutElement } from './shortcut';
 import { ShortcutCreatorElement } from './shortcut-creator';
 
 type ShortcutsDialogProps = {
   keymap: UniversalKeymap;
-  shortcutDefinitions?: IShortcutDefinition;
+  shortcutCategories: ShortcutCategories;
+  shortcutDefinition?: IShortcutDefinition;
   onChange: (newKeymap: UniversalKeymap) => void;
   onCancel: () => void;
 };
@@ -47,7 +53,7 @@ export class ShortcutsDialog extends Component<
     props: ShortcutsDialogProps,
     current_state: ShortcutsDialogState
   ): ShortcutsDialogState | null {
-    if (!props.shortcutDefinitions) {
+    if (!props.shortcutDefinition) {
       return {
         ...current_state,
         keymap: props.keymap.clone(),
@@ -58,9 +64,9 @@ export class ShortcutsDialog extends Component<
   }
 
   private onRemove(shortcut: Shortcut) {
-    if (this.props.shortcutDefinitions) {
+    if (this.props.shortcutDefinition) {
       const newKemap = this.state.keymap.clone();
-      newKemap.remove(this.props.shortcutDefinitions.id, shortcut);
+      newKemap.remove(this.props.shortcutDefinition.id, shortcut);
       this.setState({
         ...this.state,
         keymap: newKemap,
@@ -69,9 +75,9 @@ export class ShortcutsDialog extends Component<
   }
 
   private addShortcut(shortcut: Shortcut) {
-    if (this.props.shortcutDefinitions) {
+    if (this.props.shortcutDefinition) {
       const newKemap = this.state.keymap.clone();
-      newKemap.add(this.props.shortcutDefinitions.id, shortcut);
+      newKemap.add(this.props.shortcutDefinition.id, shortcut);
       this.setState({
         ...this.state,
         keymap: newKemap,
@@ -82,9 +88,9 @@ export class ShortcutsDialog extends Component<
   private onOk() {
     const keymap = this.state.keymap;
     this.state.onOkSubs.forEach((sub) => {
-      if (this.props.shortcutDefinitions) {
+      if (this.props.shortcutDefinition) {
         const sc = sub();
-        if (sc) keymap.add(this.props.shortcutDefinitions.id, sc);
+        if (sc) keymap.add(this.props.shortcutDefinition.id, sc);
       }
     });
     this.props.onChange(keymap);
@@ -94,8 +100,33 @@ export class ShortcutsDialog extends Component<
     this.state.onOkSubs.push(fct);
   }
 
+  private conflictingDefinitions(
+    shortcut: Shortcut,
+    definition: IShortcutDefinition
+  ): IShortcutDefinition[] {
+    const keys = this.state.keymap.conflicts(shortcut, definition.id);
+    return this.props.shortcutCategories.categories.reduce<
+      IShortcutDefinition[]
+    >((arr, category) => {
+      return arr.concat(
+        category.definitions.filter((definition) =>
+          keys.includes(definition.id)
+        )
+      );
+    }, []);
+  }
+
+  private removeConflict(
+    definition: IShortcutDefinition,
+    shortcut: Shortcut
+  ): void {
+    const newKeymap = this.state.keymap.clone();
+    newKeymap.remove(definition.id, shortcut);
+    this.setState({ ...this.state, keymap: newKeymap });
+  }
+
   render(): ReactElement {
-    const { shortcutDefinitions, onCancel } = this.props;
+    const { shortcutDefinition: shortcutDefinitions, onCancel } = this.props;
     const isOpened = !!shortcutDefinitions;
     if (shortcutDefinitions)
       return (
@@ -111,21 +142,35 @@ export class ShortcutsDialog extends Component<
             </DialogTitle>
             <DialogContent>
               <TableContainer>
-                <Table>
+                <Table size="small">
                   <TableBody>
                     {this.state.keymap
                       .get(shortcutDefinitions.id)
                       .map((shortcut, idx) => (
                         <TableRow key={idx}>
                           <TableCell className="keybindings-col">
+                            <ConflictWarning
+                              defnitions={this.conflictingDefinitions(
+                                shortcut,
+                                shortcutDefinitions
+                              )}
+                              onRemove={(def) =>
+                                this.removeConflict(def, shortcut)
+                              }
+                            ></ConflictWarning>
+
                             <ShortcutElement
                               shortcut={shortcut}
                             ></ShortcutElement>
                           </TableCell>
                           <TableCell>
-                            <IconButton onClick={() => this.onRemove(shortcut)}>
-                              <RemoveIcon fontSize="small"></RemoveIcon>
-                            </IconButton>
+                            <Tooltip title="Remove" arrow>
+                              <IconButton
+                                onClick={() => this.onRemove(shortcut)}
+                              >
+                                <RemoveIcon fontSize="small"></RemoveIcon>
+                              </IconButton>
+                            </Tooltip>
                           </TableCell>
                         </TableRow>
                       ))}

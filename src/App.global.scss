@@ -120,6 +120,17 @@ body {
       border-radius: 10px;
     }
   }
+
+  .conflict-header {
+    background-color: $paper-bg;
+    max-width: 300px;
+    font-size: 0.8em;
+  }
+
+  .conflict-button {
+    margin-right: 5px;
+  }
+
   .collapse-button {
     margin-right: 10px;
   }
@@ -141,6 +152,10 @@ body {
       padding-right: 14px;
       padding-left: 14px;
     }
+  }
+
+  .MuiTooltip-popper > div {
+    font-size: 0.8em;
   }
 }
 

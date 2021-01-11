@@ -32,6 +32,18 @@ export class UniversalKeymap extends Keymap<Shortcut> {
     return new Keymap(mappings);
   }
 
+  public conflicts(shortcut: Shortcut, except?: string): string[] {
+    return this.keys().reduce<string[]>((arr, key) => {
+      if (key !== except) {
+        const shortcuts = this.get(key);
+        if (shortcuts.some((sc) => shortcut.equals(sc))) {
+          arr.push(key);
+        }
+      }
+      return arr;
+    }, []);
+  }
+
   public saveKeymap(path: string): Promise<void> {
     return fsUtils.saveJson<IJsonUniversalKeymap>(path, this.toJson());
   }

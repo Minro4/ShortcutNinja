@@ -29,6 +29,7 @@ type KeymapperState = {
   keymap: UniversalKeymap;
   schemas: SchemaLoaded[];
   filteredShortcutCategories: ShortcutCategories;
+  shortcutCategories: ShortcutCategories;
   openedCategories: boolean[];
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
@@ -57,6 +58,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       keymap: this.props.keymap,
       schemas: schemas,
       filteredShortcutCategories: new ShortcutCategories(),
+      shortcutCategories: new ShortcutCategories(),
       openedCategories: [],
       setOpenedCategories: [],
     };
@@ -65,6 +67,9 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   // Before the component mounts, we initialise our state
   componentWillMount(): void {
     this.shortcutCategories.then(this.setCategories.bind(this));
+    this.shortcutCategories.then((shortcutCategories) => {
+      this.setState({ ...this.state, shortcutCategories });
+    });
   }
 
   render(): ReactElement {
@@ -114,7 +119,8 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
         </Box>
         <ShortcutsDialog
           keymap={this.state.keymap}
-          shortcutDefinitions={this.state.shortcutDialogDefinition}
+          shortcutDefinition={this.state.shortcutDialogDefinition}
+          shortcutCategories={this.state.shortcutCategories}
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
         ></ShortcutsDialog>

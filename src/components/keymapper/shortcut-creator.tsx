@@ -1,4 +1,4 @@
-import { IconButton, TableCell, TableRow } from '@material-ui/core';
+import { IconButton, TableCell, TableRow, Tooltip } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
@@ -107,12 +107,16 @@ export class ShortcutCreatorElement extends Component<
           <BlinkingCursor></BlinkingCursor>
         </TableCell>
         <TableCell>
-          <IconButton onClick={this.createShortcut.bind(this)}>
-            <AddIcon fontSize="small"></AddIcon>
-          </IconButton>
-          <IconButton onClick={this.resetCreator.bind(this)}>
-            <RemoveIcon  fontSize="small"></RemoveIcon>
-          </IconButton>
+          <Tooltip title="Add" arrow>
+            <IconButton onClick={this.createShortcut.bind(this)}>
+              <AddIcon fontSize="small"></AddIcon>
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Reset" arrow>
+            <IconButton onClick={this.resetCreator.bind(this)}>
+              <RemoveIcon fontSize="small"></RemoveIcon>
+            </IconButton>
+          </Tooltip>
         </TableCell>
       </TableRow>
     );
