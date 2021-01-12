@@ -30,7 +30,7 @@ export class SchemaTypes {
   };
 
   public static readonly VS_CODE: Schema = {
-    label: 'VS Code',
+    label: 'Visual Studio Code',
     fileName: 'vscode.json',
   };
 
@@ -40,11 +40,11 @@ export class SchemaTypes {
   };
 
   public static readonly SCHEMAS: Schema[] = [
+    SchemaTypes.VS_CODE,
     SchemaTypes.VISUAL_STUDIO,
-    SchemaTypes.ATOM,
     SchemaTypes.INTELLIJ,
+    SchemaTypes.ATOM,
     SchemaTypes.NOTEPADPP,
     SchemaTypes.SUBLIME,
-    SchemaTypes.VS_CODE,
   ];
 }

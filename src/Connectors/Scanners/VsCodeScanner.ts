@@ -5,7 +5,7 @@ import { FOLDER_PATH } from '../Constants/VsCode';
 
 export class VsCodeScanner extends DirectoryScanner {
   static readonly ide: Ide = {
-    name: 'vscode',
+    name: 'Visual Studio Code',
     converter: new VsCodeConverter(),
   };
   constructor() {

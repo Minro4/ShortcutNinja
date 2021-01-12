@@ -25,7 +25,7 @@ type ConflictWarningProps = {
 
 export const ConflictWarning = ({
   defnitions,
-  onRemove
+  onRemove,
 }: ConflictWarningProps): ReactElement => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
@@ -86,7 +86,7 @@ export const ConflictWarning = ({
                     </TableCell>
                     <TableCell>
                       <Tooltip title="Remove" arrow>
-                        <IconButton onClick={()=> onRemove(definition)}>
+                        <IconButton onClick={() => onRemove(definition)}>
                           <RemoveIcon fontSize="small"></RemoveIcon>
                         </IconButton>
                       </Tooltip>

@@ -14,6 +14,7 @@ import { Box, Button } from '@material-ui/core';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import SendIcon from '@material-ui/icons/Send';
 import { SearchBar } from './search-bar';
+import { ApplyDialog } from './apply-dialog';
 
 export type SchemaLoaded = {
   schema: Schema;
@@ -33,6 +34,7 @@ type KeymapperState = {
   openedCategories: boolean[];
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
+  applyOpened: boolean;
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
@@ -61,6 +63,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       shortcutCategories: new ShortcutCategories(),
       openedCategories: [],
       setOpenedCategories: [],
+      applyOpened: false,
     };
   }
 
@@ -124,6 +127,12 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
         ></ShortcutsDialog>
+        <ApplyDialog
+          ides={this.props.ides}
+          open={this.state.applyOpened}
+          onApply={this.apply.bind(this)}
+          onClose={this.closeApply.bind(this)}
+        ></ApplyDialog>
       </Box>
     );
   }
@@ -191,8 +200,17 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   }
 
   private onApply() {
-    this.props.ides.forEach((ide) => {
+    this.setState({ ...this.state, applyOpened: true });
+  }
+
+  private apply(ides: Ide[]) {
+    ides.forEach((ide) => {
       ide.converter.save(this.state.keymap);
     });
+    this.setState({ ...this.state, applyOpened: false });
+  }
+
+  private closeApply() {
+    this.setState({ ...this.state, applyOpened: false });
   }
 }
