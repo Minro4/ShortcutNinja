@@ -14,7 +14,7 @@ import { Keymap } from '../../Keymap';
 
 export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
-  private schema;
+  private schema: Schema;
   private readonly substractChar = '-';
 
   private readonly commandWhenSeperator = ' when ';
@@ -40,7 +40,6 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
         });
 
       //Unbind default shortcuts
-
       bindings.push(
         ...ideSchema.get(ideKey).map((ideSchemaKey) => {
           return this.BuildVsCodeKeybinding(ideKey, ideSchemaKey, true);

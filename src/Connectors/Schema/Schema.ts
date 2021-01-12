@@ -46,5 +46,6 @@ export class SchemaTypes {
     SchemaTypes.ATOM,
     SchemaTypes.NOTEPADPP,
     SchemaTypes.SUBLIME,
+    SchemaTypes.EMPTY,
   ];
 }

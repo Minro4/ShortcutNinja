@@ -50,7 +50,9 @@ export class SingleShortcut implements ISingleShortcut {
   key: string;
 
   constructor(holdedKeys: Set<HoldableKeys>, key: string) {
-    this.holdedKeys = holdedKeys;
+    this.holdedKeys = new Set<HoldableKeys>(
+      Array.from(holdedKeys).map((key) => key.toLowerCase()) as HoldableKeys[]
+    );
     this.key = key.toLowerCase();
   }
 

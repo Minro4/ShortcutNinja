@@ -17,11 +17,13 @@
   "indentLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "]" } }],
   "insertLineBelow": [{ "sc1": { "holdedKeys": ["shift"], "key": "enter" } }],
   "insertLineAbove": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }],
-  "moveLineDown": [{ "sc1": { "holdedKeys": ["alt"], "key": "down" } }],
-  "moveLineUp": [{ "sc1": { "holdedKeys": ["alt"], "key": "up" } }],
-  "findNext": [{ "sc1": { "holdedKeys": [], "key": "f3" } }],
+  "moveLineDown": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
+  ],
+  "moveLineUp": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }],
+  "findNext": [{ "sc1": { "holdedKeys": [], "key": "f4" } }],
   "outdent line": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "[" } }],
-  "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f3" } }],
+  "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f4" } }],
   "renameSymbol": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
@@ -44,7 +46,7 @@
   "openFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }],
   "save": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
   "saveAll": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }],
-  "saveAs": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }],
+  "saveAs": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }],
   "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }],
   "cutLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }],
   "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],

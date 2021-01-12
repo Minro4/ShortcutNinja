@@ -7,22 +7,22 @@ import { UniversalKeymap } from '../src/Connectors/Keymap';
 describe('Universal keymap tests', function () {
   const converter: IShortcutConverter<string> = {
     toIde: (shortcut: Shortcut) => {
-      if (shortcut.sc1.key === 'uniSc') return 'ideSc';
+      if (shortcut.sc1.key === 'unisc') return 'idesc';
       return 'wrong';
     },
     toUni: (shortcut: string) => {
-      if (shortcut == 'ideSc')
+      if (shortcut == 'idesc')
         return new Shortcut(new SingleShortcut(new Set(), 'uniSc'));
       return undefined;
     },
   };
 
   it('toUniKeymap should correctly map key and shortcut', async function () {
-    const ideKeymap = new Keymap<VsCodeShortcut>({ ideKey: ['ideSc'] });
+    const ideKeymap = new Keymap<VsCodeShortcut>({ ideKey: ['idesc'] });
 
     const uni = ideKeymap.toUniKeymap({ uniKey: ['ideKey'] }, converter);
 
-    expect(uni.get('uniKey')[0].sc1.key).toEqual('uniSc');
+    expect(uni.get('uniKey')[0].sc1.key).toEqual('unisc');
   });
 
   it('toUniKeymap should correctly map key and shortcut', async function () {
@@ -31,7 +31,7 @@ describe('Universal keymap tests', function () {
     });
     const ideKm = uniKm.toIdeKeymap({ uniKey: ['ideKey'] }, converter);
 
-    expect(ideKm.get('ideKey')).toEqual(['ideSc']);
+    expect(ideKm.get('ideKey')).toEqual(['idesc']);
   });
 
   it('remove single shortcut', async function () {
@@ -76,5 +76,40 @@ describe('Universal keymap tests', function () {
     uniKm.remove('uniKey');
 
     expect(uniKm).toEqual(expectedKm);
+  });
+
+  it('remove remove all the same', async function () {
+    const km1 = new UniversalKeymap({
+      uniKey: [
+        new Shortcut(new SingleShortcut(new Set(['ctrl', 'alt']), 'uniSc')),
+        new Shortcut(new SingleShortcut(new Set(['ctrl', 'alt']), 'uniSc2')),
+      ],
+    });
+
+    const expectedKm1 = new UniversalKeymap({
+      uniKey: [],
+    });
+
+    const km2 = new UniversalKeymap({
+      uniKey: [
+        new Shortcut(new SingleShortcut(new Set(['ctrl', 'alt']), 'uniSc')),
+        new Shortcut(new SingleShortcut(new Set(['ctrl', 'alt']), 'uniSc2')),
+      ],
+      uniKey2: [
+        new Shortcut(new SingleShortcut(new Set(['ctrl', 'alt']), 'uniSc')),
+      ],
+    });
+
+    const expectedKm2 = new UniversalKeymap({
+      uniKey: [],
+      uniKey2: [
+        new Shortcut(new SingleShortcut(new Set(['ctrl', 'alt']), 'unisc')),
+      ],
+    });
+
+    km1.removeSharedMappings(km2);
+
+    expect(km1).toEqual(expectedKm1);
+    expect(km2).toEqual(expectedKm2);
   });
 });

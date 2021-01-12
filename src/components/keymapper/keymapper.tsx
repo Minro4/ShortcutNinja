@@ -10,12 +10,9 @@ import { UniversalKeymap } from '../../Connectors/Keymap';
 import { KeymapTable } from './keymap-table';
 import { SchemaSelector } from './schema-selector';
 import { ShortcutsDialog } from './shortcuts-dialog';
-import { Box, Button, CircularProgress, Snackbar } from '@material-ui/core';
-import RefreshIcon from '@material-ui/icons/Refresh';
-import SendIcon from '@material-ui/icons/Send';
+import { Box } from '@material-ui/core';
 import { SearchBar } from './search-bar';
-import { ApplyDialog } from './apply-dialog';
-import MuiAlert from '@material-ui/lab/Alert';
+import { Footer } from './footer';
 
 export type SchemaLoaded = {
   schema: Schema;
@@ -35,9 +32,7 @@ type KeymapperState = {
   openedCategories: boolean[];
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
-  applyOpened: boolean;
-  applyLoading: boolean;
-  snackbarOpened: boolean;
+  importDialogOpened: boolean;
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
@@ -66,9 +61,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       shortcutCategories: new ShortcutCategories(),
       openedCategories: [],
       setOpenedCategories: [],
-      applyOpened: false,
-      applyLoading: false,
-      snackbarOpened: false,
+      importDialogOpened: false,
     };
   }
 
@@ -105,30 +98,8 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           ></KeymapTable>
         </Box>
         <Box className="footer">
-          <Box className="bottom-bar">
-            <Button
-              variant="outlined"
-              color="primary"
-              startIcon={<RefreshIcon />}
-              onClick={this.onRescan.bind(this)}
-            >
-              Rescan
-            </Button>
-            <Button
-              className="apply-button"
-              variant="contained"
-              color="primary"
-              endIcon={!this.state.applyLoading && <SendIcon />}
-              onClick={this.onApply.bind(this)}
-              disabled={this.state.applyLoading}
-            >
-              {this.state.applyLoading ? (
-                <CircularProgress size={20} />
-              ) : (
-                'Apply'
-              )}
-            </Button>
-          </Box>
+          <Footer ides={this.props.ides} keymap={this.state.keymap}
+          importDialogOpened={this.state.importDialogOpened} onImport={this.importIde.bind(this)} onOpenImport={()=>this.setImportDialogOpen(true)} onCloseImport={()=>this.setImportDialogOpen(false)}></Footer>
         </Box>
         <ShortcutsDialog
           keymap={this.state.keymap}
@@ -137,21 +108,6 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
         ></ShortcutsDialog>
-        <ApplyDialog
-          ides={this.props.ides}
-          open={this.state.applyOpened}
-          onApply={this.apply.bind(this)}
-          onClose={this.closeApply.bind(this)}
-        ></ApplyDialog>
-        <Snackbar
-          open={this.state.snackbarOpened}
-          autoHideDuration={4000}
-          onClose={() => this.setSnackbar(false)}
-        >
-          <MuiAlert severity="success" variant="filled">
-            Shortcuts successfully applied!
-          </MuiAlert>
-        </Snackbar>
       </Box>
     );
   }
@@ -214,38 +170,15 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     });
   }
 
-  private onRescan() {
-    throw new Error('not implemented');
-    this.componentDidCatch;
-  }
-
-  private onApply() {
-    this.setState({ ...this.state, applyOpened: true });
-  }
-
-  private apply(ides: Ide[]) {
-    Promise.all(
-      ides.map((ide) => ide.converter.save(this.state.keymap.clone()))
-    ).then((results) => {
-      this.setState({ ...this.state, applyLoading: false });
-      if (results.some((result) => result)) {
-        this.setSnackbar(true);
-      } else {
-        console.log('fail');
-      }
+  private importIde(ide: Ide): void {
+    ide.converter.load().then((keymap) => {
+      this.setState({ ...this.state, keymap: keymap });
     });
-    this.setState({
-      ...this.state,
-      applyOpened: false,
-      applyLoading: true,
-    });
+
+    this.setImportDialogOpen(false);
   }
 
-  private closeApply() {
-    this.setState({ ...this.state, applyOpened: false });
-  }
-
-  private setSnackbar(value: boolean) {
-    this.setState({ ...this.state, snackbarOpened: value });
+  private setImportDialogOpen(value: boolean) {
+    this.setState({ ...this.state, importDialogOpened: value });
   }
 }
