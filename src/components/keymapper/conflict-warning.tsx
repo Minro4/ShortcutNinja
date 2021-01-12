@@ -1,22 +1,18 @@
 import {
-  Box,
   IconButton,
   Popover,
   Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
   Tooltip,
-  Typography,
 } from '@material-ui/core';
 import React from 'react';
 import { ReactElement } from 'react';
 import WarningIcon from '@material-ui/icons/Warning';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { IShortcutDefinition } from '../../Connectors/ShortcutDefinitions';
-import { ShortcutElement } from './shortcut';
 
 type ConflictWarningProps = {
   defnitions: IShortcutDefinition[];

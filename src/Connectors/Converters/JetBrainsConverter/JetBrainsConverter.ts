@@ -45,7 +45,7 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
     return schema;
   }
 
-  public async save(keymap: UniversalKeymap): Promise<any> {
+  public async save(keymap: UniversalKeymap): Promise<boolean> {
     //Read config and override it
     const currentConfig = await this.fetchConfig();
 
@@ -71,10 +71,12 @@ export class JetBrainsConverter extends Converter<JbShortcut> {
     const newPath =
       path.join(this.configFolder, APP_NAME) + `.${JB.CONFIG_EXTENTION}`;
 
-    return Promise.all([
+    await Promise.all([
       fsUtils.saveXml<JbXmlConfig>(newPath, newConfig),
       this.setActiveKeymap(APP_NAME),
     ]);
+
+    return true;
   }
 
   private async fetchConfig(): Promise<JbXmlConfig> {

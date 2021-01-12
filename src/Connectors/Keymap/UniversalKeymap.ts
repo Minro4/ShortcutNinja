@@ -71,6 +71,21 @@ export class UniversalKeymap extends Keymap<Shortcut> {
       }, {})
     );
   }
+
+   //Removes in both keymaps, mappings that are shared.
+   public removeSharedMappings(other: UniversalKeymap): void {
+    this.keys().forEach(key => {
+      const otherShortcuts = other.get(key);
+      this.get(key).forEach(shortcut => {
+        otherShortcuts.forEach(otherShortcut => {
+          if (shortcut.equals(otherShortcut)){
+            this.remove(key,shortcut);
+            other.remove(key,otherShortcut);
+          }
+        });
+      })
+    });
+  }
 }
 
 type IJsonUniversalKeymap = Mappings<IJsonShortcut[]>;

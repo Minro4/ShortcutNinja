@@ -7,9 +7,11 @@ import {
   DialogContent,
   Button,
   DialogActions,
+  Tooltip,
 } from '@material-ui/core';
 import React, { Component, ReactElement } from 'react';
-import { Ide } from '../../Connectors/Ide';
+import { Ide, IdeType } from '../../Connectors/Ide';
+import InfoIcon from '@material-ui/icons/InfoOutlined';
 
 type ApplyDialogProps = {
   ides: Ide[];
@@ -55,6 +57,7 @@ export class ApplyDialog extends Component<ApplyDialogProps, ApplyDialogState> {
           <FormGroup>
             {this.props.ides.map((ide, idx) => (
               <FormControlLabel
+                key={idx}
                 control={
                   <Checkbox
                     checked={this.state.selectedIdes[idx]}
@@ -62,7 +65,7 @@ export class ApplyDialog extends Component<ApplyDialogProps, ApplyDialogState> {
                     color="primary"
                   />
                 }
-                label={ide.name}
+                label={<>{ide.name}<IdeInfo ide={ide}></IdeInfo></>}
               />
             ))}
           </FormGroup>
@@ -87,3 +90,18 @@ export class ApplyDialog extends Component<ApplyDialogProps, ApplyDialogState> {
     );
   }
 }
+type IdeInfoProps = {
+  ide: Ide
+}
+
+const IdeInfo = ({ide}: IdeInfoProps): ReactElement => {
+  if (ide.type === IdeType.Jetbrains) {
+    return (
+      <Tooltip title="Jetbrains ides need to be restarted for changes to be applied" arrow>
+        <InfoIcon fontSize="small" className="ide-info"></InfoIcon>
+      </Tooltip>
+    );
+  } else {
+    return <></>;
+  }
+};

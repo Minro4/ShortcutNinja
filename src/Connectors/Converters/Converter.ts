@@ -6,7 +6,7 @@ import { LoadSchema } from '../Schema/SchemaLoader';
 import { Keymap } from '../Keymap';
 
 export interface IConverter {
-  save(keymap: UniversalKeymap): Promise<any>;
+  save(keymap: UniversalKeymap): Promise<boolean>;
   load(): Promise<UniversalKeymap>;
 }
 

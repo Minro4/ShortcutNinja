@@ -44,7 +44,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     return schema;
   }
 
-  public async save(keymap: UniversalKeymap): Promise<any> {
+  public async save(keymap: UniversalKeymap): Promise<boolean> {
     const ideKeymap = await this.toIdeKeymap(keymap);
     const xml = await this.loadSettings(this.devenPath);
 
@@ -52,7 +52,10 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
       const fileName = `temp/imported${new Date().getTime()}`;
       await fsUtils.saveXml(fileName, xml);
       VsImportExport.importSettings(this.devenPath, fileName);
+      return true;
     }
+
+    return false;
   }
 
   public xmlToConfig(xml: VisualStudioXmlConfig): VisualStudioConfig {

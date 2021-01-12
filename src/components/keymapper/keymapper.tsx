@@ -10,11 +10,12 @@ import { UniversalKeymap } from '../../Connectors/Keymap';
 import { KeymapTable } from './keymap-table';
 import { SchemaSelector } from './schema-selector';
 import { ShortcutsDialog } from './shortcuts-dialog';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, CircularProgress, Snackbar } from '@material-ui/core';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import SendIcon from '@material-ui/icons/Send';
 import { SearchBar } from './search-bar';
 import { ApplyDialog } from './apply-dialog';
+import MuiAlert from '@material-ui/lab/Alert';
 
 export type SchemaLoaded = {
   schema: Schema;
@@ -35,6 +36,8 @@ type KeymapperState = {
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
   applyOpened: boolean;
+  applyLoading: boolean;
+  snackbarOpened: boolean;
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
@@ -64,6 +67,8 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       openedCategories: [],
       setOpenedCategories: [],
       applyOpened: false,
+      applyLoading: false,
+      snackbarOpened: false,
     };
   }
 
@@ -113,10 +118,15 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
               className="apply-button"
               variant="contained"
               color="primary"
-              endIcon={<SendIcon />}
+              endIcon={!this.state.applyLoading && <SendIcon />}
               onClick={this.onApply.bind(this)}
+              disabled={this.state.applyLoading}
             >
-              Apply
+              {this.state.applyLoading ? (
+                <CircularProgress size={20} />
+              ) : (
+                'Apply'
+              )}
             </Button>
           </Box>
         </Box>
@@ -133,6 +143,15 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           onApply={this.apply.bind(this)}
           onClose={this.closeApply.bind(this)}
         ></ApplyDialog>
+        <Snackbar
+          open={this.state.snackbarOpened}
+          autoHideDuration={4000}
+          onClose={() => this.setSnackbar(false)}
+        >
+          <MuiAlert severity="success" variant="filled">
+            Shortcuts successfully applied!
+          </MuiAlert>
+        </Snackbar>
       </Box>
     );
   }
@@ -197,6 +216,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
 
   private onRescan() {
     throw new Error('not implemented');
+    this.componentDidCatch;
   }
 
   private onApply() {
@@ -204,13 +224,28 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   }
 
   private apply(ides: Ide[]) {
-    ides.forEach((ide) => {
-      ide.converter.save(this.state.keymap);
+    Promise.all(
+      ides.map((ide) => ide.converter.save(this.state.keymap.clone()))
+    ).then((results) => {
+      this.setState({ ...this.state, applyLoading: false });
+      if (results.some((result) => result)) {
+        this.setSnackbar(true);
+      } else {
+        console.log('fail');
+      }
     });
-    this.setState({ ...this.state, applyOpened: false });
+    this.setState({
+      ...this.state,
+      applyOpened: false,
+      applyLoading: true,
+    });
   }
 
   private closeApply() {
     this.setState({ ...this.state, applyOpened: false });
+  }
+
+  private setSnackbar(value: boolean) {
+    this.setState({ ...this.state, snackbarOpened: value });
   }
 }

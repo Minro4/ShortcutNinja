@@ -2,7 +2,7 @@ import glob from 'glob';
 import * as JB from '../Constants/JetBrains';
 import * as path from 'path';
 import { JetBrainsConverter } from '../Converters/JetbrainsConverter/JetBrainsConverter';
-import { Ide } from '../Ide';
+import { Ide, IdeType } from '../Ide';
 import { IScanner } from './IScanner';
 
 export class JetBrainsScanner implements IScanner {
@@ -18,9 +18,16 @@ export class JetBrainsScanner implements IScanner {
         JB.KEYMAPS_FOLDER_NAME
       );
       return {
-        name: `JetBrains ${ideName}`,
+        name: this.formatIdeName(ideName),
         converter: new JetBrainsConverter(optionsPath, configFolder),
+        type: IdeType.Jetbrains,
       };
     });
+  }
+
+  private formatIdeName(fileName: string): string {
+    const idx = fileName.indexOf('20');
+    const ideName = fileName.slice(0, idx) + ' ' + fileName.slice(idx);
+    return `JetBrains ${ideName}`;
   }
 }

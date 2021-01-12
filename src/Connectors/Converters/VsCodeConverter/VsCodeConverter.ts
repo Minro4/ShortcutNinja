@@ -25,10 +25,12 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     this.configPath = configPath ?? KEYBINDINGS_PATH;
   }
 
-  public async save(keymap: UniversalKeymap): Promise<any> {
-    const ideKeymap = await this.toIdeKeymap(keymap);
+  public async save(keymap: UniversalKeymap): Promise<boolean> {
+    const uniSchema = await LoadSchema(this.schema);
+    keymap.removeSharedMappings(uniSchema);
 
-    const ideSchema = await this.fetchIdeSchema(this.schema);
+    const ideKeymap = await this.toIdeKeymap(keymap);
+    const ideSchema = await this.toIdeKeymap(uniSchema);
 
     const newConfig = ideKeymap.keys().flatMap<VsCodeKeybinding>((ideKey) => {
       const bindings: VsCodeKeybinding[] = ideKeymap
@@ -48,7 +50,8 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
       return bindings;
     });
 
-    return fsUtils.saveJson<VsCodeConfig>(this.configPath, newConfig);
+    await fsUtils.saveJson<VsCodeConfig>(this.configPath, newConfig);
+    return true;
   }
   public async load(): Promise<UniversalKeymap> {
     let ideConfig: VsCodeConfig = [];

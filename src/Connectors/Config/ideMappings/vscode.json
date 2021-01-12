@@ -1,6 +1,7 @@
 {
   "formatDocument": [
-    "editor.action.formatDocument when editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    "editor.action.formatDocument when editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
+    "editor.action.formatDocument when editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
   ],
   "formatSelection": [
     "editor.action.formatSelection when editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"

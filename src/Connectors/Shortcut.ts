@@ -51,7 +51,7 @@ export class SingleShortcut implements ISingleShortcut {
 
   constructor(holdedKeys: Set<HoldableKeys>, key: string) {
     this.holdedKeys = holdedKeys;
-    this.key = key;
+    this.key = key.toLowerCase();
   }
 
   public orderedHoldedKeys(): HoldableKeys[] {

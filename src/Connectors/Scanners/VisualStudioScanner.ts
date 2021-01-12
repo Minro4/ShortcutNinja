@@ -1,4 +1,4 @@
-import { Ide } from '../Ide';
+import { Ide, IdeType } from '../Ide';
 import { IScanner } from './IScanner';
 import { glob } from 'glob';
 import { VisualStudioConverter } from '../Converters/VisualStudioConverter/VisualStudioConverter';
@@ -13,6 +13,7 @@ export class VisualStudioScanner implements IScanner {
         return {
           name: `Visual Studio ${folders[3]} ${folders[4]}`,
           converter: new VisualStudioConverter(p),
+          type: IdeType.VisualStudio
         };
       });
   }

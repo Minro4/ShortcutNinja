@@ -3,9 +3,16 @@ import { IDE_MAPPINGS_PATH } from './Constants/general';
 import { IConverter } from './Converters/Converter';
 import { fsUtils } from './Utils';
 
+export enum IdeType {
+  Jetbrains,
+  VisualStudio,
+  VsCode,
+}
+
 export interface Ide {
   name: string;
   converter: IConverter;
+  type: IdeType;
 }
 
 export interface IdeMappings {
