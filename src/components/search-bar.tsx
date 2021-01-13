@@ -6,7 +6,7 @@ import {
   IShortcutCategory,
   IShortcutDefinition,
   ShortcutCategories,
-} from '../../Connectors/ShortcutDefinitions';
+} from '../Connectors/ShortcutDefinitions';
 
 export interface SearchableDefinition {
   id: string;

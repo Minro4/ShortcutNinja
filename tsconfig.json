@@ -19,8 +19,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "allowJs": true,
-    "skipLibCheck": true
+    "allowJs": true
   },
   "exclude": [
     "test",
@@ -28,8 +27,6 @@
     "src/main.prod.js",
     "src/renderer.prod.js",
     "src/dist",
-    ".erb/dll",
-    "dist",
-    "node_modules"
+    ".erb/dll"
   ]
 }

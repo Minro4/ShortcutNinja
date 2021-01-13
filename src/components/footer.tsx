@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Snackbar } from '@material-ui/core';
 import React, { Component, ReactElement } from 'react';
-import { Ide } from '../../Connectors/Ide';
-import { UniversalKeymap } from '../../Connectors/Keymap';
+import { Ide } from '../Connectors/Ide';
+import { UniversalKeymap } from '../Connectors/Keymap';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import SendIcon from '@material-ui/icons/Send';
 import { ApplyDialog } from './apply-dialog';
@@ -38,7 +38,7 @@ export class Footer extends Component<FooterProps, FooterState> {
     return (
       <Box className="bottom-bar">
         <Button
-          variant="outlined"
+          variant="contained"
           color="primary"
           startIcon={<GetAppIcon />}
           onClick={this.props.onOpenImport}

@@ -9,7 +9,7 @@ import {
   Radio,
 } from '@material-ui/core';
 import React, { ReactElement } from 'react';
-import { Ide } from '../../Connectors/Ide';
+import { Ide } from '../Connectors/Ide';
 
 type ImportDialogProps = {
   ides: Ide[];

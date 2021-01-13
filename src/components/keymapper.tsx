@@ -1,12 +1,12 @@
 import React, { Component, ReactElement } from 'react'; // let's also import Component
-import { Ide } from '../../Connectors/Ide';
-import { Schema, SchemaTypes } from '../../Connectors/Schema/Schema';
-import { LoadSchema } from '../../Connectors/Schema/SchemaLoader';
+import { Ide } from '../Connectors/Ide';
+import { Schema, SchemaTypes } from '../Connectors/Schema/Schema';
+import { LoadSchema } from '../Connectors/Schema/SchemaLoader';
 import {
   IShortcutDefinition,
   ShortcutCategories,
-} from '../../Connectors/ShortcutDefinitions';
-import { UniversalKeymap } from '../../Connectors/Keymap';
+} from '../Connectors/ShortcutDefinitions';
+import { UniversalKeymap } from '../Connectors/Keymap';
 import { KeymapTable } from './keymap-table';
 import { SchemaSelector } from './schema-selector';
 import { ShortcutsDialog } from './shortcuts-dialog';
@@ -21,7 +21,6 @@ export type SchemaLoaded = {
 
 type KeymapperProps = {
   ides: Ide[];
-  keymap: UniversalKeymap;
 };
 
 type KeymapperState = {
@@ -41,13 +40,14 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   constructor(props: KeymapperProps) {
     super(props);
 
+    const km = new UniversalKeymap()
     const schemas: SchemaLoaded[] = [
       {
         schema: {
           fileName: 'user',
           label: 'Custom',
         },
-        keymap: Promise.resolve(this.props.keymap),
+        keymap: Promise.resolve(km),
       },
     ];
     schemas.push(...this.loadSchemas());
@@ -55,7 +55,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     this.shortcutCategories = ShortcutCategories.read();
 
     this.state = {
-      keymap: this.props.keymap,
+      keymap: km,
       schemas: schemas,
       filteredShortcutCategories: new ShortcutCategories(),
       shortcutCategories: new ShortcutCategories(),

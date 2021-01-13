@@ -1,6 +1,6 @@
 import { Box, Paper } from '@material-ui/core';
 import React, { ReactElement } from 'react';
-import { Shortcut, SingleShortcut } from '../../Connectors/Shortcut';
+import { Shortcut, SingleShortcut } from '../Connectors/Shortcut';
 
 type ShortcutProps = {
   shortcut: Shortcut;

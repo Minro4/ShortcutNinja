@@ -2,8 +2,8 @@ import { IconButton, TableCell, TableRow, Tooltip } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
-import { ShortcutCreator } from '../../Connectors';
-import { Shortcut } from '../../Connectors/Shortcut';
+import { ShortcutCreator } from '../Connectors';
+import { Shortcut } from '../Connectors/Shortcut';
 import { BlinkingCursor } from './blinking-cursor';
 import { ShortcutKeyListElement } from './shortcut';
 

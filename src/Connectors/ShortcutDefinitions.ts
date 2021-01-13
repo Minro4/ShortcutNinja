@@ -1,3 +1,4 @@
+import {  SHORTCUT_DEFINITIONS_PATH } from './Constants/general';
 import { fsUtils } from './Utils';
 
 export interface IDictShortcutCategory {
@@ -35,9 +36,6 @@ export class ShortcutDefinitions {
 }
 
 export class ShortcutCategories {
-  public static readonly DEFAULT_SC_DEFINITIONS_PATH =
-    'src/Connectors/Config/ShortcutDefinitions.json';
-
   public categories: IShortcutCategory[];
 
   constructor(categories?: IShortcutCategory[]) {
@@ -45,7 +43,7 @@ export class ShortcutCategories {
   }
 
   public static async read(
-    path: string = ShortcutCategories.DEFAULT_SC_DEFINITIONS_PATH
+    path: string = SHORTCUT_DEFINITIONS_PATH
   ): Promise<ShortcutCategories> {
     return new ShortcutCategories(
       await fsUtils.readJson<IShortcutCategory[]>(path)

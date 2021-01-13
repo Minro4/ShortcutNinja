@@ -14,12 +14,12 @@ import {
 } from '@material-ui/core';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { Component, ReactElement } from 'react';
-import { UniversalKeymap } from '../../Connectors/Keymap';
-import { Shortcut } from '../../Connectors/Shortcut';
+import { UniversalKeymap } from '../Connectors/Keymap';
+import { Shortcut } from '../Connectors/Shortcut';
 import {
   IShortcutDefinition,
   ShortcutCategories,
-} from '../../Connectors/ShortcutDefinitions';
+} from '../Connectors/ShortcutDefinitions';
 import { ConflictWarning } from './conflict-warning';
 import { ShortcutElement } from './shortcut';
 import { ShortcutCreatorElement } from './shortcut-creator';

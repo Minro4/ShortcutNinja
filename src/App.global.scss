@@ -4,6 +4,7 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
+$dark-bg: #212121;
 $bg-black: #303030;
 $hover-black: rgba(255, 255, 255, 0.025);
 $paper-bg: #424242;
@@ -23,6 +24,8 @@ $palette-action-disabled: rgba(255, 255, 255, 0.3);
 }
 
 body {
+  background-color: $dark-bg;
+
   .MuiDialog-paper {
     background-color: $bg-black;
     border: 1px solid black;
@@ -99,7 +102,7 @@ body {
 
   .keymap-table {
     position: fixed;
-    top: 85px;
+    top: 101px;
     bottom: 56px;
     left: 0;
     right: 0;

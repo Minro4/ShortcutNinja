@@ -12,7 +12,7 @@ import React from 'react';
 import { ReactElement } from 'react';
 import WarningIcon from '@material-ui/icons/Warning';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { IShortcutDefinition } from '../../Connectors/ShortcutDefinitions';
+import { IShortcutDefinition } from '../Connectors/ShortcutDefinitions';
 
 type ConflictWarningProps = {
   defnitions: IShortcutDefinition[];

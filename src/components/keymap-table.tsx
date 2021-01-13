@@ -9,13 +9,13 @@ import {
   TableRow,
 } from '@material-ui/core';
 import React, { ReactElement } from 'react'; // we need this to make JSX compile
-import { UniversalKeymap } from '../../Connectors/Keymap';
-import { Shortcut } from '../../Connectors/Shortcut';
+import { UniversalKeymap } from '../Connectors/Keymap';
+import { Shortcut } from '../Connectors/Shortcut';
 import {
   IShortcutCategory,
   IShortcutDefinition,
   ShortcutCategories,
-} from '../../Connectors/ShortcutDefinitions';
+} from '../Connectors/ShortcutDefinitions';
 import { ShortcutElement } from './shortcut';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
