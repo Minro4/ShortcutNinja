@@ -1,6 +1,5 @@
 import {
   FormControlLabel,
-  Checkbox,
   Dialog,
   DialogTitle,
   DialogContent,

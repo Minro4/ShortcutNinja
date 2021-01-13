@@ -192,6 +192,7 @@ export default class MenuBuilder {
     return [subMenuAbout, subMenuEdit, subMenuView, subMenuWindow, subMenuHelp];
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   buildDefaultTemplate() {
     const templateDefault = [
       {

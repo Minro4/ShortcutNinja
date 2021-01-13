@@ -5,7 +5,6 @@ import { Connectors } from './Connectors';
 import { Ide } from './Connectors/Ide';
 import { UniversalKeymap } from './Connectors/Keymap';
 import { themeDark } from './theme';
-import MuiAlert from '@material-ui/lab/Alert';
 
 type AppProps = Record<string, never>;
 
