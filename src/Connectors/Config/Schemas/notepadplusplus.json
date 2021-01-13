@@ -47,7 +47,7 @@
   "save": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
   "saveAll": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }],
   "saveAs": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }],
-  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }],
+  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "," } }],
   "cutLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }],
   "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
   "stepInto": [{ "sc1": { "holdedKeys": [], "key": "f11" } }]

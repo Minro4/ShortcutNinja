@@ -1,5 +1,5 @@
 import { IShortcutConverter } from '../Converters/ShortcutConverter';
-import { IdeMappings, IdeMappingsUtils } from '../Ide';
+import { IdeMappings } from "../IdeMappings";
 import { Keymap } from '.';
 import { IJsonShortcut, Shortcut } from '../Shortcut';
 import { fsUtils } from '../Utils';
@@ -18,7 +18,7 @@ export class UniversalKeymap extends Keymap<Shortcut> {
     shortcutConverter: IShortcutConverter<T>
   ): Keymap<T> {
     const mappings = this.keys().reduce<Mappings<T[]>>((ideKeymap, uniKey) => {
-      const ideKeys = IdeMappingsUtils.toIde(ideMappings, uniKey);
+      const ideKeys = ideMappings.toIde(uniKey);
       if (ideKeys) {
         ideKeys.forEach((ideKey) => {
           ideKeymap[ideKey] = this.keymap[uniKey].map((shortcut) =>
@@ -91,4 +91,4 @@ export class UniversalKeymap extends Keymap<Shortcut> {
   }
 }
 
-type IJsonUniversalKeymap = Mappings<IJsonShortcut[]>;
+export type IJsonUniversalKeymap = Mappings<IJsonShortcut[]>;

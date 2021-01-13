@@ -13,8 +13,8 @@ import {
   JbKeymapOptions,
   JbXmlConfig,
 } from '../../../src/Connectors/Converters/JetbrainsConverter/JetBrains.models';
-import { LoadSchema } from '../../../src/Connectors/Schema/SchemaLoader';
-import { SchemaTypes } from '../../../src/Connectors/Schema/Schema';
+import { SchemaTypes } from "../../../src/Connectors/Schema/SchemaTypes";
+
 
 describe('JetBrains converter test', function () {
   const universalKm: UniversalKeymap = new UniversalKeymap({
@@ -46,8 +46,8 @@ describe('JetBrains converter test', function () {
   });
 
   it('Read config', async function () {
-    const expectedKm = await LoadSchema(SchemaTypes.VISUAL_STUDIO);
-     expectedKm.overrideKeymap(universalKm);
+    const expectedKm = SchemaTypes.VISUAL_STUDIO.get();
+    expectedKm.overrideKeymap(universalKm);
 
     const converter = new JetBrainsConverter(
       keymapOptionPath,
@@ -84,7 +84,7 @@ describe('JetBrains converter test', function () {
   });
 
   it('Read config Schema', async function () {
-    const expectedKm = await LoadSchema(SchemaTypes.SUBLIME);
+    const expectedKm = SchemaTypes.SUBLIME.get();
 
     const converter = new JetBrainsConverter(
       keymapOptionSchemaTestPath,

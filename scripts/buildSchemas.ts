@@ -1,4 +1,3 @@
-import { Schema, SchemaTypes } from '../src/Connectors/Schema/Schema';
 import * as path from 'path';
 import {
   SCHEMAS_PATH,
@@ -6,45 +5,46 @@ import {
 } from '../src/Connectors/Constants/Schemas';
 import { UniversalKeymap } from '../src/Connectors/Keymap';
 import { VsCodeConverter } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter';
+import { SchemaTypes } from '../src/Connectors/Schema/SchemaTypes';
 
 interface SchemaBuild {
-  schema: Schema;
+  fileName: string;
   builder: (path: string) => Promise<UniversalKeymap>;
   parentSchema?: SchemaBuild;
   build?: Promise<UniversalKeymap>;
 }
 
 const VS_CODE: SchemaBuild = {
-  schema: SchemaTypes.VS_CODE,
+  fileName: "vscode.json",
   builder: VsCodeSchemaBuilder,
 };
 
 const VISUAL_STUDIO: SchemaBuild = {
-  schema: SchemaTypes.VISUAL_STUDIO,
+  fileName: "VisualStudio.json",
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const ATOM: SchemaBuild = {
-  schema: SchemaTypes.ATOM,
+  fileName: "atom.json",
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const INTELLIJ: SchemaBuild = {
-  schema: SchemaTypes.INTELLIJ,
+  fileName: "intelliJ.json",
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const NOTEPADPP: SchemaBuild = {
-  schema: SchemaTypes.NOTEPADPP,
+  fileName: "notepadplusplus.json",
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const SUBLIME: SchemaBuild = {
-  schema: SchemaTypes.SUBLIME,
+  fileName: "sublime.json",
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
@@ -71,7 +71,7 @@ async function buildSchema(schema: SchemaBuild) {
     ? await GetBuild(schema.parentSchema)
     : new UniversalKeymap({});
 
-  const schemaPath = path.join(SCHEMAS_PATH, schema.schema.fileName);
+  const schemaPath = path.join(SCHEMAS_PATH, schema.fileName);
 
   const uniConfig = await GetBuild(schema);
   parentBuild.overrideKeymap(uniConfig);
@@ -83,7 +83,7 @@ async function GetBuild(schema: SchemaBuild): Promise<UniversalKeymap> {
   if (!schema.build) {
     const unprocessedSchemaPath = path.join(
       UNPROCESSED_SCHEMAS_PATH,
-      schema.schema.fileName
+      schema.fileName
     );
 
     schema.build = schema.builder(unprocessedSchemaPath);

@@ -3,7 +3,6 @@ import React, { Component, ReactElement } from 'react';
 import { Keymapper } from './components/keymapper';
 import { Connectors } from './Connectors';
 import { Ide } from './Connectors/Ide';
-import { UniversalKeymap } from './Connectors/Keymap';
 import { themeDark } from './theme';
 
 type AppProps = Record<string, never>;

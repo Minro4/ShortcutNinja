@@ -3,6 +3,7 @@ import { VsCodeShortcut } from '../src/Connectors/Converters/VsCodeConverter/VsC
 import { Keymap } from '../src/Connectors/Keymap';
 import { Shortcut, SingleShortcut } from '../src/Connectors/Shortcut';
 import { UniversalKeymap } from '../src/Connectors/Keymap';
+import { IdeMappings } from "../src/Connectors/IdeMappings";
 
 describe('Universal keymap tests', function () {
   const converter: IShortcutConverter<string> = {
@@ -20,7 +21,7 @@ describe('Universal keymap tests', function () {
   it('toUniKeymap should correctly map key and shortcut', async function () {
     const ideKeymap = new Keymap<VsCodeShortcut>({ ideKey: ['idesc'] });
 
-    const uni = ideKeymap.toUniKeymap({ uniKey: ['ideKey'] }, converter);
+    const uni = ideKeymap.toUniKeymap(new IdeMappings({ uniKey: ['ideKey'] }), converter);
 
     expect(uni.get('uniKey')[0].sc1.key).toEqual('unisc');
   });
@@ -29,7 +30,7 @@ describe('Universal keymap tests', function () {
     const uniKm = new UniversalKeymap({
       uniKey: [new Shortcut(new SingleShortcut(new Set(), 'uniSc'))],
     });
-    const ideKm = uniKm.toIdeKeymap({ uniKey: ['ideKey'] }, converter);
+    const ideKm = uniKm.toIdeKeymap(new IdeMappings({ uniKey: ['ideKey'] }), converter);
 
     expect(ideKm.get('ideKey')).toEqual(['idesc']);
   });

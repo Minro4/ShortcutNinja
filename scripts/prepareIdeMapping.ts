@@ -1,5 +1,8 @@
-import { IdeMappings, IdeMappingsUtils } from '../src/Connectors/Ide';
-import { ShortcutDefinitions } from '../src/Connectors/ShortcutDefinitions';
+import { IIdeMappings } from '../src/Connectors/IdeMappings';
+import * as path from 'path'
+import { IDE_MAPPINGS_PATH } from '../src/Connectors/Constants/general';
+import { fsUtils } from '../src/Connectors/Utils';
+import { ShortcutCategories } from '../src/Connectors/ShortcutDefinitions';
 
 (async () => {
   //Takes the name of the json file as argument
@@ -7,21 +10,23 @@ import { ShortcutDefinitions } from '../src/Connectors/ShortcutDefinitions';
   await PrepareIdeMappings(args[0]);
 })();
 
-async function PrepareIdeMappings(path: string) {
-  const definitions = await ShortcutDefinitions.read();
-  let mappings: IdeMappings;
+async function PrepareIdeMappings(fileName: string) {
+  const filePath = path.join(IDE_MAPPINGS_PATH, fileName);
+
+  const definitions = ShortcutCategories.baseCategories.flatten();
+  let mappings: IIdeMappings;
   try {
-    mappings = await IdeMappingsUtils.read(path);
+    mappings = await fsUtils.readJson<IIdeMappings>(fileName);
   } catch (err) {
     mappings = {};
   }
 
-  mappings = definitions.definitions.reduce<IdeMappings>((mapping, definition) => {
+  mappings = definitions.reduce<IIdeMappings>((mapping, definition) => {
     if (!mapping[definition.id]){
       mapping[definition.id] = [];
     }
     return mapping;
   }, mappings)
 
-  await IdeMappingsUtils.save(path,mappings);
+  await fsUtils.saveJson<IIdeMappings>(filePath,mappings);
 }

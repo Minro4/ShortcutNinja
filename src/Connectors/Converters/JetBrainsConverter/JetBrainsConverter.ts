@@ -9,28 +9,26 @@ import { Converter } from '../Converter';
 import { fsUtils } from '../../Utils';
 import * as path from 'path';
 import { APP_NAME } from '../../Constants/general';
-import { Schema, SchemaTypes } from '../../Schema/Schema';
+import { Schema } from '../../Schema/Schema';
+import { SchemaTypes } from "../../Schema/SchemaTypes";
 import * as JB from '../../Constants/JetBrains';
 import { UniversalKeymap } from '../../Keymap';
-import { LoadSchema } from '../../Schema/SchemaLoader';
 import { Keymap } from '../../Keymap';
+import { IdeMappings } from "../../IdeMappings";
 
 export class JetBrainsConverter extends Converter<JbShortcut> {
   private optionsPath: string;
   private configFolder: string;
 
   constructor(optionsPath: string, configFolder: string) {
-    super('JetBrains.json', new JetBrainsShortcutConverter());
+    super(IdeMappings.JETBRAINS, new JetBrainsShortcutConverter());
     this.optionsPath = optionsPath;
     this.configFolder = configFolder;
   }
 
   public async load(): Promise<UniversalKeymap> {
     const config = await this.fetchConfig();
-    const schema = await LoadSchema(
-      JetBrainsConverter.mapSchema(config.keymap.$.parent)
-    );
-
+    const schema = JetBrainsConverter.mapSchema(config.keymap.$.parent).get();
     const ideKeymap = config.keymap.action.reduce<Keymap<JbShortcut>>(
       (keymap, action) => {
         if (action['keyboard-shortcut'])

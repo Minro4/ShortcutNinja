@@ -23,11 +23,12 @@ interface SearchedDefinition {
 }
 
 type SearchProps = {
-  categories: Promise<ShortcutCategories>;
   onSearch: (newCategories: ShortcutCategories) => void;
 };
 
 export class SearchBar extends Component<SearchProps> {
+  private categories = ShortcutCategories.baseCategories;
+
   private searchOptions: SearchOptions = {
     prefix: true,
     fuzzy: 0.25,
@@ -43,26 +44,23 @@ export class SearchBar extends Component<SearchProps> {
       storeFields: ['category', 'definition'], // fields to return with search results
     });
 
-    props.categories.then((categories) => {
-      const searchables = this.MakeSearchable(categories);
-      console.log(searchables);
-      this.miniSearch.addAll(searchables);
-    });
+    const searchables = this.MakeSearchable(this.categories);
+    this.miniSearch.addAll(searchables);
   }
 
   render(): ReactElement {
     return (
       <Box className="search-bar-container">
         <form noValidate autoComplete="off">
-        <div>
-          <TextField
-            fullWidth={true}
-            size="small"
-            label="Search"
-            variant="outlined"
-            onChange={(e) => this.onChange(e.target.value)}
-          />
-           </div>
+          <div>
+            <TextField
+              fullWidth={true}
+              size="small"
+              label="Search"
+              variant="outlined"
+              onChange={(e) => this.onChange(e.target.value)}
+            />
+          </div>
         </form>
       </Box>
     );
@@ -76,7 +74,7 @@ export class SearchBar extends Component<SearchProps> {
       ) as unknown) as SearchedDefinition[];
       this.props.onSearch(this.MakeCategories(results));
     } else {
-      this.props.onSearch(await this.props.categories);
+      this.props.onSearch(this.categories);
     }
   }
 

@@ -7,8 +7,7 @@ import {
 } from '../../../src/Connectors/Shortcut';
 import { fsUtils } from '../../../src/Connectors/Utils';
 import * as path from 'path';
-import { LoadSchema } from '../../../src/Connectors/Schema/SchemaLoader';
-import { SchemaTypes } from '../../../src/Connectors/Schema/Schema';
+import { SchemaTypes } from "../../../src/Connectors/Schema/SchemaTypes";
 
 describe('vscode converter test', function () {
   const universalKm: UniversalKeymap = new UniversalKeymap({
@@ -46,8 +45,8 @@ describe('vscode converter test', function () {
   });
 
   it('Read config', async function () {
-    const expectedKm = await LoadSchema(SchemaTypes.VS_CODE);
-    expectedKm.overrideKeymap(universalKm)
+    const expectedKm = SchemaTypes.VS_CODE.get();
+    expectedKm.overrideKeymap(universalKm);
     const converted: UniversalKeymap = await converter.load();
     expect(converted).toEqual(expectedKm);
   });

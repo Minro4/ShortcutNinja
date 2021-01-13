@@ -6,9 +6,7 @@ import {
   SingleShortcut,
 } from '../../../src/Connectors/Shortcut';
 import { fsUtils } from '../../../src/Connectors/Utils';
-
-import { LoadSchema } from '../../../src/Connectors/Schema/SchemaLoader';
-import { SchemaTypes } from '../../../src/Connectors/Schema/Schema';
+import { SchemaTypes } from "../../../src/Connectors/Schema/SchemaTypes";
 import { VisualStudioConverter } from '../../../src/Connectors/Converters/VisualStudioConverter/VisualStudioConverter';
 import { VisualStudioXmlConfig } from '../../../src/Connectors/Converters/VisualStudioConverter/VisualStudio.models';
 
@@ -66,7 +64,7 @@ describe('vscode converter test', function () {
       .fn()
       .mockReturnValue(fsUtils.readXml<VisualStudioXmlConfig>(vsSettingsPath));
 
-    const expectedKm = await LoadSchema(SchemaTypes.VS_CODE);
+    const expectedKm = SchemaTypes.VS_CODE.get();
     expectedKm.addKeymap(baseKm);
     const converted: UniversalKeymap = await converter.load();
     expect(converted).toEqual(expectedKm);

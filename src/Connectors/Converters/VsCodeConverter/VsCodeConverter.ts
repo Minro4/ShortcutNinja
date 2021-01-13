@@ -1,5 +1,6 @@
 import { UniversalKeymap } from '../../Keymap';
-import { Schema, SchemaTypes } from '../../Schema/Schema';
+import { Schema } from '../../Schema/Schema';
+import { SchemaTypes } from "../../Schema/SchemaTypes";
 import { fsUtils } from '../../Utils';
 import { Converter } from '../Converter';
 import { StrShortcutConverter } from '../ShortcutConverter';
@@ -9,8 +10,8 @@ import {
   VsCodeShortcut,
 } from './VsCodeConverter.models';
 import { KEYBINDINGS_PATH } from '../../Constants/VsCode';
-import { LoadSchema } from '../../Schema/SchemaLoader';
 import { Keymap } from '../../Keymap';
+import { IdeMappings } from "../../IdeMappings";
 
 export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
@@ -20,13 +21,13 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private readonly commandWhenSeperator = ' when ';
 
   constructor(configPath?: string, schema: Schema = SchemaTypes.VS_CODE) {
-    super('vscode.json', new StrShortcutConverter());
+    super(IdeMappings.VS_CODE, new StrShortcutConverter());
     this.schema = schema;
     this.configPath = configPath ?? KEYBINDINGS_PATH;
   }
 
   public async save(keymap: UniversalKeymap): Promise<boolean> {
-    const uniSchema = await LoadSchema(this.schema);
+    const uniSchema = this.schema.get();
     keymap.removeSharedMappings(uniSchema);
 
     const ideKeymap = await this.toIdeKeymap(keymap);
@@ -60,7 +61,7 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
       ideConfig = [];
     }
 
-    const schema = await LoadSchema(this.schema);
+    const schema = this.schema.get();
 
     const ideKeymapToRemove = new Keymap<VsCodeShortcut>();
     const ideKeymapToAdd = new Keymap<VsCodeShortcut>();

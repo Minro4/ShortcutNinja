@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { IShortcutConverter } from '../Converters/ShortcutConverter';
-import { IdeMappings, IdeMappingsUtils } from '../Ide';
+import { IdeMappings } from "../IdeMappings";
 import { Shortcut } from '../Shortcut';
 import { UniversalKeymap } from '.';
 import { UniversalMappings } from './UniversalKeymap';
@@ -85,7 +85,7 @@ export class Keymap<T> {
   ): UniversalKeymap {
     const mappings = this.keys().reduce<UniversalMappings>(
       (uniKeymap, ideKey) => {
-        const uniKey = IdeMappingsUtils.toUni(ideMappings, ideKey);
+        const uniKey = ideMappings.toUni(ideKey);
 
         if (uniKey) {
           const sc: Shortcut[] = this.get(ideKey)

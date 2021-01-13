@@ -26,7 +26,6 @@ import { ShortcutCreatorElement } from './shortcut-creator';
 
 type ShortcutsDialogProps = {
   keymap: UniversalKeymap;
-  shortcutCategories: ShortcutCategories;
   shortcutDefinition?: IShortcutDefinition;
   onChange: (newKeymap: UniversalKeymap) => void;
   onCancel: () => void;
@@ -105,7 +104,7 @@ export class ShortcutsDialog extends Component<
     definition: IShortcutDefinition
   ): IShortcutDefinition[] {
     const keys = this.state.keymap.conflicts(shortcut, definition.id);
-    return this.props.shortcutCategories.categories.reduce<
+    return ShortcutCategories.baseCategories.categories.reduce<
       IShortcutDefinition[]
     >((arr, category) => {
       return arr.concat(

@@ -1,7 +1,7 @@
 import React, { Component, ReactElement } from 'react'; // let's also import Component
 import { Ide } from '../Connectors/Ide';
-import { Schema, SchemaTypes } from '../Connectors/Schema/Schema';
-import { LoadSchema } from '../Connectors/Schema/SchemaLoader';
+import { Schema } from '../Connectors/Schema/Schema';
+import { SchemaTypes } from '../Connectors/Schema/SchemaTypes';
 import {
   IShortcutDefinition,
   ShortcutCategories,
@@ -14,20 +14,14 @@ import { Box } from '@material-ui/core';
 import { SearchBar } from './search-bar';
 import { Footer } from './footer';
 
-export type SchemaLoaded = {
-  schema: Schema;
-  keymap: Promise<UniversalKeymap>;
-};
-
 type KeymapperProps = {
   ides: Ide[];
 };
 
 type KeymapperState = {
   keymap: UniversalKeymap;
-  schemas: SchemaLoaded[];
+  schemas: Schema[];
   filteredShortcutCategories: ShortcutCategories;
-  shortcutCategories: ShortcutCategories;
   openedCategories: boolean[];
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
@@ -35,42 +29,21 @@ type KeymapperState = {
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
-  private shortcutCategories: Promise<ShortcutCategories>;
-
   constructor(props: KeymapperProps) {
     super(props);
 
-    const km = new UniversalKeymap()
-    const schemas: SchemaLoaded[] = [
-      {
-        schema: {
-          fileName: 'user',
-          label: 'Custom',
-        },
-        keymap: Promise.resolve(km),
-      },
-    ];
-    schemas.push(...this.loadSchemas());
+    const km = new UniversalKeymap();
 
-    this.shortcutCategories = ShortcutCategories.read();
+    const categories = ShortcutCategories.baseCategories;
 
     this.state = {
       keymap: km,
-      schemas: schemas,
-      filteredShortcutCategories: new ShortcutCategories(),
-      shortcutCategories: new ShortcutCategories(),
-      openedCategories: [],
-      setOpenedCategories: [],
+      schemas: SchemaTypes.SCHEMAS,
+      filteredShortcutCategories: categories,
+      openedCategories: Array(categories.categories.length).fill(true),
+      setOpenedCategories: this.createSetOpenedCategories(categories),
       importDialogOpened: false,
     };
-  }
-
-  // Before the component mounts, we initialise our state
-  componentWillMount(): void {
-    this.shortcutCategories.then(this.setCategories.bind(this));
-    this.shortcutCategories.then((shortcutCategories) => {
-      this.setState({ ...this.state, shortcutCategories });
-    });
   }
 
   render(): ReactElement {
@@ -79,14 +52,11 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
         <Box className="header">
           <SchemaSelector
             schemas={this.state.schemas}
-            onChange={(schema: SchemaLoaded) => {
+            onChange={(schema: Schema) => {
               this.onSchemaChange(schema);
             }}
           ></SchemaSelector>
-          <SearchBar
-            categories={this.shortcutCategories}
-            onSearch={this.setCategories.bind(this)}
-          ></SearchBar>
+          <SearchBar onSearch={this.setCategories.bind(this)}></SearchBar>
         </Box>
         <Box className="content">
           <KeymapTable
@@ -98,13 +68,18 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           ></KeymapTable>
         </Box>
         <Box className="footer">
-          <Footer ides={this.props.ides} keymap={this.state.keymap}
-          importDialogOpened={this.state.importDialogOpened} onImport={this.importIde.bind(this)} onOpenImport={()=>this.setImportDialogOpen(true)} onCloseImport={()=>this.setImportDialogOpen(false)}></Footer>
+          <Footer
+            ides={this.props.ides}
+            keymap={this.state.keymap}
+            importDialogOpened={this.state.importDialogOpened}
+            onImport={this.importIde.bind(this)}
+            onOpenImport={() => this.setImportDialogOpen(true)}
+            onCloseImport={() => this.setImportDialogOpen(false)}
+          ></Footer>
         </Box>
         <ShortcutsDialog
           keymap={this.state.keymap}
           shortcutDefinition={this.state.shortcutDialogDefinition}
-          shortcutCategories={this.state.shortcutCategories}
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
         ></ShortcutsDialog>
@@ -114,18 +89,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
 
   private setCategories(newCategories: ShortcutCategories): void {
     const openedCategories = Array(newCategories.categories.length).fill(true);
-    const setOpenedCategories = openedCategories.map<(value: boolean) => void>(
-      (_value, idx) => {
-        return (value: boolean) => {
-          const newArr = [...this.state.openedCategories];
-          newArr[idx] = value;
-          this.setState({
-            ...this.state,
-            openedCategories: newArr,
-          });
-        };
-      }
-    );
+    const setOpenedCategories = this.createSetOpenedCategories(newCategories);
 
     this.setState({
       ...this.state,
@@ -135,17 +99,21 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     });
   }
 
-  private loadSchemas(): SchemaLoaded[] {
-    return SchemaTypes.SCHEMAS.map((schema) => ({
-      schema,
-      keymap: LoadSchema(schema),
-    }));
+  private createSetOpenedCategories(categories: ShortcutCategories) {
+    return categories.categories.map<(value: boolean) => void>((_value, idx) => {
+      return (value: boolean) => {
+        const newArr = [...this.state.openedCategories];
+        newArr[idx] = value;
+        this.setState({
+          ...this.state,
+          openedCategories: newArr,
+        });
+      };
+    });
   }
 
-  private onSchemaChange(schema: SchemaLoaded): void {
-    schema.keymap.then((keymap) => {
-      this.setState({ ...this.state, keymap: keymap });
-    });
+  private onSchemaChange(schema: Schema): void {
+    this.setState({ ...this.state, keymap: schema.get() });
   }
 
   private onClickShortcut(definition: IShortcutDefinition) {

@@ -1,5 +1,4 @@
-import {  SHORTCUT_DEFINITIONS_PATH } from './Constants/general';
-import { fsUtils } from './Utils';
+import definitions from './Config/ShortcutDefinitions.json';
 
 export interface IDictShortcutCategory {
   id: string;
@@ -19,34 +18,18 @@ export interface IShortcutDefinition {
   metaTags?: string[];
 }
 
-export class ShortcutDefinitions {
-  public definitions: IShortcutDefinition[];
-
-  constructor(definitions?: IShortcutDefinition[]) {
-    this.definitions = definitions ?? [];
-  }
-
-  public static async read(): Promise<ShortcutDefinitions> {
-    const categories = await ShortcutCategories.read();
-    const definitions = categories.categories.flatMap(
-      (category) => category.definitions
-    );
-    return new ShortcutDefinitions(definitions);
-  }
-}
-
 export class ShortcutCategories {
-  public categories: IShortcutCategory[];
+  public static readonly baseCategories = new ShortcutCategories(definitions);
 
-  constructor(categories?: IShortcutCategory[]) {
+  public readonly categories: IShortcutCategory[];
+
+  public constructor(categories?: IShortcutCategory[]) {
     this.categories = categories ?? [];
   }
 
-  public static async read(
-    path: string = SHORTCUT_DEFINITIONS_PATH
-  ): Promise<ShortcutCategories> {
-    return new ShortcutCategories(
-      await fsUtils.readJson<IShortcutCategory[]>(path)
+  public flatten(): IShortcutDefinition[] {
+    return this.categories.flatMap<IShortcutDefinition>(
+      (categories) => categories.definitions
     );
   }
 }

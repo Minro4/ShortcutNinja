@@ -13,16 +13,17 @@ import {
   VisualStudioConfigShortcut,
   XmlVisualStudioConfigShortcut,
 } from './VisualStudio.models';
-import { Schema, SchemaTypes } from '../../Schema/Schema';
-import { LoadSchema } from '../../Schema/SchemaLoader';
+import { Schema } from '../../Schema/Schema';
+import { SchemaTypes } from "../../Schema/SchemaTypes";
 import { Keymap } from '../../Keymap/Keymap';
 import { VsImportExport } from './VsImportExport';
+import { IdeMappings } from "../../IdeMappings";
 
 export class VisualStudioConverter extends Converter<VsShortcut> {
   private devenPath: string;
 
   constructor(devenPath: string) {
-    super('VisualStudio.json', new StrShortcutConverter('+', ', '));
+    super(IdeMappings.VISUAL_STUDIO, new StrShortcutConverter('+', ', '));
     this.devenPath = devenPath;
   }
 
@@ -30,9 +31,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     const xml = await this.loadSettings(this.devenPath);
     const config = this.xmlToConfig(xml);
 
-    const schema = await LoadSchema(
-      VisualStudioConverter.mapSchema(config.scheme)
-    );
+    const schema = VisualStudioConverter.mapSchema(config.scheme).get();
 
     const uniKmAdditional = await this.configScToUniKm(
       config.additionalShortcuts
@@ -148,7 +147,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     //Remove schema shortcuts
     const schemaName = xmlSc.ShortcutsScheme[0];
     const schema = await this.toIdeKeymap(
-      await LoadSchema(VisualStudioConverter.mapSchema(schemaName))
+      VisualStudioConverter.mapSchema(schemaName).get()
     );
     sc.RemoveShortcut.push(
       ...schema.keys().flatMap((key) => {
