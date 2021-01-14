@@ -13,14 +13,20 @@ import { ReactElement } from 'react';
 import WarningIcon from '@material-ui/icons/Warning';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { IShortcutDefinition } from '../Connectors/ShortcutDefinitions';
+import { Shortcut } from '../Connectors/Shortcut';
+
+export interface IShortcutConflict {
+  definition: IShortcutDefinition;
+  shortcuts: Shortcut[]
+}
 
 type ConflictWarningProps = {
-  defnitions: IShortcutDefinition[];
-  onRemove: (definition: IShortcutDefinition) => void;
+  conflicts: IShortcutConflict[];
+  onRemove: (conflict: IShortcutConflict) => void;
 };
 
 export const ConflictWarning = ({
-  defnitions,
+  conflicts,
   onRemove,
 }: ConflictWarningProps): ReactElement => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
@@ -38,13 +44,13 @@ export const ConflictWarning = ({
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
-  const tooltip = defnitions.reduce<string>((str, defnition, idx) => {
-    return str + defnition.label + (idx === defnitions.length - 1 ? '' : ', ');
+  const tooltip = conflicts.reduce<string>((str, conflict, idx) => {
+    return str + conflict.definition.label + (idx === conflicts.length - 1 ? '' : ', ');
   }, 'Click to resolve conflicts with: ');
 
   return (
     <>
-      {defnitions.length > 0 && (
+      {conflicts.length > 0 && (
         <>
           <Tooltip title={tooltip} arrow>
             <IconButton onClick={handleClick} className="conflict-button">
@@ -75,14 +81,14 @@ export const ConflictWarning = ({
                 </TableRow>
               </TableHead>
               <TableBody>
-                {defnitions.map((definition, index) => (
+                {conflicts.map((conflict, index) => (
                   <TableRow key={index}>
                     <TableCell className="keybindings-col">
-                      {definition.label}
+                      {conflict.definition.label}
                     </TableCell>
                     <TableCell>
                       <Tooltip title="Remove" arrow>
-                        <IconButton onClick={() => onRemove(definition)}>
+                        <IconButton onClick={() => onRemove(conflict)}>
                           <RemoveIcon fontSize="small"></RemoveIcon>
                         </IconButton>
                       </Tooltip>

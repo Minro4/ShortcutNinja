@@ -1,5 +1,5 @@
 import { IShortcutConverter } from '../Converters/ShortcutConverter';
-import { IdeMappings } from "../IdeMappings";
+import { IdeMappings } from '../IdeMappings';
 import { Keymap } from '.';
 import { IJsonShortcut, Shortcut } from '../Shortcut';
 import { fsUtils } from '../Utils';
@@ -32,16 +32,16 @@ export class UniversalKeymap extends Keymap<Shortcut> {
     return new Keymap(mappings);
   }
 
-  public conflicts(shortcut: Shortcut, except?: string): string[] {
-    return this.keys().reduce<string[]>((arr, key) => {
+  public conflicts(shortcut: Shortcut, except?: string): UniversalKeymap {
+    return this.keys().reduce<UniversalKeymap>((km, key) => {
       if (key !== except) {
         const shortcuts = this.get(key);
-        if (shortcuts.some((sc) => shortcut.conflicts(sc))) {
-          arr.push(key);
-        }
+        shortcuts.forEach((sc) => {
+          if (shortcut.conflicts(sc)) km.add(key, sc);
+        });
       }
-      return arr;
-    }, []);
+      return km;
+    }, new UniversalKeymap());
   }
 
   public saveKeymap(path: string): Promise<void> {
@@ -72,18 +72,18 @@ export class UniversalKeymap extends Keymap<Shortcut> {
     );
   }
 
-   //Removes in both keymaps, mappings that are shared.
-   public removeSharedMappings(other: UniversalKeymap): void {
-     const toRemove = new UniversalKeymap();
-    this.keys().forEach(key => {
+  //Removes in both keymaps, mappings that are shared.
+  public removeSharedMappings(other: UniversalKeymap): void {
+    const toRemove = new UniversalKeymap();
+    this.keys().forEach((key) => {
       const otherShortcuts = other.get(key);
-      this.get(key).forEach(shortcut => {
-        otherShortcuts.forEach(otherShortcut => {
-          if (shortcut.equals(otherShortcut)){
-            toRemove.add(key,shortcut);
+      this.get(key).forEach((shortcut) => {
+        otherShortcuts.forEach((otherShortcut) => {
+          if (shortcut.equals(otherShortcut)) {
+            toRemove.add(key, shortcut);
           }
         });
-      })
+      });
     });
 
     this.removeKeymap(toRemove);

@@ -20,7 +20,7 @@ import {
   IShortcutDefinition,
   ShortcutCategories,
 } from '../Connectors/ShortcutDefinitions';
-import { ConflictWarning } from './conflict-warning';
+import { ConflictWarning, IShortcutConflict } from './conflict-warning';
 import { ShortcutElement } from './shortcut';
 import { ShortcutCreatorElement } from './shortcut-creator';
 
@@ -101,33 +101,36 @@ export class ShortcutsDialog extends Component<
 
   private conflictingDefinitions(
     shortcut: Shortcut,
-    definition: IShortcutDefinition
-  ): IShortcutDefinition[] {
-    const keys = this.state.keymap.conflicts(shortcut, definition.id);
-    return ShortcutCategories.baseCategories.categories.reduce<
-      IShortcutDefinition[]
-    >((arr, category) => {
-      return arr.concat(
-        category.definitions.filter((definition) =>
-          keys.includes(definition.id)
-        )
-      );
-    }, []);
+    shortcutDefinition: IShortcutDefinition
+  ): IShortcutConflict[] {
+    const conflicts = this.state.keymap.conflicts(
+      shortcut,
+      shortcutDefinition.id
+    );
+
+    return ShortcutCategories.baseCategories
+      .flatten()
+      .filter((definition) => conflicts.keys().includes(definition.id))
+      .map<IShortcutConflict>((definition) => {
+        return {
+          definition,
+          shortcuts: conflicts.get(definition.id),
+        };
+      });
   }
 
   private removeConflict(
-    definition: IShortcutDefinition,
-    shortcut: Shortcut
+    conflict: IShortcutConflict,
   ): void {
     const newKeymap = this.state.keymap.clone();
-    newKeymap.remove(definition.id, shortcut);
+    newKeymap.removeAll(conflict.definition.id, conflict.shortcuts);
     this.setState({ ...this.state, keymap: newKeymap });
   }
 
   render(): ReactElement {
-    const { shortcutDefinition: shortcutDefinitions, onCancel } = this.props;
-    const isOpened = !!shortcutDefinitions;
-    if (shortcutDefinitions)
+    const { shortcutDefinition, onCancel } = this.props;
+    const isOpened = !!shortcutDefinition;
+    if (shortcutDefinition)
       return (
         <div>
           <Dialog
@@ -137,25 +140,23 @@ export class ShortcutsDialog extends Component<
             aria-labelledby="form-dialog-title"
           >
             <DialogTitle id="form-dialog-title">
-              {shortcutDefinitions.label}
+              {shortcutDefinition.label}
             </DialogTitle>
             <DialogContent>
               <TableContainer>
                 <Table size="small">
                   <TableBody>
                     {this.state.keymap
-                      .get(shortcutDefinitions.id)
+                      .get(shortcutDefinition.id)
                       .map((shortcut, idx) => (
                         <TableRow key={idx}>
                           <TableCell className="keybindings-col">
                             <ConflictWarning
-                              defnitions={this.conflictingDefinitions(
+                              conflicts={this.conflictingDefinitions(
                                 shortcut,
-                                shortcutDefinitions
+                                shortcutDefinition
                               )}
-                              onRemove={(def) =>
-                                this.removeConflict(def, shortcut)
-                              }
+                              onRemove={this.removeConflict.bind(this)}
                             ></ConflictWarning>
 
                             <ShortcutElement

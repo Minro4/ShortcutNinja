@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { IShortcutConverter } from '../Converters/ShortcutConverter';
-import { IdeMappings } from "../IdeMappings";
+import { IdeMappings } from '../IdeMappings';
 import { Shortcut } from '../Shortcut';
 import { UniversalKeymap } from '.';
 import { UniversalMappings } from './UniversalKeymap';
@@ -74,6 +74,10 @@ export class Keymap<T> {
       }
     }
     return true;
+  }
+
+  public removeAll(key: string, shortcuts: T[]): void {
+    shortcuts.forEach((shortcut) => this.remove(key, shortcut));
   }
 
   public keys(): string[] {
