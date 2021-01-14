@@ -33,9 +33,11 @@ export const WelcomeDialog = ({
         <Typography variant="h4" component="h2">
           Welcome to Shortcut Director!
         </Typography>
-
         <Typography color="textSecondary" className="welcome-secondary-text">
-          We have detected the following Ides installed on you machine. <br />
+         This is the place to manage all of your IDEs shortcuts.
+        </Typography>
+        <Typography color="textSecondary" className="welcome-secondary-text">
+          We have detected the following IDEs installed on you machine. <br />
           You can import your shortcut settings from any of them!
         </Typography>
       </DialogTitle>

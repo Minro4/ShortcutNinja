@@ -39,11 +39,11 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     super(props);
 
     this.store = new Store();
-    this.store.delete(this.uniKmStoreKey)
+
     const keymap = this.fetchKeymap();
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    console.log(keymap)
+
     const categories = ShortcutCategories.baseCategories;
+
     this.state = {
       keymap: keymap ?? new UniversalKeymap(),
       schemas: SchemaTypes.SCHEMAS,
