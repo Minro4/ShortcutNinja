@@ -25,9 +25,6 @@ export const ImportDialog = ({
   if (ides.length === 0) return <></>;
 
   const [value, setValue] = React.useState(0);
-  const handleChange = (idx: number) => {
-    setValue(idx);
-  };
 
   return (
     <Dialog open={open} onClose={onClose}>

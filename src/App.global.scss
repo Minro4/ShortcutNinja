@@ -62,6 +62,17 @@ body {
     }
   }
 
+  .loader-wrapper {
+    position: relative;
+  }
+  .button-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+  }
+
   .MuiTableBody-root {
     .keymapper-row {
       &:hover {

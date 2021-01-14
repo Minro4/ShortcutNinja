@@ -40,20 +40,24 @@ export class Footer extends Component<FooterProps, FooterState> {
           variant="contained"
           color="primary"
           startIcon={<GetAppIcon />}
-          onClick={()=>this.setImportDialogOpen(true)}
+          onClick={() => this.setImportDialogOpen(true)}
         >
           Import
         </Button>
-        <Button
-          className="apply-button"
-          variant="contained"
-          color="primary"
-          endIcon={!this.state.applyLoading && <SendIcon />}
-          onClick={this.onApply.bind(this)}
-          disabled={this.state.applyLoading}
-        >
-          {this.state.applyLoading ? <CircularProgress size={20} /> : 'Apply'}
-        </Button>
+        <div className="apply-button loader-wrapper">
+          <Button
+            variant="contained"
+            color="primary"
+            endIcon={<SendIcon />}
+            onClick={this.onApply.bind(this)}
+            disabled={this.state.applyLoading}
+          >
+            Apply
+          </Button>
+          {this.state.applyLoading && (
+            <CircularProgress size={24} className="button-loading" />
+          )}
+        </div>
         <ApplyDialog
           ides={this.props.ides}
           open={this.state.applyOpened}
@@ -63,7 +67,7 @@ export class Footer extends Component<FooterProps, FooterState> {
         <ImportDialog
           open={this.state.importOpened}
           onSelect={this.onImport.bind(this)}
-          onClose={()=>this.setImportDialogOpen(false)}
+          onClose={() => this.setImportDialogOpen(false)}
           ides={this.props.ides}
         ></ImportDialog>
         <Snackbar

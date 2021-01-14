@@ -16,6 +16,7 @@ import { Footer } from './footer';
 import Store from 'electron-store';
 import { IJsonUniversalKeymap } from '../Connectors/Keymap/UniversalKeymap';
 import { WelcomeDialog } from './welcome-dialog';
+import { LoadingBackdrop } from './loading-backdrop';
 
 type KeymapperProps = {
   ides: Ide[];
@@ -29,6 +30,7 @@ type KeymapperState = {
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
   welcomeDialogOpened: boolean;
+  isLoading: boolean;
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
@@ -51,6 +53,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       openedCategories: Array(categories.categories.length).fill(true),
       setOpenedCategories: this.createSetOpenedCategories(categories),
       welcomeDialogOpened: !keymap,
+      isLoading: false,
     };
   }
 
@@ -97,6 +100,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           }}
           onClose={() => this.setState({ welcomeDialogOpened: false })}
         ></WelcomeDialog>
+        <LoadingBackdrop open={this.state.isLoading}></LoadingBackdrop>
       </Box>
     );
   }
@@ -151,7 +155,9 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   }
 
   private importIde(ide: Ide): void {
+    this.setState({ isLoading: true });
     ide.converter.load().then((keymap) => {
+      this.setState({ isLoading: false });
       this.setKeymap(keymap);
     });
   }
