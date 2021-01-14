@@ -1,6 +1,6 @@
 import { UniversalKeymap } from '../../Keymap';
 import { Schema } from '../../Schema/Schema';
-import { SchemaTypes } from "../../Schema/SchemaTypes";
+import { SchemaTypes } from '../../Schema/SchemaTypes';
 import { fsUtils } from '../../Utils';
 import { Converter } from '../Converter';
 import { StrShortcutConverter } from '../ShortcutConverter';
@@ -11,7 +11,7 @@ import {
 } from './VsCodeConverter.models';
 import { KEYBINDINGS_PATH } from '../../Constants/VsCode';
 import { Keymap } from '../../Keymap';
-import { IdeMappings } from "../../IdeMappings";
+import { IdeMappings } from '../../IdeMappings';
 
 export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
@@ -33,22 +33,20 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     const ideKeymap = await this.toIdeKeymap(keymap);
     const ideSchema = await this.toIdeKeymap(uniSchema);
 
-    const newConfig = ideKeymap.keys().flatMap<VsCodeKeybinding>((ideKey) => {
-      const bindings: VsCodeKeybinding[] = ideKeymap
-        .get(ideKey)
-        .map((ideShortcut) => {
+    const newConfig = ideKeymap
+      .keys()
+      .flatMap<VsCodeKeybinding>((ideKey) =>
+        ideKeymap.get(ideKey).map((ideShortcut) => {
           return this.BuildVsCodeKeybinding(ideKey, ideShortcut);
-        });
-
-      //Unbind default shortcuts
-      bindings.push(
-        ...ideSchema.get(ideKey).map((ideSchemaKey) => {
-          return this.BuildVsCodeKeybinding(ideKey, ideSchemaKey, true);
         })
+      )
+      .concat(
+        ideSchema.keys().flatMap<VsCodeKeybinding>((ideKey) =>
+          ideSchema.get(ideKey).map((ideSchemaKey) => {
+            return this.BuildVsCodeKeybinding(ideKey, ideSchemaKey, true);
+          })
+        )
       );
-
-      return bindings;
-    });
 
     await fsUtils.saveJson<VsCodeConfig>(this.configPath, newConfig);
     return true;

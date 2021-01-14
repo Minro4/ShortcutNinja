@@ -32,4 +32,8 @@ export class ShortcutCategories {
       (categories) => categories.definitions
     );
   }
+
+  public keys(): string[] {
+    return this.flatten().map((def) => def.id);
+  }
 }

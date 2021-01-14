@@ -36,7 +36,7 @@ export class UniversalKeymap extends Keymap<Shortcut> {
     return this.keys().reduce<string[]>((arr, key) => {
       if (key !== except) {
         const shortcuts = this.get(key);
-        if (shortcuts.some((sc) => shortcut.equals(sc))) {
+        if (shortcuts.some((sc) => shortcut.conflicts(sc))) {
           arr.push(key);
         }
       }

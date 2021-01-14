@@ -43,6 +43,15 @@ export class Shortcut implements IShortcut {
   public equals(other: Shortcut): boolean {
     return _.isEqual(this, other);
   }
+
+  public conflicts(other: Shortcut): boolean {
+    if ((this.sc2 === undefined) === (other.sc2 === undefined)) {
+      return this.equals(other);
+    } else {
+      //If they are not of the same length, they conflict when sc1 is the same
+      return this.sc1.equals(other.sc1);
+    }
+  }
 }
 
 export class SingleShortcut implements ISingleShortcut {
@@ -71,6 +80,10 @@ export class SingleShortcut implements ISingleShortcut {
 
   public static fromJson(json: IJsonSingleShortcut): SingleShortcut {
     return new SingleShortcut(new Set(json.holdedKeys), json.key);
+  }
+
+  public equals(other: SingleShortcut): boolean {
+    return _.isEqual(this, other);
   }
 }
 

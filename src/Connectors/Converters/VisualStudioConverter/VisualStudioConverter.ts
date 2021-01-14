@@ -14,13 +14,16 @@ import {
   XmlVisualStudioConfigShortcut,
 } from './VisualStudio.models';
 import { Schema } from '../../Schema/Schema';
-import { SchemaTypes } from "../../Schema/SchemaTypes";
+import { SchemaTypes } from '../../Schema/SchemaTypes';
 import { Keymap } from '../../Keymap/Keymap';
 import { VsImportExport } from './VsImportExport';
-import { IdeMappings } from "../../IdeMappings";
+import { IdeMappings } from '../../IdeMappings';
+import * as path from 'path';
+import { APP_FOLDER } from '../../Constants/general';
 
 export class VisualStudioConverter extends Converter<VsShortcut> {
   private devenPath: string;
+  private tempPath = path.join(APP_FOLDER, 'temp');
 
   constructor(devenPath: string) {
     super(IdeMappings.VISUAL_STUDIO, new StrShortcutConverter('+', ', '));
@@ -44,11 +47,13 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
   }
 
   public async save(keymap: UniversalKeymap): Promise<boolean> {
-    const ideKeymap = await this.toIdeKeymap(keymap);
     const xml = await this.loadSettings(this.devenPath);
 
-    if (await this.addKmToXml(xml, ideKeymap)) {
-      const fileName = `temp/imported${new Date().getTime()}`;
+    if (await this.addKmToXml(xml, keymap)) {
+      const fileName = path.join(
+        this.tempPath,
+        `imported${new Date().getTime()}`
+      );
       await fsUtils.saveXml(fileName, xml);
       VsImportExport.importSettings(this.devenPath, fileName);
       return true;
@@ -95,7 +100,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
 
   private async addKmToXml(
     xml: VisualStudioXmlConfig,
-    ideKeymap: Keymap<VsShortcut>
+    uniKeymap: UniversalKeymap
   ): Promise<VisualStudioXmlConfig | undefined> {
     function mapToXml(
       key: string,
@@ -130,11 +135,19 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     sc.Shortcut = sc.Shortcut ?? [];
     sc.RemoveShortcut = sc.RemoveShortcut ?? [];
 
+    const schemaName = xmlSc.ShortcutsScheme[0];
+    const uniSchema = VisualStudioConverter.mapSchema(schemaName).get();
+    uniKeymap.removeSharedMappings(uniSchema);
+
+    const ideKeymap = await this.toIdeKeymap(uniKeymap);
+    const schema = await this.toIdeKeymap(uniSchema);
+
     ideKeymap.keys().forEach((key) => {
       //Remove old shortcuts TODO test
-      sc.RemoveShortcut = sc.RemoveShortcut!.concat(
-        sc.Shortcut!.filter((s) => s.$.Command === key)
+      sc.RemoveShortcut?.push(
+        ...sc.Shortcut!.filter((s) => s.$.Command === key)
       );
+
       sc.Shortcut = sc.Shortcut!.filter((s) => s.$.Command !== key);
 
       //Add new shortcuts
@@ -145,10 +158,6 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
     });
 
     //Remove schema shortcuts
-    const schemaName = xmlSc.ShortcutsScheme[0];
-    const schema = await this.toIdeKeymap(
-      VisualStudioConverter.mapSchema(schemaName).get()
-    );
     sc.RemoveShortcut.push(
       ...schema.keys().flatMap((key) => {
         return schema.get(key).map((kmValue) => mapToXml(key, kmValue));
@@ -160,7 +169,7 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
 
   private loadSettings(
     devenPath: string,
-    settingsPath = `temp/exported${new Date().getTime()}`
+    settingsPath = path.join(this.tempPath, `exported${new Date().getTime()}`)
   ): Promise<VisualStudioXmlConfig> {
     return new Promise((resolve) => {
       const watcher = chokidar.watch(`${settingsPath}.*`, { interval: 0.5 });
