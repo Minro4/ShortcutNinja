@@ -74,12 +74,10 @@ export class VisualStudioConverter extends Converter<VsShortcut> {
       xmlSc?: XmlVisualStudioConfigShortcut[]
     ): VisualStudioConfigShortcut {
       return (
-        xmlSc?.map((sc) => {
-          return {
-            keybind: sc._,
-            command: sc.$.Command,
-          };
-        }) ?? []
+        xmlSc?.map((sc) => ({
+          keybind: sc._,
+          command: sc.$.Command,
+        })) ?? []
       );
     }
 

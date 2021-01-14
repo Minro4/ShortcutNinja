@@ -111,17 +111,13 @@ export class ShortcutsDialog extends Component<
     return ShortcutCategories.baseCategories
       .flatten()
       .filter((definition) => conflicts.keys().includes(definition.id))
-      .map<IShortcutConflict>((definition) => {
-        return {
-          definition,
-          shortcuts: conflicts.get(definition.id),
-        };
-      });
+      .map<IShortcutConflict>((definition) => ({
+        definition,
+        shortcuts: conflicts.get(definition.id),
+      }));
   }
 
-  private removeConflict(
-    conflict: IShortcutConflict,
-  ): void {
+  private removeConflict(conflict: IShortcutConflict): void {
     const newKeymap = this.state.keymap.clone();
     newKeymap.removeAll(conflict.definition.id, conflict.shortcuts);
     this.setState({ ...this.state, keymap: newKeymap });
