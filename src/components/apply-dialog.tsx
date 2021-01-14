@@ -35,7 +35,7 @@ export class ApplyDialog extends Component<ApplyDialogProps, ApplyDialogState> {
   private handleChange = (index: number) => {
     const newSelected = [...this.state.selectedIdes];
     newSelected[index] = !newSelected[index];
-    this.setState({ ...this.state, selectedIdes: newSelected });
+    this.setState({ selectedIdes: newSelected });
   };
 
   static getDerivedStateFromProps(

@@ -1,15 +1,13 @@
 import {
-  FormControlLabel,
   Dialog,
   DialogTitle,
   DialogContent,
   Button,
   DialogActions,
-  RadioGroup,
-  Radio,
 } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { Ide } from '../Connectors/Ide';
+import { ImportSelector } from './import-selector';
 
 type ImportDialogProps = {
   ides: Ide[];
@@ -27,24 +25,19 @@ export const ImportDialog = ({
   if (ides.length === 0) return <></>;
 
   const [value, setValue] = React.useState(0);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(parseInt(event.target.value));
+  const handleChange = (idx: number) => {
+    setValue(idx);
   };
 
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle id="form-dialog-title">Import shortcuts from...</DialogTitle>
       <DialogContent>
-        <RadioGroup name="import ide" value={value} onChange={handleChange}>
-          {ides.map((ide, idx) => (
-            <FormControlLabel
-              value={idx}
-              key={idx}
-              control={<Radio color="primary" />}
-              label={ide.name}
-            />
-          ))}
-        </RadioGroup>
+        <ImportSelector
+          ides={ides}
+          value={value}
+          setValue={setValue}
+        ></ImportSelector>{' '}
       </DialogContent>
       <DialogActions>
         <Button

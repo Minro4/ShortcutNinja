@@ -23,7 +23,6 @@ export default class App extends Component<AppProps, AppState> {
   componentWillMount(): void {
     Connectors.scan().then(async (scannedIdes) => {
       this.setState({
-        ...this.state,
         ides: scannedIdes,
       });
     });

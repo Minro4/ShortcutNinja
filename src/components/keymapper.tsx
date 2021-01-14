@@ -13,6 +13,9 @@ import { ShortcutsDialog } from './shortcuts-dialog';
 import { Box } from '@material-ui/core';
 import { SearchBar } from './search-bar';
 import { Footer } from './footer';
+import Store from 'electron-store';
+import { IJsonUniversalKeymap } from '../Connectors/Keymap/UniversalKeymap';
+import { WelcomeDialog } from './welcome-dialog';
 
 type KeymapperProps = {
   ides: Ide[];
@@ -25,24 +28,29 @@ type KeymapperState = {
   openedCategories: boolean[];
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
-  importDialogOpened: boolean;
+  welcomeDialogOpened: boolean;
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
+  private store: Store;
+  private uniKmStoreKey = 'universal-keymap';
+
   constructor(props: KeymapperProps) {
     super(props);
 
-    const km = new UniversalKeymap();
-
+    this.store = new Store();
+    this.store.delete(this.uniKmStoreKey)
+    const keymap = this.fetchKeymap();
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    console.log(keymap)
     const categories = ShortcutCategories.baseCategories;
-
     this.state = {
-      keymap: km,
+      keymap: keymap ?? new UniversalKeymap(),
       schemas: SchemaTypes.SCHEMAS,
       filteredShortcutCategories: categories,
       openedCategories: Array(categories.categories.length).fill(true),
       setOpenedCategories: this.createSetOpenedCategories(categories),
-      importDialogOpened: false,
+      welcomeDialogOpened: !keymap,
     };
   }
 
@@ -71,10 +79,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           <Footer
             ides={this.props.ides}
             keymap={this.state.keymap}
-            importDialogOpened={this.state.importDialogOpened}
             onImport={this.importIde.bind(this)}
-            onOpenImport={() => this.setImportDialogOpen(true)}
-            onCloseImport={() => this.setImportDialogOpen(false)}
           ></Footer>
         </Box>
         <ShortcutsDialog
@@ -83,6 +88,15 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
           onChange={this.onShortcutChange.bind(this)}
           onCancel={this.onShortcutCancel.bind(this)}
         ></ShortcutsDialog>
+        <WelcomeDialog
+          ides={this.props.ides}
+          open={this.state.welcomeDialogOpened}
+          onImport={(ide) => {
+            this.importIde(ide);
+            this.setState({ welcomeDialogOpened: false });
+          }}
+          onClose={() => this.setState({ welcomeDialogOpened: false })}
+        ></WelcomeDialog>
       </Box>
     );
   }
@@ -92,7 +106,6 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     const setOpenedCategories = this.createSetOpenedCategories(newCategories);
 
     this.setState({
-      ...this.state,
       filteredShortcutCategories: newCategories,
       openedCategories,
       setOpenedCategories,
@@ -100,53 +113,61 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   }
 
   private createSetOpenedCategories(categories: ShortcutCategories) {
-    return categories.categories.map<(value: boolean) => void>((_value, idx) => {
-      return (value: boolean) => {
-        const newArr = [...this.state.openedCategories];
-        newArr[idx] = value;
-        this.setState({
-          ...this.state,
-          openedCategories: newArr,
-        });
-      };
-    });
+    return categories.categories.map<(value: boolean) => void>(
+      (_value, idx) => {
+        return (value: boolean) => {
+          const newArr = [...this.state.openedCategories];
+          newArr[idx] = value;
+          this.setState({
+            openedCategories: newArr,
+          });
+        };
+      }
+    );
   }
 
   private onSchemaChange(schema: Schema): void {
-    this.setState({ ...this.state, keymap: schema.get() });
+    this.setKeymap(schema.get());
   }
 
   private onClickShortcut(definition: IShortcutDefinition) {
     this.setState({
-      ...this.state,
       shortcutDialogDefinition: definition,
     });
   }
 
   private onShortcutChange(newKeymap: UniversalKeymap) {
     this.setState({
-      ...this.state,
       shortcutDialogDefinition: undefined,
-      keymap: newKeymap,
     });
+
+    this.setKeymap(newKeymap);
   }
 
   private onShortcutCancel() {
     this.setState({
-      ...this.state,
       shortcutDialogDefinition: undefined,
     });
   }
 
   private importIde(ide: Ide): void {
     ide.converter.load().then((keymap) => {
-      this.setState({ ...this.state, keymap: keymap });
+      this.setKeymap(keymap);
     });
-
-    this.setImportDialogOpen(false);
   }
 
-  private setImportDialogOpen(value: boolean) {
-    this.setState({ ...this.state, importDialogOpened: value });
+  private setKeymap(newKeymap: UniversalKeymap) {
+    this.setState({ keymap: newKeymap });
+    this.storeKeymap(newKeymap);
+  }
+
+  private storeKeymap(keymap: UniversalKeymap) {
+    this.store.set(this.uniKmStoreKey, keymap.toJson());
+  }
+
+  private fetchKeymap(): UniversalKeymap | undefined {
+    const json = this.store.get(this.uniKmStoreKey) as IJsonUniversalKeymap;
+    if (json) return UniversalKeymap.fromJson(json);
+    return undefined;
   }
 }

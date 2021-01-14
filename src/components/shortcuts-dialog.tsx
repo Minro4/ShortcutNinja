@@ -67,7 +67,6 @@ export class ShortcutsDialog extends Component<
       const newKemap = this.state.keymap.clone();
       newKemap.remove(this.props.shortcutDefinition.id, shortcut);
       this.setState({
-        ...this.state,
         keymap: newKemap,
       });
     }
@@ -78,7 +77,6 @@ export class ShortcutsDialog extends Component<
       const newKemap = this.state.keymap.clone();
       newKemap.add(this.props.shortcutDefinition.id, shortcut);
       this.setState({
-        ...this.state,
         keymap: newKemap,
       });
     }
@@ -120,7 +118,7 @@ export class ShortcutsDialog extends Component<
   private removeConflict(conflict: IShortcutConflict): void {
     const newKeymap = this.state.keymap.clone();
     newKeymap.removeAll(conflict.definition.id, conflict.shortcuts);
-    this.setState({ ...this.state, keymap: newKeymap });
+    this.setState({ keymap: newKeymap });
   }
 
   render(): ReactElement {

@@ -6,7 +6,7 @@ import {
   SingleShortcut,
 } from '../../../src/Connectors/Shortcut';
 import { fsUtils } from '../../../src/Connectors/Utils';
-import { SchemaTypes } from "../../../src/Connectors/Schema/SchemaTypes";
+import { SchemaTypes } from '../../../src/Connectors/Schema/SchemaTypes';
 import { VisualStudioConverter } from '../../../src/Connectors/Converters/VisualStudioConverter/VisualStudioConverter';
 import { VisualStudioXmlConfig } from '../../../src/Connectors/Converters/VisualStudioConverter/VisualStudio.models';
 

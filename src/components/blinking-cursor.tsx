@@ -31,7 +31,6 @@ export class BlinkingCursor extends Component<
   componentWillMount(): void {
     this.handler = setInterval(() => {
       this.setState({
-        ...this.state,
         isOn: !this.state.isOn,
       });
     }, this.props.interval);

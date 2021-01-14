@@ -6,21 +6,19 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import SendIcon from '@material-ui/icons/Send';
 import { ApplyDialog } from './apply-dialog';
 import MuiAlert from '@material-ui/lab/Alert';
-import { ImportDialog } from './importDialog';
+import { ImportDialog } from './import-dialog';
 
 type FooterProps = {
   ides: Ide[];
   keymap: UniversalKeymap;
-  importDialogOpened: boolean;
   onImport: (ide: Ide) => void;
-  onOpenImport: ()=>void
-  onCloseImport: () => void;
 };
 
 type FooterState = {
   applyOpened: boolean;
   applyLoading: boolean;
   snackbarOpened: boolean;
+  importOpened: boolean;
 };
 
 export class Footer extends Component<FooterProps, FooterState> {
@@ -31,6 +29,7 @@ export class Footer extends Component<FooterProps, FooterState> {
       applyOpened: false,
       applyLoading: false,
       snackbarOpened: false,
+      importOpened: false,
     };
   }
 
@@ -41,7 +40,7 @@ export class Footer extends Component<FooterProps, FooterState> {
           variant="contained"
           color="primary"
           startIcon={<GetAppIcon />}
-          onClick={this.props.onOpenImport}
+          onClick={()=>this.setImportDialogOpen(true)}
         >
           Import
         </Button>
@@ -62,9 +61,9 @@ export class Footer extends Component<FooterProps, FooterState> {
           onClose={this.closeApply.bind(this)}
         ></ApplyDialog>
         <ImportDialog
-          open={this.props.importDialogOpened}
-          onSelect={this.props.onImport}
-          onClose={this.props.onCloseImport}
+          open={this.state.importOpened}
+          onSelect={this.onImport.bind(this)}
+          onClose={()=>this.setImportDialogOpen(false)}
           ides={this.props.ides}
         ></ImportDialog>
         <Snackbar
@@ -81,14 +80,14 @@ export class Footer extends Component<FooterProps, FooterState> {
   }
 
   private onApply() {
-    this.setState({ ...this.state, applyOpened: true });
+    this.setState({ applyOpened: true });
   }
 
   private apply(ides: Ide[]) {
     Promise.all(
       ides.map((ide) => ide.converter.save(this.props.keymap.clone()))
     ).then((results) => {
-      this.setState({ ...this.state, applyLoading: false });
+      this.setState({ applyLoading: false });
       if (results.some((result) => result)) {
         this.setSnackbar(true);
       } else {
@@ -96,17 +95,25 @@ export class Footer extends Component<FooterProps, FooterState> {
       }
     });
     this.setState({
-      ...this.state,
       applyOpened: false,
       applyLoading: true,
     });
   }
 
+  private onImport(ide: Ide) {
+    this.props.onImport(ide);
+    this.setImportDialogOpen(false);
+  }
+
   private closeApply() {
-    this.setState({ ...this.state, applyOpened: false });
+    this.setState({ applyOpened: false });
   }
 
   private setSnackbar(value: boolean) {
-    this.setState({ ...this.state, snackbarOpened: value });
+    this.setState({ snackbarOpened: value });
+  }
+
+  private setImportDialogOpen(value: boolean) {
+    this.setState({ importOpened: value });
   }
 }

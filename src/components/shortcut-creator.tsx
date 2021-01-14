@@ -83,14 +83,12 @@ export class ShortcutCreatorElement extends Component<
 
   private resetCreator() {
     this.setState({
-      ...this.state,
       shortcutCreator: new ShortcutCreator(),
     });
   }
 
   private updateShortcutCreator() {
     this.setState({
-      ...this.state,
       shortcutCreator: this.state.shortcutCreator.clone(),
     });
   }
