@@ -8,15 +8,14 @@ import {
 } from '../Connectors/ShortcutDefinitions';
 import { UniversalKeymap } from '../Connectors/Keymap';
 import { KeymapTable } from './keymap-table';
-import { SchemaSelector } from './schema-selector';
 import { ShortcutsDialog } from './shortcuts-dialog';
 import { Box } from '@material-ui/core';
-import { SearchBar } from './search-bar';
 import { Footer } from './footer';
 import Store from 'electron-store';
 import { IJsonUniversalKeymap } from '../Connectors/Keymap/UniversalKeymap';
 import { WelcomeDialog } from './welcome-dialog';
 import { LoadingBackdrop } from './loading-backdrop';
+import { TopBar } from './top-bar';
 
 type KeymapperProps = {
   ides: Ide[];
@@ -64,14 +63,13 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   render(): ReactElement {
     return (
       <Box className="keymapper">
-        <Box className="header">
-          <SchemaSelector
-            value={this.state.schemaSelectorValue}
-            schemas={this.schemas}
-            onChange={this.onSchemaChange.bind(this)}
-          ></SchemaSelector>
-          <SearchBar onSearch={this.setCategories.bind(this)}></SearchBar>
-        </Box>
+        <TopBar
+          schemaSelectorValue={this.state.schemaSelectorValue}
+          schemas={this.schemas}
+          onSchemaChange={this.onSchemaChange.bind(this)}
+          onSearch={this.setCategories.bind(this)}
+        ></TopBar>
+
         <Box className="content">
           <KeymapTable
             keymap={this.state.keymap}
@@ -81,13 +79,13 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
             setOpen={this.state.setOpenedCategories}
           ></KeymapTable>
         </Box>
-        <Box className="footer">
-          <Footer
-            ides={this.props.ides}
-            keymap={this.state.keymap}
-            onImport={this.importIde.bind(this)}
-          ></Footer>
-        </Box>
+
+        <Footer
+          ides={this.props.ides}
+          keymap={this.state.keymap}
+          onImport={this.importIde.bind(this)}
+        ></Footer>
+
         <ShortcutsDialog
           keymap={this.state.keymap}
           shortcutDefinition={this.state.shortcutDialogDefinition}

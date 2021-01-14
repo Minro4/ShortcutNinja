@@ -9,11 +9,11 @@ export class Schema {
     this.schema = schema;
   }
 
-  get(): UniversalKeymap {
+  public get(): UniversalKeymap {
     return this.schema.clone();
   }
 
-  set(schema: UniversalKeymap) {
+  public set(schema: UniversalKeymap): void {
     this.schema = schema;
   }
 }

@@ -35,50 +35,52 @@ export class Footer extends Component<FooterProps, FooterState> {
 
   render(): ReactElement {
     return (
-      <Box className="bottom-bar">
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<GetAppIcon />}
-          onClick={() => this.setImportDialogOpen(true)}
-        >
-          Import
-        </Button>
-        <div className="apply-button loader-wrapper">
+      <Box className="footer">
+        <Box className="bottom-bar">
           <Button
             variant="contained"
             color="primary"
-            endIcon={<SendIcon />}
-            onClick={this.onApply.bind(this)}
-            disabled={this.state.applyLoading}
+            startIcon={<GetAppIcon />}
+            onClick={() => this.setImportDialogOpen(true)}
           >
-            Apply
+            Import
           </Button>
-          {this.state.applyLoading && (
-            <CircularProgress size={24} className="button-loading" />
-          )}
-        </div>
-        <ApplyDialog
-          ides={this.props.ides}
-          open={this.state.applyOpened}
-          onApply={this.apply.bind(this)}
-          onClose={this.closeApply.bind(this)}
-        ></ApplyDialog>
-        <ImportDialog
-          open={this.state.importOpened}
-          onSelect={this.onImport.bind(this)}
-          onClose={() => this.setImportDialogOpen(false)}
-          ides={this.props.ides}
-        ></ImportDialog>
-        <Snackbar
-          open={this.state.snackbarOpened}
-          autoHideDuration={4000}
-          onClose={() => this.setSnackbar(false)}
-        >
-          <MuiAlert severity="success" variant="filled">
-            Shortcuts successfully applied!
-          </MuiAlert>
-        </Snackbar>
+          <div className="apply-button loader-wrapper">
+            <Button
+              variant="contained"
+              color="primary"
+              endIcon={<SendIcon />}
+              onClick={this.onApply.bind(this)}
+              disabled={this.state.applyLoading}
+            >
+              Apply
+            </Button>
+            {this.state.applyLoading && (
+              <CircularProgress size={24} className="button-loading" />
+            )}
+          </div>
+          <ApplyDialog
+            ides={this.props.ides}
+            open={this.state.applyOpened}
+            onApply={this.apply.bind(this)}
+            onClose={this.closeApply.bind(this)}
+          ></ApplyDialog>
+          <ImportDialog
+            open={this.state.importOpened}
+            onSelect={this.onImport.bind(this)}
+            onClose={() => this.setImportDialogOpen(false)}
+            ides={this.props.ides}
+          ></ImportDialog>
+          <Snackbar
+            open={this.state.snackbarOpened}
+            autoHideDuration={4000}
+            onClose={() => this.setSnackbar(false)}
+          >
+            <MuiAlert severity="success" variant="filled">
+              Shortcuts successfully applied!
+            </MuiAlert>
+          </Snackbar>
+        </Box>
       </Box>
     );
   }

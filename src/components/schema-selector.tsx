@@ -1,10 +1,10 @@
 import Select from '@material-ui/core/Select';
 import React, { ReactElement } from 'react';
-import { Box, FormControl, FormLabel, MenuItem } from '@material-ui/core';
+import { Box, FormControl, InputLabel, MenuItem } from '@material-ui/core';
 import { Schema } from '../Connectors/Schema/Schema';
 
 type SchemaSelectorProps = {
-  value: number
+  value: number;
   schemas: Schema[];
   onChange: (schemaIdx: number) => void;
 };
@@ -21,17 +21,17 @@ export const SchemaSelector = (props: SchemaSelectorProps): ReactElement => {
   }
 
   return (
-    <FormControl>
-      <Box>
-        <FormLabel>Schema: </FormLabel>
-        <Select value={props.value} onChange={handleChange} autoWidth>
+    <Box className="schema-selector">
+      <FormControl variant="outlined" size="small">
+        <InputLabel>Schema</InputLabel>
+        <Select value={props.value} onChange={handleChange} labelWidth={60}>
           {props.schemas.map((schema, idx) => (
             <MenuItem value={idx} key={idx}>
               {schema.label}
             </MenuItem>
           ))}
         </Select>
-      </Box>
-    </FormControl>
+      </FormControl>
+    </Box>
   );
 };

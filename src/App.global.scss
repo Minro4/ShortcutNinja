@@ -56,6 +56,8 @@ body {
 
   .bottom-bar {
     padding: 10px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 
     .apply-button {
       float: right;
@@ -88,22 +90,32 @@ body {
     }
   }
 
-  .schema-selector {
-    .MuiSelect-root {
-      min-width: 125px;
-    }
-  }
-
   .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 84;
+    height: 100;
     background-color: $bg-black;
     border-bottom: 1px solid rgba(81, 81, 81, 1);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
     z-index: 1;
+
+    padding: 12px;
+
+    display: flex;
+
+    .search-bar-container {
+      flex-grow: 1;
+      margin-right: 12px;
+      padding: 0px;
+    }
+
+    .schema-selector {
+      .MuiFormControl-root {
+        width: 200px;
+      }
+    }
   }
   .footer {
     border-top: 1px solid rgba(81, 81, 81, 1);
@@ -111,7 +123,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 56px;
+    height: 64px;
     background-color: $bg-black;
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
     z-index: 1;
@@ -120,7 +132,7 @@ body {
   .keymap-table {
     position: fixed;
     top: 101px;
-    bottom: 56px;
+    bottom: 64px;
     left: 0;
     right: 0;
 
@@ -163,8 +175,6 @@ body {
     }
   }
   .search-bar-container {
-    padding: 6px;
-
     .MuiInputBase-input {
       //Fixes some weird bug from mui where the class order is wrong
       padding-top: 10.5px;
