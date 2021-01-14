@@ -12,6 +12,8 @@ export class Schema {
   get(): UniversalKeymap {
     return this.schema.clone();
   }
+
+  set(schema: UniversalKeymap) {
+    this.schema = schema;
+  }
 }
-
-

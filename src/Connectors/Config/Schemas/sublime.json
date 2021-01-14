@@ -16,20 +16,21 @@
   ],
   "indentLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "]" } }],
   "insertLineBelow": [{ "sc1": { "holdedKeys": ["shift"], "key": "enter" } }],
-  "insertLineAbove": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }],
+  "insertLineAbove": [
+    { "sc1": { "holdedKeys": ["alt", "ctrl"], "key": "enter" } }
+  ],
   "moveLineDown": [
-    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } },
+    { "sc1": { "holdedKeys": ["shift", "ctrl"], "key": "down" } }
   ],
-  "moveLineUp": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }],
-  "findNext": [{ "sc1": { "holdedKeys": [], "key": "f4" } }],
+  "moveLineUp": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "up" } },
+    { "sc1": { "holdedKeys": ["shift", "ctrl"], "key": "up" } }
+  ],
+  "findNext": [{ "sc1": { "holdedKeys": [], "key": "f3" } }],
   "outdent line": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "[" } }],
-  "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f4" } }],
-  "renameSymbol": [
-    {
-      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
-      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
-    }
-  ],
+  "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f3" } }],
+  "renameSymbol": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }],
   "replace": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }],
   "showHover": [
     {
@@ -38,11 +39,11 @@
     }
   ],
   "toggleBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
-  "continue": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "continue": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
   "start": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
   "stepOut": [{ "sc1": { "holdedKeys": ["shift"], "key": "f11" } }],
   "stopDebuging": [{ "sc1": { "holdedKeys": ["shift"], "key": "f5" } }],
-  "newFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "n" } }],
+  "newFile": [{ "sc1": { "holdedKeys": ["alt"], "key": "insert" } }],
   "openFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }],
   "save": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
   "saveAll": [{ "sc1": { "holdedKeys": [], "key": "none" } }],

@@ -7,7 +7,12 @@
     { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
   ],
   "deleteLine": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }],
-  "formatDocument": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }],
+  "formatDocument": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+    }
+  ],
   "formatSelection": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "k" },

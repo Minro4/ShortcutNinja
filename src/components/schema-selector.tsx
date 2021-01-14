@@ -4,29 +4,27 @@ import { Box, FormControl, FormLabel, MenuItem } from '@material-ui/core';
 import { Schema } from '../Connectors/Schema/Schema';
 
 type SchemaSelectorProps = {
+  value: number
   schemas: Schema[];
-  onChange: (schema: Schema) => void;
+  onChange: (schemaIdx: number) => void;
 };
 
 export const SchemaSelector = (props: SchemaSelectorProps): ReactElement => {
-  const [schema, setSchema] = React.useState(0);
-
   function handleChange(
     event: React.ChangeEvent<{
       name?: string | undefined;
       value: unknown;
     }>
   ) {
-    const idx = parseInt(event.target.value as string)
-    setSchema(idx);
-    if (schema) props.onChange(props.schemas[idx]);
+    const idx = parseInt(event.target.value as string);
+    props.onChange(idx);
   }
 
   return (
-    <FormControl className="schema-selector">
+    <FormControl>
       <Box>
         <FormLabel>Schema: </FormLabel>
-        <Select value={schema} onChange={handleChange}>
+        <Select value={props.value} onChange={handleChange} autoWidth>
           {props.schemas.map((schema, idx) => (
             <MenuItem value={idx} key={idx}>
               {schema.label}

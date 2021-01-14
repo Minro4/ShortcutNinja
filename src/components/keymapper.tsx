@@ -24,36 +24,40 @@ type KeymapperProps = {
 
 type KeymapperState = {
   keymap: UniversalKeymap;
-  schemas: Schema[];
   filteredShortcutCategories: ShortcutCategories;
   openedCategories: boolean[];
   setOpenedCategories: ((value: boolean) => void)[];
   shortcutDialogDefinition?: IShortcutDefinition;
   welcomeDialogOpened: boolean;
   isLoading: boolean;
+  schemaSelectorValue: number;
 };
 
 export class Keymapper extends Component<KeymapperProps, KeymapperState> {
   private store: Store;
   private uniKmStoreKey = 'universal-keymap';
+  private schemas: Schema[];
 
   constructor(props: KeymapperProps) {
     super(props);
 
     this.store = new Store();
 
-    const keymap = this.fetchKeymap();
+    const fetchedKeymap = this.fetchKeymap();
+    const keymap = fetchedKeymap ?? new UniversalKeymap();
 
     const categories = ShortcutCategories.baseCategories;
 
+    this.schemas = [new Schema('Custom', keymap)].concat(SchemaTypes.SCHEMAS);
+
     this.state = {
-      keymap: keymap ?? new UniversalKeymap(),
-      schemas: SchemaTypes.SCHEMAS,
+      keymap,
       filteredShortcutCategories: categories,
       openedCategories: Array(categories.categories.length).fill(true),
       setOpenedCategories: this.createSetOpenedCategories(categories),
-      welcomeDialogOpened: !keymap,
+      welcomeDialogOpened: !fetchedKeymap,
       isLoading: false,
+      schemaSelectorValue: 0,
     };
   }
 
@@ -62,10 +66,9 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       <Box className="keymapper">
         <Box className="header">
           <SchemaSelector
-            schemas={this.state.schemas}
-            onChange={(schema: Schema) => {
-              this.onSchemaChange(schema);
-            }}
+            value={this.state.schemaSelectorValue}
+            schemas={this.schemas}
+            onChange={this.onSchemaChange.bind(this)}
           ></SchemaSelector>
           <SearchBar onSearch={this.setCategories.bind(this)}></SearchBar>
         </Box>
@@ -130,8 +133,11 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     );
   }
 
-  private onSchemaChange(schema: Schema): void {
-    this.setKeymap(schema.get());
+  private onSchemaChange(schemaIdx: number): void {
+    this.setState({
+      keymap: this.schemas[schemaIdx].get(),
+      schemaSelectorValue: schemaIdx,
+    });
   }
 
   private onClickShortcut(definition: IShortcutDefinition) {
@@ -145,7 +151,7 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
       shortcutDialogDefinition: undefined,
     });
 
-    this.setKeymap(newKeymap);
+    this.setCustomKeymap(newKeymap);
   }
 
   private onShortcutCancel() {
@@ -158,12 +164,13 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
     this.setState({ isLoading: true });
     ide.converter.load().then((keymap) => {
       this.setState({ isLoading: false });
-      this.setKeymap(keymap);
+      this.setCustomKeymap(keymap);
     });
   }
 
-  private setKeymap(newKeymap: UniversalKeymap) {
-    this.setState({ keymap: newKeymap });
+  private setCustomKeymap(newKeymap: UniversalKeymap) {
+    this.schemas[0].set(newKeymap);
+    this.setState({ keymap: newKeymap, schemaSelectorValue: 0 });
     this.storeKeymap(newKeymap);
   }
 

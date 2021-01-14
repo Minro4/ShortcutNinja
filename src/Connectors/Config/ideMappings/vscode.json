@@ -3,7 +3,8 @@
     "editor.action.formatDocument when editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
     "editor.action.formatDocument when editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly",
     "editor.action.formatDocument when editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor",
-    "editor.action.formatDocument.none when editorTextFocus && !editorHasDocumentFormattingProvider && !editorHasDocumentFormattingProvider && !editorReadonly"
+    "editor.action.formatDocument.none when editorTextFocus && !editorHasDocumentFormattingProvider && !editorHasDocumentFormattingProvider && !editorReadonly",
+    "editor.action.formatDocument"
   ],
   "formatSelection": [
     "editor.action.formatSelection when editorHasDocumentSelectionFormattingProvider && editorHasDocumentSelectionFormattingProvider && editorTextFocus && !editorReadonly"
