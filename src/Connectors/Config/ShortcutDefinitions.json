@@ -123,7 +123,7 @@
     "id": "runAndDebug",
     "definitions": [
       {
-        "id": "Toggle breakpoint",
+        "id": "toggleBreakpoint",
         "label": "Toggle breakpoint",
         "metaTags": []
       },
@@ -199,5 +199,10 @@
         "metaTags": ["workbench.action.closeAllEditors"]
       }
     ]
+  },
+  {
+    "label": "Others",
+    "id": "unclassified",
+    "definitions": []
   }
 ]

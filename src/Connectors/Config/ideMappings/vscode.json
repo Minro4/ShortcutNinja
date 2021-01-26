@@ -71,7 +71,7 @@
   "save": ["workbench.action.files.save"],
   "saveAs": ["workbench.action.files.saveAs"],
   "saveAll": ["workbench.action.files.saveAll"],
-  "close": [],
-  "closeAll": [],
+  "close": ["workbench.action.closeActiveEditor"],
+  "closeAll": ["workbench.action.closeAllEditors"],
   "duplicateSelection": ["editor.action.duplicateSelection"]
 }
