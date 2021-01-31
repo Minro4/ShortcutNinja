@@ -14,21 +14,75 @@
         "metaTags": ["reformat", "indent"]
       },
       { "id": "renameFile", "label": "Rename File" },
-      { "id": "renameSymbol", "label": "Rename Symbol" }
+      { "id": "renameSymbol", "label": "Rename Symbol" },
+      {
+        "id": "acceptSelectedSuggestion",
+        "label": "Code Completion",
+        "metaTags": ["Complete statement"]
+      },
+      {
+        "id": "editor.action.blockComment",
+        "label": "Comment/uncomment with block comment"
+      },
+      {
+        "id": "editor.action.commentLine",
+        "label": "Comment/uncomment with line comment"
+      },
+      { "id": "editor.action.joinLines", "label": "Smart line join" },
+      {
+        "id": "editor.action.quickFix",
+        "label": "Quick Fix"
+      },
+      {
+        "id": "editor.action.smartSelect.grow",
+        "label": "Select successively increasing code blocks"
+      },
+      {
+        "id": "editor.action.smartSelect.shrink",
+        "label": "Decrease current selection to previous state"
+      },
+      { "id": "editor.fold", "label": "Collapse code block" },
+      { "id": "editor.foldAll", "label": "Collapse all" }
     ]
   },
   {
     "label": "Navigation",
     "id": "navigation",
-    "definitions": [{ "id": "goToFile", "label": "Go To File" }]
+    "definitions": [
+      { "id": "goToFile", "label": "Go To File" },
+      { "id": "editor.action.goToDeclaration", "label": "Go To Declaration" },
+      {
+        "id": "editor.action.goToImplementation",
+        "label": "Go To Implementation"
+      },
+      {
+        "id": "editor.action.previewDeclaration",
+        "label": "Preview Declaration"
+      },
+      { "id": "editor.action.marker.next", "label": "Next highlighted error" },
+      {
+        "id": "editor.action.marker.prev",
+        "label": "Previous highlighted error"
+      },
+      { "id": "workbench.action.gotoLine", "label": "Go to line" },
+      { "id": "workbench.action.gotoSymbol", "label": "Go to symbol" },
+      { "id": "workbench.action.navigateBack", "label": "Navigate back" },
+      { "id": "workbench.action.navigateForward", "label": "Navigate forward" },
+      {
+        "id": "workbench.action.navigateToLastEditLocation",
+        "label": "Navigate to last edit location"
+      },
+      { "id": "workbench.action.nextEditor", "label": "Go to next editor tab" }
+    ]
   },
   {
     "label": "Basic Editing",
     "id": "basicEditing",
     "definitions": [
-      { "id": "cutLine", "label": "Cut Line" },
-      { "id": "copyLine", "label": "Copy Line" },
+      { "id": "cutLine", "label": "Cut" },
+      { "id": "copyLine", "label": "Copy" },
       { "id": "duplicateSelection", "label": "Duplicate Selection" },
+      { "id": "editor.action.copyLinesDownAction", "label": "Duplicate Line" },
       { "id": "deleteLine", "label": "Delete Line" },
       { "id": "insertLineAbove", "label": "Insert Line Above" },
       { "id": "insertLineBelow", "label": "Insert Line Below" },
@@ -37,7 +91,12 @@
       { "id": "indent", "label": "Indent", "metaTags": ["tab"] },
       { "id": "outdent", "label": "Outdent", "metaTags": ["tab"] },
       { "id": "indentLine", "label": "Indent Line", "metaTags": ["tab"] },
-      { "id": "outdent line", "label": "Outdent Line", "metaTags": ["tab"] }
+      { "id": "outdent line", "label": "Outdent Line", "metaTags": ["tab"] },
+      { "id": "deleteWordLeft", "label": "Delete to word start" },
+      { "id": "deleteWordRight", "label": "Delete to word end" },
+      { "id": "editor.action.changeAll", "label": "Select All Occurrences" },
+      { "id": "undo", "label": "Undo" },
+      { "id": "redo", "label": "Redo" }
     ]
   },
   {
@@ -63,12 +122,30 @@
         "label": "Toggle breakpoint",
         "metaTags": []
       },
-      { "id": "start", "label": "Start", "metaTags": [] },
+      { "id": "start", "label": "Debug", "metaTags": [] },
       { "id": "continue", "label": "Continue", "metaTags": [] },
       { "id": "stopDebuging", "label": "Stop", "metaTags": [] },
+      { "id": "workbench.action.debug.restart", "label": "Restart" },
       { "id": "stepInto", "label": "Step Into", "metaTags": [] },
       { "id": "stepOut", "label": "Step Out", "metaTags": [] },
-      { "id": "showHover", "label": "Show Hover", "metaTags": [] }
+      { "id": "showHover", "label": "Show Hover", "metaTags": [] },
+      {
+        "id": "editor.debug.action.selectionToRepl",
+        "label": "Evaluate expression (selection)"
+      },
+      {
+        "id": "workbench.debug.action.toggleRepl",
+        "label": "Evaluate expression"
+      },
+      {
+        "id": "workbench.action.tasks.build",
+        "label": "Build Project"
+      },
+      {
+        "id": "workbench.action.tasks.runTask",
+        "label": "Run"
+      },
+      { "id": "workbench.action.tasks.reRunTask", "label": "Rerun" }
     ]
   },
   {
@@ -89,6 +166,49 @@
         "id": "closeAll",
         "label": "Close All Opened Files",
         "metaTags": ["workbench.action.closeAllEditors"]
+      },
+      { "id": "copyFilePath", "label": "Copy File Path" },
+      {
+        "id": "workbench.view.explorer",
+        "label": "Open Explorer"
+      }
+    ]
+  },
+  {
+    "label": "Git",
+    "id": "git",
+    "definitions": [
+      { "id": "editor.action.dirtydiff.next", "label": "Next Change" },
+      { "id": "editor.action.dirtydiff.previous", "label": "Previous Change" },
+      { "id": "git.commitAll", "label": "Commit project to VCS" },
+      { "id": "git.pushTo", "label": "Push commits to VCS" },
+      { "id": "git.revertSelectedRanges", "label": "Rollback Lines" },
+      { "id": "git.sync", "label": "Update project from VCS" },
+      {
+        "id": "workbench.view.scm",
+        "label": "Open Source Control"
+      }
+    ]
+  },
+  {
+    "label": "Terminal",
+    "id": "terminal",
+    "definitions": [
+      {
+        "id": "workbench.action.terminal.focus",
+        "label": "Opens and focuses corresponding tool window (Terminal)"
+      },
+      {
+        "id": "workbench.action.terminal.focusNext",
+        "label": "Select next tab (Terminal)"
+      },
+      {
+        "id": "workbench.action.terminal.focusPrevious",
+        "label": "Select previous tab (Terminal)"
+      },
+      {
+        "id": "workbench.action.terminal.toggleTerminal",
+        "label": "Toggle Terminal"
       }
     ]
   },
@@ -96,11 +216,6 @@
     "label": "Others",
     "id": "unclassified",
     "definitions": [
-      { "id": "-actions.find" },
-      { "id": "-workbench.action.openRecent" },
-      { "id": "acceptSelectedSuggestion", "label": "Complete statement" },
-      { "id": "breadcrumbs.focus", "label": "Jump to Navigation Bar" },
-      { "id": "copyFilePath", "label": "Copy paths" },
       { "id": "cursorBottom", "label": "Move Caret to Text End" },
       { "id": "cursorColumnSelectDown" },
       { "id": "cursorColumnSelectLeft" },
@@ -112,67 +227,18 @@
       { "id": "cursorUndo", "label": "Unselect Occurrence" },
       { "id": "cursorWordStartRight" },
       { "id": "cursorWordStartRightSelect" },
-      { "id": "deleteWordEndRight" },
-      { "id": "deleteWordLeft", "label": "Delete to word start" },
-      { "id": "deleteWordRight", "label": "Delete to word end" },
-      { "id": "deleteWordStartLeft" },
+
       {
         "id": "editor.action.addSelectionToNextFindMatch",
         "label": "Add selection for Next Occurrence"
       },
-      {
-        "id": "editor.action.blockComment",
-        "label": "Comment/uncomment with block comment"
-      },
-      { "id": "editor.action.changeAll", "label": "Select All Occurrences" },
-      {
-        "id": "editor.action.clipboardCutAction",
-        "label": "Cut current line or selected block to clipboard"
-      },
-      { "id": "editor.action.codeAction", "label": "Extract Variable" },
-      {
-        "id": "editor.action.commentLine",
-        "label": "Comment/uncomment with line comment"
-      },
-      { "id": "editor.action.copyLinesDownAction", "label": "Duplicate Line" },
-      { "id": "editor.action.deleteLines", "label": "Delete line at caret" },
-      { "id": "editor.action.dirtydiff.next", "label": "Next Change" },
-      { "id": "editor.action.dirtydiff.previous", "label": "Previous Change" },
-      {
-        "id": "editor.action.duplicateSelection",
-        "label": "Duplicate Selection"
-      },
-      {
-        "id": "editor.action.formatSelection",
-        "label": "Reformat selected code"
-      },
-      { "id": "editor.action.goToDeclaration", "label": "View source" },
-      {
-        "id": "editor.action.goToImplementation",
-        "label": "Go to implementation(s)"
-      },
+
       {
         "id": "editor.action.goToTypeDefinition",
         "label": "Go to type declaration"
       },
-      { "id": "editor.action.insertLineAfter", "label": "Start new line" },
-      { "id": "editor.action.insertLineBefore" },
-      { "id": "editor.action.joinLines", "label": "Smart line join" },
-      { "id": "editor.action.marker.next", "label": "Next highlighted error" },
-      {
-        "id": "editor.action.marker.prev",
-        "label": "Previous highlighted error"
-      },
-      {
-        "id": "editor.action.previewDeclaration",
-        "label": "Open quick definition lookup"
-      },
-      {
-        "id": "editor.action.quickFix",
-        "label": "Show intention actions and quick-fixes"
-      },
+
       { "id": "editor.action.referenceSearch.trigger", "label": "Show usages" },
-      { "id": "editor.action.rename" },
       {
         "id": "editor.action.selectHighlights",
         "label": "Sublime Text style multiple selections"
@@ -180,14 +246,6 @@
       {
         "id": "editor.action.showHover",
         "label": "Quick documentation lookup"
-      },
-      {
-        "id": "editor.action.smartSelect.grow",
-        "label": "Select successively increasing code blocks"
-      },
-      {
-        "id": "editor.action.smartSelect.shrink",
-        "label": "Decrease current selection to previous state"
       },
       { "id": "editor.action.startFindReplaceAction", "label": "Replace" },
       {
@@ -201,16 +259,7 @@
       },
       { "id": "editor.action.triggerSuggest" },
       { "id": "editor.debug.action.runToCursor", "label": "Run to cursor" },
-      {
-        "id": "editor.debug.action.selectionToRepl",
-        "label": "Evaluate expression (selection)"
-      },
-      {
-        "id": "editor.debug.action.toggleBreakpoint",
-        "label": "Toggle breakpoint"
-      },
-      { "id": "editor.fold", "label": "Collapse code block" },
-      { "id": "editor.foldAll", "label": "Collapse all" },
+
       {
         "id": "editor.foldRecursively",
         "label": "Collapse code block recursively"
@@ -221,19 +270,9 @@
         "id": "editor.unfoldRecursively",
         "label": "Expand code block recursively"
       },
-      { "id": "editorScroll" },
-      { "id": "git.commitAll", "label": "Commit project to VCS" },
-      { "id": "git.pushTo", "label": "Push commits to VCS" },
-      { "id": "git.revertSelectedRanges", "label": "Rollback Lines" },
-      { "id": "git.sync", "label": "Update project from VCS" },
-      { "id": "go.test.previous", "label": "Go: Test Previous" },
-      { "id": "insertSnippet" },
-      { "id": "lineBreakInsert", "label": "Smart line split" },
-      { "id": "list.select", "label": "Open Highlighted File (Explorer)" },
-      { "id": "outline.focus", "label": "Structure" },
-      { "id": "redo" },
+
       { "id": "references-view.find", "label": "Find usages" },
-      { "id": "undo" },
+
       {
         "id": "workbench.action.compareEditor.nextChange",
         "label": "Next difference"
@@ -242,11 +281,7 @@
         "id": "workbench.action.compareEditor.previousChange",
         "label": "Previous difference"
       },
-      { "id": "workbench.action.debug.restart" },
-      { "id": "workbench.action.debug.run", "label": "Debug" },
-      { "id": "workbench.action.debug.stepInto", "label": "Step into" },
-      { "id": "workbench.action.debug.stepOut", "label": "Step out" },
-      { "id": "workbench.action.debug.stepOver", "label": "Step over" },
+
       { "id": "workbench.action.files.openFileFolder" },
       {
         "id": "workbench.action.focusNextGroup",
@@ -256,19 +291,11 @@
         "id": "workbench.action.focusPreviousGroup",
         "label": "Goto previous splitter"
       },
-      { "id": "workbench.action.gotoLine", "label": "Go to line" },
-      { "id": "workbench.action.gotoSymbol", "label": "Go to symbol" },
       {
         "id": "workbench.action.maximizeEditor",
         "label": "Toggle maximizing editor"
       },
-      { "id": "workbench.action.navigateBack", "label": "Navigate back" },
-      { "id": "workbench.action.navigateForward", "label": "Navigate forward" },
-      {
-        "id": "workbench.action.navigateToLastEditLocation",
-        "label": "Navigate to last edit location"
-      },
-      { "id": "workbench.action.nextEditor", "label": "Go to next editor tab" },
+
       {
         "id": "workbench.action.openGlobalSettings",
         "label": "Open Settings dialog"
@@ -294,66 +321,19 @@
         "label": "Show descriptions of error or warning at caret"
       },
       { "id": "workbench.action.sync", "label": "Synchronize" },
-      {
-        "id": "workbench.action.tasks.build",
-        "label": "Make project (compile modifed and dependent)"
-      },
-      {
-        "id": "workbench.action.tasks.configureTaskRunner",
-        "label": "Open Project Structure dialog"
-      },
-      { "id": "workbench.action.tasks.reRunTask", "label": "Run" },
-      {
-        "id": "workbench.action.tasks.runTask",
-        "label": "Select configuration and run"
-      },
-      {
-        "id": "workbench.action.terminal.focus",
-        "label": "Opens and focuses corresponding tool window (Terminal)"
-      },
-      {
-        "id": "workbench.action.terminal.focusNext",
-        "label": "Select next tab (Terminal)"
-      },
-      {
-        "id": "workbench.action.terminal.focusPrevious",
-        "label": "Select previous tab (Terminal)"
-      },
-      {
-        "id": "workbench.action.terminal.toggleTerminal",
-        "label": "Close corresponding tool window (Terminal)"
-      },
-      {
-        "id": "workbench.action.toggleFullScreen",
-        "label": "Toggle full screen mode"
-      },
-      { "id": "workbench.action.toggleZenMode" },
+
       {
         "id": "workbench.actions.view.problems",
         "label": "Activate Messages window (Problems)"
       },
-      {
-        "id": "workbench.debug.action.toggleRepl",
-        "label": "Evaluate expression"
-      },
+
       { "id": "workbench.debug.viewlet.action.addFunctionBreakpointAction" },
       { "id": "workbench.debug.viewlet.action.removeAllBreakpoints" },
       { "id": "workbench.view.debug", "label": "View breakpoints" },
-      {
-        "id": "workbench.view.explorer",
-        "label": "Open corresponding tool window (Explorer)"
-      },
-      {
-        "id": "workbench.view.git",
-        "label": "Open corresponding tool window (Git)"
-      },
-      {
-        "id": "workbench.view.scm",
-        "label": "Open corresponding tool window (Git)"
-      },
+
       {
         "id": "workbench.view.search",
-        "label": "Open corresponding tool window (Search)"
+        "label": "Open Search"
       }
     ]
   }
