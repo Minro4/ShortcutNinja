@@ -16,9 +16,9 @@ import { IdeMappings } from '../../IdeMappings';
 export class VsCodeConverter extends Converter<VsCodeShortcut> {
   private configPath: string;
   private schema: Schema;
-  private readonly substractChar = '-';
+  private static readonly substractChar = '-';
 
-  private readonly commandWhenSeperator = ' when ';
+  private static readonly commandWhenSeperator = ' when ';
 
   constructor(configPath?: string, schema: Schema = SchemaTypes.VS_CODE) {
     super(IdeMappings.VS_CODE, new StrShortcutConverter());
@@ -65,8 +65,8 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     const ideKeymapToAdd = new Keymap<VsCodeShortcut>();
 
     ideConfig.forEach((vsCodeKb) => {
-      const ideKey = this.BuildIdeKey(vsCodeKb);
-      if (vsCodeKb.command.startsWith(this.substractChar)) {
+      const ideKey = VsCodeConverter.BuildIdeKey(vsCodeKb);
+      if (vsCodeKb.command.startsWith(VsCodeConverter.substractChar)) {
         ideKeymapToRemove.add(ideKey, vsCodeKb.key);
       } else {
         ideKeymapToAdd.add(ideKey, vsCodeKb.key);
@@ -88,7 +88,7 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     negatedCommand = false
   ): VsCodeKeybinding {
     // eslint-disable-next-line prefer-const
-    let [command, when] = ideKey.split(this.commandWhenSeperator);
+    let [command, when] = ideKey.split(VsCodeConverter.commandWhenSeperator);
     command = negatedCommand ? `-${command}` : command;
     if (when) {
       return {
@@ -104,7 +104,7 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     }
   }
 
-  private BuildIdeKey(kb: VsCodeKeybinding): string {
+  public static BuildIdeKey(kb: VsCodeKeybinding): string {
     let command = kb.command;
     if (command.startsWith(this.substractChar))
       command = command.substring(this.substractChar.length);

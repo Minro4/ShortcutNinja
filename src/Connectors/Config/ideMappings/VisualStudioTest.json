@@ -1,0 +1,583 @@
+{
+  "formatDocument": ["Edit.FormatDocument", "Edit.FormatDocument"],
+  "goToFile": ["Edit.GoToFile"],
+  "renameFile": ["File.Rename"],
+  "renameSymbol": ["Refactor.Rename", "Refactor.Rename", "SQL.Rename"],
+  "formatSelection": ["Edit.FormatSelection", "Edit.FormatSelection"],
+  "cutLine": ["Edit.LineCut"],
+  "copyLine": [
+    "Edit.Copy",
+    "Edit.Copy",
+    "TeamFoundationContextMenus.Commands.GoToConnect",
+    "OtherContextMenus.UITestEditorContextMenu.CopyReferencetoClipboard"
+  ],
+  "deleteLine": [
+    "Edit.LineDelete",
+    "EditorContextMenus.CodeWindow.AddComment",
+    "ArchitectureContextMenus.DirectedGraphContextMenu.NewComment"
+  ],
+  "insertLineAbove": ["Edit.LineOpenAbove", "Edit.LineOpenAbove"],
+  "insertLineBelow": ["Edit.LineOpenBelow"],
+  "moveLineUp": [
+    "Edit.MoveSelectedLinesUp",
+    "ProjectandSolutionContextMenus.Item.MoveUp",
+    "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.Up",
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerPreviousSectionContent",
+    "Edit.MoveSelectedLinesUp",
+    "Format.SpaceDown",
+    "GraphView.BottomtoTop"
+  ],
+  "moveLineDown": [
+    "Edit.MoveSelectedLinesDown",
+    "ProjectandSolutionContextMenus.Item.MoveDown",
+    "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.Down",
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerNextSectionContent",
+    "Edit.MoveSelectedLinesDown",
+    "Format.SpaceDown",
+    "GraphView.ToptoBottom"
+  ],
+  "indent": ["Edit.InsertTab", "Edit.SelectNextControl", "Edit.InsertTab"],
+  "outdent": ["Edit.TabLeft", "Edit.SelectPreviousControl", "Edit.TabLeft"],
+  "indentLine": ["Edit.GotoBrace", "Image.NextColor"],
+  "outdent line": [
+    "SolutionExplorer.OpenFilesFilter",
+    "SolutionExplorer.OpenFilesFilter",
+    "SolutionExplorer.PendingChangesFilter",
+    "SolutionExplorer.PendingChangesFilter",
+    "SolutionExplorer.SyncWithActiveDocument",
+    "SolutionExplorer.SyncWithActiveDocument",
+    "Image.PreviousColor"
+  ],
+  "duplicateSelection": [],
+  "find": ["Edit.Find", "Image.FillTool"],
+  "findNext": ["Edit.FindNext"],
+  "findPrevious": ["Edit.FindPrevious"],
+  "replace": [
+    "Edit.Replace",
+    "TeamFoundationContextMenus.Commands.GoToHome",
+    "Image.FlipHorizontal",
+    "Timeline.Hide (Blend only)"
+  ],
+  "start": [],
+  "continue": [
+    "Debug.Start",
+    "DOMExplorer.Refresh",
+    "View.Refresh",
+    "Edit.RefreshWorkItem",
+    "Team.Refresh"
+  ],
+  "stopDebuging": ["Debug.StopDebugging"],
+  "stepInto": [],
+  "stepOut": ["Debug.StepOut"],
+  "toggleBreakpoint": [
+    "Debug.ToggleBreakpoint",
+    "Format.AlignMiddles",
+    "Design.ShowHandles"
+  ],
+  "showHover": [],
+  "newFile": ["File.NewFile", "Team.Git.GoToGitBranches"],
+  "openFile": [
+    "File.OpenFile",
+    "SolutionExplorer.OpenFilesFilter",
+    "Team.Git.GoToGitCommits"
+  ],
+  "save": [
+    "File.SaveSelectedItems",
+    "SolutionExplorer.SyncWithActiveDocument",
+    "TeamFoundationContextMenus.Commands.GoToSettings"
+  ],
+  "saveAs": [],
+  "saveAll": ["File.SaveAll"],
+  "close": ["Window.CloseDocumentWindow"],
+  "closeAll": ["View.BookmarkWindow", "Edit.CompleteWord"],
+  "workbench.action.toggleSidebarVisibility": [
+    "Build.BuildSelection",
+    "TeamFoundationContextMenus.Commands.GoToBuilds",
+    "DOMExplorer.SelectElement",
+    "Format.Bold",
+    "Format.ButtonBottom",
+    "Image.BrushTool"
+  ],
+  "workbench.action.tasks.build": ["Build.BuildSolution"],
+  "notebook.cell.executeAndInsertBelow": [
+    "ClassViewContextMenus.ClassViewMultiselectProjectreferencesItems.Properties",
+    "EditorContextMenus.CodeWindow.ExecuteInInteractive"
+  ],
+  "notebook.cell.insertCodeCellBelow when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    "Debug.FunctionBreakpoint",
+    "ArchitectureContextMenus.DirectedGraphContextMenu.Advanced.Select.BothDependencies"
+  ],
+  "workbench.action.editor.nextChange": [
+    "Debug.Graphics.StartDiagnostics",
+    "SQL.ExecuteWithDebugger",
+    "XML.StartXSLTDebugging"
+  ],
+  "workbench.action.focusFifthEditorGroup": [
+    "Debug.LocationToolbar.ProcessCombo",
+    "Resources.Files"
+  ],
+  "workbench.action.focusSeventhEditorGroup": [
+    "Debug.LocationToolbar.StackFrameCombo"
+  ],
+  "workbench.action.focusSixthEditorGroup": [
+    "Debug.LocationToolbar.ThreadCombo",
+    "Resources.Other"
+  ],
+  "workbench.action.focusEighthEditorGroup": [
+    "Debug.LocationToolbar.ToggleCurrentThreadFlaggedState"
+  ],
+  "workbench.action.lastEditorInGroup": [
+    "Debug.LocationToolbar.ToggleFlaggedThreads",
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerPageContent"
+  ],
+  "editor.debug.action.toggleInlineBreakpoint": [
+    "Debug.QuickWatch",
+    "Format.AlignCenters"
+  ],
+  "editor.action.refactor": [
+    "Debug.RefreshWindowsapp",
+    "Format.ResetLayout.All"
+  ],
+  "workbench.action.debug.restart": ["Debug.Restart"],
+  "workbench.action.terminal.new": ["Debug.ShowCallStackonCodeMap"],
+  "editor.action.showAccessibilityHelp": [
+    "Debug.StartWindowsPhoneApplicationAnalysis"
+  ],
+  "workbench.action.debug.run": ["Debug.StartWithoutDebugging"],
+  "workbench.action.toggleFullScreen": ["Debug.StepInto"],
+  "workbench.action.debug.stepOver": ["Debug.StepOver"],
+  "editor.action.clipboardCutAction": ["Edit.Cut", "Edit.Cut"],
+  "notebook.cell.pasteAbove": ["Edit.CycleClipboardRing"],
+  "editor.action.addSelectionToNextFindMatch": [
+    "Edit.Duplicate",
+    "TeamFoundationContextMenus.Commands.GoToDocuments",
+    "Format.TabOrder"
+  ],
+  "goToPreviousReference": ["Edit.FindAllReferences", "View.PropertyPages"],
+  "workbench.action.findInFiles": ["Edit.FindinFiles"],
+  "editor.action.nextSelectionMatchFindAction": ["Edit.FindNextSelected"],
+  "editor.action.previousSelectionMatchFindAction": [
+    "Edit.FindPreviousSelected"
+  ],
+  "workbench.extensions.action.showRecommendedKeymapExtensions": [
+    "Edit.GenerateMethod"
+  ],
+  "workbench.action.gotoLine": [
+    "Edit.GoTo",
+    "Team.Git.GoToGitChanges",
+    "QueryDesigner.GotoRow",
+    "Format.ToggleGuides"
+  ],
+  "workbench.action.openSettings": ["Edit.GoToAll", "Edit.GotoAll"],
+  "workbench.action.showAllSymbols": [
+    "Edit.GoToAll",
+    "QueryDesigner.CancelRetrievingData",
+    "Edit.GotoAll",
+    "Format.TestDialog",
+    "Image.TextTool"
+  ],
+  "editor.action.goToImplementation": ["Edit.GoToDeclaration"],
+  "goToNextReference": [
+    "Edit.GoToDefinition",
+    "View.PropertiesWindow",
+    "PageInspector.Minimize",
+    "ArchitectureDesigner.Sequence.NavigateToCode",
+    "TestExplorer.OpenTest"
+  ],
+  "editor.action.marker.nextInFiles": [
+    "Edit.GoToNextLocation",
+    "Diff.NextDifference"
+  ],
+  "editor.action.marker.prevInFiles": [
+    "Edit.GoToPrevLocation",
+    "Diff.PreviousDifference"
+  ],
+  "editor.action.trimTrailingWhitespace": ["Edit.InsertSnippet"],
+  "scrollLineDown": [
+    "Edit.MoveControlDown",
+    "Edit.ScrollLineDown",
+    "Image.ZoomOut"
+  ],
+  "cursorDown": ["Edit.MoveControlDownGrid", "Edit.LineDown"],
+  "cursorWordLeft": [
+    "Edit.MoveControlLeft",
+    "Edit.WordPrevious",
+    "Edit.ScrollColumnLeft",
+    "Image.PreviousColor"
+  ],
+  "cursorLeft": ["Edit.MoveControlLeftGrid", "Edit.CharLeft"],
+  "cursorWordEndRight": [
+    "Edit.MoveControlRight",
+    "Edit.WordNext",
+    "Edit.ScrollColumnRight",
+    "Image.NextColor"
+  ],
+  "cursorRight": ["Edit.MoveControlRightGrid", "Edit.CharRight"],
+  "scrollLineUp": ["Edit.MoveControlUp", "Edit.ScrollLineUp", "Image.ZoomIn"],
+  "cursorUp": ["Edit.MoveControlUpGrid", "Edit.LineUp"],
+  "git.unstageSelectedRanges": ["Edit.NextBookmark"],
+  "workbench.view.scm": ["Edit.OpenFile"],
+  "editor.action.clipboardPasteAction": ["Edit.Paste"],
+  "workbench.action.showAllEditors": [
+    "Edit.PreviousBookmark",
+    "Edit.ParameterInfo"
+  ],
+  "references-view.findReferences": ["Edit.QuickFindSymbol"],
+  "redo": ["Edit.Redo"],
+  "workbench.action.search.toggleQueryDetails": [
+    "Edit.RefreshRemoteReferences",
+    "QueryDesigner.JoinMode"
+  ],
+  "workbench.action.replaceInFiles": [
+    "Edit.ReplaceinFiles",
+    "Image.Rotate90Degrees",
+    "Timeline.Show (Blend only)"
+  ],
+  "editor.action.selectAll": [
+    "Edit.SelectAll",
+    "TeamFoundationContextMenus.Commands.GoToWebAccess",
+    "Image.AirbrushTool"
+  ],
+  "breakpointWidget.action.acceptInput": [
+    "Edit.ShowTileGrid",
+    "Edit.BreakLine"
+  ],
+  "cursorDownSelect": [
+    "Edit.SizeControlDown",
+    "Edit.SizeControlDownGrid",
+    "Edit.LineUpExtend",
+    "Edit.NextHighlightedReference",
+    "Format.AlignBottoms"
+  ],
+  "cursorWordLeftSelect": [
+    "Edit.SizeControlLeft",
+    "Edit.WordPreviousExtend",
+    "Format.AlignLefts",
+    "Image.PreviousRightColor"
+  ],
+  "cursorLeftSelect": ["Edit.SizeControlLeftGrid", "Edit.CharLeftExtend"],
+  "cursorWordEndRightSelect": [
+    "Edit.SizeControlRight",
+    "Edit.WordNextExtend",
+    "Format.AlignRights",
+    "Image.NextRightColor"
+  ],
+  "cursorRightSelect": ["Edit.SizeControlRightGrid", "Edit.CharRightExtend"],
+  "cursorUpSelect": [
+    "Edit.SizeControlUp",
+    "Edit.SizeControlUpGrid",
+    "Edit.LineDownExtend",
+    "Edit.PreviousHighlightedReference",
+    "Format.AlignTops"
+  ],
+  "workbench.action.openGlobalKeybindings": ["Edit.SurroundWith"],
+  "workbench.action.terminal.toggleTerminal": [
+    "EditorContextMenus.CodeWindow.CodeMap.ShowItem"
+  ],
+  "workbench.action.files.openFolder": [
+    "EditorContextMenus.CodeWindow.ToggleHeaderCodeFile"
+  ],
+  "workbench.action.selectTheme": [
+    "EditorContextMenus.CodeWindow.ViewCallHierarchy"
+  ],
+  "notebook.cell.collapseCellOutput": [
+    "EditorContextMenus.CodeWindow.ViewCallHierarchy"
+  ],
+  "workbench.action.newWindow": [
+    "File.NewProject",
+    "View.ASP.NETNonvisualControls"
+  ],
+  "workbench.action.gotoSymbol": ["File.OpenProject"],
+  "editor.action.organizeImports": ["File.OpenWebSite"],
+  "workbench.action.quickOpenNavigateNextInFilePicker": [
+    "File.Print",
+    "SolutionExplorer.PendingChangesFilter",
+    "TeamFoundationContextMenus.Commands.GoToPendingChanges"
+  ],
+  "workbench.action.closeWindow": ["File.ViewinBrowser"],
+  "workbench.action.showCommands": [
+    "Help.F1Help",
+    "EditorContextMenus.CodeWindow.EditLocalFile"
+  ],
+  "editor.action.blockComment": ["Project.AddExistingItem"],
+  "workbench.view.extensions": ["Project.ClassWizard"],
+  "toggleFindCaseSensitive": ["Project.Previewchanges"],
+  "togglePreserveCase": ["Project.Publishselectedfiles", "Image.EllipseTool"],
+  "toggleFindRegex": [
+    "Project.Replaceselectedfilesfromserver",
+    "Image.RectangleTool"
+  ],
+  "workbench.action.focusSideBar": [
+    "Team.Git.GoToGitBranches",
+    "Team.Git.GoToGitChanges",
+    "Team.Git.GoToGitCommits",
+    "TeamFoundationContextMenus.Commands.GoToBuilds",
+    "TeamFoundationContextMenus.Commands.GoToConnect",
+    "TeamFoundationContextMenus.Commands.GoToDocuments",
+    "TeamFoundationContextMenus.Commands.GoToHome",
+    "TeamFoundationContextMenus.Commands.GoToMyWork",
+    "TeamFoundationContextMenus.Commands.GoToPendingChanges",
+    "TeamFoundationContextMenus.Commands.GoToReports",
+    "TeamFoundationContextMenus.Commands.GoToSettings",
+    "TeamFoundationContextMenus.Commands.GoToWebAccess",
+    "TeamFoundationContextMenus.Commands.GoToWorkItems",
+    "Design.FitAll"
+  ],
+  "editor.action.toggleTabFocusMode": [
+    "TeamFoundationContextMenus.Commands.GoToMyWork",
+    "Format.CheckMnemonics",
+    "Image.MagnificationTool"
+  ],
+  "workbench.action.openRecent": [
+    "TeamFoundationContextMenus.Commands.GoToReports",
+    "QueryDesigner.ExecuteSQL",
+    "Format.ButtonRight"
+  ],
+  "workbench.action.closeGroup": [
+    "TeamFoundationContextMenus.Commands.GoToWorkItems",
+    "Edit.SelectCurrentWord",
+    "Edit.NextKeyTyped"
+  ],
+  "editor.action.setSelectionAnchor": ["Tools.CodeSnippetsManager"],
+  "workbench.action.terminal.focusPreviousPane": [
+    "View.Backward",
+    "TeamFoundationContextMenus.Commands.TeamExplorerNavigateBackward",
+    "Format.SpaceAcross",
+    "GraphView.RighttoLeft"
+  ],
+  "editor.action.replaceOne when editorFocus && findWidgetVisible": [
+    "View.BrowseNext"
+  ],
+  "bookmarks.toggle": ["View.CallHierarchy"],
+  "workbench.action.terminal.copySelection": ["View.ClassView"],
+  "debug.renameWatchExpression": [
+    "View.EditLabel",
+    "ArchitectureContextMenus.DirectedGraphContextMenu.Rename",
+    "Edit.EditCell",
+    "SQL.Rename",
+    "File.Rename",
+    "Format.EditText"
+  ],
+  "workbench.action.terminal.focusNextPane": [
+    "View.Forward",
+    "TeamFoundationContextMenus.Commands.TeamExplorerNavigateForward",
+    "Edit.CompleteWord",
+    "Format.SpaceAcross",
+    "GraphView.LefttoRight"
+  ],
+  "workbench.action.toggleZenMode": ["View.FullScreen"],
+  "workbench.action.navigateBack": [
+    "View.NavigateBackward",
+    "Image.SmallerBrush"
+  ],
+  "workbench.action.navigateForward": ["View.NavigateForward"],
+  "editor.action.peekImplementation": ["View.NextError"],
+  "bookmarks.jumpToPrevious": ["View.ObjectBrowser"],
+  "workbench.action.keybindingsReference": [
+    "View.ObjectBrowserGoToSearchCombo"
+  ],
+  "workbench.action.output.toggleOutput": ["View.Output"],
+  "workbench.action.quickOpenNavigatePreviousInFilePicker": [
+    "View.ResourceView",
+    "SQL.TSqlEditorExecuteQuery"
+  ],
+  "workbench.view.explorer": ["View.SolutionExplorer"],
+  "editor.action.diffReview.next": ["View.ViewCode"],
+  "editor.action.diffReview.prev": [
+    "View.ViewDesigner",
+    "View.ViewMarkup",
+    "Format.SizetoContent"
+  ],
+  "editor.action.inPlaceReplace.down": [
+    "View.ZoomIn",
+    "Image.ZoomIn",
+    "View.EdgeLeftMoveRight"
+  ],
+  "editor.action.inPlaceReplace.up": [
+    "View.ZoomOut",
+    "Image.ZoomOut",
+    "View.EdgeLeftMoveLeft"
+  ],
+  "editor.action.changeAll": ["Window.MovetoNavigationBar"],
+  "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup": [
+    "Window.NextDocumentWindowNav"
+  ],
+  "workbench.action.focusNextPart": ["Window.NextSplitPane"],
+  "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup": [
+    "Window.PreviousDocumentWindowNav"
+  ],
+  "workbench.action.focusPreviousPart": ["Window.PreviousSplitPane"],
+  "workbench.action.quickOpenView": ["Window.QuickLaunch"],
+  "workbench.action.quickOpenNavigatePreviousInViewPicker": [
+    "Window.QuickLaunchPreviousCategory"
+  ],
+  "decreaseSearchEditorContextLines": ["Window.ShowDockMenu"],
+  "editor.action.insertCursorBelow": [
+    "Window.ShowEzMDIFileList",
+    "Table.RowBelow"
+  ],
+  "workbench.action.focusFirstEditorGroup": [
+    "View.EntityDataModelBrowser",
+    "Resources.Strings",
+    "QueryDesigner.Diagram",
+    "OtherContextMenus.ORDesignerContext.HideMethodsPane",
+    "XsdDesigner.ShowStartView"
+  ],
+  "workbench.action.focusSecondEditorGroup": [
+    "View.EntityDataModelMappingDetails",
+    "Resources.Images",
+    "QueryDesigner.Criteria",
+    "XsdDesigner.ShowContentModelView"
+  ],
+  "bookmarks.expandSelectionToNext": [
+    "Edit.NavigateToLollipop",
+    "OtherContextMenus.UITestEditorContextMenu.LocateAll",
+    "TeamFoundationContextMenus.MyWorkPageInProgress.TfsContextMyWorkPageNewLinkedWI",
+    "Team.NewLinkedWorkItem"
+  ],
+  "deleteRight": [
+    "Edit.RemovefromDiagram",
+    "ArchitectureContextMenus.DirectedGraphContextMenu.Remove",
+    "Edit.Remove",
+    "OtherContextMenus.GraphView.RemovefromWorkspace"
+  ],
+  "editor.action.selectHighlights": [
+    "OtherContextMenus.UITestEditorContextMenu.LocatetheUIControl",
+    "Format.InsertBookmark",
+    "Edit.LineDelete",
+    "Timeline.Unlock (Blend only)"
+  ],
+  "workbench.action.reopenClosedEditor": [
+    "OtherContextMenus.UITestEditorContextMenu.Splitintoanewmethod",
+    "Edit.WordTranspose"
+  ],
+  "expandLineSelection": [
+    "OtherContextMenus.DbTableContext.Add.Column",
+    "Format.ConverttoHyperlink",
+    "Edit.LineCut",
+    "Image.LineTool",
+    "Timeline.Lock (Blend only)"
+  ],
+  "workbench.action.toggleDevTools": [
+    "DOMExplorer.ShowLayout",
+    "Edit.ReverseIncrementalSearch",
+    "Image.EraseTool"
+  ],
+  "editor.action.copyLinesDownAction": [
+    "Graphics.MovePixelSelectionDown",
+    "Edit.LineDownExtendColumn"
+  ],
+  "editor.action.smartSelect.shrink": [
+    "Graphics.MovePixelSelectionLeft",
+    "Edit.CharLeftExtendColumn",
+    "Edit.Outdent"
+  ],
+  "editor.action.smartSelect.expand": [
+    "Graphics.MovePixelSelectionRight",
+    "Edit.CharRightExtendColumn",
+    "Edit.Indent"
+  ],
+  "editor.action.copyLinesUpAction": [
+    "Graphics.MovePixelSelectionUp",
+    "Edit.LineUpExtendColumn"
+  ],
+  "workbench.action.toggleEditorGroupLayout": ["Graphics.ZoomToActualSize"],
+  "workbench.action.moveEditorToLastGroup": ["Graphics.ZoomToFitInWindow"],
+  "editor.action.triggerSuggest": [
+    "Format.Italic",
+    "Edit.IncrementalSearch",
+    "Image.PencilTool"
+  ],
+  "cursorUndo": [
+    "Format.Underline",
+    "Edit.MakeLowercase",
+    "Image.UseSelectionasBrush"
+  ],
+  "workbench.action.moveEditorToPreviousGroup": ["Table.ColumntotheLeft"],
+  "workbench.action.moveEditorToNextGroup": ["Table.ColumntotheRight"],
+  "editor.action.insertCursorAbove": ["Table.RowAbove"],
+  "workbench.debug.action.toggleRepl": ["View.SynchronizeViews"],
+  "deleteWordRight": ["Edit.RemoveRow", "Edit.WordDeleteToEnd"],
+  "closeReferenceSearch when inReferenceSearchEditor && !config.editor.stablePeek": [
+    "Edit.SelectionCancel"
+  ],
+  "workbench.action.focusFourthEditorGroup": [
+    "Resources.Audio",
+    "QueryDesigner.Results"
+  ],
+  "workbench.action.focusThirdEditorGroup": [
+    "Resources.Icons",
+    "QueryDesigner.SQL",
+    "XsdDesigner.ShowGraphView"
+  ],
+  "workbench.action.openEditorAtIndex1": [
+    "TeamFoundationContextMenus.MergeContextMenu.SetFocusonLeftWindow",
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection1Content"
+  ],
+  "workbench.action.openEditorAtIndex2": [
+    "TeamFoundationContextMenus.MergeContextMenu.SetFocusonResultWindow",
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection2Content"
+  ],
+  "workbench.action.openEditorAtIndex3": [
+    "TeamFoundationContextMenus.MergeContextMenu.SetFocusonRightWindow",
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection3Content"
+  ],
+  "copyFilePath": [
+    "SQL.SSDTSchemaCompareCompare",
+    "TeamFoundationContextMenus.MyWorkPageInProgress.TfsContextMyWorkPageCreateCopyWI",
+    "Edit.CreateCopyofWorkItem"
+  ],
+  "editor.action.autoFix": [
+    "SQL.SSDTSchemaCompareNextChange",
+    "Edit.InsertNextMatchingCaret"
+  ],
+  "revealFileInOS": ["SQL.QueryResultsRefresh", "Image.OutlinedRectangleTool"],
+  "workbench.action.openEditorAtIndex4": [
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection4Content"
+  ],
+  "workbench.action.openEditorAtIndex5": [
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection5Content"
+  ],
+  "workbench.action.openEditorAtIndex6": [
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection6Content"
+  ],
+  "workbench.action.openEditorAtIndex7": [
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection7Content"
+  ],
+  "workbench.action.openEditorAtIndex8": [
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection8Content"
+  ],
+  "workbench.action.openEditorAtIndex9": [
+    "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection9Content"
+  ],
+  "editor.toggleFold": ["Edit.ClearBookmarks", "Edit.ListMembers"],
+  "editor.action.addCommentLine": ["Edit.CommentSelection"],
+  "workbench.action.closeEditorsInGroup": ["Edit.CompleteWord"],
+  "deleteLeft": ["Edit.DeleteBackwards"],
+  "workbench.action.splitEditorOrthogonal": ["Edit.DeleteHorizontalWhiteSpace"],
+  "cursorEnd": ["Edit.DocumentEnd", "Edit.LineEnd"],
+  "cursorEndSelect": ["Edit.DocumentEndExtend", "Edit.LineEndExtend"],
+  "cursorHome": ["Edit.DocumentStart", "Edit.LineStart"],
+  "cursorHomeSelect": ["Edit.DocumentStartExtend", "Edit.LineStartExtend"],
+  "editor.unfold": ["Edit.GotoBraceExtend", "Image.NextRightColor"],
+  "list.toggleSelection": ["Edit.LineOpenBelow"],
+  "workbench.action.togglePanel": ["Edit.ListMembers", "Image.DrawOpaque"],
+  "workbench.action.files.copyPathOfActiveFile": ["Edit.ParameterInfo"],
+  "editor.action.peekDefinition": ["Edit.PeekDefinition"],
+  "editor.action.showHover": ["Edit.QuickInfo"],
+  "workbench.action.zoomIn": ["Edit.SelectToLastGoBack", "Image.LargerBrush"],
+  "editor.action.defineKeybinding": ["Edit.ToggleBookmark"],
+  "toggleSuggestionFocus": ["Edit.ToggleCompletionMode"],
+  "editor.action.removeCommentLine": ["Edit.UncommentSelection"],
+  "deleteWordLeft": ["Edit.WordDeleteToStart"],
+  "cursorColumnSelectRight when textInputFocus": ["Edit.WordNextExtendColumn"],
+  "cursorColumnSelectLeft when textInputFocus": [
+    "Edit.WordPreviousExtendColumn"
+  ],
+  "editor.showCallHierarchy": ["Image.FlipVertical"],
+  "workbench.actions.view.problems": ["Image.Magnify"],
+  "editor.fold": ["Image.PreviousRightColor"],
+  "toggleFindWholeWord": ["Image.RoundedRectangleTool"],
+  "editor.action.quickFix": ["Image.SmallBrush"],
+  "breadcrumbs.focus": ["Designer options"]
+}

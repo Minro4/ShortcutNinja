@@ -62,7 +62,7 @@ export class SingleShortcut implements ISingleShortcut {
     this.holdedKeys = new Set<HoldableKeys>(
       Array.from(holdedKeys).map((key) => key.toLowerCase()) as HoldableKeys[]
     );
-    this.key = key.toLowerCase();
+    this.key = key.split(' ')[0].toLowerCase();
   }
 
   public orderedHoldedKeys(): HoldableKeys[] {

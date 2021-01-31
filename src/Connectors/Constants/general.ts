@@ -11,3 +11,5 @@ export const SHORTCUT_DEFINITIONS_PATH = path.join(
 );
 
 export const APP_FOLDER = path.join(homedir(), `Appdata/Roaming/${APP_NAME}`)
+
+export const SCHEMAS_PATH = path.join(CONFIG_PATH, 'Schemas');

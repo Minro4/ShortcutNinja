@@ -1,0 +1,2196 @@
+{
+  "Analyze.NavigateBackward": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "3" } }
+  ],
+  "Analyze.NavigateForward": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "4" } }
+  ],
+  "Architecture.NewDiagram": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "n" }
+    }
+  ],
+  "Build.BuildSelection": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }],
+  "Build.BuildSolution": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "b" } }
+  ],
+  "Build.Cancel": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "break" } }],
+  "Build.Compile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f7" } }],
+  "Build.RunCodeAnalysisonSolution": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f11" } }
+  ],
+  "ClassViewContextMenus.ClassViewMultiselectProjectreferencesItems.Properties": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "Debug.ApplyCodeChanges": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f10" } }
+  ],
+  "Debug.Autos": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "v" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "Debug.BreakAll": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "break" } }
+  ],
+  "Debug.Breakpoints": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "b" } }
+  ],
+  "Debug.CallStack": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "c" } }],
+  "Debug.DeleteAllBreakpoints": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f9" } }
+  ],
+  "Debug.DiagnosticsHub.Launch": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f2" } }
+  ],
+  "Debug.Disassembly": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "d" } }
+  ],
+  "Debug.DOMExplorer": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "v" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "Debug.EnableBreakpoint": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f9" } }
+  ],
+  "Debug.Exceptions": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "e" } }
+  ],
+  "Debug.FunctionBreakpoint": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "b" }
+    },
+    { "sc1": { "holdedKeys": [], "key": "b" } }
+  ],
+  "Debug.GoToPreviousCallorIntelliTraceEvent": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f11" } }
+  ],
+  "Debug.Graphics.StartDiagnostics": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f5" } }
+  ],
+  "Debug.Immediate": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "i" } }],
+  "Debug.IntelliTraceCalls": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "y" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "Debug.IntelliTraceEvents": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "y" },
+      "sc2": { "holdedKeys": [], "key": "f" }
+    }
+  ],
+  "Debug.JavaScriptConsole": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "v" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "Debug.Locals": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "v" },
+      "sc2": { "holdedKeys": [], "key": "l" }
+    }
+  ],
+  "Debug.LocationToolbar.ProcessCombo": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "5" } }
+  ],
+  "Debug.LocationToolbar.StackFrameCombo": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "7" } }
+  ],
+  "Debug.LocationToolbar.ThreadCombo": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "6" } }
+  ],
+  "Debug.LocationToolbar.ToggleCurrentThreadFlaggedState": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "8" } }
+  ],
+  "Debug.LocationToolbar.ToggleFlaggedThreads": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "9" } }
+  ],
+  "Debug.Memory1": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "m" },
+      "sc2": { "holdedKeys": [], "key": "1" }
+    }
+  ],
+  "Debug.Memory2": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "m" },
+      "sc2": { "holdedKeys": [], "key": "2" }
+    }
+  ],
+  "Debug.Memory3": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "m" },
+      "sc2": { "holdedKeys": [], "key": "3" }
+    }
+  ],
+  "Debug.Memory4": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "m" },
+      "sc2": { "holdedKeys": [], "key": "4" }
+    }
+  ],
+  "Debug.Modules": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "u" } }],
+  "Debug.ParallelStacks": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "s" }
+    }
+  ],
+  "Debug.ParallelWatch1": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "1" }
+    }
+  ],
+  "Debug.ParallelWatch2": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "2" }
+    }
+  ],
+  "Debug.ParallelWatch3": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "3" }
+    }
+  ],
+  "Debug.ParallelWatch4": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "4" }
+    }
+  ],
+  "Debug.Processes": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "z" } }],
+  "Debug.QuickWatch": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f9" } },
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "q" } }
+  ],
+  "Debug.RefreshWindowsapp": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "r" } }
+  ],
+  "Debug.Registers": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "g" } }],
+  "Debug.Restart": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f5" } }
+  ],
+  "Debug.RunToCursor": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f10" } }],
+  "Debug.SetNextStatement": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f10" } }
+  ],
+  "Debug.ShowCallStackonCodeMap": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "`" } }
+  ],
+  "Debug.ShowNextStatement": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "num" } }
+  ],
+  "Debug.Start": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "Debug.StartWindowsPhoneApplicationAnalysis": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f1" } }
+  ],
+  "Debug.StartWithoutDebugging": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f5" } }
+  ],
+  "Debug.StepInto": [{ "sc1": { "holdedKeys": [], "key": "f11" } }],
+  "Debug.StepIntoCurrentProcess": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f11" } }
+  ],
+  "Debug.StepIntoSpecific": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f11" } }
+  ],
+  "Debug.StepOut": [{ "sc1": { "holdedKeys": ["shift"], "key": "f11" } }],
+  "Debug.StepOutCurrentProcess": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "f11" } }
+  ],
+  "Debug.StepOver": [{ "sc1": { "holdedKeys": [], "key": "f10" } }],
+  "Debug.StepOverCurrentProcess": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f10" } }
+  ],
+  "Debug.StopDebugging": [{ "sc1": { "holdedKeys": ["shift"], "key": "f5" } }],
+  "Debug.StopPerformanceAnalysis": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f2" } }
+  ],
+  "Debug.Tasks": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "k" }
+    }
+  ],
+  "Debug.Threads": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "h" } }],
+  "Debug.ToggleBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
+  "Debug.ToggleDisassembly": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f11" } }
+  ],
+  "Debug.Watch1": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "w" },
+      "sc2": { "holdedKeys": [], "key": "1" }
+    }
+  ],
+  "Debug.Watch2": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "w" },
+      "sc2": { "holdedKeys": [], "key": "2" }
+    }
+  ],
+  "Debug.Watch3": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "w" },
+      "sc2": { "holdedKeys": [], "key": "3" }
+    }
+  ],
+  "Debug.Watch4": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "w" },
+      "sc2": { "holdedKeys": [], "key": "4" }
+    }
+  ],
+  "DebuggerContextMenus.BreakpointsWindow.Delete": [
+    {
+      "sc1": { "holdedKeys": ["alt"], "key": "f9" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "DebuggerContextMenus.BreakpointsWindow.GoToDisassembly": [
+    {
+      "sc1": { "holdedKeys": ["alt"], "key": "f9" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "DebuggerContextMenus.BreakpointsWindow.GoToSourceCode": [
+    {
+      "sc1": { "holdedKeys": ["alt"], "key": "f9" },
+      "sc2": { "holdedKeys": [], "key": "s" }
+    }
+  ],
+  "DiagnosticsHub.StopCollection": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f2" } }
+  ],
+  "Edit.Copy": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "ins" } }
+  ],
+  "Edit.Cut": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "x" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "delete" } }
+  ],
+  "Edit.CycleClipboardRing": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "v" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "ins" } }
+  ],
+  "Edit.Delete": [{ "sc1": { "holdedKeys": ["shift"], "key": "del" } }],
+  "Edit.Duplicate": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "d" } }],
+  "Edit.Find": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
+  "Edit.FindAllReferences": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f12" } }
+  ],
+  "Edit.FindinFiles": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f" } }
+  ],
+  "Edit.FindNext": [{ "sc1": { "holdedKeys": [], "key": "f3" } }],
+  "Edit.FindNextSelected": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f3" } }],
+  "Edit.FindPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f3" } }],
+  "Edit.FindPreviousSelected": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f3" } }
+  ],
+  "Edit.GenerateMethod": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "Edit.GoTo": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "g" } }],
+  "Edit.GoToAll": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "," } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "t" } }
+  ],
+  "Edit.GoToDeclaration": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f12" } }],
+  "Edit.GoToDefinition": [{ "sc1": { "holdedKeys": [], "key": "f12" } }],
+  "Edit.GoToMember": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "1" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "1" },
+      "sc2": { "holdedKeys": [], "key": "m" }
+    },
+    { "sc1": { "holdedKeys": ["alt"], "key": "\\" } }
+  ],
+  "Edit.GoToNextLocation": [{ "sc1": { "holdedKeys": [], "key": "f8" } }],
+  "Edit.GoToPrevLocation": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f8" } }
+  ],
+  "Edit.InsertSnippet": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "x" }
+    }
+  ],
+  "Edit.MoveControlDown": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "Edit.MoveControlDownGrid": [{ "sc1": { "holdedKeys": [], "key": "down" } }],
+  "Edit.MoveControlLeft": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }
+  ],
+  "Edit.MoveControlLeftGrid": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "Edit.MoveControlRight": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }
+  ],
+  "Edit.MoveControlRightGrid": [
+    { "sc1": { "holdedKeys": [], "key": "right" } }
+  ],
+  "Edit.MoveControlUp": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }],
+  "Edit.MoveControlUpGrid": [{ "sc1": { "holdedKeys": [], "key": "up" } }],
+  "Edit.NextBookmark": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "n" }
+    }
+  ],
+  "Edit.NextBookmarkInFolder": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "shift"], "key": "n" }
+    }
+  ],
+  "Edit.OpenFile": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "g" } }],
+  "Edit.Paste": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "v" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "ins" } }
+  ],
+  "Edit.PreviousBookmark": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "p" }
+    }
+  ],
+  "Edit.PreviousBookmarkInFolder": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "shift"], "key": "p" }
+    }
+  ],
+  "Edit.QuickFindSymbol": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f12" } }
+  ],
+  "Edit.Redo": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "y" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "z" } },
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "backspace" } }
+  ],
+  "Edit.RefreshRemoteReferences": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "j" } }
+  ],
+  "Edit.Replace": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }],
+  "Edit.ReplaceinFiles": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "h" } }
+  ],
+  "Edit.SelectAll": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "a" } }],
+  "Edit.SelectNextControl": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "Edit.SelectPreviousControl": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "tab" } }
+  ],
+  "Edit.ShowTileGrid": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "Edit.SizeControlDown": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
+  ],
+  "Edit.SizeControlDownGrid": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "down" } }
+  ],
+  "Edit.SizeControlLeft": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "left" } }
+  ],
+  "Edit.SizeControlLeftGrid": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "left" } }
+  ],
+  "Edit.SizeControlRight": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "right" } }
+  ],
+  "Edit.SizeControlRightGrid": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "right" } }
+  ],
+  "Edit.SizeControlUp": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }
+  ],
+  "Edit.SizeControlUpGrid": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "up" } }
+  ],
+  "Edit.StopSearch": [
+    {
+      "sc1": { "holdedKeys": ["alt"], "key": "f3" },
+      "sc2": { "holdedKeys": [], "key": "s" }
+    }
+  ],
+  "Edit.SurroundWith": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "s" }
+    }
+  ],
+  "Edit.Undo": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "z" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "backspace" } }
+  ],
+  "EditorContextMenus.CodeWindow.Breakpoint.BreakpointEditlabels": [
+    {
+      "sc1": { "holdedKeys": ["alt"], "key": "f9" },
+      "sc2": { "holdedKeys": [], "key": "l" }
+    }
+  ],
+  "EditorContextMenus.CodeWindow.CodeMap.ShowItem": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "`" } }
+  ],
+  "EditorContextMenus.CodeWindow.Execute": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f5" } }
+  ],
+  "EditorContextMenus.CodeWindow.GoToView": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "g" }
+    }
+  ],
+  "EditorContextMenus.CodeWindow.ToggleHeaderCodeFile": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "o" }
+    }
+  ],
+  "EditorContextMenus.CodeWindow.ViewCallHierarchy": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "t" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "File.Exit": [{ "sc1": { "holdedKeys": ["alt"], "key": "f4" } }],
+  "File.NewFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "n" } }],
+  "File.NewProject": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "n" } }
+  ],
+  "File.NewWebSite": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "n" } }
+  ],
+  "File.OpenFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }],
+  "File.OpenProject": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "o" } }
+  ],
+  "File.OpenWebSite": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "o" } }
+  ],
+  "File.Print": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }],
+  "File.SaveAll": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }],
+  "File.SaveSelectedItems": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
+  "File.ViewinBrowser": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "w" } }
+  ],
+  "Help.AddandRemoveHelpContent": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f1" } }
+  ],
+  "Help.F1Help": [{ "sc1": { "holdedKeys": [], "key": "f1" } }],
+  "Help.ViewHelp": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f1" } }],
+  "Help.WindowHelp": [{ "sc1": { "holdedKeys": ["shift"], "key": "f1" } }],
+  "LoadTest.JumpToCounterPane": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "q" }
+    }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.AddNewDiagram": [
+    { "sc1": { "holdedKeys": [], "key": "insert" } }
+  ],
+  "Project.AddExistingItem": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "a" } }
+  ],
+  "Project.AddNewItem": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "a" } }
+  ],
+  "Project.ClassWizard": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "x" } }
+  ],
+  "Project.Override": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "ins" } }
+  ],
+  "Project.Previewchanges": [
+    { "sc1": { "holdedKeys": ["alt"], "key": ";" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "c" } }
+  ],
+  "Project.Publishselectedfiles": [
+    { "sc1": { "holdedKeys": ["alt"], "key": ";" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "p" } }
+  ],
+  "Project.Replaceselectedfilesfromserver": [
+    { "sc1": { "holdedKeys": ["alt"], "key": ";" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "r" } }
+  ],
+  "ProjectandSolutionContextMenus.Item.MoveDown": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "ProjectandSolutionContextMenus.Item.MoveUp": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } }
+  ],
+  "Refactor.EncapsulateField": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "e" }
+    }
+  ],
+  "Refactor.ExtractInterface": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "i" }
+    }
+  ],
+  "Refactor.ExtractMethod": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "Refactor.RemoveParameters": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "v" }
+    }
+  ],
+  "Refactor.Rename": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "Refactor.ReorderParameters": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "o" }
+    }
+  ],
+  "SolutionExplorer.OpenFilesFilter": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": [], "key": "o" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }
+  ],
+  "SolutionExplorer.PendingChangesFilter": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": [], "key": "p" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }
+  ],
+  "SolutionExplorer.SyncWithActiveDocument": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": [], "key": "s" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }
+  ],
+  "Team.Git.GoToGitBranches": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "n" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "n" }
+    }
+  ],
+  "Team.Git.GoToGitChanges": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "g" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "g" }
+    }
+  ],
+  "Team.Git.GoToGitCommits": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "o" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "o" }
+    }
+  ],
+  "Team.TeamExplorerSearch": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "'" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToBuilds": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "b" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "b" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToConnect": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToDocuments": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "d" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToHome": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "h" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "h" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToMyWork": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "m" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "m" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToPendingChanges": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "p" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "p" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToReports": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "r" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "r" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToSettings": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "s" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "s" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToWebAccess": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "a" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToWorkItems": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "w" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "0" },
+      "sc2": { "holdedKeys": [], "key": "w" }
+    }
+  ],
+  "Test.UseCodedUITestBuilder": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "c" }
+    }
+  ],
+  "Test.UseExistingActionRecording": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "a" }
+    }
+  ],
+  "TestExplorer.DebugAllTests": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "a" }
+    }
+  ],
+  "TestExplorer.DebugAllTestsInContext": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "t" }
+    }
+  ],
+  "TestExplorer.DebugLastRun": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "TestExplorer.RepeatLastRun": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "l" }
+    }
+  ],
+  "TestExplorer.RunAllTests": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "TestExplorer.RunAllTestsInContext": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "TestExplorer.ShowTestExplorer": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "LiveUnitTesting.OpenTab": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "l" }
+    }
+  ],
+  "Test.CodeCoverageResults": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "Tools.AttachtoProcess": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "p" } }
+  ],
+  "Tools.CodeSnippetsManager": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "b" }
+    }
+  ],
+  "Tools.ForceGC": [
+    {
+      "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "f12" },
+      "sc2": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "f12" }
+    }
+  ],
+  "View.AllWindows": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "m" } }
+  ],
+  "View.ArchitectureExplorer": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "View.Backward": [{ "sc1": { "holdedKeys": ["alt"], "key": "left" } }],
+  "View.BookmarkWindow": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "w" }
+    }
+  ],
+  "View.BrowseNext": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "1" } }
+  ],
+  "View.BrowsePrevious": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "2" } }
+  ],
+  "View.CallHierarchy": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "k" } }
+  ],
+  "View.ClassView": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "c" } }
+  ],
+  "View.ClassViewGoToSearchCombo": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "v" }
+    }
+  ],
+  "View.CodeDefinitionWindow": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+    }
+  ],
+  "View.CommandWindow": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "a" } }
+  ],
+  "View.DataSources": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "d" } }
+  ],
+  "View.DocumentOutline": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "t" } }
+  ],
+  "View.EditLabel": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "View.ErrorList": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": [], "key": "e" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "e" }
+    }
+  ],
+  "View.F#Interactive": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f" } }
+  ],
+  "View.FindSymbolResults": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f12" } }
+  ],
+  "View.Forward": [{ "sc1": { "holdedKeys": ["alt"], "key": "right" } }],
+  "View.ForwardBrowseContext": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "7" } }
+  ],
+  "View.FullScreen": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "enter" } }
+  ],
+  "View.NavigateBackward": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "-" } }],
+  "View.NavigateForward": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "-" } }
+  ],
+  "View.NextError": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f12" } }
+  ],
+  "View.Notifications": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "w" },
+      "sc2": { "holdedKeys": [], "key": "n" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "w" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "n" }
+    }
+  ],
+  "View.ObjectBrowser": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "j" } }
+  ],
+  "View.ObjectBrowserGoToSearchCombo": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "View.Output": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "o" } }],
+  "View.PopBrowseContext": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "8" } }
+  ],
+  "View.PropertiesWindow": [{ "sc1": { "holdedKeys": [], "key": "f4" } }],
+  "View.PropertyPages": [{ "sc1": { "holdedKeys": ["shift"], "key": "f4" } }],
+  "View.ResourceView": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "e" } }
+  ],
+  "View.ServerExplorer": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }
+  ],
+  "View.ShowSmartTag": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f10" } }
+  ],
+  "View.SolutionExplorer": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "l" } }
+  ],
+  "View.SQLServerObjectExplorer": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "s" }
+    }
+  ],
+  "View.TaskList": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "t" }
+    }
+  ],
+  "View.TfsTeamExplorer": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "View.Toolbox": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "x" } }],
+  "View.UMLModelExplorer": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "u" }
+    }
+  ],
+  "View.ViewCode": [{ "sc1": { "holdedKeys": [], "key": "f7" } }],
+  "View.ViewDesigner": [{ "sc1": { "holdedKeys": ["shift"], "key": "f7" } }],
+  "View.WebBrowser": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "r" } }],
+  "View.ZoomIn": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "." } }],
+  "View.ZoomOut": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "," } }],
+  "Window.ActivateDocumentWindow": [
+    { "sc1": { "holdedKeys": [], "key": "esc" } }
+  ],
+  "Window.AddTabtoSelection": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "space" } }
+  ],
+  "Window.CloseDocumentWindow": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f4" } }
+  ],
+  "Window.CloseToolWindow": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "esc" } }
+  ],
+  "Window.KeepTabOpen": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "home" } }
+  ],
+  "Window.MovetoNavigationBar": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f2" } }
+  ],
+  "Window.NextDocumentWindow": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f6" } }
+  ],
+  "Window.NextDocumentWindowNav": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "tab" } }
+  ],
+  "Window.NextPane": [{ "sc1": { "holdedKeys": ["alt"], "key": "f6" } }],
+  "Window.NextSplitPane": [{ "sc1": { "holdedKeys": [], "key": "f6" } }],
+  "Window.NextTab": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "pgdn" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "pgdn" } }
+  ],
+  "Window.NextTabandAddtoSelection": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "pgdn" } }
+  ],
+  "Window.NextToolWindowNav": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f7" } }
+  ],
+  "Window.PreviousDocumentWindow": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f6" } }
+  ],
+  "Window.PreviousDocumentWindowNav": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "tab" } }
+  ],
+  "Window.PreviousPane": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f6" } }
+  ],
+  "Window.PreviousSplitPane": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f6" } }
+  ],
+  "Window.PreviousTab": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "pgup" } }],
+  "Window.PreviousTabandAddtoSelection": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "pgup" } }
+  ],
+  "Window.PreviousToolWindowNav": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f7" } }
+  ],
+  "Window.QuickLaunch": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "q" } }],
+  "Window.QuickLaunchPreviousCategory": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "q" } }
+  ],
+  "Window.ShowDockMenu": [{ "sc1": { "holdedKeys": ["alt"], "key": "-" } }],
+  "Window.ShowEzMDIFileList": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "down" } }
+  ],
+  "Window.SolutionExplorerSearch": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": ";" } }
+  ],
+  "Window.WindowSearch": [{ "sc1": { "holdedKeys": ["alt"], "key": "`" } }],
+  "WindowsAzure.RetryMobileServiceScriptOperation": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "num" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "WindowsAzure.ShowMobileServiceScriptErrorDetails": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "num" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+    }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.Down": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.Down5": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "pgdn" } }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.ToBottom": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "end" } }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.ToTop": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "home" } }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.Up": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.MoveProperties.Up5": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "pgup" } }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.Refactor.Rename": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "r" }
+    }
+  ],
+  "OtherContextMenus.MicrosoftDataEntityDesignContext.RemovefromDiagram": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "del" } }
+  ],
+  "View.EntityDataModelBrowser": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "1" } }
+  ],
+  "View.EntityDataModelMappingDetails": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "2" } }
+  ],
+  "ClassDiagram.Collapse": [{ "sc1": { "holdedKeys": [], "key": "num" } }],
+  "ClassDiagram.Expand": [],
+  "Edit.ExpandCollapseBaseTypeList": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "b" } }
+  ],
+  "Edit.NavigateToLollipop": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "l" } }
+  ],
+  "Edit.RemovefromDiagram": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "OtherContextMenus.UITestEditorContextMenu.CopyReferencetoClipboard": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  ],
+  "OtherContextMenus.UITestEditorContextMenu.InsertDelayBefore": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "d" } }
+  ],
+  "OtherContextMenus.UITestEditorContextMenu.LocateAll": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "l" } }
+  ],
+  "OtherContextMenus.UITestEditorContextMenu.LocatetheUIControl": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "OtherContextMenus.UITestEditorContextMenu.Movecode": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "c" } }
+  ],
+  "OtherContextMenus.UITestEditorContextMenu.Splitintoanewmethod": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "t" } }
+  ],
+  "OtherContextMenus.ColumnContext.InsertColumn": [
+    { "sc1": { "holdedKeys": [], "key": "insert" } }
+  ],
+  "OtherContextMenus.DbTableContext.Add.Column": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }
+  ],
+  "Diff.IgnoreTrimWhitespace": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "spacebar" }
+    }
+  ],
+  "Diff.InlineView": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "1" }
+    }
+  ],
+  "Diff.LeftOnlyView": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "3" }
+    }
+  ],
+  "Diff.NextDifference": [{ "sc1": { "holdedKeys": [], "key": "f8" } }],
+  "Diff.PreviousDifference": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f8" } }
+  ],
+  "Diff.RightOnlyView": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "4" }
+    }
+  ],
+  "Diff.SideBySideView": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "2" }
+    }
+  ],
+  "Diff.SwitchBetweenLeftAndRight": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "tab" }
+    }
+  ],
+  "Diff.SynchronizeViewToggle": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "\\" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "down" }
+    }
+  ],
+  "EditorContextMenus.CodeWindow.AddComment": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }
+  ],
+  "EditorContextMenus.CodeWindow.EditLocalFile": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "p" } }
+  ],
+  "DOMExplorer.Refresh": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "DOMExplorer.SelectElement": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }
+  ],
+  "DOMExplorer.ShowLayout": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "i" } }
+  ],
+  "OtherContextMenus.FSIConsoleContext.CancelInteractiveEvaluation": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "break" } }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.Advanced.Add.AddNode": [
+    { "sc1": { "holdedKeys": [], "key": "insert" } }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.Advanced.Select.BothDependencies": [
+    { "sc1": { "holdedKeys": [], "key": "b" } }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.Advanced.Select.IncomingDependencies": [
+    { "sc1": { "holdedKeys": [], "key": "i" } }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.Advanced.Select.OutgoingDependencies": [
+    { "sc1": { "holdedKeys": [], "key": "o" } }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.NewComment": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.Remove": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "ArchitectureContextMenus.DirectedGraphContextMenu.Rename": [
+    { "sc1": { "holdedKeys": [], "key": "f2" } }
+  ],
+  "Graphics.MovePixelSelectionDown": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } }
+  ],
+  "Graphics.MovePixelSelectionLeft": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "left" } }
+  ],
+  "Graphics.MovePixelSelectionRight": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "right" } }
+  ],
+  "Graphics.MovePixelSelectionUp": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "up" } }
+  ],
+  "Graphics.ZoomToActualSize": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "0" } }
+  ],
+  "Graphics.ZoomToFitInWindow": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "9" } }
+  ],
+  "Graphics.ZoomIn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "=" } }
+  ],
+  "Graphics.ZoomOut": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "-" } }
+  ],
+  "OtherContextMenus.HTMLContext.GoToController": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "g" }
+    }
+  ],
+  "Format.Bold": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }],
+  "Format.ConverttoHyperlink": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }
+  ],
+  "Format.InsertBookmark": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "Format.Italic": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "i" } }],
+  "Format.Underline": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "u" } }],
+  "Project.AddContentPage": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "c" }
+    }
+  ],
+  "Table.ColumntotheLeft": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "left" } }
+  ],
+  "Table.ColumntotheRight": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "right" } }
+  ],
+  "Table.RowAbove": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "up" } }],
+  "Table.RowBelow": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "down" } }
+  ],
+  "View.ASP.NETNonvisualControls": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "n" } }
+  ],
+  "View.EditMaster": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "View.NextView": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "pgdn" } }],
+  "View.ViewMarkup": [{ "sc1": { "holdedKeys": ["shift"], "key": "f7" } }],
+  "View.SynchronizeViews": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "y" } }
+  ],
+  "Edit.EditCell": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "Edit.Remove": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "Edit.RemoveRow": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "delete" } }],
+  "Edit.SelectionCancel": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "Resources.Audio": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "4" } }],
+  "Resources.Files": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "5" } }],
+  "Resources.Icons": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "3" } }],
+  "Resources.Images": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "2" } }],
+  "Resources.Other": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "6" } }],
+  "Resources.Strings": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "1" } }],
+  "TeamFoundationContextMenus.MergeContextMenu.SetFocusonLeftWindow": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "1" } }
+  ],
+  "TeamFoundationContextMenus.MergeContextMenu.SetFocusonResultWindow": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "2" } }
+  ],
+  "TeamFoundationContextMenus.MergeContextMenu.SetFocusonRightWindow": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "3" } }
+  ],
+  "SQL.SSDTSchemaCompareCompare": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "c" } }
+  ],
+  "SQL.SSDTSchemaCompareGenerateScript": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "g" } }
+  ],
+  "SQL.SSDTSchemaCompareNextChange": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "." } }
+  ],
+  "SQL.SSDTSchemaComparePreviousChange": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "," } }
+  ],
+  "SQL.SSDTSchemaCompareStop": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "break" } }
+  ],
+  "SQL.SSDTSchemaCompareWriteUpdates": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "u" } }
+  ],
+  "CommitAllEdits": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "u" } }],
+  "SQL.ExpandWildcards": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "e" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "e" }
+    }
+  ],
+  "SQL.FullyqualifyNames": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "q" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "q" }
+    }
+  ],
+  "SQL.MovetoSchema": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "m" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "SQL.Rename": [
+    { "sc1": { "holdedKeys": [], "key": "f2" } },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": [], "key": "r" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "ViewFileInScriptPanel": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "pgdn" } }
+  ],
+  "SQL.ExecuteWithDebugger": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f5" } }
+  ],
+  "SQL.TSqlEditorCancelQuery": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "break" } }
+  ],
+  "SQL.TSqlEditorExecuteQuery": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "e" } }
+  ],
+  "SQL.TSqlEditorResultsAsFile": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "f" }
+    }
+  ],
+  "SQL.TSqlEditorResultsAsGrid": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "g" }
+    }
+  ],
+  "SQL.TSqlEditorResultsAsText": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "SQL.TSqlEditorShowEstimatedPlan": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "e" }
+    }
+  ],
+  "SQL.TSqlEditorToggleExecutionPlan": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "SQL.TSqlEditorToggleResultsPane": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "r" }
+    }
+  ],
+  "TSqlEditorCloneQuery": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "n" } }
+  ],
+  "TSqlEditorDatabaseCombo": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "pgdn" } }
+  ],
+  "PageInspector.Minimize": [{ "sc1": { "holdedKeys": [], "key": "f12" } }],
+  "QueryDesigner.CancelRetrievingData": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "t" } }
+  ],
+  "QueryDesigner.Criteria": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "2" } }],
+  "QueryDesigner.Diagram": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "1" } }],
+  "QueryDesigner.ExecuteSQL": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "r" } }
+  ],
+  "QueryDesigner.GotoRow": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "g" } }],
+  "QueryDesigner.JoinMode": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "j" } }
+  ],
+  "QueryDesigner.Results": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "4" } }],
+  "QueryDesigner.SQL": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "3" } }],
+  "SQL.QueryResultsNewRow": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "end" } }
+  ],
+  "SQL.QueryResultsRefresh": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "r" } }
+  ],
+  "SQL.QueryResultsStop": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "break" } }
+  ],
+  "Edit.BreakLine": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "Edit.CharLeft": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "Edit.CharLeftExtend": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "left" } }
+  ],
+  "Edit.CharRight": [{ "sc1": { "holdedKeys": [], "key": "right" } }],
+  "Edit.CharRightExtend": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "right" } }
+  ],
+  "Edit.InsertTab": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "Edit.LineDown": [{ "sc1": { "holdedKeys": [], "key": "down" } }],
+  "Edit.LineDownExtend": [{ "sc1": { "holdedKeys": ["shift"], "key": "up" } }],
+  "Edit.LineUp": [{ "sc1": { "holdedKeys": [], "key": "up" } }],
+  "Edit.LineUpExtend": [{ "sc1": { "holdedKeys": ["shift"], "key": "down" } }],
+  "Edit.TabLeft": [{ "sc1": { "holdedKeys": ["shift"], "key": "tab" } }],
+  "View.ReportData": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "d" } }],
+  "ArchitectureDesigner.Sequence.NavigateToCode": [
+    { "sc1": { "holdedKeys": [], "key": "f12" } }
+  ],
+  "ClassViewContextMenus.ClassViewProject.View.ViewinPageInspector": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "g" }
+    }
+  ],
+  "File.Rename": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerNavigation": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "home" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerNextSectionContent": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerPageContent": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "0" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerPreviousSectionContent": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection1Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "1" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection2Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "2" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection3Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "3" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection4Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "4" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection5Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "5" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection6Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "6" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection7Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "7" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection8Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "8" } }
+  ],
+  "TeamFoundationContextMenus.Commands.GoToTeamExplorerSection9Content": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "9" } }
+  ],
+  "TeamFoundationContextMenus.Commands.TeamExplorerNavigateBackward": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "left" } }
+  ],
+  "TeamFoundationContextMenus.Commands.TeamExplorerNavigateForward": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "right" } }
+  ],
+  "TeamFoundationContextMenus.MyWorkPageInProgress.TfsContextMyWorkPageCreateCopyWI": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "c" } }
+  ],
+  "TeamFoundationContextMenus.MyWorkPageInProgress.TfsContextMyWorkPageNewLinkedWI": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "l" } }
+  ],
+  "View.Refresh": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "TestExplorer.OpenTest": [{ "sc1": { "holdedKeys": [], "key": "f12" } }],
+  "Edit.CharLeftExtendColumn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "left" } }
+  ],
+  "Edit.CharRightExtendColumn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "right" } }
+  ],
+  "Edit.ClearBookmarks": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "l" }
+    }
+  ],
+  "Edit.CollapseAllOutlining": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "a" }
+    }
+  ],
+  "Edit.CollapseCurrentRegion": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "s" }
+    }
+  ],
+  "Edit.CollapseTag": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "t" }
+    }
+  ],
+  "Edit.CollapseToDefinitions": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "o" }
+    }
+  ],
+  "Edit.ContractSelection": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "-" } }
+  ],
+  "Edit.CommentSelection": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "c" }
+    }
+  ],
+  "Edit.CompleteWord": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "w" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "w" }
+    },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "spacebar" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "right" } }
+  ],
+  "Edit.CopyParameterTip": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "c" } }
+  ],
+  "Edit.DecreaseFilterLevel": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "," } }
+  ],
+  "Edit.DeleteBackwards": [
+    { "sc1": { "holdedKeys": [], "key": "backspace" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "bkspce" } }
+  ],
+  "Edit.DeleteHorizontalWhiteSpace": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "\\" }
+    }
+  ],
+  "Edit.DocumentEnd": [{ "sc1": { "holdedKeys": [], "key": "end" } }],
+  "Edit.DocumentEndExtend": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "end" } }
+  ],
+  "Edit.DocumentStart": [{ "sc1": { "holdedKeys": [], "key": "home" } }],
+  "Edit.DocumentStartExtend": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "home" } }
+  ],
+  "Edit.ExpandAllOutlining": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "x" }
+    }
+  ],
+  "Edit.ExpandCurrentRegion": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "e" }
+    }
+  ],
+  "Edit.ExpandSelection": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "=" } }
+  ],
+  "Edit.ExpandSelectiontoContainingBlock": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "]" } }
+  ],
+  "Edit.FormatDocument": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+    }
+  ],
+  "Edit.FormatSelection": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "f" }
+    }
+  ],
+  "Edit.GotoAll": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "t" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "," } }
+  ],
+  "Edit.GotoBrace": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "]" } }],
+  "Edit.GotoBraceExtend": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "]" } }
+  ],
+  "Edit.GotoRecent": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "t,r" } }],
+  "Edit.GotoNextIssueinFile": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "pgdn" } }
+  ],
+  "Edit.GotoPreviousIssueinFile": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "pgup" } }
+  ],
+  "Edit.HideSelection": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "h" }
+    }
+  ],
+  "Edit.IncreaseFilterLevel": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "." } }
+  ],
+  "Edit.IncrementalSearch": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "i" } }],
+  "Edit.InsertCaretsatAllMatching": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": ";" } }
+  ],
+  "Edit.InsertNextMatchingCaret": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "." } }
+  ],
+  "Edit.LineCut": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }],
+  "Edit.LineDelete": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "Edit.LineDownExtendColumn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } }
+  ],
+  "Edit.LineEnd": [{ "sc1": { "holdedKeys": [], "key": "end" } }],
+  "Edit.LineEndExtend": [{ "sc1": { "holdedKeys": ["shift"], "key": "end" } }],
+  "Edit.LineEndExtendColumn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "end" } }
+  ],
+  "Edit.LineOpenAbove": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }],
+  "Edit.LineOpenBelow": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "enter" } }
+  ],
+  "Edit.LineStart": [{ "sc1": { "holdedKeys": [], "key": "home" } }],
+  "Edit.LineStartExtend": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "home" } }
+  ],
+  "Edit.LineStartExtendColumn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "home" } }
+  ],
+  "Edit.LineTranspose": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "t" } }
+  ],
+  "Edit.LineUpExtendColumn": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "up" } }
+  ],
+  "Edit.ListMembers": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "l" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "l" }
+    },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "j" } }
+  ],
+  "Edit.MakeLowercase": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "u" } }],
+  "Edit.MakeUppercase": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "u" } }
+  ],
+  "Edit.MoveSelectedLinesDown": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "Edit.MoveSelectedLinesUp": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } }
+  ],
+  "Edit.NextHighlightedReference": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
+  ],
+  "Edit.OvertypeMode": [{ "sc1": { "holdedKeys": [], "key": "insert" } }],
+  "Edit.PageDown": [{ "sc1": { "holdedKeys": [], "key": "pgdn" } }],
+  "Edit.PageDownExtend": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pgdn" } }
+  ],
+  "Edit.PageUp": [{ "sc1": { "holdedKeys": [], "key": "pgup" } }],
+  "Edit.PageUpExtend": [{ "sc1": { "holdedKeys": ["shift"], "key": "pgup" } }],
+  "Edit.ParameterInfo": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "p" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "p" }
+    },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "spacebar" } }
+  ],
+  "Edit.PasteParameterTip": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "p" } }
+  ],
+  "Edit.PeekBackward": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "-" } }
+  ],
+  "Edit.PeekDefinition": [{ "sc1": { "holdedKeys": ["alt"], "key": "f12" } }],
+  "Edit.PeekForward": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "=" } }
+  ],
+  "Edit.PreviousHighlightedReference": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }
+  ],
+  "Edit.QuickInfo": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "i" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "i" }
+    }
+  ],
+  "Edit.ReverseIncrementalSearch": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "i" } }
+  ],
+  "Edit.ScrollLineDown": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }],
+  "Edit.ScrollLineUp": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }],
+  "Edit.SelectCurrentWord": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "w" } }],
+  "Edit.SelectToLastGoBack": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "=" } }
+  ],
+  "Edit.ShowCodeLensMenu": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "`" }
+    }
+  ],
+  "Edit.ShowNavigateMenu": [{ "sc1": { "holdedKeys": ["alt"], "key": "`" } }],
+  "Edit.StopHidingCurrent": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "u" }
+    }
+  ],
+  "Edit.StopOutlining": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "p" }
+    }
+  ],
+  "Edit.SwapAnchor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "a" }
+    }
+  ],
+  "Edit.ToggleAllOutlining": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "l" }
+    }
+  ],
+  "Edit.ToggleBookmark": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "k" }
+    }
+  ],
+  "Edit.ToggleCompletionMode": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "space" } }
+  ],
+  "Edit.ToggleOutliningExpansion": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "m" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "Edit.ToggleTaskListShortcut": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "h" }
+    }
+  ],
+  "Edit.ToggleWordWrap": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "w" }
+    }
+  ],
+  "Edit.UncommentSelection": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "u" }
+    }
+  ],
+  "Edit.ViewBottom": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "pgdn" } }],
+  "Edit.ViewBottomExtend": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "pgdn" } }
+  ],
+  "Edit.ViewTop": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "pgup" } }],
+  "Edit.ViewTopExtend": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "pgup" } }
+  ],
+  "Edit.ViewWhiteSpace": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "w" }
+    }
+  ],
+  "Edit.WordDeleteToEnd": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "delete" } }
+  ],
+  "Edit.WordDeleteToStart": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "backspace" } }
+  ],
+  "Edit.WordNext": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }],
+  "Edit.WordNextExtend": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "right" } }
+  ],
+  "Edit.WordNextExtendColumn": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "right" } }
+  ],
+  "Edit.WordPrevious": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }],
+  "Edit.WordPreviousExtend": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "left" } }
+  ],
+  "Edit.WordPreviousExtendColumn": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "left" } }
+  ],
+  "Edit.WordTranspose": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "t" } }
+  ],
+  "EditorContextMenus.CodeWindow.ExecuteInInteractive": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "EditorContextMenus.CodeWindow.ExecuteLineInInteractive": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "'" } }
+  ],
+  "OtherContextMenus.HTMLContext.ViewinPageInspector": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "g" }
+    }
+  ],
+  "TeamFoundationContextMenus.Annotate.TfsAnnotateMoveNextRegion": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "pgdn" } }
+  ],
+  "TeamFoundationContextMenus.Annotate.TfsAnnotateMovePreviousRegion": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "pgup" } }
+  ],
+  "Edit.DeleteFromModel": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "del" } }
+  ],
+  "Edit.NewAccelerator": [{ "sc1": { "holdedKeys": [], "key": "insert" } }],
+  "Edit.NextKeyTyped": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "w" } }],
+  "Edit.ScrollColumnLeft": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }
+  ],
+  "Edit.ScrollColumnRight": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }
+  ],
+  "Format.AlignBottoms": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
+  ],
+  "Format.AlignCenters": [{ "sc1": { "holdedKeys": ["shift"], "key": "f9" } }],
+  "Format.AlignLefts": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "left" } }
+  ],
+  "Format.AlignMiddles": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
+  "Format.AlignRights": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "right" } }
+  ],
+  "Format.AlignTops": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }
+  ],
+  "Format.ButtonBottom": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }],
+  "Format.ButtonRight": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "r" } }],
+  "Format.CenterHorizontal": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f9" } }
+  ],
+  "Format.CenterVertical": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f9" } }],
+  "Format.CheckMnemonics": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "m" } }],
+  "Format.SizetoContent": [{ "sc1": { "holdedKeys": ["shift"], "key": "f7" } }],
+  "Format.SpaceAcross": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "right" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "left" } }
+  ],
+  "Format.SpaceDown": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "Format.TabOrder": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "d" } }],
+  "Format.TestDialog": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "t" } }],
+  "Format.ToggleGuides": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "g" } }],
+  "Image.AirbrushTool": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "a" } }],
+  "Image.BrushTool": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }],
+  "Image.CopyandOutlineSelection": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "u" } }
+  ],
+  "Image.DrawOpaque": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "j" } }],
+  "Image.EllipseTool": [{ "sc1": { "holdedKeys": ["alt"], "key": "p" } }],
+  "Image.EraseTool": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "i" } }
+  ],
+  "Image.FilledEllipseTool": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "p" } }
+  ],
+  "Image.FilledRectangleTool": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "r" } }
+  ],
+  "Image.FilledRoundedRectangleTool": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "w" } }
+  ],
+  "Image.FillTool": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
+  "Image.FlipHorizontal": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }],
+  "Image.FlipVertical": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "h" } }
+  ],
+  "Image.LargerBrush": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "=" } }],
+  "Image.LineTool": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }],
+  "Image.MagnificationTool": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "m" } }
+  ],
+  "Image.Magnify": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "m" } }],
+  "Image.NewImageType": [{ "sc1": { "holdedKeys": [], "key": "insert" } }],
+  "Image.NextColor": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "]" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }
+  ],
+  "Image.NextRightColor": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "]" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "right" } }
+  ],
+  "Image.OutlinedEllipseTool": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "p" } }
+  ],
+  "Image.OutlinedRectangleTool": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "r" } }
+  ],
+  "Image.OutlinedRoundedRectangleTool": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "w" } }
+  ],
+  "Image.PencilTool": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "i" } }],
+  "Image.PreviousColor": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "[" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }
+  ],
+  "Image.PreviousRightColor": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "[" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "left" } }
+  ],
+  "Image.RectangleSelectionTool": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "s" } }
+  ],
+  "Image.RectangleTool": [{ "sc1": { "holdedKeys": ["alt"], "key": "r" } }],
+  "Image.Rotate90Degrees": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "h" } }
+  ],
+  "Image.RoundedRectangleTool": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "w" } }
+  ],
+  "Image.ShowGrid": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }],
+  "Image.ShowTileGrid": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "s" } }
+  ],
+  "Image.SmallBrush": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "." } }],
+  "Image.SmallerBrush": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "-" } }],
+  "Image.TextTool": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "t" } }],
+  "Image.UseSelectionasBrush": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "u" } }
+  ],
+  "Image.ZoomIn": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "." } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }
+  ],
+  "Image.ZoomOut": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "," } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "Edit.NewString": [{ "sc1": { "holdedKeys": [], "key": "insert" } }],
+  "OtherContextMenus.ORDesignerContext.HideMethodsPane": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "1" } }
+  ],
+  "Edit.CreateCopyofWorkItem": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "c" } }
+  ],
+  "Edit.RefreshWorkItem": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "Team.NewLinkedWorkItem": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "l" } }
+  ],
+  "Edit.Indent": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "right" } }
+  ],
+  "Edit.Outdent": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "left" } }
+  ],
+  "Team.Refresh": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "Window.Toggle": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "v" } }],
+  "Team.GotoNextWorkItem": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "n" } }
+  ],
+  "Team.GotoPreviousWorkItem": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "p" } }
+  ],
+  "WorkflowDesigner.Collapse": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "c" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "WorkflowDesigner.ConnectNodes": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "f" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "f" }
+    }
+  ],
+  "WorkflowDesigner.CreateVariable": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "n" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "n" }
+    }
+  ],
+  "WorkflowDesigner.ExpandAll": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "x" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "x" }
+    }
+  ],
+  "WorkflowDesigner.ExpandInPlace": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "e" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "e" }
+    }
+  ],
+  "WorkflowDesigner.GoToParent": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "p" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "p" }
+    }
+  ],
+  "WorkflowDesigner.MoveFocus": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "m" }
+    }
+  ],
+  "WorkflowDesigner.NavigateThroughDesigner": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f6" } }
+  ],
+  "WorkflowDesigner.Restore": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "r" }
+    }
+  ],
+  "WorkflowDesigner.ShowHideArgumentDesigner": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "a" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "WorkflowDesigner.ShowHideImportsDesigner": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "i" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "i" }
+    }
+  ],
+  "WorkflowDesigner.ShowHideOverviewMap": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "o" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "o" }
+    }
+  ],
+  "WorkflowDesigner.ShowHideVariableDesigner": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "v" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "v" }
+    }
+  ],
+  "WorkflowDesigner.ToggleSelection": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "s" }
+    },
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "e" },
+      "sc2": { "holdedKeys": [], "key": "s" }
+    }
+  ],
+  "WorkflowDesigner.ZoomIn": [],
+  "WorkflowDesigner.ZoomOut": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "num" } }
+  ],
+  "Design.FitAll": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "0" } }],
+  "Design.ShowHandles": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
+  "Design.ZoomIn": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "=" } }],
+  "Design.ZoomOut": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "-" } }],
+  "Designer options": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": ";" } }
+  ],
+  "Format.EditText": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "Format.ResetLayout.All": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "r" } }
+  ],
+  "Run project code": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f9" } }],
+  "Timeline.Hide (Blend only)": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }
+  ],
+  "Timeline.Lock (Blend only)": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }
+  ],
+  "Timeline.Show (Blend only)": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "h" } }
+  ],
+  "Timeline.Unlock (Blend only)": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "View.EdgeLeftMoveLeft": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "," } }
+  ],
+  "View.EdgeLeftMoveRight": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "." } }
+  ],
+  "View.EdgeRightMoveLeft": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "," } }
+  ],
+  "View.EdgeRightMoveRight": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "." } }
+  ],
+  "View.ShowPropertyMarkerMenu": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "spacebar" } }
+  ],
+  "XML.StartXSLTDebugging": [{ "sc1": { "holdedKeys": ["alt"], "key": "f5" } }],
+  "XML.StartXSLTWithoutDebugging": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f5" } }
+  ],
+  "GraphView.BottomtoTop": [{ "sc1": { "holdedKeys": ["alt"], "key": "up" } }],
+  "GraphView.LefttoRight": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "right" } }
+  ],
+  "GraphView.RighttoLeft": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "left" } }
+  ],
+  "GraphView.ToptoBottom": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "OtherContextMenus.GraphView.RemovefromWorkspace": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "XsdDesigner.ShowContentModelView": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "2" } }
+  ],
+  "XsdDesigner.ShowGraphView": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "3" } }
+  ],
+  "XsdDesigner.ShowStartView": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "1" } }
+  ]
+}

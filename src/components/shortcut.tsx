@@ -1,6 +1,7 @@
 import { Box, Paper } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { Shortcut, SingleShortcut } from '../Connectors/Shortcut';
+import { IShortcutDefinition } from '../Connectors/ShortcutDefinitions';
 
 type ShortcutProps = {
   shortcut: Shortcut;
@@ -85,3 +86,11 @@ const KeyElement = ({ kbKey }: KeyElementProps) => (
 function capitalize(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
+
+type ShortcutLabelProps = {
+  definition: IShortcutDefinition;
+};
+
+export const ShortcutLabel = ({ definition }: ShortcutLabelProps) => (
+  <>{definition.label ?? definition.id}</>
+);

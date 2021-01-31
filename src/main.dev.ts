@@ -108,6 +108,13 @@ const createWindow = async () => {
     shell.openExternal(url);
   });
 
+  if (
+    process.env.NODE_ENV !== 'development' &&
+    process.env.DEBUG_PROD !== 'true'
+  ) {
+    mainWindow.removeMenu();
+  }
+
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();

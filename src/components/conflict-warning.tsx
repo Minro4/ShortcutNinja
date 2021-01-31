@@ -14,10 +14,11 @@ import WarningIcon from '@material-ui/icons/Warning';
 import RemoveIcon from '@material-ui/icons/Remove';
 import { IShortcutDefinition } from '../Connectors/ShortcutDefinitions';
 import { Shortcut } from '../Connectors/Shortcut';
+import { ShortcutLabel } from './shortcut';
 
 export interface IShortcutConflict {
   definition: IShortcutDefinition;
-  shortcuts: Shortcut[]
+  shortcuts: Shortcut[];
 }
 
 type ConflictWarningProps = {
@@ -45,7 +46,10 @@ export const ConflictWarning = ({
   const id = open ? 'simple-popover' : undefined;
 
   const tooltip = conflicts.reduce<string>((str, conflict, idx) => {
-    return str + conflict.definition.label + (idx === conflicts.length - 1 ? '' : ', ');
+    return (
+      str + conflict.definition.label ??
+      conflict.definition.id + (idx === conflicts.length - 1 ? '' : ', ')
+    );
   }, 'Click to resolve conflicts with: ');
 
   return (
@@ -84,7 +88,9 @@ export const ConflictWarning = ({
                 {conflicts.map((conflict, index) => (
                   <TableRow key={index}>
                     <TableCell className="keybindings-col">
-                      {conflict.definition.label}
+                      <ShortcutLabel
+                        definition={conflict.definition}
+                      ></ShortcutLabel>
                     </TableCell>
                     <TableCell>
                       <Tooltip title="Remove" arrow>

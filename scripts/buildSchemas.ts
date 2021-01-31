@@ -1,11 +1,10 @@
 import * as path from 'path';
-import {
-  SCHEMAS_PATH,
-  UNPROCESSED_SCHEMAS_PATH,
-} from '../src/Connectors/Constants/Schemas';
+import { SCHEMAS_PATH } from "../src/Connectors/Constants/general";
 import { UniversalKeymap } from '../src/Connectors/Keymap';
 import { VsCodeConverter } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter';
 import { SchemaTypes } from '../src/Connectors/Schema/SchemaTypes';
+
+const UNPROCESSED_SCHEMAS_PATH = "./scripts/SchemasUnprocessed"
 
 interface SchemaBuild {
   fileName: string;
@@ -34,7 +33,7 @@ const ATOM: SchemaBuild = {
 const INTELLIJ: SchemaBuild = {
   fileName: "intelliJ.json",
   builder: VsCodeSchemaBuilder,
-  parentSchema: VS_CODE,
+ // parentSchema: VS_CODE,
 };
 
 const NOTEPADPP: SchemaBuild = {

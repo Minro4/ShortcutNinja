@@ -14,7 +14,7 @@ export interface IShortcutCategory {
 
 export interface IShortcutDefinition {
   id: string;
-  label: string;
+  label?: string;
   metaTags?: string[];
 }
 

@@ -1,23 +1,30 @@
 {
-  "outdent": [{ "sc1": { "holdedKeys": ["shift"], "key": "tab" } }],
-  "indent": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
-  "find": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
-  "copyLine": [
-    { "sc1": { "holdedKeys": ["ctrl"], "key": "insert" } },
-    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  "editor.action.triggerParameterHints": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }
   ],
-  "deleteLine": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }],
-  "formatDocument": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }],
-  "formatSelection": [
-    {
-      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
-      "sc2": { "holdedKeys": ["ctrl"], "key": "f" }
-    }
+  "editor.action.showHover": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "q" } }
   ],
-  "indentLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "]" } }],
+  "newFile": [{ "sc1": { "holdedKeys": ["alt"], "key": "insert" } }],
+  "editor.action.commentLine": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "/" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "numpad_divide" } }
+  ],
+  "editor.action.blockComment": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "/" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "numpad_divide" } }
+  ],
+  "editor.action.smartSelect.shrink": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "w" } }
+  ],
+  "editor.action.quickFix": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "formatDocument": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "l" } }],
   "insertLineBelow": [{ "sc1": { "holdedKeys": ["shift"], "key": "enter" } }],
-  "insertLineAbove": [
-    { "sc1": { "holdedKeys": ["alt", "ctrl"], "key": "enter" } }
+  "close": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f4" } }],
+  "editor.action.addSelectionToNextFindMatch": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "j" } }
   ],
   "moveLineDown": [
     { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } },
@@ -28,28 +35,88 @@
     { "sc1": { "holdedKeys": ["shift", "ctrl"], "key": "up" } }
   ],
   "findNext": [{ "sc1": { "holdedKeys": [], "key": "f3" } }],
-  "outdent line": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "[" } }],
   "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f3" } }],
-  "renameSymbol": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }],
-  "replace": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }],
-  "showHover": [
-    {
-      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
-      "sc2": { "holdedKeys": ["ctrl"], "key": "i" }
-    }
+  "workbench.view.search": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "3" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "numpad3" } }
   ],
-  "toggleBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
+  "workbench.action.replaceInFiles": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "r" } }
+  ],
+  "workbench.action.tasks.build": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f9" } }
+  ],
+  "workbench.view.debug": [
+    { "sc1": { "holdedKeys": ["alt", "shift"], "key": "f9" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f8" } }
+  ],
   "continue": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
-  "start": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
-  "stepOut": [{ "sc1": { "holdedKeys": ["shift"], "key": "f11" } }],
-  "stopDebuging": [{ "sc1": { "holdedKeys": ["shift"], "key": "f5" } }],
-  "newFile": [{ "sc1": { "holdedKeys": ["alt"], "key": "insert" } }],
-  "openFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }],
-  "save": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
-  "saveAll": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
-  "saveAs": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }],
+  "workbench.action.showAllSymbols": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "n" } }
+  ],
   "goToFile": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "n" } }],
-  "cutLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }],
-  "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
-  "stepInto": [{ "sc1": { "holdedKeys": [], "key": "f11" } }]
+  "workbench.action.gotoSymbol": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt", "shift"], "key": "n" } }
+  ],
+  "workbench.action.previousEditor": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "left" } }
+  ],
+  "workbench.action.nextEditor": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "right" } }
+  ],
+  "workbench.action.gotoLine": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "g" } }
+  ],
+  "workbench.action.openRecent": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "e" } }
+  ],
+  "workbench.action.navigateBack": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "left" } }
+  ],
+  "workbench.action.navigateForward": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "right" } }
+  ],
+  "workbench.action.navigateToLastEditLocation": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "backspace" } }
+  ],
+  "editor.action.goToImplementation": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "b" } }
+  ],
+  "editor.action.dirtydiff.next": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt", "shift"], "key": "down" } }
+  ],
+  "editor.action.dirtydiff.previous": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt", "shift"], "key": "up" } }
+  ],
+  "cursorTop": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "home" } }],
+  "cursorBottom": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "end" } }],
+  "renameSymbol": [{ "sc1": { "holdedKeys": ["shift"], "key": "f6" } }],
+  "workbench.actions.view.problems": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "0" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "numpad0" } }
+  ],
+  "saveAll": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
+  "workbench.action.toggleFullScreen": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "f" } }
+  ],
+  "workbench.action.selectTheme": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "`" } }
+  ],
+  "workbench.action.showCommands": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "a" } }
+  ],
+  "workbench.action.compareEditor.nextChange": [
+    { "sc1": { "holdedKeys": [], "key": "f7" } }
+  ],
+  "workbench.action.compareEditor.previousChange": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f7" } }
+  ],
+  "insertLineAbove": [
+    { "sc1": { "holdedKeys": ["alt", "ctrl"], "key": "enter" } }
+  ],
+  "editor.action.selectHighlights": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "j" } }
+  ],
+  "copyFilePath": [{ "sc1": { "holdedKeys": ["shift", "ctrl"], "key": "c" } }]
 }

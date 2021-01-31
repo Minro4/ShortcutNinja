@@ -10,7 +10,7 @@ import {
 
 export interface SearchableDefinition {
   id: string;
-  label: string;
+  label?: string;
   metaTags: string;
   categoryLabel: string;
   category: IShortcutCategory;

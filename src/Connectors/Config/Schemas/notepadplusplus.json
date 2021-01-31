@@ -1,41 +1,384 @@
 {
+  "workbench.action.exitZenMode": [
+    {
+      "sc1": { "holdedKeys": [], "key": "escape" },
+      "sc2": { "holdedKeys": [], "key": "escape" }
+    }
+  ],
+  "closeReferenceSearch when inReferenceSearchEditor && !config.editor.stablePeek": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "cancelSelection": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "cursorBottom": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "end" } }],
+  "cursorBottomSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "end" } }
+  ],
+  "cursorColumnSelectDown when textInputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "down" } }
+  ],
+  "cursorColumnSelectLeft when textInputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "left" } }
+  ],
+  "cursorColumnSelectPageDown when textInputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "pagedown" } }
+  ],
+  "cursorColumnSelectPageUp when textInputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "pageup" } }
+  ],
+  "cursorColumnSelectRight when textInputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "right" } }
+  ],
+  "cursorColumnSelectUp when textInputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "up" } }
+  ],
+  "cursorDown": [{ "sc1": { "holdedKeys": [], "key": "down" } }],
+  "cursorDownSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "down" } }
+  ],
+  "cursorEnd": [{ "sc1": { "holdedKeys": [], "key": "end" } }],
+  "cursorEndSelect": [{ "sc1": { "holdedKeys": ["shift"], "key": "end" } }],
+  "cursorHome": [{ "sc1": { "holdedKeys": [], "key": "home" } }],
+  "cursorHomeSelect": [{ "sc1": { "holdedKeys": ["shift"], "key": "home" } }],
+  "cursorLeft": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "cursorLeftSelect": [{ "sc1": { "holdedKeys": ["shift"], "key": "left" } }],
+  "cursorPageDown": [{ "sc1": { "holdedKeys": [], "key": "pagedown" } }],
+  "cursorPageDownSelect": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pagedown" } }
+  ],
+  "cursorPageUp": [{ "sc1": { "holdedKeys": [], "key": "pageup" } }],
+  "cursorPageUpSelect": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pageup" } }
+  ],
+  "cursorRight": [{ "sc1": { "holdedKeys": [], "key": "right" } }],
+  "cursorRightSelect": [{ "sc1": { "holdedKeys": ["shift"], "key": "right" } }],
+  "cursorTop": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "home" } }],
+  "cursorTopSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "home" } }
+  ],
+  "cursorUp": [{ "sc1": { "holdedKeys": [], "key": "up" } }],
+  "cursorUpSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "up" } }
+  ],
+  "deleteLeft": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "backspace" } },
+    { "sc1": { "holdedKeys": [], "key": "backspace" } }
+  ],
+  "deleteRight": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "editor.action.selectAll": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "a" } }
+  ],
+  "expandLineSelection": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }],
   "outdent": [{ "sc1": { "holdedKeys": ["shift"], "key": "tab" } }],
+  "redo": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "y" } }],
+  "scrollLineDown": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }],
+  "scrollLineUp": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }],
+  "scrollPageDown": [{ "sc1": { "holdedKeys": ["alt"], "key": "pagedown" } }],
+  "scrollPageUp": [{ "sc1": { "holdedKeys": ["alt"], "key": "pageup" } }],
   "indent": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "undo": [{ "sc1": { "holdedKeys": ["alt"], "key": "space" } }],
+  "cursorColumnSelectDown when editorColumnSelection && textInputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "down" } }
+  ],
+  "cursorColumnSelectLeft when editorColumnSelection && textInputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "left" } }
+  ],
+  "cursorColumnSelectPageDown when editorColumnSelection && textInputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pagedown" } }
+  ],
+  "cursorColumnSelectPageUp when editorColumnSelection && textInputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pageup" } }
+  ],
+  "cursorColumnSelectRight when editorColumnSelection && textInputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "right" } }
+  ],
+  "cursorColumnSelectUp when editorColumnSelection && textInputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "up" } }
+  ],
+  "removeSecondaryCursors": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "goToNextReference": [
+    { "sc1": { "holdedKeys": [], "key": "f12" } },
+    { "sc1": { "holdedKeys": [], "key": "f4" } }
+  ],
+  "goToPreviousReference": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f12" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "f4" } }
+  ],
+  "refactorPreview.apply": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "notebook.cell.quitEdit": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
   "find": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
+  "breakpointWidget.action.acceptInput": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "closeBreakpointWidget": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "cursorUndo": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "u" } }],
+  "cursorWordEndRight": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }],
+  "cursorWordEndRightSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "right" } }
+  ],
+  "cursorWordLeft": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }],
+  "cursorWordLeftSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "left" } }
+  ],
+  "deleteWordLeft": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "backspace" } }],
+  "deleteWordRight": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "delete" } }],
+  "editor.action.addCommentLine": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "k" } }
+  ],
+  "editor.action.addSelectionToNextFindMatch": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "d" } }
+  ],
+  "editor.action.autoFix": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "." } }
+  ],
+  "editor.action.blockComment": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "q" } }
+  ],
+  "editor.action.cancelSelectionAnchor": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "editor.action.changeAll": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f2" } }
+  ],
   "copyLine": [
     { "sc1": { "holdedKeys": ["ctrl"], "key": "insert" } },
     { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
   ],
-  "deleteLine": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }],
-  "formatDocument": [
+  "editor.action.clipboardCutAction": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "delete" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }
+  ],
+  "editor.action.clipboardPasteAction": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "insert" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "v" } }
+  ],
+  "editor.action.commentLine": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "q" } }
+  ],
+  "editor.action.copyLinesDownAction": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } }
+  ],
+  "editor.action.copyLinesUpAction": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "up" } }
+  ],
+  "editor.action.defineKeybinding": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
-      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+      "sc2": { "holdedKeys": ["ctrl"], "key": "k" }
     }
   ],
+  "deleteLine": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }],
+  "editor.action.diffReview.next": [
+    { "sc1": { "holdedKeys": [], "key": "f7" } }
+  ],
+  "editor.action.diffReview.prev": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f7" } }
+  ],
+  "editor.action.dirtydiff.next": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f3" } }
+  ],
+  "editor.action.dirtydiff.previous": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f3" } }
+  ],
+  "editor.action.extensioneditor.findNext": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "editor.action.extensioneditor.findPrevious": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "editor.action.extensioneditor.showfind": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }
+  ],
+  "formatDocument": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }],
   "formatSelection": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
       "sc2": { "holdedKeys": ["ctrl"], "key": "f" }
     }
   ],
+  "editor.action.goToImplementation": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f12" } }
+  ],
+  "editor.action.goToReferences": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f12" } }
+  ],
+  "editor.action.inPlaceReplace.down": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "." } }
+  ],
+  "editor.action.inPlaceReplace.up": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "," } }
+  ],
   "indentLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "]" } }],
+  "editor.action.insertCursorAbove": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "up" } }
+  ],
+  "editor.action.insertCursorAtEndOfEachLineSelected": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "i" } }
+  ],
+  "editor.action.insertCursorBelow": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "down" } }
+  ],
   "insertLineBelow": [{ "sc1": { "holdedKeys": ["shift"], "key": "enter" } }],
   "insertLineAbove": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }],
+  "editor.action.jumpToBracket": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }
+  ],
+  "editor.action.marker.next": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f8" } }
+  ],
+  "editor.action.marker.nextInFiles": [
+    { "sc1": { "holdedKeys": [], "key": "f8" } }
+  ],
+  "editor.action.marker.prev": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f8" } }
+  ],
+  "editor.action.marker.prevInFiles": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f8" } }
+  ],
   "moveLineDown": [
     { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "down" } }
   ],
   "moveLineUp": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "up" } }],
+  "editor.action.moveSelectionToNextFindMatch": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "d" }
+    }
+  ],
   "findNext": [{ "sc1": { "holdedKeys": [], "key": "f4" } }],
+  "editor.action.nextMatchFindAction": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "editor.action.nextSelectionMatchFindAction": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f3" } }
+  ],
+  "editor.action.onTypeRename": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f2" } }
+  ],
+  "editor.action.organizeImports": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "o" } }
+  ],
   "outdent line": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "[" } }],
+  "editor.action.peekDefinition": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f12" } }
+  ],
+  "editor.action.peekImplementation": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f12" } }
+  ],
   "findPrevious": [{ "sc1": { "holdedKeys": ["shift"], "key": "f4" } }],
+  "editor.action.previousMatchFindAction": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "editor.action.previousSelectionMatchFindAction": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f3" } }
+  ],
+  "editor.action.quickFix": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "." } }],
+  "editor.action.refactor": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "r" } }
+  ],
+  "editor.action.removeCommentLine": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "k" } }
+  ],
   "renameSymbol": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "r" },
       "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
     }
   ],
+  "editor.action.revealDefinition": [
+    { "sc1": { "holdedKeys": [], "key": "f12" } }
+  ],
+  "editor.action.revealDefinitionAside": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "f12" }
+    }
+  ],
+  "editor.action.selectFromAnchorToCursor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "k" }
+    }
+  ],
+  "editor.action.selectHighlights": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f3" } }
+  ],
+  "editor.action.setSelectionAnchor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "b" }
+    }
+  ],
+  "editor.action.showAccessibilityHelp": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f1" } }
+  ],
+  "editor.action.showContextMenu": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f10" } }
+  ],
+  "editor.action.showHover": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "i" }
+    }
+  ],
+  "editor.action.smartSelect.expand": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "right" } }
+  ],
+  "editor.action.smartSelect.shrink": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "left" } }
+  ],
   "replace": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "h" } }],
+  "editor.action.toggleTabFocusMode": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "m" } }
+  ],
+  "editor.action.toggleWordWrap": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "z" } }
+  ],
+  "editor.action.triggerParameterHints": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "space" } }
+  ],
+  "editor.action.triggerSuggest": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "i" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "space" } }
+  ],
+  "editor.action.trimTrailingWhitespace": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "x" }
+    }
+  ],
+  "editor.action.webvieweditor.findNext": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "editor.action.webvieweditor.findPrevious": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "editor.action.webvieweditor.hideFind": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "editor.action.webvieweditor.showFind": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }
+  ],
+  "editor.action.wordHighlight.next": [
+    { "sc1": { "holdedKeys": [], "key": "f7" } }
+  ],
+  "editor.action.wordHighlight.prev": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f7" } }
+  ],
+  "editor.cancelOperation": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
   "showHover": [
     {
       "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
@@ -43,17 +386,1533 @@
     }
   ],
   "toggleBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "f9" } }],
+  "editor.emmet.action.expandAbbreviation": [
+    { "sc1": { "holdedKeys": [], "key": "tab" } }
+  ],
+  "editor.fold": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "[" } }],
+  "editor.foldAll": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "0" }
+    }
+  ],
+  "editor.foldAllBlockComments": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "/" }
+    }
+  ],
+  "editor.foldAllMarkerRegions": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "8" }
+    }
+  ],
+  "editor.foldLevel1": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "1" }
+    }
+  ],
+  "editor.foldLevel2": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "2" }
+    }
+  ],
+  "editor.foldLevel3": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "3" }
+    }
+  ],
+  "editor.foldLevel4": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "4" }
+    }
+  ],
+  "editor.foldLevel5": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "5" }
+    }
+  ],
+  "editor.foldLevel6": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "6" }
+    }
+  ],
+  "editor.foldLevel7": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "7" }
+    }
+  ],
+  "editor.foldRecursively": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "[" }
+    }
+  ],
+  "editor.gotoNextSymbolFromResult": [
+    { "sc1": { "holdedKeys": [], "key": "f12" } }
+  ],
+  "editor.gotoNextSymbolFromResult.cancel": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "editor.toggleFold": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "l" }
+    }
+  ],
+  "editor.unfold": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "]" } }],
+  "editor.unfoldAll": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "j" }
+    }
+  ],
+  "editor.unfoldAllMarkerRegions": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "9" }
+    }
+  ],
+  "editor.unfoldRecursively": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "]" }
+    }
+  ],
+  "insertSnippet": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "notebook.cell.execute": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "enter" } }
+  ],
+  "notebook.cell.executeAndInsertBelow": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "notebook.cell.executeAndSelectBelow": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "notebook.cell.pasteAbove": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "v" } }
+  ],
+  "notebook.focusNextEditor when editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "notebook.focusPreviousEditor": [
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "notebook.formatCell": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }
+  ],
+  "openReferenceToSide": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "repl.action.acceptInput": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "repl.action.filter": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
+  "rerunSearchEditorSearch": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "r" } }
+  ],
+  "search.action.focusQueryEditorWidget": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "search.searchEditor.action.deleteFileResults": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "backspace" } }
+  ],
+  "settings.action.clearSearchResults": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "settings.action.editFocusedSetting": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "." } }
+  ],
+  "settings.action.focusNextSetting": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "settings.action.focusPreviousSetting": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "settings.action.focusSettingsFile": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "settings.action.search": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }],
+  "toggleExplainMode": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "/" } }],
+  "togglePeekWidgetFocus": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "f2" }
+    }
+  ],
+  "workbench.action.editor.nextChange": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f5" } }
+  ],
+  "workbench.action.editor.previousChange": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f5" } }
+  ],
+  "workbench.action.hideComment": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.submitComment": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "cursorWordAccessibilityLeft": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }
+  ],
+  "cursorWordAccessibilityLeftSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "left" } }
+  ],
+  "cursorWordAccessibilityRight": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }
+  ],
+  "cursorWordAccessibilityRightSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "right" } }
+  ],
+  "closeFindWidget": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "editor.action.replaceAll": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "enter" } }
+  ],
+  "editor.action.replaceOne when editorFocus && findWidgetVisible": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "1" } }
+  ],
+  "editor.action.replaceOne when editorFocus && findWidgetVisible && replaceInputFocussed": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "editor.action.selectAllMatches": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "toggleFindCaseSensitive": [{ "sc1": { "holdedKeys": ["alt"], "key": "c" } }],
+  "toggleFindInSelection": [{ "sc1": { "holdedKeys": ["alt"], "key": "l" } }],
+  "toggleFindRegex": [{ "sc1": { "holdedKeys": ["alt"], "key": "r" } }],
+  "toggleFindWholeWord": [{ "sc1": { "holdedKeys": ["alt"], "key": "w" } }],
+  "togglePreserveCase": [{ "sc1": { "holdedKeys": ["alt"], "key": "p" } }],
+  "jumpToNextSnippetPlaceholder": [
+    { "sc1": { "holdedKeys": [], "key": "tab" } }
+  ],
+  "jumpToPrevSnippetPlaceholder": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "tab" } }
+  ],
+  "leaveEditorMessage": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "leaveSnippet": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "closeDirtyDiff": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "closeMarkersNavigation": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "closeParameterHints": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "showNextParameterHint": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } },
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "showPrevParameterHint": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } },
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "acceptAlternativeSelectedSuggestion": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "tab" } },
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "acceptSelectedSuggestion when suggestWidgetVisible && textInputFocus": [
+    { "sc1": { "holdedKeys": [], "key": "tab" } }
+  ],
+  "acceptSelectedSuggestion when acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "hideSuggestWidget": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "insertBestCompletion": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "insertNextSuggestion": [{ "sc1": { "holdedKeys": [], "key": "tab" } }],
+  "insertPrevSuggestion": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "tab" } }
+  ],
+  "selectNextPageSuggestion": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "pagedown" } },
+    { "sc1": { "holdedKeys": [], "key": "pagedown" } }
+  ],
+  "selectNextSuggestion": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } },
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "selectPrevPageSuggestion": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "pageup" } },
+    { "sc1": { "holdedKeys": [], "key": "pageup" } }
+  ],
+  "selectPrevSuggestion": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "up" } },
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "toggleSuggestionDetails": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "space" } }
+  ],
+  "toggleSuggestionFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "space" } }
+  ],
+  "acceptRenameInput": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "acceptRenameInputWithPreview": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "cancelOnTypeRenameInput": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "cancelRenameInput": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "addCursorsAtSearchResults": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "breadcrumbs.focus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": ";" } }
+  ],
+  "breadcrumbs.focusAndSelect": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "." } }
+  ],
+  "breadcrumbs.focusNext": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "right" } },
+    { "sc1": { "holdedKeys": [], "key": "right" } }
+  ],
+  "breadcrumbs.focusPrevious": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "left" } },
+    { "sc1": { "holdedKeys": [], "key": "left" } }
+  ],
+  "breadcrumbs.revealFocused": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } },
+    { "sc1": { "holdedKeys": [], "key": "space" } }
+  ],
+  "breadcrumbs.revealFocusedFromTreeAside": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "breadcrumbs.selectFocused": [
+    { "sc1": { "holdedKeys": [], "key": "down" } },
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "breadcrumbs.toggleToOn": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "." } }
+  ],
+  "closeAccessibilityHelp": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "closeReplaceInFilesWidget": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "copyFilePath": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "c" } }],
+  "copyRelativeFilePath": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "shift"], "key": "c" }
+    }
+  ],
+  "debug.openBreakpointToSide": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "debug.removeBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "debug.removeWatchExpression": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "decreaseSearchEditorContextLines": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "-" } }
+  ],
+  "editor.debug.action.toggleInlineBreakpoint": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f9" } }
+  ],
+  "editor.refocusCallHierarchy": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "editor.showCallHierarchy": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "h" } }
+  ],
+  "editor.showIncomingCalls": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "h" } }
+  ],
+  "editor.showOutgoingCalls": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "h" } }
+  ],
+  "explorer.openToSide": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "filesExplorer.findInFolder": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }
+  ],
+  "history.showNext": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } },
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "history.showPrevious": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } },
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "increaseSearchEditorContextLines": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "=" } }
+  ],
+  "keybindings.editor.clearSearchResults": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "keybindings.editor.copyKeybindingEntry": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  ],
+  "keybindings.editor.defineKeybinding": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "k" }
+    }
+  ],
+  "keybindings.editor.defineWhenExpression": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "e" }
+    }
+  ],
+  "keybindings.editor.focusKeybindings": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "keybindings.editor.recordSearchKeys": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "k" } }
+  ],
+  "keybindings.editor.removeKeybinding": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "keybindings.editor.searchKeybindings": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }
+  ],
+  "keybindings.editor.toggleSortByPrecedence": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "p" } }
+  ],
+  "list.clear": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "list.collapse": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "list.collapseAll": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }],
+  "list.expand": [{ "sc1": { "holdedKeys": [], "key": "right" } }],
+  "list.expandSelectionDown": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "down" } }
+  ],
+  "list.expandSelectionUp": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "up" } }
+  ],
+  "list.focusDown when listFocus && !inputFocus": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "list.focusFirst": [{ "sc1": { "holdedKeys": [], "key": "home" } }],
+  "list.focusLast": [{ "sc1": { "holdedKeys": [], "key": "end" } }],
+  "list.focusPageDown": [{ "sc1": { "holdedKeys": [], "key": "pagedown" } }],
+  "list.focusPageUp": [{ "sc1": { "holdedKeys": [], "key": "pageup" } }],
+  "list.focusUp when listFocus && !inputFocus": [
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "list.scrollDown": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }],
+  "list.scrollUp": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }],
+  "list.select": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "list.selectAll": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "a" } }],
+  "list.toggleExpand": [{ "sc1": { "holdedKeys": [], "key": "space" } }],
+  "list.toggleSelection": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "enter" } }
+  ],
+  "notebook.cell.changeToCode": [{ "sc1": { "holdedKeys": [], "key": "y" } }],
+  "notebook.cell.changeToMarkdown": [
+    { "sc1": { "holdedKeys": [], "key": "m" } }
+  ],
+  "notebook.cell.clearOutputs": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "delete" } }
+  ],
+  "notebook.cell.collapseCellContent": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "c" }
+    }
+  ],
+  "notebook.cell.collapseCellOutput": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "notebook.cell.copyDown": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "down" } }
+  ],
+  "notebook.cell.copyUp": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "up" } }
+  ],
+  "notebook.cell.delete when notebookEditorFocused && !inputFocus": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "notebook.cell.edit": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "notebook.cell.expandCellContent": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "c" }
+    }
+  ],
+  "notebook.cell.expandCellOutput": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "t" }
+    }
+  ],
+  "notebook.cell.focusInOutput": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "notebook.cell.focusOutOutput": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }
+  ],
+  "notebook.cell.insertCodeCellAbove when notebookCellListFocused && !inputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "enter" } }
+  ],
+  "notebook.cell.insertCodeCellBelow when notebookCellListFocused && !inputFocus": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "notebook.cell.moveDown": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "notebook.cell.moveUp": [{ "sc1": { "holdedKeys": ["alt"], "key": "up" } }],
+  "notebook.cell.split when notebookCellEditable && notebookCellEditorFocused && notebookEditable && notebookEditorFocused": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "shift"], "key": "\\" }
+    }
+  ],
+  "notebook.centerActiveCell": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "l" } }
+  ],
+  "notebook.find when notebookEditorFocused": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }
+  ],
+  "notebook.focusBottom": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "end" } }],
+  "notebook.focusNextEditor when notebookEditorFocused && notebookOutputFocused": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "notebook.focusTop": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "home" } }],
+  "notebook.fold": [
+    { "sc1": { "holdedKeys": [], "key": "left" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "[" } }
+  ],
+  "notebook.format": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f" } }
+  ],
+  "notebook.hideFind": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "notebook.unfold": [
+    { "sc1": { "holdedKeys": [], "key": "right" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "]" } }
+  ],
+  "notification.clear": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "notification.collapse": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "notification.expand": [{ "sc1": { "holdedKeys": [], "key": "right" } }],
+  "notification.toggle": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } },
+    { "sc1": { "holdedKeys": [], "key": "space" } }
+  ],
+  "notifications.focusFirstToast": [
+    { "sc1": { "holdedKeys": [], "key": "home" } },
+    { "sc1": { "holdedKeys": [], "key": "pageup" } }
+  ],
+  "notifications.focusLastToast": [
+    { "sc1": { "holdedKeys": [], "key": "end" } },
+    { "sc1": { "holdedKeys": [], "key": "pagedown" } }
+  ],
+  "notifications.focusNextToast": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "notifications.focusPreviousToast": [
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "problems.action.copy": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }],
+  "problems.action.focusFilter": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }
+  ],
+  "problems.action.focusProblemsFromFilter": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "problems.action.open": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "problems.action.openToSide": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "problems.action.showQuickFixes": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "." } }
+  ],
+  "refactorPreview.toggleCheckedState": [
+    { "sc1": { "holdedKeys": [], "key": "space" } }
+  ],
+  "revealFileInOS": [{ "sc1": { "holdedKeys": ["shift", "alt"], "key": "r" } }],
+  "revealReference": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "scm.acceptInput": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }],
+  "scm.forceViewNextCommit": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } }
+  ],
+  "scm.forceViewPreviousCommit": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } }
+  ],
+  "scm.viewNextCommit": [{ "sc1": { "holdedKeys": [], "key": "down" } }],
+  "scm.viewPreviousCommit": [{ "sc1": { "holdedKeys": [], "key": "up" } }],
+  "search.action.cancel": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "search.action.copyMatch": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  ],
+  "search.action.copyPath": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "c" } }
+  ],
+  "search.action.focusNextSearchResult": [
+    { "sc1": { "holdedKeys": [], "key": "f4" } }
+  ],
+  "search.action.focusPreviousSearchResult": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f4" } }
+  ],
+  "search.action.focusSearchFromResults": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }
+  ],
+  "search.action.openInEditor": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "search.action.openResult": [{ "sc1": { "holdedKeys": [], "key": "enter" } }],
+  "search.action.openResultToSide": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "search.action.remove": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "search.action.replace": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "1" } }
+  ],
+  "search.action.replaceAll": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "enter" } }
+  ],
+  "search.action.replaceAllInFile": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "enter" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "1" } }
+  ],
+  "search.action.replaceAllInFolder": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "enter" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "1" } }
+  ],
+  "search.focus.nextInputBox": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "search.focus.previousInputBox": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }
+  ],
+  "selectAllSearchEditorMatches": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "settings.action.focusLevelUp": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "settings.action.focusSettingControl": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "settings.action.focusSettingsFromSearch": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "settings.action.focusSettingsList": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "settings.action.focusTOC": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "settings.action.showContextMenu": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f9" } }
+  ],
+  "toggleSearchCaseSensitive": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "c" } }
+  ],
+  "toggleSearchEditorCaseSensitive": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "c" } }
+  ],
+  "toggleSearchEditorContextLines": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "l" } }
+  ],
+  "toggleSearchEditorRegex": [{ "sc1": { "holdedKeys": ["alt"], "key": "r" } }],
+  "toggleSearchEditorWholeWord": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "w" } }
+  ],
+  "toggleSearchPreserveCase": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "p" } }
+  ],
+  "toggleSearchRegex": [{ "sc1": { "holdedKeys": ["alt"], "key": "r" } }],
+  "toggleSearchWholeWord": [{ "sc1": { "holdedKeys": ["alt"], "key": "w" } }],
+  "close": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "w" } }],
+  "closeAll": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "w" }
+    }
+  ],
+  "workbench.action.closeAllGroups": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "shift"], "key": "w" }
+    }
+  ],
+  "workbench.action.closeEditorsInGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "w" }
+    }
+  ],
+  "workbench.action.closeFolder": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "f" }
+    }
+  ],
+  "workbench.action.closeGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "w" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f4" } }
+  ],
+  "workbench.action.closeQuickOpen": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.closeUnmodifiedEditors": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "u" }
+    }
+  ],
+  "workbench.action.closeWindow": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "w" } }
+  ],
+  "workbench.action.closeWindow when !editorIsOpen && !multipleEditorGroups": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "w" } }
+  ],
+  "workbench.action.compareEditor.nextChange": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "f5" } }
+  ],
+  "workbench.action.compareEditor.previousChange": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f5" } }
+  ],
   "continue": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
+  "workbench.action.debug.restart": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f5" } }
+  ],
+  "workbench.action.debug.run": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f5" } }
+  ],
   "start": [{ "sc1": { "holdedKeys": [], "key": "f5" } }],
   "stepOut": [{ "sc1": { "holdedKeys": ["shift"], "key": "f11" } }],
+  "workbench.action.debug.stepOver": [
+    { "sc1": { "holdedKeys": [], "key": "f10" } }
+  ],
   "stopDebuging": [{ "sc1": { "holdedKeys": ["shift"], "key": "f5" } }],
+  "workbench.action.editor.changeLanguageMode": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "workbench.action.files.copyPathOfActiveFile": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "p" }
+    }
+  ],
   "newFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "n" } }],
   "openFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }],
+  "workbench.action.files.openFolder": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "o" } }
+  ],
+  "workbench.action.files.openLocalFile": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "o" } }
+  ],
+  "workbench.action.files.openLocalFolder": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "o" }
+    }
+  ],
+  "workbench.action.files.revealActiveFileInWindows": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "r" }
+    }
+  ],
   "save": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "s" } }],
   "saveAll": [{ "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }],
   "saveAs": [{ "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "s" } }],
-  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "," } }],
+  "workbench.action.files.saveLocalFile": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "s" } }
+  ],
+  "workbench.action.files.saveWithoutFormatting": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "shift"], "key": "s" }
+    }
+  ],
+  "workbench.action.files.showOpenedFileInNewWindow": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "o" }
+    }
+  ],
+  "workbench.action.findInFiles": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f" } }
+  ],
+  "workbench.action.focusAboveGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "up" }
+    }
+  ],
+  "workbench.action.focusBelowGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "down" }
+    }
+  ],
+  "workbench.action.focusEighthEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "8" } }
+  ],
+  "workbench.action.focusFifthEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "5" } }
+  ],
+  "workbench.action.focusFirstEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "1" } }
+  ],
+  "workbench.action.focusFourthEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "4" } }
+  ],
+  "workbench.action.focusLeftGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "left" }
+    }
+  ],
+  "workbench.action.focusNextPart": [
+    { "sc1": { "holdedKeys": [], "key": "f6" } }
+  ],
+  "workbench.action.focusPreviousPart": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f6" } }
+  ],
+  "workbench.action.focusRightGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "right" }
+    }
+  ],
+  "workbench.action.focusSecondEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "2" } }
+  ],
+  "workbench.action.focusSeventhEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "7" } }
+  ],
+  "workbench.action.focusSideBar": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "0" } }
+  ],
+  "workbench.action.focusSixthEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "6" } }
+  ],
+  "workbench.action.focusThirdEditorGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "3" } }
+  ],
+  "workbench.action.gotoLine": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "g" } }
+  ],
+  "workbench.action.gotoSymbol": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "r" } }
+  ],
+  "workbench.action.hideInterfaceOverview": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.interactivePlayground.arrowDown": [
+    { "sc1": { "holdedKeys": [], "key": "down" } }
+  ],
+  "workbench.action.interactivePlayground.arrowUp": [
+    { "sc1": { "holdedKeys": [], "key": "up" } }
+  ],
+  "workbench.action.interactivePlayground.pageDown": [
+    { "sc1": { "holdedKeys": [], "key": "pagedown" } }
+  ],
+  "workbench.action.interactivePlayground.pageUp": [
+    { "sc1": { "holdedKeys": [], "key": "pageup" } }
+  ],
+  "workbench.action.keepEditor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "enter" }
+    }
+  ],
+  "workbench.action.keybindingsReference": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "workbench.action.lastEditorInGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "9" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "0" } }
+  ],
+  "workbench.action.moveActiveEditorGroupDown": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "down" }
+    }
+  ],
+  "workbench.action.moveActiveEditorGroupLeft": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "left" }
+    }
+  ],
+  "workbench.action.moveActiveEditorGroupRight": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "right" }
+    }
+  ],
+  "workbench.action.moveActiveEditorGroupUp": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "up" }
+    }
+  ],
+  "workbench.action.moveEditorLeftInGroup": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "pageup" } }
+  ],
+  "workbench.action.moveEditorRightInGroup": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "pagedown" } }
+  ],
+  "workbench.action.moveEditorToFirstGroup": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "1" } }
+  ],
+  "workbench.action.moveEditorToLastGroup": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "9" } }
+  ],
+  "workbench.action.moveEditorToNextGroup": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "right" } }
+  ],
+  "workbench.action.moveEditorToPreviousGroup": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "left" } }
+  ],
+  "workbench.action.navigateBack": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "-" } }
+  ],
+  "workbench.action.navigateForward": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "-" } }
+  ],
+  "workbench.action.navigateToLastEditLocation": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "q" }
+    }
+  ],
+  "workbench.action.newWindow": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "n" } }
+  ],
+  "workbench.action.nextEditor": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "pageup" } }
+  ],
+  "workbench.action.nextEditorInGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "pagedown" }
+    }
+  ],
+  "workbench.action.openEditorAtIndex1": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "1" } }
+  ],
+  "workbench.action.openEditorAtIndex2": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "2" } }
+  ],
+  "workbench.action.openEditorAtIndex3": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "3" } }
+  ],
+  "workbench.action.openEditorAtIndex4": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "4" } }
+  ],
+  "workbench.action.openEditorAtIndex5": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "5" } }
+  ],
+  "workbench.action.openEditorAtIndex6": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "6" } }
+  ],
+  "workbench.action.openEditorAtIndex7": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "7" } }
+  ],
+  "workbench.action.openEditorAtIndex8": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "8" } }
+  ],
+  "workbench.action.openEditorAtIndex9": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "9" } }
+  ],
+  "workbench.action.openGlobalKeybindings": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "s" }
+    }
+  ],
+  "workbench.action.openRecent": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "r" } }
+  ],
+  "workbench.action.openSettings": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "," } }
+  ],
+  "workbench.action.output.toggleOutput": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "o" } }
+  ],
+  "workbench.action.pinEditor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["shift"], "key": "enter" }
+    }
+  ],
+  "workbench.action.previousEditor": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "pagedown" } }
+  ],
+  "workbench.action.previousEditorInGroup": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "pageup" }
+    }
+  ],
+  "goToFile": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }],
+  "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "tab" } }
+  ],
+  "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "tab" } }
+  ],
+  "workbench.action.quickOpenView": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "q" } }
+  ],
+  "workbench.action.reopenClosedEditor": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "t" } }
+  ],
+  "workbench.action.replaceInFiles": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "h" } }
+  ],
+  "workbench.action.search.toggleQueryDetails": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "j" } }
+  ],
+  "workbench.action.selectTheme": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "t" }
+    }
+  ],
+  "workbench.action.showAllEditors": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "b" } }
+  ],
+  "workbench.action.showAllSymbols": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "t" } }
+  ],
+  "workbench.action.showCommands": [
+    { "sc1": { "holdedKeys": [], "key": "f1" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "p" } }
+  ],
+  "workbench.action.splitEditor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "left" }
+    }
+  ],
+  "workbench.action.splitEditorOrthogonal": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "\\" }
+    }
+  ],
+  "workbench.action.tasks.build": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "b" } }
+  ],
+  "workbench.action.terminal.clearSelection": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.terminal.copySelection": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "c" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  ],
+  "workbench.action.terminal.findNext when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported": [
+    { "sc1": { "holdedKeys": [], "key": "f3" } }
+  ],
+  "workbench.action.terminal.findNext when terminalFindFocused && terminalProcessSupported": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "workbench.action.terminal.findPrevious when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f3" } }
+  ],
+  "workbench.action.terminal.findPrevious when terminalFindFocused && terminalProcessSupported": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "workbench.action.terminal.focusFind": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "f" } }
+  ],
+  "workbench.action.terminal.focusNextPane": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "down" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "right" } }
+  ],
+  "workbench.action.terminal.focusPreviousPane": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "up" } },
+    { "sc1": { "holdedKeys": ["alt"], "key": "left" } }
+  ],
+  "workbench.action.terminal.hideFind": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.terminal.navigationModeExit": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.terminal.navigationModeFocusNext": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "down" } }
+  ],
+  "workbench.action.terminal.navigationModeFocusPrevious": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "up" } }
+  ],
+  "workbench.action.terminal.new": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "`" } }
+  ],
+  "workbench.action.terminal.openNativeConsole": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "c" } }
+  ],
+  "workbench.action.terminal.paste": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "v" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "v" } }
+  ],
+  "workbench.action.terminal.scrollDown": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "pagedown" } }
+  ],
+  "workbench.action.terminal.scrollDownPage": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pagedown" } }
+  ],
+  "workbench.action.terminal.scrollToBottom": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "end" } }
+  ],
+  "workbench.action.terminal.scrollToTop": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "home" } }
+  ],
+  "workbench.action.terminal.scrollUp": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "pageup" } }
+  ],
+  "workbench.action.terminal.scrollUpPage": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "pageup" } }
+  ],
+  "workbench.action.terminal.searchWorkspace": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f" } }
+  ],
+  "workbench.action.terminal.sendSequence when terminalFocus && !accessibilityModeEnabled && terminalShellType == 'pwsh'": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "v" } }
+  ],
+  "workbench.action.terminal.sendSequence when terminalFocus": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "backspace" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "delete" } }
+  ],
+  "workbench.action.terminal.sendSequence when terminalFocus && terminalShellType == 'cmd'": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "backspace" } }
+  ],
+  "workbench.action.terminal.split": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "5" } }
+  ],
+  "workbench.action.terminal.toggleFindCaseSensitive": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "c" } }
+  ],
+  "workbench.action.terminal.toggleFindRegex": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "r" } }
+  ],
+  "workbench.action.terminal.toggleFindWholeWord": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "w" } }
+  ],
+  "workbench.action.terminal.toggleTerminal": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "`" } }
+  ],
+  "workbench.action.toggleEditorGroupLayout": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "0" } }
+  ],
+  "workbench.action.toggleFullScreen": [
+    { "sc1": { "holdedKeys": [], "key": "f11" } }
+  ],
+  "workbench.action.togglePanel": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "j" } }
+  ],
+  "workbench.action.toggleSidebarVisibility": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "b" }
+    },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "\\" } }
+  ],
+  "workbench.action.toggleZenMode": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "f11" } }
+  ],
+  "workbench.action.unpinEditor": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["shift"], "key": "enter" }
+    }
+  ],
+  "workbench.action.zoomIn": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "=" } }
+  ],
+  "workbench.action.zoomOut": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "-" } }
+  ],
+  "workbench.action.zoomReset": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "numpad0" } }
+  ],
+  "workbench.actions.view.problems": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "m" } }
+  ],
+  "workbench.debug.action.toggleRepl": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "y" } }
+  ],
+  "workbench.extensions.action.showRecommendedKeymapExtensions": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "m" }
+    }
+  ],
+  "workbench.files.action.compareWithClipboard": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "workbench.files.action.compareWithSaved": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "workbench.files.action.focusOpenEditorsView": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "e" }
+    }
+  ],
+  "workbench.statusBar.clearFocus": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.statusBar.focusFirst": [
+    { "sc1": { "holdedKeys": [], "key": "home" } }
+  ],
+  "workbench.statusBar.focusLast": [
+    { "sc1": { "holdedKeys": [], "key": "end" } }
+  ],
+  "workbench.statusBar.focusNext": [
+    { "sc1": { "holdedKeys": [], "key": "down" } },
+    { "sc1": { "holdedKeys": [], "key": "right" } }
+  ],
+  "workbench.statusBar.focusPrevious": [
+    { "sc1": { "holdedKeys": [], "key": "up" } },
+    { "sc1": { "holdedKeys": [], "key": "left" } }
+  ],
+  "workbench.view.debug": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" } }
+  ],
+  "workbench.view.explorer": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "l" } }
+  ],
+  "workbench.view.extensions": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "x" } }
+  ],
+  "workbench.view.scm": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "g" } }
+  ],
+  "workbench.view.search": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "f" } }
+  ],
+  "breadcrumbs.focusNextWithPicker": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "right" } }
+  ],
+  "breadcrumbs.focusPreviousWithPicker": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "left" } }
+  ],
+  "breadcrumbs.selectEditor": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "views.moveViewDown": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "down" }
+    }
+  ],
+  "views.moveViewLeft": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "left" }
+    }
+  ],
+  "views.moveViewRight": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "right" }
+    }
+  ],
+  "views.moveViewUp": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "up" }
+    }
+  ],
+  "workbench.action.debug.pause": [
+    { "sc1": { "holdedKeys": [], "key": "f6" } }
+  ],
+  "debug.renameWatchExpression": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "debug.setVariable": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
+  "debug.toggleBreakpoint": [{ "sc1": { "holdedKeys": [], "key": "space" } }],
+  "deleteFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "delete" } }
+  ],
+  "deleteFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "editor.closeCallHierarchy": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "explorer.openAndPassFocus": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "filesExplorer.cancelCut": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "filesExplorer.copy": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }],
   "cutLine": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "x" } }],
+  "filesExplorer.openFilePreserveFocus": [
+    { "sc1": { "holdedKeys": [], "key": "space" } }
+  ],
+  "filesExplorer.paste": [{ "sc1": { "holdedKeys": ["ctrl"], "key": "v" } }],
+  "firstCompressedFolder": [{ "sc1": { "holdedKeys": [], "key": "home" } }],
+  "lastCompressedFolder": [{ "sc1": { "holdedKeys": [], "key": "end" } }],
+  "moveFileToTrash": [{ "sc1": { "holdedKeys": [], "key": "delete" } }],
+  "nextCompressedFolder": [{ "sc1": { "holdedKeys": [], "key": "right" } }],
+  "previousCompressedFolder": [{ "sc1": { "holdedKeys": [], "key": "left" } }],
+  "remote.tunnel.closeInline": [
+    { "sc1": { "holdedKeys": [], "key": "delete" } }
+  ],
+  "remote.tunnel.copyAddressInline": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "c" } }
+  ],
+  "remote.tunnel.label": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
   "renameFile": [{ "sc1": { "holdedKeys": [], "key": "f2" } }],
-  "stepInto": [{ "sc1": { "holdedKeys": [], "key": "f11" } }]
+  "stepInto": [{ "sc1": { "holdedKeys": [], "key": "f11" } }],
+  "closeReferenceSearch when referenceSearchVisible && !config.editor.stablePeek": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "escape" } },
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "notifications.hideList": [{ "sc1": { "holdedKeys": [], "key": "escape" } }],
+  "notifications.hideToasts": [
+    { "sc1": { "holdedKeys": [], "key": "escape" } }
+  ],
+  "workbench.action.quickInputBack": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "left" } }
+  ],
+  "workbench.action.quickOpenNavigateNextInEditorPicker": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "tab" } }
+  ],
+  "workbench.action.quickOpenNavigateNextInFilePicker": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "e" } },
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "p" } }
+  ],
+  "workbench.action.quickOpenNavigateNextInRecentFilesPicker": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "r" } }
+  ],
+  "workbench.action.quickOpenNavigateNextInViewPicker": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "q" } }
+  ],
+  "workbench.action.quickOpenNavigatePreviousInEditorPicker": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "tab" } }
+  ],
+  "workbench.action.quickOpenNavigatePreviousInFilePicker": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "e" } },
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "p" } }
+  ],
+  "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "r" } }
+  ],
+  "workbench.action.quickOpenNavigatePreviousInViewPicker": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "q" } }
+  ],
+  "workbench.action.reloadWindow": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "r" } }
+  ],
+  "workbench.action.toggleDevTools": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "i" } }
+  ],
+  "extension.node-debug.startWithStopOnEntry": [
+    { "sc1": { "holdedKeys": [], "key": "f10" } }
+  ],
+  "git.stageSelectedRanges": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl", "alt"], "key": "s" }
+    }
+  ],
+  "markdown.showPreview": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "v" } }
+  ],
+  "references-view.findReferences": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "f12" } }
+  ],
+  "git.unstageSelectedRanges": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "n" }
+    }
+  ],
+  "markdown.showPreviewToSide": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": [], "key": "v" }
+    }
+  ],
+  "references-view.next": [{ "sc1": { "holdedKeys": [], "key": "f4" } }],
+  "git.revertSelectedRanges": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": "k" },
+      "sc2": { "holdedKeys": ["ctrl"], "key": "r" }
+    }
+  ],
+  "references-view.prev": [{ "sc1": { "holdedKeys": ["shift"], "key": "f4" } }],
+  "references-view.showCallHierarchy": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "h" } }
+  ],
+  "C_Cpp.SwitchHeaderSource when editorTextFocus && editorLangId == 'cpp'": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "o" } }
+  ],
+  "bookmarks.toggle": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "k" } }
+  ],
+  "extension.insertLogStatement": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "l" } }
+  ],
+  "extension.vs_scite_like.onEnterKey": [
+    { "sc1": { "holdedKeys": [], "key": "enter" } }
+  ],
+  "jupyter.execSelectionInteractive": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "python.execSelectionInTerminal": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "remote-wsl.revealInExplorer": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "r" } }
+  ],
+  "C_Cpp.SwitchHeaderSource when editorTextFocus && editorLangId == 'c'": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "o" } }
+  ],
+  "bookmarks.jumpToNext": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "l" } }
+  ],
+  "extension.deleteAllLogStatements": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "d" } }
+  ],
+  "jupyter.runcurrentcelladvance": [
+    { "sc1": { "holdedKeys": ["shift"], "key": "enter" } }
+  ],
+  "bookmarks.jumpToPrevious": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "j" } }
+  ],
+  "jupyter.runcurrentcell": [
+    { "sc1": { "holdedKeys": ["ctrl"], "key": "enter" } }
+  ],
+  "bookmarks.shrinkSelection": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "k" } }
+  ],
+  "jupyter.runcurrentcellandaddbelow": [
+    { "sc1": { "holdedKeys": ["alt"], "key": "enter" } }
+  ],
+  "bookmarks.expandSelectionToNext": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "l" } }
+  ],
+  "notebook.find when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    { "sc1": { "holdedKeys": [], "key": "f" } }
+  ],
+  "bookmarks.expandSelectionToPrevious": [
+    { "sc1": { "holdedKeys": ["shift", "alt"], "key": "j" } }
+  ],
+  "list.focusUp when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    { "sc1": { "holdedKeys": [], "key": "k" } }
+  ],
+  "list.focusDown when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    { "sc1": { "holdedKeys": [], "key": "j" } }
+  ],
+  "notebook.cell.insertCodeCellAbove when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    { "sc1": { "holdedKeys": [], "key": "a" } }
+  ],
+  "notebook.cell.insertCodeCellBelow when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    { "sc1": { "holdedKeys": [], "key": "b" } }
+  ],
+  "notebook.cell.delete when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
+    {
+      "sc1": { "holdedKeys": [], "key": "d" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "notebook.undo": [{ "sc1": { "holdedKeys": [], "key": "z" } }],
+  "notebook.cell.copy": [{ "sc1": { "holdedKeys": [], "key": "c" } }],
+  "notebook.cell.cut": [{ "sc1": { "holdedKeys": [], "key": "x" } }],
+  "notebook.cell.paste": [{ "sc1": { "holdedKeys": [], "key": "v" } }],
+  "notebook.cell.split when editorTextFocus && inputFocus && notebookEditorFocused && notebookViewType == 'jupyter-notebook'": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift"], "key": "-" } }
+  ],
+  "jupyter.insertCellBelowPosition": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "s" }
+    }
+  ],
+  "jupyter.insertCellBelow": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "b" }
+    }
+  ],
+  "jupyter.insertCellAbove": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "a" }
+    }
+  ],
+  "jupyter.deleteCells": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "x" }
+    }
+  ],
+  "jupyter.extendSelectionByCellAbove": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "[" } }
+  ],
+  "jupyter.extendSelectionByCellBelow": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "]" } }
+  ],
+  "jupyter.moveCellsUp": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "u" }
+    }
+  ],
+  "jupyter.moveCellsDown": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "d" }
+    }
+  ],
+  "jupyter.changeCellToMarkdown": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "m" }
+    }
+  ],
+  "jupyter.changeCellToCode": [
+    {
+      "sc1": { "holdedKeys": ["ctrl"], "key": ";" },
+      "sc2": { "holdedKeys": [], "key": "c" }
+    }
+  ],
+  "jupyter.gotoNextCellInFile": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "]" } }
+  ],
+  "jupyter.gotoPrevCellInFile": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "[" } }
+  ],
+  "jupyter.selectCellContents": [
+    { "sc1": { "holdedKeys": ["ctrl", "alt"], "key": "\\" } }
+  ],
+  "jupyter.selectCell": [
+    { "sc1": { "holdedKeys": ["ctrl", "shift", "alt"], "key": "\\" } }
+  ]
 }

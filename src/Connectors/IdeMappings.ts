@@ -10,7 +10,6 @@ export interface IIdeMappings {
   [key: string]: string[];
 }
 
-
 export class IdeMappings {
   public static VS_CODE = new IdeMappings(vscodeMappings as IIdeMappings);
   public static VISUAL_STUDIO = new IdeMappings(
@@ -18,7 +17,7 @@ export class IdeMappings {
   );
   public static JETBRAINS = new IdeMappings(jetbrainsMappings as IIdeMappings);
 
-  private mappings: IIdeMappings;
+  public mappings: IIdeMappings;
 
   constructor(mappings: IIdeMappings) {
     this.mappings = mappings;
@@ -34,6 +33,18 @@ export class IdeMappings {
         return key;
       }
     }
+  }
+
+  public has(uniKey: string): boolean {
+    return this.mappings[uniKey] != undefined;
+  }
+
+  public hasIdeKey(ideKey: string): boolean {
+    return this.toUni(ideKey) != undefined;
+  }
+
+  public keys(): string[] {
+    return Object.keys(this.mappings);
   }
 
   public static save(mappingName: string, mapping: IIdeMappings): Promise<any> {

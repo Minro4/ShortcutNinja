@@ -16,7 +16,7 @@ import {
   IShortcutDefinition,
   ShortcutCategories,
 } from '../Connectors/ShortcutDefinitions';
-import { ShortcutElement } from './shortcut';
+import { ShortcutElement, ShortcutLabel } from './shortcut';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
@@ -99,7 +99,9 @@ export const CatergoryRow = ({
                   >
                     <TableCell className="tab-col"></TableCell>
                     <TableCell className="command-col">
-                      {definition.label}
+                      <ShortcutLabel
+                        definition={definition}
+                      ></ShortcutLabel>
                     </TableCell>
                     <TableCell className="keybindings-col">
                       <ShortcutsList

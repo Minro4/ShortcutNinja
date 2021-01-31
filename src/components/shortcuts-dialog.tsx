@@ -21,7 +21,7 @@ import {
   ShortcutCategories,
 } from '../Connectors/ShortcutDefinitions';
 import { ConflictWarning, IShortcutConflict } from './conflict-warning';
-import { ShortcutElement } from './shortcut';
+import { ShortcutElement, ShortcutLabel } from './shortcut';
 import { ShortcutCreatorElement } from './shortcut-creator';
 
 type ShortcutsDialogProps = {
@@ -134,7 +134,7 @@ export class ShortcutsDialog extends Component<
             aria-labelledby="form-dialog-title"
           >
             <DialogTitle id="form-dialog-title">
-              {shortcutDefinition.label}
+              <ShortcutLabel definition={shortcutDefinition}></ShortcutLabel>
             </DialogTitle>
             <DialogContent>
               <TableContainer>
