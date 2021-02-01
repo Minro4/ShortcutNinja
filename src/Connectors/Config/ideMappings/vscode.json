@@ -18,7 +18,8 @@
     "editor.action.rename when editorHasRenameProvider && editorTextFocus && !editorReadonly"
   ],
   "cutLine": [
-    "filesExplorer.cut when explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    "filesExplorer.cut when explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus",
+    "editor.action.clipboardCutAction"
   ],
   "copyLine": ["editor.action.clipboardCopyAction"],
   "deleteLine": [
@@ -75,1492 +76,191 @@
   "close": ["workbench.action.closeActiveEditor"],
   "closeAll": ["workbench.action.closeAllEditors"],
   "duplicateSelection": ["editor.action.duplicateSelection"],
-  "workbench.action.exitZenMode": [
-    "workbench.action.exitZenMode when inZenMode"
-  ],
-  "closeReferenceSearch when inReferenceSearchEditor && !config.editor.stablePeek": [
-    "closeReferenceSearch when inReferenceSearchEditor && !config.editor.stablePeek"
-  ],
-  "closeReferenceSearch when referenceSearchVisible && !config.editor.stablePeek": [
-    "closeReferenceSearch when referenceSearchVisible && !config.editor.stablePeek"
-  ],
-  "cancelSelection": [
-    "cancelSelection when editorHasSelection && textInputFocus"
-  ],
-  "cursorBottom": ["cursorBottom when textInputFocus"],
-  "cursorBottomSelect": ["cursorBottomSelect when textInputFocus"],
-  "cursorColumnSelectDown when textInputFocus": [
-    "cursorColumnSelectDown when textInputFocus"
-  ],
-  "cursorColumnSelectDown when editorColumnSelection && textInputFocus": [
-    "cursorColumnSelectDown when editorColumnSelection && textInputFocus"
-  ],
-  "cursorColumnSelectLeft when textInputFocus": [
-    "cursorColumnSelectLeft when textInputFocus"
-  ],
-  "cursorColumnSelectLeft when editorColumnSelection && textInputFocus": [
-    "cursorColumnSelectLeft when editorColumnSelection && textInputFocus"
-  ],
-  "cursorColumnSelectPageDown when textInputFocus": [
-    "cursorColumnSelectPageDown when textInputFocus"
-  ],
-  "cursorColumnSelectPageDown when editorColumnSelection && textInputFocus": [
-    "cursorColumnSelectPageDown when editorColumnSelection && textInputFocus"
-  ],
-  "cursorColumnSelectPageUp when textInputFocus": [
-    "cursorColumnSelectPageUp when textInputFocus"
-  ],
-  "cursorColumnSelectPageUp when editorColumnSelection && textInputFocus": [
-    "cursorColumnSelectPageUp when editorColumnSelection && textInputFocus"
-  ],
-  "cursorColumnSelectRight when textInputFocus": [
-    "cursorColumnSelectRight when textInputFocus"
-  ],
-  "cursorColumnSelectRight when editorColumnSelection && textInputFocus": [
-    "cursorColumnSelectRight when editorColumnSelection && textInputFocus"
-  ],
-  "cursorColumnSelectUp when textInputFocus": [
-    "cursorColumnSelectUp when textInputFocus"
-  ],
-  "cursorColumnSelectUp when editorColumnSelection && textInputFocus": [
-    "cursorColumnSelectUp when editorColumnSelection && textInputFocus"
-  ],
-  "cursorDown": ["cursorDown when textInputFocus"],
-  "cursorDownSelect": ["cursorDownSelect when textInputFocus"],
-  "cursorEnd": ["cursorEnd when textInputFocus"],
-  "cursorEndSelect": ["cursorEndSelect when textInputFocus"],
-  "cursorHome": ["cursorHome when textInputFocus"],
-  "cursorHomeSelect": ["cursorHomeSelect when textInputFocus"],
-  "cursorLeft": ["cursorLeft when textInputFocus"],
-  "cursorLeftSelect": ["cursorLeftSelect when textInputFocus"],
-  "cursorPageDown": ["cursorPageDown when textInputFocus"],
-  "cursorPageDownSelect": ["cursorPageDownSelect when textInputFocus"],
-  "cursorPageUp": ["cursorPageUp when textInputFocus"],
-  "cursorPageUpSelect": ["cursorPageUpSelect when textInputFocus"],
-  "cursorRight": ["cursorRight when textInputFocus"],
-  "cursorRightSelect": ["cursorRightSelect when textInputFocus"],
-  "cursorTop": ["cursorTop when textInputFocus"],
-  "cursorTopSelect": ["cursorTopSelect when textInputFocus"],
-  "cursorUp": ["cursorUp when textInputFocus"],
-  "cursorUpSelect": ["cursorUpSelect when textInputFocus"],
-  "deleteLeft": ["deleteLeft when textInputFocus"],
-  "deleteRight": ["deleteRight when textInputFocus"],
-  "editor.action.selectAll": ["editor.action.selectAll"],
-  "expandLineSelection": ["expandLineSelection when textInputFocus"],
-  "redo": ["redo"],
-  "scrollLineDown": ["scrollLineDown when textInputFocus"],
-  "scrollLineUp": ["scrollLineUp when textInputFocus"],
-  "scrollPageDown": ["scrollPageDown when textInputFocus"],
-  "scrollPageUp": ["scrollPageUp when textInputFocus"],
-  "undo": ["undo"],
-  "removeSecondaryCursors": [
-    "removeSecondaryCursors when editorHasMultipleSelections && textInputFocus"
-  ],
-  "goToNextReference": [
-    "goToNextReference when inReferenceSearchEditor || referenceSearchVisible"
-  ],
-  "goToPreviousReference": [
-    "goToPreviousReference when inReferenceSearchEditor || referenceSearchVisible"
-  ],
-  "refactorPreview.apply": [
-    "refactorPreview.apply when refactorPreview.enabled && refactorPreview.enabled && refactorPreview.hasCheckedChanges && focusedView == 'refactorPreview'"
-  ],
-  "notebook.cell.quitEdit": [
-    "notebook.cell.quitEdit when inputFocus && notebookEditorFocused && !editorHasSelection && !editorHoverVisible"
-  ],
-  "breakpointWidget.action.acceptInput": [
-    "breakpointWidget.action.acceptInput when breakpointWidgetVisible && inBreakpointWidget"
-  ],
-  "closeBreakpointWidget": [
-    "closeBreakpointWidget when breakpointWidgetVisible && textInputFocus"
-  ],
-  "cursorUndo": ["cursorUndo when textInputFocus"],
-  "cursorWordEndRight": ["cursorWordEndRight when textInputFocus"],
-  "cursorWordEndRightSelect": ["cursorWordEndRightSelect when textInputFocus"],
-  "cursorWordLeft": ["cursorWordLeft when textInputFocus"],
-  "cursorWordLeftSelect": ["cursorWordLeftSelect when textInputFocus"],
-  "deleteWordLeft": ["deleteWordLeft when textInputFocus && !editorReadonly"],
-  "deleteWordRight": ["deleteWordRight when textInputFocus && !editorReadonly"],
-  "editor.action.addCommentLine": [
-    "editor.action.addCommentLine when editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.addSelectionToNextFindMatch": [
-    "editor.action.addSelectionToNextFindMatch when editorFocus"
-  ],
-  "editor.action.autoFix": [
-    "editor.action.autoFix when editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
+  "acceptSelectedSuggestion": [
+    "acceptSelectedSuggestion when suggestWidgetVisible && textInputFocus"
   ],
   "editor.action.blockComment": [
     "editor.action.blockComment when editorTextFocus && !editorReadonly"
   ],
-  "editor.action.cancelSelectionAnchor": [
-    "editor.action.cancelSelectionAnchor when editorTextFocus && selectionAnchorSet"
-  ],
-  "editor.action.changeAll": [
-    "editor.action.changeAll when editorTextFocus && editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.clipboardCutAction": ["editor.action.clipboardCutAction"],
-  "editor.action.clipboardPasteAction": ["editor.action.clipboardPasteAction"],
   "editor.action.commentLine": [
     "editor.action.commentLine when editorTextFocus && !editorReadonly"
   ],
+  "editor.action.joinLines": ["editor.action.joinLines"],
+  "editor.action.quickFix": [
+    "editor.action.quickFix when editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  ],
+  "editor.action.smartSelect.grow": ["editor.action.smartSelect.grow"],
+  "editor.action.smartSelect.shrink": [
+    "editor.action.smartSelect.shrink when editorTextFocus"
+  ],
+  "editor.fold": ["editor.fold when editorTextFocus && foldingEnabled"],
+  "editor.foldAll": ["editor.foldAll when editorTextFocus && foldingEnabled"],
+  "editor.action.goToDeclaration": ["editor.action.goToDeclaration"],
+  "editor.action.goToImplementation": [
+    "editor.action.goToImplementation when editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+  ],
+  "editor.action.previewDeclaration": ["editor.action.previewDeclaration"],
+  "editor.action.marker.next": ["editor.action.marker.next when editorFocus"],
+  "editor.action.marker.prev": ["editor.action.marker.prev when editorFocus"],
+  "workbench.action.gotoLine": ["workbench.action.gotoLine"],
+  "workbench.action.gotoSymbol": ["workbench.action.gotoSymbol"],
+  "workbench.action.navigateBack": ["workbench.action.navigateBack"],
+  "workbench.action.navigateForward": ["workbench.action.navigateForward"],
+  "workbench.action.navigateToLastEditLocation": [
+    "workbench.action.navigateToLastEditLocation"
+  ],
+  "workbench.action.nextEditor": ["workbench.action.nextEditor"],
   "editor.action.copyLinesDownAction": [
     "editor.action.copyLinesDownAction when editorTextFocus && !editorReadonly"
   ],
-  "editor.action.copyLinesUpAction": [
-    "editor.action.copyLinesUpAction when editorTextFocus && !editorReadonly"
+  "deleteWordLeft": ["deleteWordLeft when textInputFocus && !editorReadonly"],
+  "deleteWordRight": ["deleteWordRight when textInputFocus && !editorReadonly"],
+  "editor.action.changeAll": [
+    "editor.action.changeAll when editorTextFocus && editorTextFocus && !editorReadonly"
   ],
-  "editor.action.defineKeybinding": [
-    "editor.action.defineKeybinding when editorTextFocus && !editorReadonly && editorLangId == 'jsonc'"
+  "undo": ["undo"],
+  "redo": ["redo"],
+  "workbench.action.debug.restart": [
+    "workbench.action.debug.restart when inDebugMode"
   ],
-  "editor.action.diffReview.next": [
-    "editor.action.diffReview.next when isInDiffEditor"
+  "editor.debug.action.selectionToRepl": [
+    "editor.debug.action.selectionToRepl"
   ],
-  "editor.action.diffReview.prev": [
-    "editor.action.diffReview.prev when isInDiffEditor"
+  "workbench.debug.action.toggleRepl": [
+    "workbench.debug.action.toggleRepl when debuggersAvailable"
   ],
+  "workbench.action.tasks.build": ["workbench.action.tasks.build"],
+  "workbench.action.tasks.runTask": ["workbench.action.tasks.runTask"],
+  "workbench.action.tasks.reRunTask": ["workbench.action.tasks.reRunTask"],
+  "copyFilePath": ["copyFilePath when !editorFocus"],
+  "workbench.view.explorer": ["workbench.view.explorer"],
   "editor.action.dirtydiff.next": [
     "editor.action.dirtydiff.next when editorTextFocus"
   ],
   "editor.action.dirtydiff.previous": [
     "editor.action.dirtydiff.previous when editorTextFocus"
   ],
-  "editor.action.extensioneditor.findNext": [
-    "editor.action.extensioneditor.findNext when webviewFindWidgetFocused && !editorFocus && activeEditor == 'workbench.editor.extension'"
+  "git.commitAll": ["git.commitAll"],
+  "git.pushTo": ["git.pushTo"],
+  "git.revertSelectedRanges": ["git.revertSelectedRanges when isInDiffEditor"],
+  "git.sync": ["git.sync"],
+  "workbench.view.scm": ["workbench.view.scm"],
+  "workbench.action.terminal.focus": ["workbench.action.terminal.focus"],
+  "workbench.action.terminal.focusNext": [
+    "workbench.action.terminal.focusNext"
   ],
-  "editor.action.extensioneditor.findPrevious": [
-    "editor.action.extensioneditor.findPrevious when webviewFindWidgetFocused && !editorFocus && activeEditor == 'workbench.editor.extension'"
+  "workbench.action.terminal.focusPrevious": [
+    "workbench.action.terminal.focusPrevious"
   ],
-  "editor.action.extensioneditor.showfind": [
-    "editor.action.extensioneditor.showfind when !editorFocus && activeEditor == 'workbench.editor.extension'"
+  "workbench.action.terminal.toggleTerminal": [
+    "workbench.action.terminal.toggleTerminal"
   ],
-  "editor.action.goToImplementation": [
-    "editor.action.goToImplementation when editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+  "cursorBottom": ["cursorBottom when textInputFocus"],
+  "cursorColumnSelectDown": [
+    "cursorColumnSelectDown when textInputFocus",
+    "cursorColumnSelectDown when editorColumnSelection && textInputFocus"
   ],
-  "editor.action.goToReferences": [
-    "editor.action.goToReferences when editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  "cursorColumnSelectLeft": [
+    "cursorColumnSelectLeft when textInputFocus",
+    "cursorColumnSelectLeft when editorColumnSelection && textInputFocus"
   ],
-  "editor.action.inPlaceReplace.down": [
-    "editor.action.inPlaceReplace.down when editorTextFocus && !editorReadonly"
+  "cursorColumnSelectPageDown": [
+    "cursorColumnSelectPageDown when textInputFocus",
+    "cursorColumnSelectPageDown when editorColumnSelection && textInputFocus"
   ],
-  "editor.action.inPlaceReplace.up": [
-    "editor.action.inPlaceReplace.up when editorTextFocus && !editorReadonly"
+  "cursorColumnSelectPageUp": [
+    "cursorColumnSelectPageUp when textInputFocus",
+    "cursorColumnSelectPageUp when editorColumnSelection && textInputFocus"
   ],
-  "editor.action.insertCursorAbove": [
-    "editor.action.insertCursorAbove when editorTextFocus"
+  "cursorColumnSelectRight": [
+    "cursorColumnSelectRight when textInputFocus",
+    "cursorColumnSelectRight when editorColumnSelection && textInputFocus"
   ],
-  "editor.action.insertCursorAtEndOfEachLineSelected": [
-    "editor.action.insertCursorAtEndOfEachLineSelected when editorTextFocus"
+  "cursorColumnSelectUp": [
+    "cursorColumnSelectUp when textInputFocus",
+    "cursorColumnSelectUp when editorColumnSelection && textInputFocus"
   ],
-  "editor.action.insertCursorBelow": [
-    "editor.action.insertCursorBelow when editorTextFocus"
+  "cursorTop": ["cursorTop when textInputFocus"],
+  "cursorUndo": ["cursorUndo when textInputFocus"],
+  "cursorWordStartRight": ["cursorWordStartRight"],
+  "cursorWordStartRightSelect": ["cursorWordStartRightSelect"],
+  "editor.action.addSelectionToNextFindMatch": [
+    "editor.action.addSelectionToNextFindMatch when editorFocus"
   ],
-  "editor.action.jumpToBracket": [
-    "editor.action.jumpToBracket when editorTextFocus"
-  ],
-  "editor.action.marker.next": ["editor.action.marker.next when editorFocus"],
-  "editor.action.marker.nextInFiles": [
-    "editor.action.marker.nextInFiles when editorFocus"
-  ],
-  "editor.action.marker.prev": ["editor.action.marker.prev when editorFocus"],
-  "editor.action.marker.prevInFiles": [
-    "editor.action.marker.prevInFiles when editorFocus"
-  ],
-  "editor.action.moveSelectionToNextFindMatch": [
-    "editor.action.moveSelectionToNextFindMatch when editorFocus"
-  ],
-  "editor.action.nextMatchFindAction": [
-    "editor.action.nextMatchFindAction when editorFocus && findInputFocussed"
-  ],
-  "editor.action.nextSelectionMatchFindAction": [
-    "editor.action.nextSelectionMatchFindAction when editorFocus"
-  ],
-  "editor.action.onTypeRename": [
-    "editor.action.onTypeRename when editorHasRenameProvider && editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.organizeImports": [
-    "editor.action.organizeImports when editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
-  ],
-  "editor.action.peekDefinition": [
-    "editor.action.peekDefinition when editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-  ],
-  "editor.action.peekImplementation": [
-    "editor.action.peekImplementation when editorHasImplementationProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-  ],
-  "editor.action.previousMatchFindAction": [
-    "editor.action.previousMatchFindAction when editorFocus && findInputFocussed"
-  ],
-  "editor.action.previousSelectionMatchFindAction": [
-    "editor.action.previousSelectionMatchFindAction when editorFocus"
-  ],
-  "editor.action.quickFix": [
-    "editor.action.quickFix when editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.refactor": [
-    "editor.action.refactor when editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.removeCommentLine": [
-    "editor.action.removeCommentLine when editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.revealDefinition": [
-    "editor.action.revealDefinition when editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-  ],
-  "editor.action.revealDefinitionAside": [
-    "editor.action.revealDefinitionAside when editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-  ],
-  "editor.action.selectFromAnchorToCursor": [
-    "editor.action.selectFromAnchorToCursor when editorTextFocus && selectionAnchorSet"
+  "editor.action.goToTypeDefinition": ["editor.action.goToTypeDefinition"],
+  "editor.action.referenceSearch.trigger": [
+    "editor.action.referenceSearch.trigger"
   ],
   "editor.action.selectHighlights": [
     "editor.action.selectHighlights when editorFocus"
   ],
-  "editor.action.setSelectionAnchor": [
-    "editor.action.setSelectionAnchor when editorTextFocus"
-  ],
-  "editor.action.showAccessibilityHelp": [
-    "editor.action.showAccessibilityHelp"
-  ],
-  "editor.action.showContextMenu": [
-    "editor.action.showContextMenu when textInputFocus"
-  ],
   "editor.action.showHover": ["editor.action.showHover when editorTextFocus"],
-  "editor.action.smartSelect.expand": [
-    "editor.action.smartSelect.expand when editorTextFocus"
+  "editor.action.startFindReplaceAction": [
+    "editor.action.startFindReplaceAction when editorFocus || editorIsOpen"
   ],
-  "editor.action.smartSelect.shrink": [
-    "editor.action.smartSelect.shrink when editorTextFocus"
+  "editor.action.toggleColumnSelection": [
+    "editor.action.toggleColumnSelection"
   ],
-  "editor.action.toggleTabFocusMode": ["editor.action.toggleTabFocusMode"],
-  "editor.action.toggleWordWrap": ["editor.action.toggleWordWrap"],
+  "editor.action.toggleRenderWhitespace": [
+    "editor.action.toggleRenderWhitespace"
+  ],
   "editor.action.triggerParameterHints": [
     "editor.action.triggerParameterHints when editorHasSignatureHelpProvider && editorTextFocus"
   ],
   "editor.action.triggerSuggest": [
     "editor.action.triggerSuggest when editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   ],
-  "editor.action.trimTrailingWhitespace": [
-    "editor.action.trimTrailingWhitespace when editorTextFocus && !editorReadonly"
-  ],
-  "editor.action.webvieweditor.findNext": [
-    "editor.action.webvieweditor.findNext when webviewFindWidgetFocused && !editorFocus && activeEditor == 'WebviewEditor'"
-  ],
-  "editor.action.webvieweditor.findPrevious": [
-    "editor.action.webvieweditor.findPrevious when webviewFindWidgetFocused && !editorFocus && activeEditor == 'WebviewEditor'"
-  ],
-  "editor.action.webvieweditor.hideFind": [
-    "editor.action.webvieweditor.hideFind when webviewFindWidgetVisible && !editorFocus && activeEditor == 'WebviewEditor'"
-  ],
-  "editor.action.webvieweditor.showFind": [
-    "editor.action.webvieweditor.showFind when !editorFocus && activeEditor == 'WebviewEditor'"
-  ],
-  "editor.action.wordHighlight.next": [
-    "editor.action.wordHighlight.next when editorTextFocus && hasWordHighlights"
-  ],
-  "editor.action.wordHighlight.prev": [
-    "editor.action.wordHighlight.prev when editorTextFocus && hasWordHighlights"
-  ],
-  "editor.cancelOperation": [
-    "editor.cancelOperation when cancellableOperation"
-  ],
-  "editor.emmet.action.expandAbbreviation": [
-    "editor.emmet.action.expandAbbreviation when config.emmet.triggerExpansionOnTab && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
-  ],
-  "editor.fold": ["editor.fold when editorTextFocus && foldingEnabled"],
-  "editor.foldAll": ["editor.foldAll when editorTextFocus && foldingEnabled"],
-  "editor.foldAllBlockComments": [
-    "editor.foldAllBlockComments when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldAllMarkerRegions": [
-    "editor.foldAllMarkerRegions when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel1": [
-    "editor.foldLevel1 when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel2": [
-    "editor.foldLevel2 when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel3": [
-    "editor.foldLevel3 when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel4": [
-    "editor.foldLevel4 when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel5": [
-    "editor.foldLevel5 when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel6": [
-    "editor.foldLevel6 when editorTextFocus && foldingEnabled"
-  ],
-  "editor.foldLevel7": [
-    "editor.foldLevel7 when editorTextFocus && foldingEnabled"
-  ],
+  "editor.debug.action.runToCursor": ["editor.debug.action.runToCursor"],
   "editor.foldRecursively": [
     "editor.foldRecursively when editorTextFocus && foldingEnabled"
-  ],
-  "editor.gotoNextSymbolFromResult": [
-    "editor.gotoNextSymbolFromResult when hasSymbols"
-  ],
-  "editor.gotoNextSymbolFromResult.cancel": [
-    "editor.gotoNextSymbolFromResult.cancel when hasSymbols"
-  ],
-  "editor.toggleFold": [
-    "editor.toggleFold when editorTextFocus && foldingEnabled"
   ],
   "editor.unfold": ["editor.unfold when editorTextFocus && foldingEnabled"],
   "editor.unfoldAll": [
     "editor.unfoldAll when editorTextFocus && foldingEnabled"
   ],
-  "editor.unfoldAllMarkerRegions": [
-    "editor.unfoldAllMarkerRegions when editorTextFocus && foldingEnabled"
-  ],
   "editor.unfoldRecursively": [
     "editor.unfoldRecursively when editorTextFocus && foldingEnabled"
   ],
-  "insertSnippet": [
-    "insertSnippet when editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
-  ],
-  "notebook.cell.execute": [
-    "notebook.cell.execute when notebookCellListFocused"
-  ],
-  "notebook.cell.executeAndInsertBelow": [
-    "notebook.cell.executeAndInsertBelow when notebookCellListFocused"
-  ],
-  "notebook.cell.executeAndSelectBelow": [
-    "notebook.cell.executeAndSelectBelow when notebookCellListFocused"
-  ],
-  "notebook.cell.pasteAbove": [
-    "notebook.cell.pasteAbove when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.focusNextEditor when editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'": [
-    "notebook.focusNextEditor when editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'none' && notebookEditorCursorAtBoundary != 'top'"
-  ],
-  "notebook.focusNextEditor when notebookEditorFocused && notebookOutputFocused": [
-    "notebook.focusNextEditor when notebookEditorFocused && notebookOutputFocused"
-  ],
-  "notebook.focusPreviousEditor": [
-    "notebook.focusPreviousEditor when editorTextFocus && inputFocus && notebookEditorFocused && notebookEditorCursorAtBoundary != 'bottom' && notebookEditorCursorAtBoundary != 'none'"
-  ],
-  "notebook.formatCell": [
-    "notebook.formatCell when editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
-  ],
-  "openReferenceToSide": [
-    "openReferenceToSide when listFocus && referenceSearchVisible && !inputFocus"
-  ],
-  "repl.action.acceptInput": [
-    "repl.action.acceptInput when inDebugRepl && textInputFocus"
-  ],
-  "repl.action.filter": [
-    "repl.action.filter when inDebugRepl && textInputFocus"
-  ],
-  "rerunSearchEditorSearch": ["rerunSearchEditorSearch when inSearchEditor"],
-  "search.action.focusQueryEditorWidget": [
-    "search.action.focusQueryEditorWidget when inSearchEditor"
-  ],
-  "search.searchEditor.action.deleteFileResults": [
-    "search.searchEditor.action.deleteFileResults when inSearchEditor && inSearchEditor"
-  ],
-  "settings.action.clearSearchResults": [
-    "settings.action.clearSearchResults when inSettingsEditor && inSettingsSearch"
-  ],
-  "settings.action.editFocusedSetting": [
-    "settings.action.editFocusedSetting when inSettingsSearch"
-  ],
-  "settings.action.focusNextSetting": [
-    "settings.action.focusNextSetting when inSettingsSearch"
-  ],
-  "settings.action.focusPreviousSetting": [
-    "settings.action.focusPreviousSetting when inSettingsSearch"
-  ],
-  "settings.action.focusSettingsFile": [
-    "settings.action.focusSettingsFile when inSettingsSearch && !suggestWidgetVisible"
-  ],
-  "settings.action.search": ["settings.action.search when inSettingsEditor"],
-  "toggleExplainMode": ["toggleExplainMode when suggestWidgetVisible"],
-  "togglePeekWidgetFocus": [
-    "togglePeekWidgetFocus when inReferenceSearchEditor || referenceSearchVisible"
-  ],
-  "workbench.action.editor.nextChange": [
-    "workbench.action.editor.nextChange when editorTextFocus"
-  ],
-  "workbench.action.editor.previousChange": [
-    "workbench.action.editor.previousChange when editorTextFocus"
-  ],
-  "workbench.action.hideComment": [
-    "workbench.action.hideComment when commentEditorFocused"
-  ],
-  "workbench.action.submitComment": [
-    "workbench.action.submitComment when commentEditorFocused"
-  ],
-  "cursorWordAccessibilityLeft": [
-    "cursorWordAccessibilityLeft when accessibilityModeEnabled && textInputFocus"
-  ],
-  "cursorWordAccessibilityLeftSelect": [
-    "cursorWordAccessibilityLeftSelect when accessibilityModeEnabled && textInputFocus"
-  ],
-  "cursorWordAccessibilityRight": [
-    "cursorWordAccessibilityRight when accessibilityModeEnabled && textInputFocus"
-  ],
-  "cursorWordAccessibilityRightSelect": [
-    "cursorWordAccessibilityRightSelect when accessibilityModeEnabled && textInputFocus"
-  ],
-  "closeFindWidget": [
-    "closeFindWidget when editorFocus && findWidgetVisible && !isComposing"
-  ],
-  "editor.action.replaceAll": [
-    "editor.action.replaceAll when editorFocus && findWidgetVisible"
-  ],
-  "editor.action.replaceOne when editorFocus && findWidgetVisible": [
-    "editor.action.replaceOne when editorFocus && findWidgetVisible"
-  ],
-  "editor.action.replaceOne when editorFocus && findWidgetVisible && replaceInputFocussed": [
-    "editor.action.replaceOne when editorFocus && findWidgetVisible && replaceInputFocussed"
-  ],
-  "editor.action.selectAllMatches": [
-    "editor.action.selectAllMatches when editorFocus && findWidgetVisible"
-  ],
-  "toggleFindCaseSensitive": ["toggleFindCaseSensitive when editorFocus"],
-  "toggleFindInSelection": ["toggleFindInSelection when editorFocus"],
-  "toggleFindRegex": ["toggleFindRegex when editorFocus"],
-  "toggleFindWholeWord": ["toggleFindWholeWord when editorFocus"],
-  "togglePreserveCase": ["togglePreserveCase when editorFocus"],
-  "jumpToNextSnippetPlaceholder": [
-    "jumpToNextSnippetPlaceholder when editorTextFocus && hasNextTabstop && inSnippetMode"
-  ],
-  "jumpToPrevSnippetPlaceholder": [
-    "jumpToPrevSnippetPlaceholder when editorTextFocus && hasPrevTabstop && inSnippetMode"
-  ],
-  "leaveEditorMessage": ["leaveEditorMessage when messageVisible"],
-  "leaveSnippet": ["leaveSnippet when editorTextFocus && inSnippetMode"],
-  "closeDirtyDiff": ["closeDirtyDiff when dirtyDiffVisible"],
-  "closeMarkersNavigation": [
-    "closeMarkersNavigation when editorFocus && markersNavigationVisible"
-  ],
-  "closeParameterHints": [
-    "closeParameterHints when editorFocus && parameterHintsVisible"
-  ],
-  "showNextParameterHint": [
-    "showNextParameterHint when editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-  ],
-  "showPrevParameterHint": [
-    "showPrevParameterHint when editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-  ],
-  "acceptAlternativeSelectedSuggestion": [
-    "acceptAlternativeSelectedSuggestion when suggestWidgetVisible && textInputFocus && textInputFocus"
-  ],
-  "acceptSelectedSuggestion when suggestWidgetVisible && textInputFocus": [
-    "acceptSelectedSuggestion when suggestWidgetVisible && textInputFocus"
-  ],
-  "acceptSelectedSuggestion when acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus": [
-    "acceptSelectedSuggestion when acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
-  ],
-  "hideSuggestWidget": [
-    "hideSuggestWidget when suggestWidgetVisible && textInputFocus"
-  ],
-  "insertBestCompletion": [
-    "insertBestCompletion when atEndOfWord && textInputFocus && !hasOtherSuggestions && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
-  ],
-  "insertNextSuggestion": [
-    "insertNextSuggestion when hasOtherSuggestions && textInputFocus && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
-  ],
-  "insertPrevSuggestion": [
-    "insertPrevSuggestion when hasOtherSuggestions && textInputFocus && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
-  ],
-  "selectNextPageSuggestion": [
-    "selectNextPageSuggestion when suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  ],
-  "selectNextSuggestion": [
-    "selectNextSuggestion when suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  ],
-  "selectPrevPageSuggestion": [
-    "selectPrevPageSuggestion when suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  ],
-  "selectPrevSuggestion": [
-    "selectPrevSuggestion when suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  ],
-  "toggleSuggestionDetails": [
-    "toggleSuggestionDetails when suggestWidgetVisible && textInputFocus"
-  ],
-  "toggleSuggestionFocus": [
-    "toggleSuggestionFocus when suggestWidgetVisible && textInputFocus"
-  ],
-  "acceptRenameInput": [
-    "acceptRenameInput when editorFocus && renameInputVisible"
-  ],
-  "acceptRenameInputWithPreview": [
-    "acceptRenameInputWithPreview when config.editor.rename.enablePreview && editorFocus && renameInputVisible"
-  ],
-  "cancelOnTypeRenameInput": [
-    "cancelOnTypeRenameInput when editorTextFocus && onTypeRenameInputVisible"
-  ],
-  "cancelRenameInput": [
-    "cancelRenameInput when editorFocus && renameInputVisible"
-  ],
-  "addCursorsAtSearchResults": [
-    "addCursorsAtSearchResults when fileMatchOrMatchFocus && searchViewletVisible"
-  ],
-  "breadcrumbs.focus": ["breadcrumbs.focus when breadcrumbsPossible"],
-  "breadcrumbs.focusAndSelect": [
-    "breadcrumbs.focusAndSelect when breadcrumbsPossible"
-  ],
-  "breadcrumbs.focusNext": [
-    "breadcrumbs.focusNext when breadcrumbsActive && breadcrumbsVisible"
-  ],
-  "breadcrumbs.focusPrevious": [
-    "breadcrumbs.focusPrevious when breadcrumbsActive && breadcrumbsVisible"
-  ],
-  "breadcrumbs.revealFocused": [
-    "breadcrumbs.revealFocused when breadcrumbsActive && breadcrumbsVisible"
-  ],
-  "breadcrumbs.revealFocusedFromTreeAside": [
-    "breadcrumbs.revealFocusedFromTreeAside when breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus"
-  ],
-  "breadcrumbs.selectFocused": [
-    "breadcrumbs.selectFocused when breadcrumbsActive && breadcrumbsVisible"
-  ],
-  "breadcrumbs.toggleToOn": [
-    "breadcrumbs.toggleToOn when !config.breadcrumbs.enabled"
-  ],
-  "closeAccessibilityHelp": [
-    "closeAccessibilityHelp when accessibilityHelpWidgetVisible && editorFocus"
-  ],
-  "closeReplaceInFilesWidget": [
-    "closeReplaceInFilesWidget when replaceInputBoxFocus && searchViewletVisible"
-  ],
-  "copyFilePath": ["copyFilePath when !editorFocus"],
-  "copyRelativeFilePath": ["copyRelativeFilePath when !editorFocus"],
-  "debug.openBreakpointToSide": [
-    "debug.openBreakpointToSide when breakpointsFocused"
-  ],
-  "debug.removeBreakpoint": [
-    "debug.removeBreakpoint when breakpointsFocused && !breakpointSelected"
-  ],
-  "debug.removeWatchExpression": [
-    "debug.removeWatchExpression when watchExpressionsFocused && !expressionSelected"
-  ],
-  "decreaseSearchEditorContextLines": [
-    "decreaseSearchEditorContextLines when inSearchEditor"
-  ],
-  "editor.debug.action.toggleInlineBreakpoint": [
-    "editor.debug.action.toggleInlineBreakpoint when editorTextFocus"
-  ],
-  "editor.refocusCallHierarchy": [
-    "editor.refocusCallHierarchy when callHierarchyVisible"
-  ],
-  "editor.showCallHierarchy": [
-    "editor.showCallHierarchy when editorHasCallHierarchyProvider && editorTextFocus && !inReferenceSearchEditor"
-  ],
-  "editor.showIncomingCalls": [
-    "editor.showIncomingCalls when callHierarchyVisible && callHierarchyDirection == 'outgoingCalls'"
-  ],
-  "editor.showOutgoingCalls": [
-    "editor.showOutgoingCalls when callHierarchyVisible && callHierarchyDirection == 'incomingCalls'"
-  ],
-  "explorer.openToSide": [
-    "explorer.openToSide when explorerViewletFocus && explorerViewletVisible && !inputFocus"
-  ],
-  "filesExplorer.findInFolder": [
-    "filesExplorer.findInFolder when explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
-  ],
-  "history.showNext": [
-    "history.showNext when historyNavigationEnabled && historyNavigationWidget"
-  ],
-  "history.showPrevious": [
-    "history.showPrevious when historyNavigationEnabled && historyNavigationWidget"
-  ],
-  "increaseSearchEditorContextLines": [
-    "increaseSearchEditorContextLines when inSearchEditor"
-  ],
-  "keybindings.editor.clearSearchResults": [
-    "keybindings.editor.clearSearchResults when inKeybindings && inKeybindingsSearch"
-  ],
-  "keybindings.editor.copyKeybindingEntry": [
-    "keybindings.editor.copyKeybindingEntry when inKeybindings && keybindingFocus"
-  ],
-  "keybindings.editor.defineKeybinding": [
-    "keybindings.editor.defineKeybinding when inKeybindings && keybindingFocus"
-  ],
-  "keybindings.editor.defineWhenExpression": [
-    "keybindings.editor.defineWhenExpression when inKeybindings && keybindingFocus"
-  ],
-  "keybindings.editor.focusKeybindings": [
-    "keybindings.editor.focusKeybindings when inKeybindings && inKeybindingsSearch"
-  ],
-  "keybindings.editor.recordSearchKeys": [
-    "keybindings.editor.recordSearchKeys when inKeybindings && inKeybindingsSearch"
-  ],
-  "keybindings.editor.removeKeybinding": [
-    "keybindings.editor.removeKeybinding when inKeybindings && keybindingFocus"
-  ],
-  "keybindings.editor.searchKeybindings": [
-    "keybindings.editor.searchKeybindings when inKeybindings"
-  ],
-  "keybindings.editor.toggleSortByPrecedence": [
-    "keybindings.editor.toggleSortByPrecedence when inKeybindings"
-  ],
-  "list.clear": [
-    "list.clear when listFocus && listHasSelectionOrFocus && !inputFocus"
-  ],
-  "list.collapse": ["list.collapse when listFocus && !inputFocus"],
-  "list.collapseAll": ["list.collapseAll when listFocus && !inputFocus"],
-  "list.expand": ["list.expand when listFocus && !inputFocus"],
-  "list.expandSelectionDown": [
-    "list.expandSelectionDown when listFocus && listSupportsMultiselect && !inputFocus"
-  ],
-  "list.expandSelectionUp": [
-    "list.expandSelectionUp when listFocus && listSupportsMultiselect && !inputFocus"
-  ],
-  "list.focusDown when listFocus && !inputFocus": [
-    "list.focusDown when listFocus && !inputFocus"
-  ],
-  "list.focusDown when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
-    "list.focusDown when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "list.focusFirst": ["list.focusFirst when listFocus && !inputFocus"],
-  "list.focusLast": ["list.focusLast when listFocus && !inputFocus"],
-  "list.focusPageDown": ["list.focusPageDown when listFocus && !inputFocus"],
-  "list.focusPageUp": ["list.focusPageUp when listFocus && !inputFocus"],
-  "list.focusUp when listFocus && !inputFocus": [
-    "list.focusUp when listFocus && !inputFocus"
-  ],
-  "list.focusUp when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
-    "list.focusUp when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "list.scrollDown": ["list.scrollDown when listFocus && !inputFocus"],
-  "list.scrollUp": ["list.scrollUp when listFocus && !inputFocus"],
-  "list.select": ["list.select when listFocus && !inputFocus"],
-  "list.selectAll": [
-    "list.selectAll when listFocus && listSupportsMultiselect && !inputFocus"
-  ],
-  "list.toggleExpand": ["list.toggleExpand when listFocus && !inputFocus"],
-  "list.toggleSelection": [
-    "list.toggleSelection when listFocus && !inputFocus"
-  ],
-  "notebook.cell.changeToCode": [
-    "notebook.cell.changeToCode when notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'markdown'"
-  ],
-  "notebook.cell.changeToMarkdown": [
-    "notebook.cell.changeToMarkdown when notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook' && notebookCellType == 'code'"
-  ],
-  "notebook.cell.clearOutputs": [
-    "notebook.cell.clearOutputs when notebookCellHasOutputs && notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.cell.collapseCellContent": [
-    "notebook.cell.collapseCellContent when notebookCellListFocused && !inputFocus && !notebookCellInputIsCollapsed"
-  ],
-  "notebook.cell.collapseCellOutput": [
-    "notebook.cell.collapseCellOutput when notebookCellHasOutputs && notebookCellListFocused && !inputFocus && !notebookCellOutputIsCollapsed"
-  ],
-  "notebook.cell.copyDown": [
-    "notebook.cell.copyDown when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.cell.copyUp": [
-    "notebook.cell.copyUp when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.cell.delete when notebookEditorFocused && !inputFocus": [
-    "notebook.cell.delete when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.cell.delete when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
-    "notebook.cell.delete when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.cell.edit": [
-    "notebook.cell.edit when notebookCellListFocused && !inputFocus"
-  ],
-  "notebook.cell.expandCellContent": [
-    "notebook.cell.expandCellContent when notebookCellInputIsCollapsed && notebookCellListFocused"
-  ],
-  "notebook.cell.expandCellOutput": [
-    "notebook.cell.expandCellOutput when notebookCellListFocused && notebookCellOutputIsCollapsed"
-  ],
-  "notebook.cell.focusInOutput": [
-    "notebook.cell.focusInOutput when notebookCellHasOutputs && notebookEditorFocused"
-  ],
-  "notebook.cell.focusOutOutput": [
-    "notebook.cell.focusOutOutput when notebookEditorFocused"
-  ],
-  "notebook.cell.insertCodeCellAbove when notebookCellListFocused && !inputFocus": [
-    "notebook.cell.insertCodeCellAbove when notebookCellListFocused && !inputFocus"
-  ],
-  "notebook.cell.insertCodeCellAbove when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
-    "notebook.cell.insertCodeCellAbove when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.cell.insertCodeCellBelow when notebookCellListFocused && !inputFocus": [
-    "notebook.cell.insertCodeCellBelow when notebookCellListFocused && !inputFocus"
-  ],
-  "notebook.cell.insertCodeCellBelow when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
-    "notebook.cell.insertCodeCellBelow when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.cell.joinAbove": [
-    "notebook.cell.joinAbove when notebookEditorFocused"
-  ],
-  "notebook.cell.joinBelow": [
-    "notebook.cell.joinBelow when notebookEditorFocused"
-  ],
-  "notebook.cell.moveDown": [
-    "notebook.cell.moveDown when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.cell.moveUp": [
-    "notebook.cell.moveUp when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.cell.split when notebookCellEditable && notebookCellEditorFocused && notebookEditable && notebookEditorFocused": [
-    "notebook.cell.split when notebookCellEditable && notebookCellEditorFocused && notebookEditable && notebookEditorFocused"
-  ],
-  "notebook.cell.split when editorTextFocus && inputFocus && notebookEditorFocused && notebookViewType == 'jupyter-notebook'": [
-    "notebook.cell.split when editorTextFocus && inputFocus && notebookEditorFocused && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.centerActiveCell": [
-    "notebook.centerActiveCell when notebookEditorFocused"
-  ],
-  "notebook.find when notebookEditorFocused": [
-    "notebook.find when notebookEditorFocused"
-  ],
-  "notebook.find when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'": [
-    "notebook.find when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.focusBottom": [
-    "notebook.focusBottom when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.focusTop": [
-    "notebook.focusTop when notebookEditorFocused && !inputFocus"
-  ],
-  "notebook.fold": [
-    "notebook.fold when notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
-  ],
-  "notebook.format": [
-    "notebook.format when notebookEditable && !editorTextFocus && activeEditor == 'workbench.editor.notebook'"
-  ],
-  "notebook.hideFind": [
-    "notebook.hideFind when notebookEditorFocused && notebookFindWidgetFocused"
-  ],
-  "notebook.unfold": [
-    "notebook.unfold when notebookEditorFocused && !inputFocus && activeEditor == 'workbench.editor.notebook'"
-  ],
-  "notification.clear": ["notification.clear when notificationFocus"],
-  "notification.collapse": ["notification.collapse when notificationFocus"],
-  "notification.expand": ["notification.expand when notificationFocus"],
-  "notification.toggle": ["notification.toggle when notificationFocus"],
-  "notifications.focusFirstToast": [
-    "notifications.focusFirstToast when notificationFocus && notificationToastsVisible"
-  ],
-  "notifications.focusLastToast": [
-    "notifications.focusLastToast when notificationFocus && notificationToastsVisible"
-  ],
-  "notifications.focusNextToast": [
-    "notifications.focusNextToast when notificationFocus && notificationToastsVisible"
-  ],
-  "notifications.focusPreviousToast": [
-    "notifications.focusPreviousToast when notificationFocus && notificationToastsVisible"
-  ],
-  "problems.action.copy": ["problems.action.copy when problemFocus"],
-  "problems.action.focusFilter": [
-    "problems.action.focusFilter when focusedView == 'workbench.panel.markers.view'"
-  ],
-  "problems.action.focusProblemsFromFilter": [
-    "problems.action.focusProblemsFromFilter when problemsFilterFocus"
-  ],
-  "problems.action.open": ["problems.action.open when problemFocus"],
-  "problems.action.openToSide": [
-    "problems.action.openToSide when problemFocus"
-  ],
-  "problems.action.showQuickFixes": [
-    "problems.action.showQuickFixes when problemFocus"
-  ],
-  "refactorPreview.toggleCheckedState": [
-    "refactorPreview.toggleCheckedState when listFocus && refactorPreview.enabled && !inputFocus"
-  ],
-  "revealFileInOS": ["revealFileInOS when !editorFocus"],
-  "revealReference": [
-    "revealReference when listFocus && referenceSearchVisible && !inputFocus"
-  ],
-  "scm.acceptInput": ["scm.acceptInput when scmRepository"],
-  "scm.forceViewNextCommit": ["scm.forceViewNextCommit when scmRepository"],
-  "scm.forceViewPreviousCommit": [
-    "scm.forceViewPreviousCommit when scmRepository"
-  ],
-  "scm.viewNextCommit": [
-    "scm.viewNextCommit when scmInputIsInLastPosition && scmRepository && !suggestWidgetVisible"
-  ],
-  "scm.viewPreviousCommit": [
-    "scm.viewPreviousCommit when scmInputIsInFirstPosition && scmRepository && !suggestWidgetVisible"
-  ],
-  "search.action.cancel": [
-    "search.action.cancel when listFocus && searchViewletVisible && !inputFocus"
-  ],
-  "search.action.copyMatch": [
-    "search.action.copyMatch when fileMatchOrMatchFocus"
-  ],
-  "search.action.copyPath": [
-    "search.action.copyPath when fileMatchOrFolderMatchWithResourceFocus"
-  ],
-  "search.action.focusNextSearchResult": [
-    "search.action.focusNextSearchResult when hasSearchResult || inSearchEditor"
-  ],
-  "search.action.focusPreviousSearchResult": [
-    "search.action.focusPreviousSearchResult when hasSearchResult || inSearchEditor"
-  ],
-  "search.action.focusSearchFromResults": [
-    "search.action.focusSearchFromResults when firstMatchFocus && searchViewletVisible"
-  ],
-  "search.action.openInEditor": [
-    "search.action.openInEditor when hasSearchResult && searchViewletFocus"
-  ],
-  "search.action.openResult": [
-    "search.action.openResult when fileMatchOrMatchFocus && searchViewletVisible"
-  ],
-  "search.action.openResultToSide": [
-    "search.action.openResultToSide when fileMatchOrMatchFocus && searchViewletVisible"
-  ],
-  "search.action.remove": [
-    "search.action.remove when fileMatchOrMatchFocus && searchViewletVisible"
-  ],
-  "search.action.replace": [
-    "search.action.replace when matchFocus && replaceActive && searchViewletVisible"
-  ],
-  "search.action.replaceAll": [
-    "search.action.replaceAll when replaceActive && searchViewletVisible && !findWidgetVisible"
-  ],
-  "search.action.replaceAllInFile": [
-    "search.action.replaceAllInFile when fileMatchFocus && replaceActive && searchViewletVisible"
-  ],
-  "search.action.replaceAllInFolder": [
-    "search.action.replaceAllInFolder when folderMatchFocus && replaceActive && searchViewletVisible"
-  ],
-  "search.focus.nextInputBox": [
-    "search.focus.nextInputBox when inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
-  ],
-  "search.focus.previousInputBox": [
-    "search.focus.previousInputBox when inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
-  ],
-  "selectAllSearchEditorMatches": [
-    "selectAllSearchEditorMatches when inSearchEditor"
-  ],
-  "settings.action.focusLevelUp": [
-    "settings.action.focusLevelUp when inSettingsEditor && !inSettingsSearch"
-  ],
-  "settings.action.focusSettingControl": [
-    "settings.action.focusSettingControl when settingRowFocus"
-  ],
-  "settings.action.focusSettingsFromSearch": [
-    "settings.action.focusSettingsFromSearch when inSettingsSearch && !suggestWidgetVisible"
-  ],
-  "settings.action.focusSettingsList": [
-    "settings.action.focusSettingsList when inSettingsEditor && settingsTocRowFocus"
-  ],
-  "settings.action.focusTOC": [
-    "settings.action.focusTOC when inSettingsEditor && settingRowFocus"
-  ],
-  "settings.action.showContextMenu": [
-    "settings.action.showContextMenu when inSettingsEditor"
-  ],
-  "toggleSearchCaseSensitive": [
-    "toggleSearchCaseSensitive when searchViewletFocus"
-  ],
-  "toggleSearchEditorCaseSensitive": [
-    "toggleSearchEditorCaseSensitive when inSearchEditor && searchInputBoxFocus"
-  ],
-  "toggleSearchEditorContextLines": [
-    "toggleSearchEditorContextLines when inSearchEditor"
-  ],
-  "toggleSearchEditorRegex": [
-    "toggleSearchEditorRegex when inSearchEditor && searchInputBoxFocus"
-  ],
-  "toggleSearchEditorWholeWord": [
-    "toggleSearchEditorWholeWord when inSearchEditor && searchInputBoxFocus"
-  ],
-  "toggleSearchPreserveCase": [
-    "toggleSearchPreserveCase when searchViewletFocus"
-  ],
-  "toggleSearchRegex": ["toggleSearchRegex when searchViewletFocus"],
-  "toggleSearchWholeWord": ["toggleSearchWholeWord when searchViewletFocus"],
-  "workbench.action.closeAllGroups": ["workbench.action.closeAllGroups"],
-  "workbench.action.closeEditorsInGroup": [
-    "workbench.action.closeEditorsInGroup"
-  ],
-  "workbench.action.closeFolder": [
-    "workbench.action.closeFolder when emptyWorkspaceSupport"
-  ],
-  "workbench.action.closeGroup": [
-    "workbench.action.closeGroup when activeEditorGroupEmpty && multipleEditorGroups"
-  ],
-  "workbench.action.closeQuickOpen": [
-    "workbench.action.closeQuickOpen when inQuickOpen"
-  ],
-  "workbench.action.closeUnmodifiedEditors": [
-    "workbench.action.closeUnmodifiedEditors"
-  ],
-  "workbench.action.closeWindow": ["workbench.action.closeWindow"],
-  "workbench.action.closeWindow when !editorIsOpen && !multipleEditorGroups": [
-    "workbench.action.closeWindow when !editorIsOpen && !multipleEditorGroups"
-  ],
+  "references-view.find": ["references-view.find"],
   "workbench.action.compareEditor.nextChange": [
     "workbench.action.compareEditor.nextChange when textCompareEditorVisible"
   ],
   "workbench.action.compareEditor.previousChange": [
     "workbench.action.compareEditor.previousChange when textCompareEditorVisible"
   ],
-  "workbench.action.debug.restart": [
-    "workbench.action.debug.restart when inDebugMode"
+  "workbench.action.files.openFileFolder": [
+    "workbench.action.files.openFileFolder"
   ],
-  "workbench.action.debug.run": [
-    "workbench.action.debug.run when debuggersAvailable"
+  "workbench.action.focusNextGroup": ["workbench.action.focusNextGroup"],
+  "workbench.action.focusPreviousGroup": [
+    "workbench.action.focusPreviousGroup"
   ],
-  "workbench.action.debug.stepOver": [
-    "workbench.action.debug.stepOver when debugState == 'stopped'"
+  "workbench.action.maximizeEditor": ["workbench.action.maximizeEditor"],
+  "workbench.action.openGlobalSettings": [
+    "workbench.action.openGlobalSettings"
   ],
-  "workbench.action.editor.changeLanguageMode": [
-    "workbench.action.editor.changeLanguageMode"
-  ],
-  "workbench.action.files.copyPathOfActiveFile": [
-    "workbench.action.files.copyPathOfActiveFile"
-  ],
-  "workbench.action.files.openFolder": ["workbench.action.files.openFolder"],
-  "workbench.action.files.openLocalFile": [
-    "workbench.action.files.openLocalFile when remoteFileDialogVisible"
-  ],
-  "workbench.action.files.openLocalFolder": [
-    "workbench.action.files.openLocalFolder when remoteFileDialogVisible"
-  ],
-  "workbench.action.files.revealActiveFileInWindows": [
-    "workbench.action.files.revealActiveFileInWindows"
-  ],
-  "workbench.action.files.saveLocalFile": [
-    "workbench.action.files.saveLocalFile when remoteFileDialogVisible"
-  ],
-  "workbench.action.files.saveWithoutFormatting": [
-    "workbench.action.files.saveWithoutFormatting"
-  ],
-  "workbench.action.files.showOpenedFileInNewWindow": [
-    "workbench.action.files.showOpenedFileInNewWindow when emptyWorkspaceSupport"
-  ],
-  "workbench.action.findInFiles": ["workbench.action.findInFiles"],
-  "workbench.action.focusAboveGroup": ["workbench.action.focusAboveGroup"],
-  "workbench.action.focusBelowGroup": ["workbench.action.focusBelowGroup"],
-  "workbench.action.focusEighthEditorGroup": [
-    "workbench.action.focusEighthEditorGroup"
-  ],
-  "workbench.action.focusFifthEditorGroup": [
-    "workbench.action.focusFifthEditorGroup"
-  ],
-  "workbench.action.focusFirstEditorGroup": [
-    "workbench.action.focusFirstEditorGroup"
-  ],
-  "workbench.action.focusFourthEditorGroup": [
-    "workbench.action.focusFourthEditorGroup"
-  ],
-  "workbench.action.focusLeftGroup": ["workbench.action.focusLeftGroup"],
-  "workbench.action.focusNextPart": ["workbench.action.focusNextPart"],
-  "workbench.action.focusPreviousPart": ["workbench.action.focusPreviousPart"],
-  "workbench.action.focusRightGroup": ["workbench.action.focusRightGroup"],
-  "workbench.action.focusSecondEditorGroup": [
-    "workbench.action.focusSecondEditorGroup"
-  ],
-  "workbench.action.focusSeventhEditorGroup": [
-    "workbench.action.focusSeventhEditorGroup"
-  ],
-  "workbench.action.focusSideBar": ["workbench.action.focusSideBar"],
-  "workbench.action.focusSixthEditorGroup": [
-    "workbench.action.focusSixthEditorGroup"
-  ],
-  "workbench.action.focusThirdEditorGroup": [
-    "workbench.action.focusThirdEditorGroup"
-  ],
-  "workbench.action.gotoLine": ["workbench.action.gotoLine"],
-  "workbench.action.gotoSymbol": ["workbench.action.gotoSymbol"],
-  "workbench.action.hideInterfaceOverview": [
-    "workbench.action.hideInterfaceOverview when interfaceOverviewVisible"
-  ],
-  "workbench.action.interactivePlayground.arrowDown": [
-    "workbench.action.interactivePlayground.arrowDown when interactivePlaygroundFocus && !editorTextFocus"
-  ],
-  "workbench.action.interactivePlayground.arrowUp": [
-    "workbench.action.interactivePlayground.arrowUp when interactivePlaygroundFocus && !editorTextFocus"
-  ],
-  "workbench.action.interactivePlayground.pageDown": [
-    "workbench.action.interactivePlayground.pageDown when interactivePlaygroundFocus && !editorTextFocus"
-  ],
-  "workbench.action.interactivePlayground.pageUp": [
-    "workbench.action.interactivePlayground.pageUp when interactivePlaygroundFocus && !editorTextFocus"
-  ],
-  "workbench.action.keepEditor": ["workbench.action.keepEditor"],
-  "workbench.action.keybindingsReference": [
-    "workbench.action.keybindingsReference"
-  ],
-  "workbench.action.lastEditorInGroup": ["workbench.action.lastEditorInGroup"],
-  "workbench.action.moveActiveEditorGroupDown": [
-    "workbench.action.moveActiveEditorGroupDown"
-  ],
-  "workbench.action.moveActiveEditorGroupLeft": [
-    "workbench.action.moveActiveEditorGroupLeft"
-  ],
-  "workbench.action.moveActiveEditorGroupRight": [
-    "workbench.action.moveActiveEditorGroupRight"
-  ],
-  "workbench.action.moveActiveEditorGroupUp": [
-    "workbench.action.moveActiveEditorGroupUp"
-  ],
-  "workbench.action.moveEditorLeftInGroup": [
-    "workbench.action.moveEditorLeftInGroup"
-  ],
-  "workbench.action.moveEditorRightInGroup": [
-    "workbench.action.moveEditorRightInGroup"
-  ],
-  "workbench.action.moveEditorToFirstGroup": [
-    "workbench.action.moveEditorToFirstGroup"
-  ],
-  "workbench.action.moveEditorToLastGroup": [
-    "workbench.action.moveEditorToLastGroup"
-  ],
-  "workbench.action.moveEditorToNextGroup": [
-    "workbench.action.moveEditorToNextGroup"
-  ],
-  "workbench.action.moveEditorToPreviousGroup": [
-    "workbench.action.moveEditorToPreviousGroup"
-  ],
-  "workbench.action.navigateBack": ["workbench.action.navigateBack"],
-  "workbench.action.navigateForward": ["workbench.action.navigateForward"],
-  "workbench.action.navigateToLastEditLocation": [
-    "workbench.action.navigateToLastEditLocation"
-  ],
-  "workbench.action.newWindow": ["workbench.action.newWindow"],
-  "workbench.action.nextEditor": ["workbench.action.nextEditor"],
-  "workbench.action.nextEditorInGroup": ["workbench.action.nextEditorInGroup"],
-  "workbench.action.openEditorAtIndex1": [
-    "workbench.action.openEditorAtIndex1"
-  ],
-  "workbench.action.openEditorAtIndex2": [
-    "workbench.action.openEditorAtIndex2"
-  ],
-  "workbench.action.openEditorAtIndex3": [
-    "workbench.action.openEditorAtIndex3"
-  ],
-  "workbench.action.openEditorAtIndex4": [
-    "workbench.action.openEditorAtIndex4"
-  ],
-  "workbench.action.openEditorAtIndex5": [
-    "workbench.action.openEditorAtIndex5"
-  ],
-  "workbench.action.openEditorAtIndex6": [
-    "workbench.action.openEditorAtIndex6"
-  ],
-  "workbench.action.openEditorAtIndex7": [
-    "workbench.action.openEditorAtIndex7"
-  ],
-  "workbench.action.openEditorAtIndex8": [
-    "workbench.action.openEditorAtIndex8"
-  ],
-  "workbench.action.openEditorAtIndex9": [
-    "workbench.action.openEditorAtIndex9"
-  ],
-  "workbench.action.openGlobalKeybindings": [
-    "workbench.action.openGlobalKeybindings"
-  ],
-  "workbench.action.openRecent": ["workbench.action.openRecent"],
-  "workbench.action.openSettings": ["workbench.action.openSettings"],
   "workbench.action.output.toggleOutput": [
     "workbench.action.output.toggleOutput"
   ],
-  "workbench.action.pinEditor": [
-    "workbench.action.pinEditor when !activeEditorIsPinned"
-  ],
   "workbench.action.previousEditor": ["workbench.action.previousEditor"],
-  "workbench.action.previousEditorInGroup": [
-    "workbench.action.previousEditorInGroup"
-  ],
-  "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup": [
-    "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup"
-  ],
-  "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup": [
-    "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
-  ],
-  "workbench.action.quickOpenView": ["workbench.action.quickOpenView"],
-  "workbench.action.reopenClosedEditor": [
-    "workbench.action.reopenClosedEditor"
+  "workbench.action.quickOpenNavigateNext": [
+    "workbench.action.quickOpenNavigateNext"
   ],
   "workbench.action.replaceInFiles": ["workbench.action.replaceInFiles"],
-  "workbench.action.search.toggleQueryDetails": [
-    "workbench.action.search.toggleQueryDetails when inSearchEditor || searchViewletFocus"
-  ],
   "workbench.action.selectTheme": ["workbench.action.selectTheme"],
-  "workbench.action.showAllEditors": ["workbench.action.showAllEditors"],
   "workbench.action.showAllSymbols": ["workbench.action.showAllSymbols"],
   "workbench.action.showCommands": ["workbench.action.showCommands"],
-  "workbench.action.splitEditor": ["workbench.action.splitEditor"],
-  "workbench.action.splitEditorOrthogonal": [
-    "workbench.action.splitEditorOrthogonal"
+  "workbench.action.showErrorsWarnings": [
+    "workbench.action.showErrorsWarnings"
   ],
-  "workbench.action.tasks.build": ["workbench.action.tasks.build"],
-  "workbench.action.terminal.clearSelection": [
-    "workbench.action.terminal.clearSelection when terminalFocus && terminalProcessSupported && terminalTextSelected && !terminalFindVisible"
-  ],
-  "workbench.action.terminal.copySelection": [
-    "workbench.action.terminal.copySelection when terminalFocus && terminalProcessSupported && terminalTextSelected"
-  ],
-  "workbench.action.terminal.findNext when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported": [
-    "workbench.action.terminal.findNext when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.findNext when terminalFindFocused && terminalProcessSupported": [
-    "workbench.action.terminal.findNext when terminalFindFocused && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.findPrevious when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported": [
-    "workbench.action.terminal.findPrevious when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.findPrevious when terminalFindFocused && terminalProcessSupported": [
-    "workbench.action.terminal.findPrevious when terminalFindFocused && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.focusFind": [
-    "workbench.action.terminal.focusFind when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.focusNextPane": [
-    "workbench.action.terminal.focusNextPane when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.focusPreviousPane": [
-    "workbench.action.terminal.focusPreviousPane when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.hideFind": [
-    "workbench.action.terminal.hideFind when terminalFindVisible && terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.navigationModeExit": [
-    "workbench.action.terminal.navigationModeExit when accessibilityModeEnabled && terminalA11yTreeFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.navigationModeFocusNext": [
-    "workbench.action.terminal.navigationModeFocusNext when accessibilityModeEnabled && terminalA11yTreeFocus && terminalProcessSupported || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.navigationModeFocusPrevious": [
-    "workbench.action.terminal.navigationModeFocusPrevious when accessibilityModeEnabled && terminalA11yTreeFocus && terminalProcessSupported || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.new": ["workbench.action.terminal.new"],
-  "workbench.action.terminal.openNativeConsole": [
-    "workbench.action.terminal.openNativeConsole when !terminalFocus"
-  ],
-  "workbench.action.terminal.paste": [
-    "workbench.action.terminal.paste when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.scrollDown": [
-    "workbench.action.terminal.scrollDown when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.scrollDownPage": [
-    "workbench.action.terminal.scrollDownPage when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.scrollToBottom": [
-    "workbench.action.terminal.scrollToBottom when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.scrollToTop": [
-    "workbench.action.terminal.scrollToTop when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.scrollUp": [
-    "workbench.action.terminal.scrollUp when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.scrollUpPage": [
-    "workbench.action.terminal.scrollUpPage when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.searchWorkspace": [
-    "workbench.action.terminal.searchWorkspace when terminalFocus && terminalProcessSupported && terminalProcessSupported && terminalTextSelected"
-  ],
-  "workbench.action.terminal.sendSequence when terminalFocus && !accessibilityModeEnabled && terminalShellType == 'pwsh'": [
-    "workbench.action.terminal.sendSequence when terminalFocus && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
-  ],
-  "workbench.action.terminal.sendSequence when terminalFocus": [
-    "workbench.action.terminal.sendSequence when terminalFocus"
-  ],
-  "workbench.action.terminal.sendSequence when terminalFocus && terminalShellType == 'cmd'": [
-    "workbench.action.terminal.sendSequence when terminalFocus && terminalShellType == 'cmd'"
-  ],
-  "workbench.action.terminal.split": [
-    "workbench.action.terminal.split when terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.toggleFindCaseSensitive": [
-    "workbench.action.terminal.toggleFindCaseSensitive when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.toggleFindRegex": [
-    "workbench.action.terminal.toggleFindRegex when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.toggleFindWholeWord": [
-    "workbench.action.terminal.toggleFindWholeWord when terminalFindFocused && terminalProcessSupported || terminalFocus && terminalProcessSupported"
-  ],
-  "workbench.action.terminal.toggleTerminal": [
-    "workbench.action.terminal.toggleTerminal"
-  ],
-  "workbench.action.toggleEditorGroupLayout": [
-    "workbench.action.toggleEditorGroupLayout"
-  ],
-  "workbench.action.toggleFullScreen": ["workbench.action.toggleFullScreen"],
-  "workbench.action.togglePanel": ["workbench.action.togglePanel"],
-  "workbench.action.toggleSidebarVisibility": [
-    "workbench.action.toggleSidebarVisibility"
-  ],
-  "workbench.action.toggleZenMode": ["workbench.action.toggleZenMode"],
-  "workbench.action.unpinEditor": [
-    "workbench.action.unpinEditor when activeEditorIsPinned"
-  ],
-  "workbench.action.zoomIn": ["workbench.action.zoomIn"],
-  "workbench.action.zoomOut": ["workbench.action.zoomOut"],
-  "workbench.action.zoomReset": ["workbench.action.zoomReset"],
+  "workbench.action.sync": ["workbench.action.sync"],
   "workbench.actions.view.problems": ["workbench.actions.view.problems"],
-  "workbench.debug.action.toggleRepl": [
-    "workbench.debug.action.toggleRepl when debuggersAvailable"
+  "workbench.debug.viewlet.action.addFunctionBreakpointAction": [
+    "workbench.debug.viewlet.action.addFunctionBreakpointAction"
   ],
-  "workbench.extensions.action.showRecommendedKeymapExtensions": [
-    "workbench.extensions.action.showRecommendedKeymapExtensions"
-  ],
-  "workbench.files.action.compareWithClipboard": [
-    "workbench.files.action.compareWithClipboard"
-  ],
-  "workbench.files.action.compareWithSaved": [
-    "workbench.files.action.compareWithSaved"
-  ],
-  "workbench.files.action.focusOpenEditorsView": [
-    "workbench.files.action.focusOpenEditorsView when workbench.explorer.openEditorsView.active"
-  ],
-  "workbench.statusBar.clearFocus": [
-    "workbench.statusBar.clearFocus when statusBarFocused"
-  ],
-  "workbench.statusBar.focusFirst": [
-    "workbench.statusBar.focusFirst when statusBarFocused"
-  ],
-  "workbench.statusBar.focusLast": [
-    "workbench.statusBar.focusLast when statusBarFocused"
-  ],
-  "workbench.statusBar.focusNext": [
-    "workbench.statusBar.focusNext when statusBarFocused"
-  ],
-  "workbench.statusBar.focusPrevious": [
-    "workbench.statusBar.focusPrevious when statusBarFocused"
+  "workbench.debug.viewlet.action.removeAllBreakpoints": [
+    "workbench.debug.viewlet.action.removeAllBreakpoints"
   ],
   "workbench.view.debug": ["workbench.view.debug"],
-  "workbench.view.explorer": ["workbench.view.explorer"],
-  "workbench.view.extensions": ["workbench.view.extensions"],
-  "workbench.view.scm": ["workbench.view.scm"],
-  "workbench.view.search": ["workbench.view.search when !searchViewletVisible"],
-  "breadcrumbs.focusNextWithPicker": [
-    "breadcrumbs.focusNextWithPicker when breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus"
-  ],
-  "breadcrumbs.focusPreviousWithPicker": [
-    "breadcrumbs.focusPreviousWithPicker when breadcrumbsActive && breadcrumbsVisible && listFocus && !inputFocus"
-  ],
-  "breadcrumbs.selectEditor": [
-    "breadcrumbs.selectEditor when breadcrumbsActive && breadcrumbsVisible"
-  ],
-  "views.moveViewDown": ["views.moveViewDown when focusedView != ''"],
-  "views.moveViewLeft": ["views.moveViewLeft when focusedView != ''"],
-  "views.moveViewRight": ["views.moveViewRight when focusedView != ''"],
-  "views.moveViewUp": ["views.moveViewUp when focusedView != ''"],
-  "workbench.action.debug.pause": [
-    "workbench.action.debug.pause when debugState == 'running'"
-  ],
-  "debug.renameWatchExpression": [
-    "debug.renameWatchExpression when watchExpressionsFocused"
-  ],
-  "debug.setVariable": ["debug.setVariable when variablesFocused"],
-  "debug.toggleBreakpoint": [
-    "debug.toggleBreakpoint when breakpointsFocused && !inputFocus"
-  ],
-  "deleteFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus": [
-    "deleteFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-  ],
-  "deleteFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus": [
-    "deleteFile when explorerViewletVisible && filesExplorerFocus && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus"
-  ],
-  "editor.closeCallHierarchy": [
-    "editor.closeCallHierarchy when callHierarchyVisible && !config.editor.stablePeek"
-  ],
-  "explorer.openAndPassFocus": [
-    "explorer.openAndPassFocus when explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
-  ],
-  "filesExplorer.cancelCut": [
-    "filesExplorer.cancelCut when explorerResourceCut && explorerViewletVisible && filesExplorerFocus && !inputFocus"
-  ],
-  "filesExplorer.copy": [
-    "filesExplorer.copy when explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
-  ],
-  "filesExplorer.openFilePreserveFocus": [
-    "filesExplorer.openFilePreserveFocus when explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
-  ],
-  "filesExplorer.paste": [
-    "filesExplorer.paste when explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-  ],
-  "firstCompressedFolder": [
-    "firstCompressedFolder when explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedFirstFocus && !inputFocus"
-  ],
-  "lastCompressedFolder": [
-    "lastCompressedFolder when explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedLastFocus && !inputFocus"
-  ],
-  "moveFileToTrash": [
-    "moveFileToTrash when explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-  ],
-  "nextCompressedFolder": [
-    "nextCompressedFolder when explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedLastFocus && !inputFocus"
-  ],
-  "previousCompressedFolder": [
-    "previousCompressedFolder when explorerViewletCompressedFocus && explorerViewletVisible && filesExplorerFocus && !explorerViewletCompressedFirstFocus && !inputFocus"
-  ],
-  "remote.tunnel.closeInline": [
-    "remote.tunnel.closeInline when tunnelCloseable && tunnelViewFocus"
-  ],
-  "remote.tunnel.copyAddressInline": [
-    "remote.tunnel.copyAddressInline when tunnelViewFocus && tunnelType == 'Detected' || tunnelViewFocus && tunnelType == 'Forwarded'"
-  ],
-  "remote.tunnel.label": [
-    "remote.tunnel.label when tunnelViewFocus && tunnelType == 'Forwarded'"
-  ],
-  "notifications.hideList": [
-    "notifications.hideList when notificationCenterVisible"
-  ],
-  "notifications.hideToasts": [
-    "notifications.hideToasts when notificationToastsVisible"
-  ],
-  "workbench.action.quickInputBack": [
-    "workbench.action.quickInputBack when inQuickOpen"
-  ],
-  "workbench.action.quickOpenNavigateNextInEditorPicker": [
-    "workbench.action.quickOpenNavigateNextInEditorPicker when inEditorsPicker && inQuickOpen"
-  ],
-  "workbench.action.quickOpenNavigateNextInFilePicker": [
-    "workbench.action.quickOpenNavigateNextInFilePicker when inFilesPicker && inQuickOpen"
-  ],
-  "workbench.action.quickOpenNavigateNextInRecentFilesPicker": [
-    "workbench.action.quickOpenNavigateNextInRecentFilesPicker when inQuickOpen && inRecentFilesPicker"
-  ],
-  "workbench.action.quickOpenNavigateNextInViewPicker": [
-    "workbench.action.quickOpenNavigateNextInViewPicker when inQuickOpen && inViewsPicker"
-  ],
-  "workbench.action.quickOpenNavigatePreviousInEditorPicker": [
-    "workbench.action.quickOpenNavigatePreviousInEditorPicker when inEditorsPicker && inQuickOpen"
-  ],
-  "workbench.action.quickOpenNavigatePreviousInFilePicker": [
-    "workbench.action.quickOpenNavigatePreviousInFilePicker when inFilesPicker && inQuickOpen"
-  ],
-  "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker": [
-    "workbench.action.quickOpenNavigatePreviousInRecentFilesPicker when inQuickOpen && inRecentFilesPicker"
-  ],
-  "workbench.action.quickOpenNavigatePreviousInViewPicker": [
-    "workbench.action.quickOpenNavigatePreviousInViewPicker when inQuickOpen && inViewsPicker"
-  ],
-  "workbench.action.reloadWindow": [
-    "workbench.action.reloadWindow when isDevelopment"
-  ],
-  "workbench.action.toggleDevTools": [
-    "workbench.action.toggleDevTools when isDevelopment"
-  ],
-  "extension.node-debug.startWithStopOnEntry": [
-    "extension.node-debug.startWithStopOnEntry when !inDebugMode && debugConfigurationType == 'node'"
-  ],
-  "git.stageSelectedRanges": ["git.stageSelectedRanges when isInDiffEditor"],
-  "markdown.showPreview": [
-    "markdown.showPreview when !notebookEditorFocused && editorLangId == 'markdown'"
-  ],
-  "references-view.findReferences": [
-    "references-view.findReferences when editorHasReferenceProvider"
-  ],
-  "git.unstageSelectedRanges": [
-    "git.unstageSelectedRanges when isInDiffEditor"
-  ],
-  "markdown.showPreviewToSide": [
-    "markdown.showPreviewToSide when !notebookEditorFocused && editorLangId == 'markdown'"
-  ],
-  "references-view.next": [
-    "references-view.next when reference-list.hasResult && references-view.canNavigate"
-  ],
-  "git.revertSelectedRanges": ["git.revertSelectedRanges when isInDiffEditor"],
-  "references-view.prev": [
-    "references-view.prev when reference-list.hasResult && references-view.canNavigate"
-  ],
-  "references-view.showCallHierarchy": [
-    "references-view.showCallHierarchy when editorHasCallHierarchyProvider"
-  ],
-  "C_Cpp.SwitchHeaderSource when editorTextFocus && editorLangId == 'cpp'": [
-    "C_Cpp.SwitchHeaderSource when editorTextFocus && editorLangId == 'cpp'"
-  ],
-  "C_Cpp.SwitchHeaderSource when editorTextFocus && editorLangId == 'c'": [
-    "C_Cpp.SwitchHeaderSource when editorTextFocus && editorLangId == 'c'"
-  ],
-  "bookmarks.toggle": ["bookmarks.toggle when editorTextFocus"],
-  "extension.insertLogStatement": [
-    "extension.insertLogStatement when editorTextFocus"
-  ],
-  "extension.vs_scite_like.onEnterKey": [
-    "extension.vs_scite_like.onEnterKey when editorTextFocus && !editorReadonly && !suggestWidgetVisible"
-  ],
-  "jupyter.execSelectionInteractive": [
-    "jupyter.execSelectionInteractive when editorTextFocus && jupyter.ownsSelection && !findInputFocussed && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
-  ],
-  "python.execSelectionInTerminal": [
-    "python.execSelectionInTerminal when editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !replaceInputFocussed && editorLangId == 'python'"
-  ],
-  "remote-wsl.revealInExplorer": [
-    "remote-wsl.revealInExplorer when editorFocus && remoteName == 'wsl'"
-  ],
-  "bookmarks.jumpToNext": ["bookmarks.jumpToNext when editorTextFocus"],
-  "extension.deleteAllLogStatements": ["extension.deleteAllLogStatements"],
-  "jupyter.runcurrentcelladvance": [
-    "jupyter.runcurrentcelladvance when editorTextFocus && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused"
-  ],
-  "bookmarks.jumpToPrevious": ["bookmarks.jumpToPrevious when editorTextFocus"],
-  "jupyter.runcurrentcell": [
-    "jupyter.runcurrentcell when editorTextFocus && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused"
-  ],
-  "bookmarks.shrinkSelection": [
-    "bookmarks.shrinkSelection when editorTextFocus"
-  ],
-  "jupyter.runcurrentcellandaddbelow": [
-    "jupyter.runcurrentcellandaddbelow when editorTextFocus && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused"
-  ],
-  "bookmarks.expandSelectionToNext": [
-    "bookmarks.expandSelectionToNext when editorTextFocus"
-  ],
-  "bookmarks.expandSelectionToPrevious": [
-    "bookmarks.expandSelectionToPrevious when editorTextFocus"
-  ],
-  "notebook.undo": [
-    "notebook.undo when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.cell.copy": [
-    "notebook.cell.copy when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.cell.cut": [
-    "notebook.cell.cut when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "notebook.cell.paste": [
-    "notebook.cell.paste when notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
-  ],
-  "jupyter.insertCellBelowPosition": [
-    "jupyter.insertCellBelowPosition when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.insertCellBelow": [
-    "jupyter.insertCellBelow when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.insertCellAbove": [
-    "jupyter.insertCellAbove when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.deleteCells": [
-    "jupyter.deleteCells when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.extendSelectionByCellAbove": [
-    "jupyter.extendSelectionByCellAbove when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.extendSelectionByCellBelow": [
-    "jupyter.extendSelectionByCellBelow when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.moveCellsUp": [
-    "jupyter.moveCellsUp when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.moveCellsDown": [
-    "jupyter.moveCellsDown when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.changeCellToMarkdown": [
-    "jupyter.changeCellToMarkdown when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.changeCellToCode": [
-    "jupyter.changeCellToCode when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.gotoNextCellInFile": [
-    "jupyter.gotoNextCellInFile when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.gotoPrevCellInFile": [
-    "jupyter.gotoPrevCellInFile when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.selectCellContents": [
-    "jupyter.selectCellContents when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ],
-  "jupyter.selectCell": [
-    "jupyter.selectCell when editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
-  ]
+  "workbench.view.search": ["workbench.view.search when !searchViewletVisible"]
 }

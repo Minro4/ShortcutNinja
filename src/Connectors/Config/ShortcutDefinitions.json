@@ -22,11 +22,11 @@
       },
       {
         "id": "editor.action.blockComment",
-        "label": "Comment/uncomment with block comment"
+        "label": "Comment/Uncomment Block"
       },
       {
         "id": "editor.action.commentLine",
-        "label": "Comment/uncomment with line comment"
+        "label": "Comment/Uncomment Line"
       },
       { "id": "editor.action.joinLines", "label": "Smart line join" },
       {
@@ -196,15 +196,15 @@
     "definitions": [
       {
         "id": "workbench.action.terminal.focus",
-        "label": "Opens and focuses corresponding tool window (Terminal)"
+        "label": "Opens and focuses corresponding tool window"
       },
       {
         "id": "workbench.action.terminal.focusNext",
-        "label": "Select next tab (Terminal)"
+        "label": "Select next tab"
       },
       {
         "id": "workbench.action.terminal.focusPrevious",
-        "label": "Select previous tab (Terminal)"
+        "label": "Select previous tab"
       },
       {
         "id": "workbench.action.terminal.toggleTerminal",
