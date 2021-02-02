@@ -1,5 +1,19 @@
 [
   {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "tab",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.save"
+  },
+  {
     "key": "ctrl+shift+b",
     "command": "workbench.action.tasks.build"
   },
@@ -61,17 +75,17 @@
     "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "alt+space",
+    "key": "ctrl+z",
     "command": "undo"
   },
   {
     "key": "ctrl+delete",
-    "command": "deleteWordEndRight",
+    "command": "deleteWordRight",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
     "key": "ctrl+backspace",
-    "command": "deleteWordStartLeft",
+    "command": "deleteWordLeft",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
@@ -96,8 +110,23 @@
     "command": "editor.action.toggleRenderWhitespace"
   },
   {
-    "key": "ctrl+k ctrl+m",
+    "key": "ctrl+m ctrl+o",
     "command": "editor.foldAll",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+m ctrl+s",
+    "command": "editor.fold",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+m ctrl+l",
+    "command": "editor.unfoldAll",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+m ctrl+m",
+    "command": "editor.unfoldAll",
     "when": "editorTextFocus"
   },
   {
