@@ -93,7 +93,10 @@ export class Keymap<T> {
 
         if (uniKey) {
           const sc: Shortcut[] = this.get(ideKey)
-            .map((shortcut) => shortcutConverter.toUni(shortcut))
+            .map((shortcut) => {
+              if (!shortcut)
+                console.log(shortcut);
+            return shortcutConverter.toUni(shortcut)})
             .filter((shortcut) => shortcut != undefined) as Shortcut[];
           if (sc) uniKeymap[uniKey] = sc;
         }

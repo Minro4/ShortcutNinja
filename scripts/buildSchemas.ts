@@ -1,10 +1,10 @@
 import * as path from 'path';
-import { SCHEMAS_PATH } from "../src/Connectors/Constants/general";
+import { SCHEMAS_PATH } from '../src/Connectors/Constants/general';
 import { UniversalKeymap } from '../src/Connectors/Keymap';
 import { VsCodeConverter } from '../src/Connectors/Converters/VsCodeConverter/VsCodeConverter';
 import { SchemaTypes } from '../src/Connectors/Schema/SchemaTypes';
 
-const UNPROCESSED_SCHEMAS_PATH = "./scripts/SchemasUnprocessed"
+const UNPROCESSED_SCHEMAS_PATH = './scripts/SchemasUnprocessed';
 
 interface SchemaBuild {
   fileName: string;
@@ -14,36 +14,36 @@ interface SchemaBuild {
 }
 
 const VS_CODE: SchemaBuild = {
-  fileName: "vscode.json",
+  fileName: 'vscode.json',
   builder: VsCodeSchemaBuilder,
 };
 
 const VISUAL_STUDIO: SchemaBuild = {
-  fileName: "VisualStudio.json",
+  fileName: 'VisualStudio.json',
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const ATOM: SchemaBuild = {
-  fileName: "atom.json",
+  fileName: 'atom.json',
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
 const INTELLIJ: SchemaBuild = {
-  fileName: "intelliJ.json",
-  builder: VsCodeSchemaBuilder,
- // parentSchema: VS_CODE,
-};
-
-const NOTEPADPP: SchemaBuild = {
-  fileName: "notepadplusplus.json",
+  fileName: 'intelliJ.json',
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
 
+/*const NOTEPADPP: SchemaBuild = {
+  fileName: "notepadplusplus.json",
+  builder: VsCodeSchemaBuilder,
+  parentSchema: VS_CODE,
+};*/
+
 const SUBLIME: SchemaBuild = {
-  fileName: "sublime.json",
+  fileName: 'sublime.json',
   builder: VsCodeSchemaBuilder,
   parentSchema: VS_CODE,
 };
@@ -52,7 +52,7 @@ const SCHEMAS: SchemaBuild[] = [
   VISUAL_STUDIO,
   ATOM,
   INTELLIJ,
-  NOTEPADPP,
+  // NOTEPADPP,
   SUBLIME,
   VS_CODE,
 ];

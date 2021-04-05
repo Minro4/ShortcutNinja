@@ -95,7 +95,9 @@
   ],
   "editor.fold": ["editor.fold when editorTextFocus && foldingEnabled"],
   "editor.foldAll": ["editor.foldAll when editorTextFocus && foldingEnabled"],
-  "editor.action.goToDeclaration": ["editor.action.goToDeclaration"],
+  "editor.action.goToReferences": [
+    "editor.action.goToReferences when editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  ],
   "editor.action.goToImplementation": [
     "editor.action.goToImplementation when editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
   ],

@@ -4,6 +4,7 @@ import { fsUtils } from './Utils';
 import vscodeMappings from './Config/ideMappings/vscode.json';
 import visualStudioMappings from './Config/ideMappings/VisualStudio.json';
 import jetbrainsMappings from './Config/ideMappings/JetBrains.json';
+import _ from 'lodash';
 
 export interface IIdeMappings {
   //Universal name: ide name
@@ -52,5 +53,9 @@ export class IdeMappings {
       path.join(IDE_MAPPINGS_PATH, mappingName),
       mapping
     );
+  }
+
+  public clone(): IdeMappings {
+    return _.cloneDeep(this);
   }
 }

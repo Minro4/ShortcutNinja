@@ -42,7 +42,9 @@
         "label": "Decrease current selection to previous state"
       },
       { "id": "editor.fold", "label": "Collapse code block" },
-      { "id": "editor.foldAll", "label": "Collapse all" }
+      { "id": "editor.foldAll", "label": "Collapse all" },
+      { "id": "editor.unfold", "label": "Expand code block" },
+      { "id": "editor.unfoldAll", "label": "Expand all" }
     ]
   },
   {
@@ -50,7 +52,7 @@
     "id": "navigation",
     "definitions": [
       { "id": "goToFile", "label": "Go To File" },
-      { "id": "editor.action.goToDeclaration", "label": "Go To Declaration" },
+      { "id": "editor.action.goToReferences", "label": "Find References" },
       {
         "id": "editor.action.goToImplementation",
         "label": "Go To Implementation"
@@ -96,7 +98,9 @@
       { "id": "deleteWordRight", "label": "Delete to word end" },
       { "id": "editor.action.changeAll", "label": "Select All Occurrences" },
       { "id": "undo", "label": "Undo" },
-      { "id": "redo", "label": "Redo" }
+      { "id": "redo", "label": "Redo" },
+      { "id": "cursorWordStartRight", "label": "Cursor To Next Word" },
+      { "id": "cursorWordStartRightSelect", "label": "Select Next Word" }
     ]
   },
   {
@@ -118,10 +122,10 @@
     "id": "runAndDebug",
     "definitions": [
       {
-        "id": "toggleBreakpoint",
-        "label": "Toggle breakpoint",
-        "metaTags": []
+        "id": "workbench.action.tasks.runTask",
+        "label": "Run"
       },
+      { "id": "workbench.action.tasks.reRunTask", "label": "Rerun" },
       { "id": "start", "label": "Debug", "metaTags": [] },
       { "id": "continue", "label": "Continue", "metaTags": [] },
       { "id": "stopDebuging", "label": "Stop", "metaTags": [] },
@@ -142,10 +146,14 @@
         "label": "Build Project"
       },
       {
-        "id": "workbench.action.tasks.runTask",
-        "label": "Run"
+        "id": "toggleBreakpoint",
+        "label": "Toggle breakpoint",
+        "metaTags": []
       },
-      { "id": "workbench.action.tasks.reRunTask", "label": "Rerun" }
+      {
+        "id": "workbench.debug.viewlet.action.removeAllBreakpoints",
+        "label": "Remove All Breakpoints"
+      }
     ]
   },
   {
@@ -225,19 +233,11 @@
       { "id": "cursorColumnSelectUp" },
       { "id": "cursorTop", "label": "Move Caret to Text Start" },
       { "id": "cursorUndo", "label": "Unselect Occurrence" },
-      { "id": "cursorWordStartRight" },
-      { "id": "cursorWordStartRightSelect" },
 
       {
         "id": "editor.action.addSelectionToNextFindMatch",
         "label": "Add selection for Next Occurrence"
       },
-
-      {
-        "id": "editor.action.goToTypeDefinition",
-        "label": "Go to type declaration"
-      },
-
       { "id": "editor.action.referenceSearch.trigger", "label": "Show usages" },
       {
         "id": "editor.action.selectHighlights",
@@ -247,7 +247,7 @@
         "id": "editor.action.showHover",
         "label": "Quick documentation lookup"
       },
-      { "id": "editor.action.startFindReplaceAction", "label": "Replace" },
+
       {
         "id": "editor.action.toggleColumnSelection",
         "label": "Column Selection Mode"
@@ -264,8 +264,6 @@
         "id": "editor.foldRecursively",
         "label": "Collapse code block recursively"
       },
-      { "id": "editor.unfold", "label": "Expand code block" },
-      { "id": "editor.unfoldAll", "label": "Expand all" },
       {
         "id": "editor.unfoldRecursively",
         "label": "Expand code block recursively"
@@ -327,8 +325,6 @@
         "label": "Activate Messages window (Problems)"
       },
 
-      { "id": "workbench.debug.viewlet.action.addFunctionBreakpointAction" },
-      { "id": "workbench.debug.viewlet.action.removeAllBreakpoints" },
       { "id": "workbench.view.debug", "label": "View breakpoints" },
 
       {

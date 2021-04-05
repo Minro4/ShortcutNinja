@@ -16,7 +16,7 @@ async function PrepareIdeMappings(fileName: string) {
   const definitions = ShortcutCategories.baseCategories.flatten();
   let mappings: IIdeMappings;
   try {
-    mappings = await fsUtils.readJson<IIdeMappings>(fileName);
+    mappings = await fsUtils.readJson<IIdeMappings>(filePath);
   } catch (err) {
     mappings = {};
   }

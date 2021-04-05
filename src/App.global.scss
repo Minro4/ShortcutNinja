@@ -46,7 +46,7 @@ body {
     }
 
     .command-col {
-      width: 150px;
+      width: 350px;
     }
 
     .keybindings-col {
@@ -55,9 +55,7 @@ body {
   }
 
   .bottom-bar {
-    padding: 10px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding: 0px;
 
     .apply-button {
       float: right;
@@ -95,13 +93,14 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 100;
     background-color: $bg-black;
     border-bottom: 1px solid rgba(81, 81, 81, 1);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
     z-index: 1;
 
     padding: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 
     display: flex;
 
@@ -123,16 +122,20 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 64px;
+    height: 36px;
     background-color: $bg-black;
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
     z-index: 1;
+
+    padding: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
   .keymap-table {
     position: fixed;
-    top: 101px;
-    bottom: 64px;
+    top: 73px;
+    bottom: 68px;
     left: 0;
     right: 0;
 

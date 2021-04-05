@@ -69,12 +69,16 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
       if (vsCodeKb.command.startsWith(VsCodeConverter.substractChar)) {
         ideKeymapToRemove.add(ideKey, vsCodeKb.key);
       } else {
-        ideKeymapToAdd.add(ideKey, vsCodeKb.key);
+        ideKeymapToAdd.add(vsCodeKb.command, vsCodeKb.key);
       }
     });
 
     const uniKeymapToRemove = await this.fromIdeKeymap(ideKeymapToRemove);
-    const uniKeymapToAdd = await this.fromIdeKeymap(ideKeymapToAdd);
+
+    const uniKeymapToAdd = await ideKeymapToAdd.toUniKeymap(
+      this.addBaseCommandsToMapping(),
+      this.scConverter
+    );
 
     schema.removeKeymap(uniKeymapToRemove);
     schema.addKeymap(uniKeymapToAdd);
@@ -109,5 +113,23 @@ export class VsCodeConverter extends Converter<VsCodeShortcut> {
     if (command.startsWith(this.substractChar))
       command = command.substring(this.substractChar.length);
     return command + (kb.when ? this.commandWhenSeperator + kb.when : '');
+  }
+
+  public static BuildCommand(ideKey: string): string {
+    return ideKey.split(this.commandWhenSeperator)[0];
+  }
+
+  public addBaseCommandsToMapping(): IdeMappings {
+    const mappings = this.ideMappings.clone();
+    mappings.keys().forEach((k) => {
+      const commands = mappings.mappings[k].map((ideKey) =>
+        VsCodeConverter.BuildCommand(ideKey)
+      );
+      mappings.mappings[k] = [
+        ...new Set(mappings.mappings[k].concat(commands)),
+      ];
+    });
+
+    return mappings;
   }
 }
