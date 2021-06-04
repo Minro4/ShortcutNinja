@@ -71,6 +71,19 @@
       "skipFiles": ["<node_internals>/**", "node_modules/**"]
     },
     {
+      "name": "BuildJerbainsMappings",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+
+      "args": ["scripts/JetbrainsMappings/generateMappings.ts"],
+
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+    }
+    {
       "name": "BuildSchemas",
       "type": "node",
       "request": "launch",
