@@ -25,7 +25,7 @@ export interface JbKeymapOptions {
 }
 
 export interface JbOptionsComponent {
-  $: { name: string }; //Must be ShortcutDirector
+  $: { name: string }; //Must be ShortcutNinja
   active_keymap: {
     $: {
       name: string; //Name of file containing setting

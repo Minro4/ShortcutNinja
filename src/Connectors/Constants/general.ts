@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { homedir } from 'os';
 
-export const APP_NAME = 'ShortcutDirector';
+export const APP_NAME = 'ShortcutNinja';
 export const CONFIG_PATH = path.join('src/Connectors/Config');
 export const IDE_MAPPINGS_PATH = path.join(CONFIG_PATH, 'ideMappings');
 
