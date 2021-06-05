@@ -178,7 +178,6 @@ export class Keymapper extends Component<KeymapperProps, KeymapperState> {
 
   private fetchKeymap(): UniversalKeymap | undefined {
     const json = this.store.get(this.uniKmStoreKey) as IJsonUniversalKeymap;
-    if (json) return UniversalKeymap.fromJson(json);
-    return undefined;
+    return json? UniversalKeymap.fromJson(json) : undefined;
   }
 }

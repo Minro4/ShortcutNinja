@@ -30,8 +30,8 @@ export const WelcomeDialog = ({
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle id="form-dialog-title">
-        <Typography variant="h4" component="h2">
-          Welcome to Shortcut Director!
+        <Typography variant="h4" component="h2" className="welcome-primary-text">
+          Welcome to Shortcut Ninja!
         </Typography>
         <Typography color="textSecondary" className="welcome-secondary-text">
          This is the place to manage all of your IDEs shortcuts.
