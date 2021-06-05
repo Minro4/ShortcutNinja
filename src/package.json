@@ -1,6 +1,6 @@
 {
   "name": "shortcut-ninja",
-  "productName": "ShortcutNinja",
+  "productName": "Shortcut Ninja",
   "description": "Shortcut Ninja is is the place to manage all of your IDEs shortcuts.",
   "version": "v1.0.0",
   "main": "./main.prod.js",
